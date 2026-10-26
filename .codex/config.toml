@@ -1,0 +1,12 @@
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = true
+# The `..` is load-bearing: a relative writable root resolves against THIS
+# FILE's directory (.codex/), not the project root. Measured — `".git"` here
+# resolves to <project>/.codex/.git, which does not exist, while `"../.git"`
+# resolves to <project>/.git and makes `git add` succeed. Without it the
+# sandbox denies every write under the repository's git directory and staging
+# or committing fails with `Operation not permitted`.
+writable_roots = ["../.git"]
