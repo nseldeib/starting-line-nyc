@@ -36,21 +36,21 @@
     {
       "id": "race-detail-page",
       "text": "Race detail page with date, location, distance, terrain, organizer, price and official registration link",
-      "status": "open",
-      "resolvedAt": null,
-      "resolvedInFeature": null,
+      "status": "delivered",
+      "resolvedAt": "2026-10-26T21:53:40.360737457+00:00",
+      "resolvedInFeature": "Race detail pages with real race data",
       "planSlug": null,
-      "note": "Being built in this cycle.",
+      "note": "Race page at /races/<race> with date, place, distance, terrain, organizer, price when listed and the official registration link.",
       "decidedBy": "agent"
     },
     {
       "id": "entry-requirements",
       "text": "Distinguish open registration, lotteries, time qualification, charity and membership entry, with qualification windows per edition",
-      "status": "open",
-      "resolvedAt": null,
-      "resolvedInFeature": null,
+      "status": "delivered",
+      "resolvedAt": "2026-10-26T21:53:40.410192939+00:00",
+      "resolvedInFeature": "Race detail pages with real race data",
       "planSlug": null,
-      "note": "Plain-language entry methods are being added on the race page in this cycle.",
+      "note": "Plain-language entry method and status on every race page; no verified race uses a lottery yet.",
       "decidedBy": "agent"
     },
     {
@@ -126,11 +126,11 @@
     {
       "id": "information-quality",
       "text": "Show official source links and last-verified dates, label unknown or tentative dates, and keep each annual edition separate",
-      "status": "open",
-      "resolvedAt": null,
-      "resolvedInFeature": null,
+      "status": "delivered",
+      "resolvedAt": "2026-10-26T21:53:40.464241920+00:00",
+      "resolvedInFeature": "Race detail pages with real race data",
       "planSlug": null,
-      "note": "Source links and last-verified dates are being added in this cycle.",
+      "note": "Source link and last-verified date per edition; untimed, unannounced and tentative dates labelled.",
       "decidedBy": "agent"
     },
     {

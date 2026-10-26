@@ -4,16 +4,19 @@
       "id": "fix-the-broken-lint-setup",
       "title": "Fix the broken lint setup",
       "mode": "backend",
-      "body": "## Summary\n`npx eslint app` fails with ERR_MODULE_NOT_FOUND because `eslint.config.mjs` imports `eslint-config-next/core-web-vitals`, which needs the `.js` extension under ESM (and eslint-config-next is pinned to ^15 while next is ^16). Lint is therefore not part of any check.\n\n## Key Decisions\n- Align eslint-config-next with the installed Next major.\n- Add lint as a configured static check once it passes.\n\n## Implementation\n- `eslint.config.mjs`: fix the import path (or use the flat-config export eslint-config-next 16 ships).\n- `package.json`: bump `eslint-config-next` to match `next`.\n- Run `npx eslint app`, fix any findings in `app/components/*` and `app/lib/*`.\n- Register lint in `.codeyam/editor.json` staticChecks.",
-      "reason": "Lint cannot run: eslint.config.mjs imports eslint-config-next/core-web-vitals without the .js extension",
+      "body": "## Summary\n\nMake `npm run lint` work so lint can join the build checks.\n\n## Key Decisions\n\n- Fix the config import rather than removing lint.\n\n## Implementation\n\n- `eslint.config.mjs`: import the Next config with the path Next 16 expects.\n- Add lint to the project's static checks once it passes.",
+      "reason": "Lint still cannot run, so no lint check guards the new race pages",
       "severity": 2,
       "source": "session-review",
-      "category": "fix",
+      "category": "debt",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "kind": "tech-debt",
       "rank": 1,
-      "sightings": 2
+      "sightings": 3,
+      "notes": [
+        "2026-10-26: Seen again: running eslint on app/components/RaceThumb.tsx crashed with a module-resolution error before linting anything."
+      ]
     },
     {
       "id": "prototype-plan-resumes-at-deconstruct-with-no-app-scaffolded",
@@ -25,21 +28,22 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 4,
       "sightings": 2
     },
     {
       "id": "live-preview-blank-in-codespaces-until-preview-origin-and-dev-origins-are-changed",
       "title": "Live Preview blank in Codespaces until preview origin and dev origins are changed",
       "mode": "backend",
-      "body": "## What happened\nIn a GitHub Codespace the user reported the Live Preview showed nothing. `diagnose-preview` found the /__codeyam_preview mount stops hydration; I switched to `preview-origin-mode dedicated --origin https://<codespace>-3000.app.github.dev`. The scaffolded next.config.ts only allows `**.codeyam.com` in allowedDevOrigins, so I also had to `config-override env.CODEYAM_PREVIEW_HOSTS` and restart. preview-verify kept reporting tab_connected_but_not_reloaded. The automatic escalation never fired.\n\n## What would have helped\nDetect Codespaces (CODESPACE_NAME / GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN) at scaffold and pre-set the dedicated preview origin and the app.github.dev dev origin.",
-      "reason": "User saw nothing in the preview: proxy mount blocked hydration and Next blocked the github.dev origin",
+      "body": "## What happened\n\nThe Live Preview stayed blank in a GitHub Codespace until the app port was public. After a session restart the port reverted to private; switching to same-origin mode did not take effect because the escalated origin persisted.\n\n## What would have helped\n\nDetect a private forwarded port and say so in the preview pane, and make same-origin mode actually override an escalated origin.",
+      "reason": "Blank preview again after a session restart",
       "severity": 4,
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 2,
-      "sightings": 2
+      "sightings": 3,
+      "notes": [
+        "2026-10-26: Seen again: port 3000 went back to private after a session restart; preview-origin-mode same-origin reported success but server-identity still showed the escalated port-3000 origin, so the pane stayed blank until the user made …"
+      ]
     },
     {
       "id": "relative-seed-token-today-nh-silently-drops-the-hours",
@@ -51,7 +55,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 5,
       "sightings": 2
     },
     {
@@ -64,7 +67,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 6,
       "sightings": 2
     },
     {
@@ -77,7 +79,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 3,
       "sightings": 2
     },
     {
@@ -90,7 +91,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 7,
       "sightings": 2
     },
     {
@@ -103,7 +103,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 8,
       "sightings": 2
     },
     {
@@ -126,6 +125,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 13,
       "sightings": 2
     },
     {
@@ -137,6 +137,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 7,
       "sightings": 2
     },
     {
@@ -148,6 +149,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 12,
       "sightings": 2
     },
     {
@@ -159,6 +161,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 8,
       "sightings": 2
     },
     {
@@ -170,6 +173,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 14,
       "sightings": 2
     },
     {
@@ -184,7 +188,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "sightings": 1
+      "rank": 2,
+      "sightings": 2
     },
     {
       "id": "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
@@ -198,6 +203,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
+      "rank": 9,
       "sightings": 1
     },
     {
@@ -212,6 +218,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
+      "rank": 10,
       "sightings": 1
     },
     {
@@ -226,7 +233,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "sightings": 1
+      "rank": 3,
+      "sightings": 2
     },
     {
       "id": "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
@@ -240,7 +248,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "sightings": 1
+      "rank": 4,
+      "sightings": 2
     },
     {
       "id": "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
@@ -254,7 +263,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "sightings": 1
+      "rank": 6,
+      "sightings": 2
     },
     {
       "id": "prioritise-google-calendar-for-adding-events",
@@ -268,7 +278,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "sightings": 1
+      "rank": 5,
+      "sightings": 2
     },
     {
       "id": "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
@@ -282,6 +293,65 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
+      "rank": 11,
+      "sightings": 1
+    },
+    {
+      "id": "build-agent-taking-longer-than-usual-notice-fires-while-the-agent-is-mid-task",
+      "title": "Build agent \"taking longer than usual\" notice fires while the agent is mid-task",
+      "mode": "backend",
+      "body": "## What happened\n\nAfter the editor server reloaded (preview-origin-mode and later reload-config), the Build tab showed \"The build agent is taking longer than usual — hasn't accepted its first instruction yet\" while the one agent session (pty-broker list: one attached session) was busy mid-turn. The user saw it twice and asked to remove it. No CLI command dismisses it; the only options were reloading the tab or respawning the agent, which would have killed the work.\n\n## What would have helped\n\nTreat a reattached session that is mid-turn (activity: agent turn in flight) as accepted, or offer a dismiss command / close button that the agent can trigger.",
+      "reason": "False alarm shown twice; the user asked to get rid of it",
+      "severity": 3,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "blank-page-check-misses-photos-drawn-as-css-backgrounds",
+      "title": "Blank-page check misses photos drawn as CSS backgrounds",
+      "mode": "backend",
+      "body": "## What happened\n\n`client-errors` failed `racethumb-photo` with \"Page rendered no visible content (no text, no images, no svg/canvas/video)\". The component showed a photo through a CSS `background-image`, which the check does not count. I switched the app to an `<img>` (fine here), but the check would block any legitimate background-image component.\n\n## What would have helped\n\nCount elements with a non-empty computed `background-image` as visible content, or compare against a blank capture.",
+      "reason": "A photo thumbnail was reported as a blank page",
+      "severity": 2,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "a-malformed-scenariofixturedateskip-entry-breaks-every-editor-command",
+      "title": "A malformed scenarioFixtureDateSkip entry breaks every editor command",
+      "mode": "backend",
+      "body": "## What happened\n\nThe date-drift message says to add `{slug, table, field, reason}` to `audit.scenarioFixtureDateSkip`. I first added slug-only entries; afterwards every command (even command-status) failed with \"cannot read .codeyam/editor.json: missing field `table`\" and the advice that the editor may be older than the config. Nine scenarios needed 27 hand-written triples.\n\n## What would have helped\n\nAn `audit-skip-dates --slug ... --reason fixed-reference-data` command that writes every flagged table/field, a whole-scenario skip form, and a parse error that names the bad entry instead of blaming the editor's version.",
+      "reason": "A slug-only opt-out made the editor unable to read its own config",
+      "severity": 3,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing-because-their-site-blocks-automated-reading",
+      "title": "There is no lottery race: none of the races I could verify uses a lottery, and New York Road Runners races are missing because their site blocks automated reading.",
+      "mode": "backend",
+      "body": "",
+      "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
+      "source": "session-review",
+      "status": "pending",
+      "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
+      "title": "The not-found page is shown as a component screenshot, not a full-page one, because the capture tool skips error pages.",
+      "mode": "backend",
+      "body": "",
+      "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
+      "source": "session-review",
+      "status": "pending",
+      "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
       "sightings": 1
     }
   ],
@@ -354,6 +424,41 @@
         "github-setup-unusable-in-codespaces-because-github-token-shadows-a-real-login",
         "scenario-sandbox-database-emptied-after-a-test-run",
         "commit-step-lint-gate-needs-a-file-edit-that-the-commit-step-forbids"
+      ]
+    },
+    {
+      "at": "2026-10-26T21:54:14.624177062+00:00",
+      "feature": "Race detail pages with real race data",
+      "notes": "This cycle shipped the race detail pages and replaced sample data with seven researched races, so the earlier sample-data, NYC Half and mockup-count deviations are now obsolete and ranked last. The five deferred features are already queued…",
+      "proposedIds": [
+        "fix-the-broken-lint-setup",
+        "build-agent-taking-longer-than-usual-notice-fires-while-the-agent-is-mid-task",
+        "live-preview-blank-in-codespaces-until-preview-origin-and-dev-origins-are-changed",
+        "blank-page-check-misses-photos-drawn-as-css-backgrounds",
+        "a-malformed-scenariofixturedateskip-entry-breaks-every-editor-command",
+        "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing-because-their-site-blocks-automated-reading",
+        "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "prioritise-google-calendar-for-adding-events"
+      ],
+      "rankedIds": [
+        "fix-the-broken-lint-setup",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "prioritise-google-calendar-for-adding-events",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "save-log-in-sign-up-and-more-filters-do-not-work-yet-there-are-no-accounts-and-the-page-says-so",
+        "the-template-s-lint-setup-is-broken-it-points-at-a-missing-file-so-lint-was-not-run-type-checks-and-55-unit-tests-pass",
+        "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
+        "distinguish-open-registration-lotteries-time-qualification-charity-and-membership-entry-with-qualification-windows-per-edition",
+        "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
+        "race-dates-and-deadlines-are-sample-data-not-verified-against-organizers-photo-credits-were-copied-from-the-mockup-and-only-the-hero-photo-has-its-own-credit",
+        "the-nyc-half-lottery-deadline-is-22-days-away-so-it-is-not-highlighted-the-mockup-highlighted-it",
+        "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge"
       ]
     }
   ]
