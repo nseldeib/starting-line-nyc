@@ -14,8 +14,8 @@ const race: CalendarRace = {
       registrationUrl: 'https://www.nyrr.org',
       isSample: true,
       milestones: [
-        { kind: 'registration_closes', at: new Date('2027-01-10T04:59:00Z'), tentative: false },
-        { kind: 'registration_opens', at: new Date('2026-11-10T17:00:00Z'), tentative: false },
+        { kind: 'registration_closes', at: new Date('2027-01-10T04:59:00Z'), timeKnown: true, tentative: false },
+        { kind: 'registration_opens', at: new Date('2026-11-10T17:00:00Z'), timeKnown: true, tentative: false },
       ],
     },
   ],
@@ -69,10 +69,51 @@ describe('raceCalendarEvent', () => {
   });
 });
 
+describe('raceCalendarEvent for one milestone', () => {
+  const withIds: CalendarRace = {
+    ...race,
+    editions: [
+      {
+        ...race.editions[0],
+        milestones: [
+          { id: 1, kind: 'price_increase', at: new Date('2026-10-01T16:00:00Z'), timeKnown: false, tentative: false },
+          { id: 2, kind: 'price_increase', at: new Date('2026-11-09T17:00:00Z'), timeKnown: false, tentative: false, note: 'Rises to $65' },
+          { id: 3, kind: 'charity_closes', at: new Date('2027-01-10T14:00:00Z'), timeKnown: true, tentative: false },
+        ],
+      },
+    ],
+  };
+
+  // A date-only milestone becomes an all-day event on its ET date, with its note.
+  it('exports a date-only milestone as all day', () => {
+    const r = raceCalendarEvent(withIds, 2, NOW);
+    if ('error' in r) throw new Error(r.error);
+    expect(r.event.allDayDate).toBe('2026-11-09');
+    expect(r.event.title).toBe('Fred Lebow Manhattan Half: Last day at the current price');
+    expect(r.event.description).toContain('Mon, Nov 9 (time not stated) (Eastern Time).');
+    expect(r.event.description).toContain('Rises to $65');
+  });
+
+  // A milestone with a stated time keeps that time.
+  it('exports a timed milestone at its time', () => {
+    const r = raceCalendarEvent(withIds, 3, NOW);
+    if ('error' in r) throw new Error(r.error);
+    expect(r.event.allDayDate).toBeUndefined();
+    expect(r.event.start.toISOString()).toBe('2027-01-10T14:00:00.000Z');
+  });
+
+  // Unknown or already-passed milestones are refused.
+  it('refuses missing or past milestones', () => {
+    expect(raceCalendarEvent(withIds, 99, NOW)).toEqual({ error: 'Registration date not found' });
+    expect(raceCalendarEvent(withIds, 1, NOW)).toEqual({ error: 'That registration date has passed' });
+  });
+});
+
 describe('calendarFileName', () => {
-  // Race day downloads get a distinct file name.
-  it('names next and race day files', () => {
+  // Race day and single-milestone downloads get distinct file names.
+  it('names next, race day and milestone files', () => {
     expect(calendarFileName('brooklyn-half', 'next')).toBe('brooklyn-half.ics');
     expect(calendarFileName('brooklyn-half', 'raceday')).toBe('brooklyn-half-raceday.ics');
+    expect(calendarFileName('brooklyn-half', 4)).toBe('brooklyn-half-deadline-4.ics');
   });
 });

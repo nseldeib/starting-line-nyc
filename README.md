@@ -4,23 +4,35 @@
 Races around New York, and when to enter. A mobile-friendly site for finding
 road and trail races in the greater NYC area, with registration dates in
 Eastern Time, weeks left to train, and downloadable calendar events for
-upcoming deadlines.
+upcoming deadlines. Every race has its own page at `/races/<race>` with how to
+enter, the full registration timeline and a link to the official site.
 
-**Status:** the race list shown is clearly labelled **sample data**, not
-verified race information. Saving races and accounts are not live yet.
+**Status:** the races are real, researched by hand from each organizer's
+official page. Every race page shows its source and the date it was last
+checked; details we could not confirm are left out, not guessed. Races do not
+update automatically, so always check the official site before you register.
+Spotted something missing or wrong? Use **Report a missing or wrong detail** on
+the race page, which opens a pre-filled issue here. Saving races and accounts
+are not live yet.
+
+Photos are from Wikimedia Commons, used under the licences credited in the
+site footer.
 
 ### Run it
 
-Requires Node.js 20 or newer.
+Requires Node.js 20 or newer (`.nvmrc` pins 24).
 
 ```bash
-npm run setup   # install, create the SQLite database, load the sample races
+npm run setup   # install, create the SQLite database, load the researched races
 npm run dev     # http://localhost:3000
 ```
 
+Race data lives in `prisma/race-data.json`; edit it and run `npm run setup`
+again to reload.
+
 - `GET /api/races` returns the filtered race list (same query parameters as the home page).
 - `GET /api/races/<slug>/calendar` downloads an `.ics` for the next registration
-  date; add `?event=raceday` for race day.
+  date; add `?milestone=<id>` for a specific date or `?event=raceday` for race day.
 - `npm test` runs the unit tests.
 
 ---
@@ -94,12 +106,15 @@ try unreleased builds, use
 [`codeyam-ai/codespaces-starter-staging`](https://github.com/codeyam-ai/codespaces-starter-staging),
 which is the same template rendered with `--channel staging`.
 
-<!-- codeyam:run-and-edit:start d=4c81b85f4849 -->
+<!-- codeyam:run-and-edit:start d=b024ecdd083c -->
 ## Develop this project with codeyam-editor
 
 This project is built with [codeyam-editor](https://codeyam.com) — code and runnable data scenarios are authored side by side against a live preview.
 
 ```bash
+# Clone the repo
+git clone https://github.com/nseldeib/starting-line-nyc && cd starting-line-nyc
+
 # Install codeyam-editor
 npm install -g @codeyam-editor/codeyam-editor@latest
 
@@ -108,7 +123,7 @@ codeyam-editor start
 ```
 <!-- codeyam:run-and-edit:end -->
 
-<!-- codeyam:scenario-gallery:start d=708ec2821af9 -->
+<!-- codeyam:scenario-gallery:start d=295debe4c8f2 -->
 ## Scenario gallery
 
 States captured as runnable scenarios with codeyam-editor:
@@ -117,7 +132,7 @@ States captured as runnable scenarios with codeyam-editor:
 
 <img src=".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png" alt="Home - All Distances Next 12 Months" width="280">
 
-Every distance over the next year, sorted by next deadline: a 15K and a trail 50K join the halves, and the Brooklyn Half sits last with its registration date not yet announced and a tentative race day.
+Every distance over the next year on the real researched races, sorted by next deadline: 5K, 10K, halves and the Escarpment 30K, whose qualifier applications are not open yet.
 
 ### Home - Phone Layout
 
@@ -125,21 +140,39 @@ Every distance over the next year, sorted by next deadline: a 15K and a trail 50
 
 The default search on a phone: the hero search stacks into two columns, the nav collapses, and each race row folds under its thumbnail with Save beside the name.
 
+### Race - Big Bear Squatch North
+
+<img src=".codeyam/scenarios/screenshots/race-big-bear-squatch-north--desktop.png" alt="Race - Big Bear Squatch North" width="280">
+
+A trail race with exact deadline times: the price-rise and charity-bib dates in ET, a sell-out warning in How to enter, and the organizer's registration link and source.
+
+### Race - Phone Layout
+
+<img src=".codeyam/scenarios/screenshots/race-phone-layout--mobile.png" alt="Race - Phone Layout" width="280">
+
+The Big Apple Half on a phone: photo, facts and the key-dates timeline stack in one column with Add to calendar under each date.
+
 ### Home - Half Marathons Next 6 Months
 
 <img src=".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png" alt="Home - Half Marathons Next 6 Months" width="280">
 
-Signed-out home page with the default search (half marathons, next 6 months): four sample races sorted by next registration deadline, the Manhattan Half highlighted with Add to calendar.
+The default search (half marathons, next 6 months) on the real researched races, sorted by next deadline: upcoming price rises and registration closings in Eastern Time, with the nearest highlighted.
+
+### Race - Escarpment Trail Run
+
+<img src=".codeyam/scenarios/screenshots/race-escarpment-trail-run--desktop.png" alt="Race - Escarpment Trail Run" width="280">
+
+A qualifier-only race whose applications are not open yet: the qualifying standards, no listed price, and Visit the official site instead of a registration link.
 
 ### Home - Lottery Races Only
 
 <img src=".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png" alt="Home - Lottery Races Only" width="280">
 
-The Lottery chip switched on, narrowing the half marathons to the single lottery-entry race, the NYC Half.
+The Lottery chip switched on: none of the verified races uses a lottery entry, so the results show the no-matches state with a way back to all races.
 
-### Home - No Races Listed
+### Race - Great Gobble 5K
 
-<img src=".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png" alt="Home - No Races Listed" width="280">
+<img src=".codeyam/scenarios/screenshots/race-great-gobble-5k--desktop.png" alt="Race - Great Gobble 5K" width="280">
 
-The home page before any races are listed: the search and filters still render and the results show the empty state with a Show all races link.
+A road race with a park photo and several date-only price rises marked time not stated, each with its own Add to calendar.
 <!-- codeyam:scenario-gallery:end -->

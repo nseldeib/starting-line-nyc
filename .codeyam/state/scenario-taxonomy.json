@@ -28,6 +28,36 @@
       "key-interaction": {
         "status": "added"
       }
+    },
+    "RacePage": {
+      "empty": {
+        "status": "covered"
+      },
+      "single": {
+        "status": "n-a",
+        "reason": "The page always shows exactly one race; a single-item boundary does not apply"
+      },
+      "typical": {
+        "status": "covered"
+      },
+      "many": {
+        "status": "n-a",
+        "reason": "Timelines are bounded by each race's real milestones; Big Bear carries the longest real timeline and is covered as typical"
+      },
+      "loading": {
+        "status": "n-a",
+        "reason": "Server-rendered page with no client-side fetch, so there is no loading state"
+      },
+      "edge": {
+        "status": "covered"
+      },
+      "error": {
+        "status": "covered"
+      },
+      "key-interaction": {
+        "status": "n-a",
+        "reason": "The key actions (Register on the official site, Add to calendar, Report a detail) leave the page or download a file; their URLs are unit-tested in raceDetail and raceCalendar tests"
+      }
     }
   }
 }

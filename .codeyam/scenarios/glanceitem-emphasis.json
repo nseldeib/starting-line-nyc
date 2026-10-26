@@ -1,0 +1,12 @@
+{
+  "name": "GlanceItem - Emphasis",
+  "id": "63d1d4cd-5e8b-4f86-8f0f-8e83f9237ab7",
+  "url": "/isolated-components/GlanceItem?s=Emphasis",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "GlanceItem",
+  "scenarioType": "component",
+  "description": "GlanceItem in its emphasis state, using the real researched race data."
+}

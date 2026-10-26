@@ -1,0 +1,12 @@
+{
+  "name": "BackLink - Default",
+  "id": "dce9c9b9-3dc2-4872-ba6e-4e44487c1ce8",
+  "url": "/isolated-components/BackLink?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "BackLink",
+  "scenarioType": "component",
+  "description": "BackLink in its default state, using the real researched race data."
+}

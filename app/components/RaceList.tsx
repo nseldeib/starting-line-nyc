@@ -11,7 +11,11 @@ export default function RaceList({ races, filters, now }: { races: RaceListItem[
   return (
     <>
       {races.map((race) => (
-        <RaceRow key={race.slug} race={race} urgent={isUrgent(race.nextMilestone?.at, now)} />
+        <RaceRow
+          key={race.slug}
+          race={race}
+          urgent={isUrgent(race.nextMilestone?.at, now, race.nextMilestone?.timeKnown)}
+        />
       ))}
       {filters.when !== 'any' && (
         <ShowAllLink

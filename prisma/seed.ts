@@ -21,9 +21,9 @@ const adapter = new PrismaBetterSqlite3({
 });
 const prisma = new PrismaClient({ adapter });
 
-// Clearly labeled sample data (every edition has isSample: true). The same
-// file backs the codeyam scenarios, so dev and captures show the same races.
-import sample from './sample-data.json';
+// Races researched from organizers' official pages; every edition carries its
+// source link and last-verified date. Unconfirmed details are left empty.
+import data from './race-data.json';
 
 async function main() {
   await prisma.registrationMilestone.deleteMany();
@@ -31,13 +31,13 @@ async function main() {
   await prisma.race.deleteMany();
   await prisma.organizer.deleteMany();
 
-  await prisma.organizer.createMany({ data: sample.organizer });
-  await prisma.race.createMany({ data: sample.race });
-  await prisma.raceEdition.createMany({ data: sample.raceEdition });
+  await prisma.organizer.createMany({ data: data.organizer });
+  await prisma.race.createMany({ data: data.race });
+  await prisma.raceEdition.createMany({ data: data.raceEdition });
   await prisma.registrationMilestone.createMany({
-    data: sample.registrationMilestone,
+    data: data.registrationMilestone,
   });
-  console.log(`Seeded ${sample.race.length} sample races`);
+  console.log(`Seeded ${data.race.length} races`);
 }
 
 main()

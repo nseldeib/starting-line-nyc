@@ -1,0 +1,12 @@
+{
+  "name": "GlanceItem - Default",
+  "id": "35925a8e-40cb-42ea-a7f8-4135d126d89d",
+  "url": "/isolated-components/GlanceItem?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "GlanceItem",
+  "scenarioType": "component",
+  "description": "GlanceItem in its default state, using the real researched race data."
+}

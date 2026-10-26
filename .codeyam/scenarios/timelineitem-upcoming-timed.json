@@ -1,0 +1,12 @@
+{
+  "name": "TimelineItem - Upcoming Timed",
+  "id": "ea9df845-c841-4773-8a6a-588eb0457298",
+  "url": "/isolated-components/TimelineItem?s=UpcomingTimed",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "TimelineItem",
+  "scenarioType": "component",
+  "description": "TimelineItem in its upcoming timed state, using the real researched race data."
+}

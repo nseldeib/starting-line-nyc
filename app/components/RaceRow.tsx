@@ -16,6 +16,7 @@ export default function RaceRow({ race, urgent }: { race: RaceListItem; urgent: 
         distanceMiles={race.distanceMiles}
         elevationGainFt={race.elevationGainFt}
         organizer={race.organizer}
+        href={`/races/${race.slug}`}
       />
       <RaceDayCell raceDate={race.raceDate} tentative={race.raceDateTentative} locationName={race.locationName} />
       <NextDeadline

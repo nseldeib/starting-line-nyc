@@ -1,6 +1,6 @@
 {
   "name": "HeroSearch - Default",
-  "id": "b3aafcb2-3014-4102-8d9b-64ab7373effa",
+  "id": "75da36d3-50a5-4172-9387-51b7147b25ea",
   "url": "/isolated-components/HeroSearch?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "HeroSearch",
   "scenarioType": "component",
-  "description": "HeroSearch in its default state with sample race data."
+  "description": "HeroSearch in its default state, using the real researched race data."
 }

@@ -1,6 +1,6 @@
 {
   "name": "FilterToolbar - Lottery Sorted By Race Day",
-  "id": "87caf976-af45-4801-a801-95d0209571c2",
+  "id": "88ece53f-31d1-40be-ae4a-b33357c69847",
   "url": "/isolated-components/FilterToolbar?s=LotterySortedByRaceDay",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "FilterToolbar",
   "scenarioType": "component",
-  "description": "FilterToolbar in its lottery sorted by race day state with sample race data."
+  "description": "FilterToolbar in its lottery sorted by race day state, using the real researched race data."
 }

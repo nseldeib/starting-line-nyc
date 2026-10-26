@@ -2,7 +2,7 @@ import type Component from "../../app/components/Hero";
 import type { ComponentProps } from "react";
 import { createElement } from "react";
 import HeroSearch from "../../app/components/HeroSearch";
-import { NOW, defaultFilters, defaultResults, manhattanHalf, nycHalf, greenbeltHalf, breakneckHalf, brooklynHalf } from "./_fixtures";
+import { defaultFilters } from "./_fixtures";
 
 type Props = ComponentProps<typeof Component>;
 

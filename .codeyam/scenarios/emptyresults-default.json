@@ -1,6 +1,6 @@
 {
   "name": "EmptyResults - Default",
-  "id": "74616f67-0359-41a4-b4d9-ef334644a044",
+  "id": "2325fa5e-4c6c-4260-adb1-2b9b4aa16950",
   "url": "/isolated-components/EmptyResults?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "EmptyResults",
   "scenarioType": "component",
-  "description": "EmptyResults in its default state with sample race data."
+  "description": "EmptyResults in its default state, using the real researched race data."
 }

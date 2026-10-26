@@ -1,6 +1,6 @@
 {
   "name": "RaceDayCell - Confirmed",
-  "id": "7bc5ea38-f148-4f63-a6b8-e124ddd8378d",
+  "id": "14055ac4-e309-4749-96a7-20b304491a9f",
   "url": "/isolated-components/RaceDayCell?s=Confirmed",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceDayCell",
   "scenarioType": "component",
-  "description": "RaceDayCell in its confirmed state with sample race data."
+  "description": "RaceDayCell in its confirmed state, using the real researched race data."
 }

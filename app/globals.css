@@ -88,6 +88,7 @@ h2 { font-family: var(--display); font-weight: 400; color: var(--ink); font-size
 
 .row { display: grid; grid-template-columns: 76px minmax(0, 1.5fr) minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(0, 0.6fr) auto; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--rule); align-items: center; }
 .thumb { width: 76px; height: 76px; border-radius: var(--r); background-size: cover; background-position: center; background-color: var(--soft); display: grid; place-items: center; font-family: var(--display); font-size: 22px; color: var(--ink); }
+img.thumb { display: block; object-fit: cover; }
 .name { font-family: var(--display); font-size: 25px; line-height: 1.1; color: var(--ink); }
 .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 7px; font-size: 15px; color: var(--ink); }
 .type { display: inline-flex; align-items: center; border: 1.5px solid var(--ink); border-radius: 999px; padding: 0 10px; font-size: 13.5px; font-weight: 600; }
@@ -105,6 +106,70 @@ h2 { font-family: var(--display); font-weight: 400; color: var(--ink); font-size
 .seeall { display: flex; justify-content: center; margin-top: 22px; }
 .empty { padding: 48px 0; border-bottom: 1px solid var(--rule); text-align: center; }
 .empty p { margin: 8px auto 20px; color: var(--muted); max-width: 44ch; }
+
+/* whole-row link: the race name's link stretches over the row; other links sit above it */
+.row { position: relative; }
+.row:hover { background: linear-gradient(90deg, transparent, var(--soft) 8%, var(--soft) 92%, transparent); }
+.row-link::after { content: ''; position: absolute; inset: 0; }
+.row-link:focus-visible { outline: none; }
+.row:has(.row-link:focus-visible) { outline: 2px solid var(--route); outline-offset: 2px; }
+.row .cal, .row .btn { position: relative; z-index: 1; }
+
+/* race page */
+.crumb { margin-top: 20px; font-size: 15px; }
+.crumb a { color: var(--muted); }
+.crumb a:hover { color: var(--ink); }
+/* hero: the place's photo with the title over it, or a plain ink band */
+.race-hero { position: relative; margin-top: 12px; border-radius: 10px; overflow: hidden; min-height: 360px; display: flex; align-items: flex-end; background: var(--ink) center 55% / cover no-repeat; }
+.race-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 25%, rgba(0,0,0,0.7) 100%); }
+.race-hero.plain { min-height: 220px; }
+.race-hero.plain::before { display: none; }
+.race-hero .credit { position: absolute; right: 16px; top: 12px; font-size: 12px; color: rgba(255,255,255,0.85); }
+.race-hero-in { position: relative; padding: 0 40px 64px; width: 100%; }
+.race-title { color: var(--ink); }
+.race-title h1 { margin-top: 12px; font-family: var(--display); font-weight: 400; color: inherit; font-size: 58px; line-height: 1.02; letter-spacing: -0.02em; max-width: 20ch; text-wrap: balance; }
+.race-title p { margin-top: 10px; font-size: 18px; color: var(--muted); }
+.race-hero .race-title { color: #fff; }
+.race-hero .race-title .type { border-color: rgba(255,255,255,0.85); color: #fff; }
+.race-hero .race-title p { color: rgba(255,255,255,0.9); }
+
+/* at a glance: the strip that overlaps the hero's bottom edge */
+.glance { position: relative; margin: -40px 24px 0; background: var(--paper); border-radius: var(--r); box-shadow: 0 18px 40px -24px rgba(0,0,0,0.55); border: 1px solid var(--rule); display: flex; align-items: center; gap: 24px; padding: 18px 22px; }
+.glance dl { flex: 1; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 14px 20px; margin: 0; }
+.glance-item dt { font-size: 13px; font-weight: 600; color: var(--muted); }
+.glance-item dd { margin: 4px 0 0; display: flex; flex-direction: column; }
+.glance-item .v { font-size: 19px; }
+.glance-item .sub { font-size: 14px; }
+.glance-item.emphasis .v { color: var(--route-ink); }
+
+/* body: key dates as the main column */
+.race-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px 56px; margin-top: 48px; align-items: start; }
+.race-body h2 { font-size: 28px; }
+.race-aside { display: flex; flex-direction: column; gap: 32px; }
+.race-aside section { padding-top: 20px; border-top: 1px solid var(--rule); }
+.race-aside section:first-child { border-top-color: var(--ink); }
+.race-main { padding-top: 20px; border-top: 1px solid var(--ink); }
+.race-body section > p { margin-top: 12px; max-width: 60ch; }
+.enter .method { color: var(--ink); }
+.enter .note { background: var(--soft); border-radius: var(--r); padding: 12px 14px; font-size: 15.5px; }
+.price-line .label { margin-bottom: 2px; }
+.price-line b { color: var(--ink); }
+.enter .btn { margin-top: 16px; }
+.timeline ol { list-style: none; margin: 14px 0 0; padding: 0; }
+.tl { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.tl .dot { width: 18px; height: 18px; margin-top: 3px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-size: 11px; font-weight: 700; color: var(--on-ink); }
+.tl.past { opacity: .55; }
+.tl.past .dot { background: var(--ink); }
+.tl.next { background: var(--route-soft); border-radius: var(--r); padding: 12px; margin: 0 -12px; border-bottom-color: transparent; }
+.tl.next .dot { border-color: var(--route); background: var(--route); }
+.tl .when { color: var(--ink); font-weight: 600; }
+.tl.next .when { color: var(--route-ink); }
+.tl .what { color: var(--ink); }
+.tl .cal { display: inline-block; margin-top: 6px; }
+.pill { display: inline-block; margin-left: 8px; padding: 0 8px; border-radius: 999px; background: var(--route); color: var(--on-ink); font-size: 12px; font-weight: 700; vertical-align: 2px; }
+.sources .report { display: inline-block; margin-top: 14px; font-weight: 600; color: var(--route-ink); border-bottom: 1px solid currentColor; }
+.sources a:not(.report) { color: var(--route-ink); border-bottom: 1px solid currentColor; }
+.race-missing { margin-top: 40px; }
 
 /* season teaser */
 .helps { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; align-items: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--ink); }
@@ -152,6 +217,13 @@ h2 { font-family: var(--display); font-weight: 400; color: var(--ink); font-size
 }
 @media (max-width: 1050px) {
   .row > :last-child { grid-column: 3; grid-row: 1; }
+  .race-body { grid-template-columns: 1fr; }
+  .race-hero { min-height: 300px; }
+  .race-hero-in { padding: 0 18px 56px; }
+  .race-title h1 { font-size: 38px; }
+  .glance { margin: -36px 10px 0; flex-direction: column; align-items: stretch; padding: 16px; }
+  .glance dl { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
+  .glance .btn { width: 100%; }
 }
 @media (max-width: 560px) {
   .bar .right a:not(.btn) { display: none; }

@@ -1,5 +1,28 @@
 [
   {
+    "description": "Strip of the facts a runner needs first: race day, distance, entry status, price, next deadline, weeks to train, and the official link.",
+    "filePath": "app/components/AtAGlance.tsx",
+    "name": "AtAGlance",
+    "scenarios": [
+      "ataglance-open",
+      "ataglance-qualifier-not-open"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "Small back link above the race page header.",
+    "filePath": "app/components/BackLink.tsx",
+    "name": "BackLink",
+    "scenarios": [
+      "backlink-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
     "description": "Template-provided layout for codeyam isolation captures.",
     "filePath": "app/codeyam-isolate/layout.tsx",
     "name": "CodeYamIsolateLayout",
@@ -7,6 +30,17 @@
       "justification": "codeyam template shell, not app UI",
       "kind": "scaffold"
     }
+  },
+  {
+    "description": "The organizer course description.",
+    "filePath": "app/components/CourseNote.tsx",
+    "name": "CourseNote",
+    "scenarios": [
+      "coursenote-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
   },
   {
     "description": "Empty state when no races match, with a Show all races link.",
@@ -45,6 +79,18 @@
     ]
   },
   {
+    "description": "One labelled fact in the at-a-glance strip, optionally emphasised.",
+    "filePath": "app/components/GlanceItem.tsx",
+    "name": "GlanceItem",
+    "scenarios": [
+      "glanceitem-default",
+      "glanceitem-emphasis"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
     "description": "Central Park photo hero with credit, headline and lede, wrapping the race search.",
     "filePath": "app/components/Hero.tsx",
     "name": "Hero",
@@ -75,12 +121,38 @@
     "scenarios": [
       "home-half-marathons-next-6-months",
       "home-no-races-listed",
+      "home-single-search-result",
       "home-all-distances-next-12-months",
       "home-lottery-races-only",
       "home-phone-layout"
     ],
     "tags": [
       "race-discovery"
+    ]
+  },
+  {
+    "description": "Entry method in plain words, the organizer entry note, price detail and a race-day calendar button.",
+    "filePath": "app/components/HowToEnter.tsx",
+    "name": "HowToEnter",
+    "scenarios": [
+      "howtoenter-open-with-price",
+      "howtoenter-qualifier-no-price"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "The race edition key-dates timeline in ET with past, next and upcoming entries, or a note when nothing is announced.",
+    "filePath": "app/components/KeyDates.tsx",
+    "name": "KeyDates",
+    "scenarios": [
+      "keydates-nothing-announced",
+      "keydates-some-passed",
+      "keydates-upcoming"
+    ],
+    "tags": [
+      "race-detail"
     ]
   },
   {
@@ -110,6 +182,40 @@
     ]
   },
   {
+    "description": "Shown when a race has no upcoming edition listed, linking to the organizer.",
+    "filePath": "app/components/NoUpcomingEdition.tsx",
+    "name": "NoUpcomingEdition",
+    "scenarios": [
+      "noupcomingedition-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "Next.js not-found route for unknown race addresses: composes the site header, RaceNotFound and the footer.",
+    "filePath": "app/races/[slug]/not-found.tsx",
+    "name": "NotFound",
+    "scenarios": [
+      "notfound-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "The primary button to the organizer: Register on the official site, or Visit the official site when no registration link exists.",
+    "filePath": "app/components/OfficialLinkButton.tsx",
+    "name": "OfficialLinkButton",
+    "scenarios": [
+      "officiallinkbutton-register",
+      "officiallinkbutton-visit-site"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
     "description": "Centred page column wrapper.",
     "filePath": "app/components/PageShell.tsx",
     "name": "PageShell",
@@ -132,6 +238,29 @@
     ],
     "tags": [
       "race-discovery"
+    ]
+  },
+  {
+    "description": "Two-column race page body: key dates as the main column with details alongside.",
+    "filePath": "app/components/RaceDetailBody.tsx",
+    "name": "RaceDetailBody",
+    "scenarios": [
+      "racedetailbody-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "Full-width race page header: a licensed photo of the place with credit, or a plain ink band, with the title over it.",
+    "filePath": "app/components/RaceHero.tsx",
+    "name": "RaceHero",
+    "scenarios": [
+      "racehero-no-photo",
+      "racehero-with-photo"
+    ],
+    "tags": [
+      "race-detail"
     ]
   },
   {
@@ -161,6 +290,31 @@
     ]
   },
   {
+    "description": "Not-found page content for an unknown race address, linking back to all races.",
+    "filePath": "app/components/RaceNotFound.tsx",
+    "name": "RaceNotFound",
+    "scenarios": [
+      "racenotfound-default"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "Race detail page: loads one race by slug and composes the photo hero with title, the at-a-glance strip, key dates timeline, how to enter, course note and sources, or a no-upcoming-edition notice.",
+    "filePath": "app/races/[slug]/page.tsx",
+    "name": "RacePage",
+    "scenarios": [
+      "race-big-bear-squatch-north",
+      "race-great-gobble-5k",
+      "race-escarpment-trail-run",
+      "race-phone-layout"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
     "description": "One results row: thumbnail, identity, race day, next deadline, weeks to train and Save.",
     "filePath": "app/components/RaceRow.tsx",
     "name": "RaceRow",
@@ -184,6 +338,18 @@
     ],
     "tags": [
       "race-discovery"
+    ]
+  },
+  {
+    "description": "Race name in title case with terrain pill, organizer and place; white over the photo header, ink elsewhere.",
+    "filePath": "app/components/RaceTitle.tsx",
+    "name": "RaceTitle",
+    "scenarios": [
+      "racetitle-road",
+      "racetitle-trail"
+    ],
+    "tags": [
+      "race-detail"
     ]
   },
   {
@@ -318,6 +484,32 @@
     ]
   },
   {
+    "description": "Official source link, last-checked date, a note that unconfirmed details are left out, and the Report a missing or wrong detail link.",
+    "filePath": "app/components/SourcesPanel.tsx",
+    "name": "SourcesPanel",
+    "scenarios": [
+      "sourcespanel-no-source",
+      "sourcespanel-verified"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
+    "description": "One key date: checked off when passed, highlighted when next, with its own Add to calendar while upcoming; says time not stated when none was given.",
+    "filePath": "app/components/TimelineItem.tsx",
+    "name": "TimelineItem",
+    "scenarios": [
+      "timelineitem-next",
+      "timelineitem-passed-date-only",
+      "timelineitem-race-day",
+      "timelineitem-upcoming-timed"
+    ],
+    "tags": [
+      "race-detail"
+    ]
+  },
+  {
     "description": "Note that all times are Eastern Time and highlighted dates are within three weeks.",
     "filePath": "app/components/TimezoneNote.tsx",
     "name": "TimezoneNote",
@@ -358,6 +550,15 @@
     "testFile": "app/lib/ics.test.ts"
   },
   {
+    "description": "Orders an edition's registration milestones with race day last and marks each past, next or upcoming; date-only deadlines stay upcoming until their ET day ends.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "buildTimeline",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
     "description": "Download file name for a race calendar event.",
     "filePath": "app/lib/raceCalendar.ts",
     "name": "calendarFileName",
@@ -365,6 +566,24 @@
       "calendar-export"
     ],
     "testFile": "app/lib/raceCalendar.test.ts"
+  },
+  {
+    "description": "Plain-language title and explanation for an entry method (open, lottery, qualifying standard, charity, membership), falling back to the raw value.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "entryMethod",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
+    "description": "The Eastern Time calendar date (YYYY-MM-DD) of an instant, used for all-day calendar events.",
+    "filePath": "app/lib/format.ts",
+    "name": "etDate",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/format.test.ts"
   },
   {
     "description": "Applies distance, window, terrain, search text and status-chip filters to stored races and returns sorted results rows.",
@@ -383,6 +602,18 @@
       "race-discovery"
     ],
     "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Loads one race with its organizer, editions and milestones and builds its upcoming edition, weeks to train and timeline.",
+    "filePath": "app/lib/races.ts",
+    "name": "findRaceDetail",
+    "tags": [
+      "race-detail"
+    ],
+    "untestabilityReason": {
+      "justification": "database read only; the timeline and edition logic it calls are unit tested",
+      "kind": "platform-glue"
+    }
   },
   {
     "description": "Loads every race with organizer, editions and milestones from the database and hands them to filterAndSortRaces.",
@@ -424,11 +655,38 @@
     "testFile": "app/lib/format.test.ts"
   },
   {
+    "description": "Weekday, month, day and year in Eastern Time, spelled out.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatLongDay",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Formats a price in cents as dollars, dropping .00 on whole amounts.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatPrice",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
     "description": "Formats a time of day in America/New_York with a lowercase am or pm and an ET suffix.",
     "filePath": "app/lib/format.ts",
     "name": "formatTime",
     "tags": [
       "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Day and time in ET when the organizer stated a time, otherwise the day with (time not stated).",
+    "filePath": "app/lib/format.ts",
+    "name": "formatWhen",
+    "tags": [
+      "race-detail"
     ],
     "testFile": "app/lib/format.test.ts"
   },
@@ -487,6 +745,15 @@
     "testFile": "app/lib/raceList.test.ts"
   },
   {
+    "description": "When a milestone stops being upcoming: its exact time, or the end of its ET day when no time was stated.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "milestoneEnd",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
     "description": "Short verb for a registration milestone kind such as Opens, Closes or Qualify by.",
     "filePath": "app/lib/format.ts",
     "name": "milestoneVerb",
@@ -496,6 +763,24 @@
     "testFile": "app/lib/format.test.ts"
   },
   {
+    "description": "The calendar date after a YYYY-MM-DD date, for an all-day event's end.",
+    "filePath": "app/lib/ics.ts",
+    "name": "nextDay",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/ics.test.ts"
+  },
+  {
+    "description": "The first not-yet-passed registration date on a timeline (race day excluded), shown in the at-a-glance strip.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "nextDeadline",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
     "description": "The soonest registration milestone that has not passed yet.",
     "filePath": "app/lib/raceList.ts",
     "name": "nextMilestone",
@@ -503,6 +788,15 @@
       "race-discovery"
     ],
     "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Where the main button sends a runner: the registration page (Register on the official site), else the source or organizer site (Visit the official site).",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "officialLink",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
   },
   {
     "description": "Turns a filter option table into dropdown options for the hero search.",
@@ -516,6 +810,15 @@
     "tags": [
       "race-discovery"
     ]
+  },
+  {
+    "description": "Absolute URL of a race page from the request headers, honouring forwarded host and protocol (Codespaces proxy).",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "pageUrlFrom",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
   },
   {
     "description": "Reads the home page query string into race search filters, falling back to defaults for unknown values and de-duplicating status chips.",
@@ -554,6 +857,15 @@
     "testFile": "app/lib/filters.test.ts"
   },
   {
+    "description": "A pre-filled GitHub issue link for reporting a missing or wrong race detail, labelled race-data.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "reportIssueUrl",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
     "description": "Heading above the results, naming the distance and time window, for example Half marathons, next 6 months.",
     "filePath": "app/lib/filters.ts",
     "name": "resultsHeading",
@@ -581,6 +893,15 @@
     "testFile": "app/lib/raceList.test.ts"
   },
   {
+    "description": "The readable host name of a race's official source page, without www.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "sourceHost",
+    "tags": [
+      "race-detail"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
     "description": "Sort key for an ISO date, putting unknown dates last.",
     "filePath": "app/lib/raceList.ts",
     "name": "time",
@@ -588,6 +909,16 @@
       "race-discovery"
     ],
     "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "The .ics download link for one timeline entry: a specific milestone or race day.",
+    "filePath": "app/lib/raceDetail.ts",
+    "name": "timelineCalendarHref",
+    "tags": [
+      "race-detail",
+      "calendar-export"
+    ],
+    "testFile": "app/lib/raceDetail.test.ts"
   },
   {
     "description": "Flattens a stored race and its upcoming edition into one results row with next milestone and weeks to train.",

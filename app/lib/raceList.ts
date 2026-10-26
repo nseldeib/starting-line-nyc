@@ -2,7 +2,7 @@
 // database read lives in races.ts.
 import { DISTANCES, WINDOWS, type RaceFilters } from '@/app/lib/filters';
 
-export type MilestoneRecord = { kind: string; at: Date; tentative: boolean };
+export type MilestoneRecord = { kind: string; at: Date; timeKnown: boolean; tentative: boolean; note?: string | null };
 
 export type EditionRecord = {
   year: number;
@@ -43,7 +43,7 @@ export type RaceListItem = {
   registrationStatus: string;
   entryMethod: string;
   isSample: boolean;
-  nextMilestone: { kind: string; at: string; tentative: boolean } | null;
+  nextMilestone: { kind: string; at: string; timeKnown: boolean; tentative: boolean } | null;
   weeksToTrain: number | null;
 };
 
@@ -60,8 +60,16 @@ export function upcomingEdition<E extends { year: number; raceDate: Date | null 
   return sorted.find((e) => !e.raceDate || e.raceDate >= now) ?? null;
 }
 
-export function nextMilestone<M extends { at: Date }>(milestones: M[], now: Date): M | null {
-  const future = milestones.filter((m) => m.at >= now).sort((a, b) => a.at.getTime() - b.at.getTime());
+// A deadline with no stated time is stored at noon ET on its day; it stays
+// upcoming until that ET day ends.
+const DATE_ONLY_GRACE_MS = 12 * 60 * 60 * 1000 - 60 * 1000;
+
+export function milestoneEnd(m: { at: Date; timeKnown?: boolean }): Date {
+  return m.timeKnown === false ? new Date(m.at.getTime() + DATE_ONLY_GRACE_MS) : m.at;
+}
+
+export function nextMilestone<M extends { at: Date; timeKnown?: boolean }>(milestones: M[], now: Date): M | null {
+  const future = milestones.filter((m) => milestoneEnd(m) >= now).sort((a, b) => a.at.getTime() - b.at.getTime());
   return future[0] ?? null;
 }
 
@@ -71,10 +79,10 @@ export function weeksToTrain(raceDate: Date | null, now: Date): number | null {
 }
 
 // True when a deadline is within the next three weeks (and not past).
-export function isUrgent(at: string | null | undefined, now: Date): boolean {
+export function isUrgent(at: string | null | undefined, now: Date, timeKnown = true): boolean {
   if (!at) return false;
-  const ms = Date.parse(at) - now.getTime();
-  return ms >= 0 && ms <= URGENT_DAYS * MS_PER_DAY;
+  const end = milestoneEnd({ at: new Date(at), timeKnown }).getTime();
+  return end >= now.getTime() && Date.parse(at) - now.getTime() <= URGENT_DAYS * MS_PER_DAY;
 }
 
 function windowEnd(months: number | null, now: Date): Date | null {
@@ -103,7 +111,9 @@ export function toListItem(race: RaceRecord, now: Date): RaceListItem | null {
     registrationStatus: edition.registrationStatus,
     entryMethod: edition.entryMethod,
     isSample: edition.isSample,
-    nextMilestone: next ? { kind: next.kind, at: next.at.toISOString(), tentative: next.tentative } : null,
+    nextMilestone: next
+      ? { kind: next.kind, at: next.at.toISOString(), timeKnown: next.timeKnown, tentative: next.tentative }
+      : null,
     weeksToTrain: weeksToTrain(edition.raceDate, now),
   };
 }

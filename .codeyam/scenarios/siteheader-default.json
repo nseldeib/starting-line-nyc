@@ -1,6 +1,6 @@
 {
   "name": "SiteHeader - Default",
-  "id": "7c1aafe9-948a-47ba-a670-f6e67504fa45",
+  "id": "67b9459d-019e-4cfc-bfef-fa3dca6719d7",
   "url": "/isolated-components/SiteHeader?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SiteHeader",
   "scenarioType": "component",
-  "description": "SiteHeader in its default state with sample race data."
+  "description": "SiteHeader in its default state, using the real researched race data."
 }

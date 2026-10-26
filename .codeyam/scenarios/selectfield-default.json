@@ -1,6 +1,6 @@
 {
   "name": "SelectField - Default",
-  "id": "31c54602-dcd2-409f-b1f4-7c9596d9cef3",
+  "id": "0780eb61-021d-4e17-acb2-31a5fd5f22b4",
   "url": "/isolated-components/SelectField?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SelectField",
   "scenarioType": "component",
-  "description": "SelectField in its default state with sample race data."
+  "description": "SelectField in its default state, using the real researched race data."
 }

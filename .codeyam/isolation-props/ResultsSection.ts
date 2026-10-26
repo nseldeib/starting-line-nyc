@@ -1,6 +1,6 @@
 import type Component from "../../app/components/ResultsSection";
 import type { ComponentProps } from "react";
-import { NOW, defaultFilters, defaultResults, manhattanHalf, nycHalf, greenbeltHalf, breakneckHalf, brooklynHalf } from "./_fixtures";
+import { NOW, defaultFilters, defaultResults } from "./_fixtures";
 
 type Props = ComponentProps<typeof Component>;
 

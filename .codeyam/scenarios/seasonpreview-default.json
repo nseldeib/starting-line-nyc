@@ -1,6 +1,6 @@
 {
   "name": "SeasonPreview - Default",
-  "id": "255549a5-08e3-4d9f-a5b1-f5b802df776d",
+  "id": "464790f6-ca8d-4aa1-b215-06d1cc0c7cc3",
   "url": "/isolated-components/SeasonPreview?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SeasonPreview",
   "scenarioType": "component",
-  "description": "SeasonPreview in its default state with sample race data."
+  "description": "SeasonPreview in its default state, using the real researched race data."
 }

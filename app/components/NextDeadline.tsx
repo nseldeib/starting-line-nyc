@@ -9,7 +9,7 @@ export default function NextDeadline({
   calendarHref,
 }: {
   status: string;
-  milestone: { kind: string; at: string; tentative: boolean } | null;
+  milestone: { kind: string; at: string; timeKnown: boolean; tentative: boolean } | null;
   urgent: boolean;
   calendarHref: string;
 }) {
@@ -18,7 +18,14 @@ export default function NextDeadline({
       <span className={LIVE_STATUSES.has(status) ? 'state live' : 'state'}>{STATUS_LABELS[status] ?? status}</span>
       {milestone ? (
         <div className={urgent ? 'v' : 'v quiet'}>
-          {milestoneVerb(milestone.kind)} {formatDay(milestone.at)}, <span className="nw">{formatTime(milestone.at)}</span>
+          {milestoneVerb(milestone.kind)} {formatDay(milestone.at)}
+          {milestone.timeKnown ? (
+            <>
+              , <span className="nw">{formatTime(milestone.at)}</span>
+            </>
+          ) : (
+            <span className="sub"> (time not stated)</span>
+          )}
           {milestone.tentative && <span className="sub"> (tentative)</span>}
         </div>
       ) : (

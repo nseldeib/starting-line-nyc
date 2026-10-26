@@ -12,9 +12,9 @@ const MONTHS = [
 type Lane = { name: string; train: [number, number]; reg?: number; race: number };
 
 const LANES: Lane[] = [
-  { name: 'Ted Corbitt 15K', train: [0, 21.7], race: 21.7 },
-  { name: 'Manhattan Half', train: [2.8, 38.7], reg: 6.9, race: 41.5 },
-  { name: 'NYC Half', train: [28.6, 38.7], reg: 10.1, race: 67.3 },
+  { name: 'Great Gobble 5K', train: [0, 9.4], race: 9.4 },
+  { name: 'Big Apple Half', train: [2.8, 17.4], reg: 3.8, race: 20.2 },
+  { name: 'Big Bear Half', train: [31.2, 41.7], reg: 28.4, race: 72.9 },
 ];
 
 export default function SeasonPreview() {

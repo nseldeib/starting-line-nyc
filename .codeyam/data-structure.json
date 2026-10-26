@@ -28,6 +28,7 @@
       { "name": "photoUrl", "type": "string", "required": false },
       { "name": "photoAlt", "type": "string", "required": false },
       { "name": "photoCredit", "type": "string", "required": false },
+      { "name": "courseNote", "type": "string", "required": false },
       { "name": "organizerId", "type": "number", "required": true }
     ]
   },
@@ -44,7 +45,9 @@
       { "name": "raceDateTentative", "type": "boolean", "required": true },
       { "name": "registrationStatus", "type": "string", "required": true },
       { "name": "entryMethod", "type": "string", "required": true },
-      { "name": "priceUsd", "type": "number", "required": false },
+      { "name": "entryNote", "type": "string", "required": false },
+      { "name": "priceCents", "type": "number", "required": false },
+      { "name": "priceNote", "type": "string", "required": false },
       { "name": "registrationUrl", "type": "string", "required": false },
       { "name": "sourceUrl", "type": "string", "required": false },
       { "name": "lastVerifiedAt", "type": "string", "required": false },
@@ -53,7 +56,7 @@
   },
   {
     "name": "RegistrationMilestone",
-    "description": "A dated registration event for an edition (opens, closes, lottery closes, draw, qualification deadline). Drives the 'next deadline' column and calendar exports.",
+    "description": "A dated registration event for an edition (opens, closes, price rise, charity close, lottery, qualification deadline). Date-only deadlines are stored at noon ET with timeKnown false. Drives the 'next deadline' column and calendar exports.",
     "category": "datastore",
     "order": 1,
     "fields": [
@@ -61,7 +64,9 @@
       { "name": "editionId", "type": "number", "required": true },
       { "name": "kind", "type": "string", "required": true },
       { "name": "at", "type": "string", "required": true },
-      { "name": "tentative", "type": "boolean", "required": true }
+      { "name": "timeKnown", "type": "boolean", "required": true },
+      { "name": "tentative", "type": "boolean", "required": true },
+      { "name": "note", "type": "string", "required": false }
     ]
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "name": "AtAGlance - Open",
+  "id": "6b968d8c-54b5-41ba-9665-ef8b2ba3431b",
+  "url": "/isolated-components/AtAGlance?s=Open",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "AtAGlance",
+  "scenarioType": "component",
+  "description": "AtAGlance in its open state, using the real researched race data."
+}

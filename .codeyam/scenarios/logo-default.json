@@ -1,6 +1,6 @@
 {
   "name": "Logo - Default",
-  "id": "4f7d70d2-333a-4164-9395-ca478ee360b5",
+  "id": "c2223e71-b61e-43e4-97ef-16bbd71dde04",
   "url": "/isolated-components/Logo?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "Logo",
   "scenarioType": "component",
-  "description": "Deadline day calendar mark at header size, the swappable placeholder logo."
+  "description": "Logo in its default state, using the real researched race data."
 }

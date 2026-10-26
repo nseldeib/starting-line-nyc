@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - Exact Time Trail",
+  "id": "30c6f014-d296-49b3-81ff-e83e5fa0fd20",
+  "url": "/isolated-components/RaceRow?s=ExactTimeTrail",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its exact time trail state, using the real researched race data."
+}

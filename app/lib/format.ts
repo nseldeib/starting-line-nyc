@@ -8,6 +8,8 @@ export const MILESTONE_LABELS: Record<string, string> = {
   lottery_closes: 'Lottery closes',
   lottery_draw: 'Lottery drawing',
   qualification_deadline: 'Qualifying deadline',
+  price_increase: 'Last day at the current price',
+  charity_closes: 'Charity sign-up closes',
 };
 
 const MILESTONE_VERBS: Record<string, string> = {
@@ -17,6 +19,8 @@ const MILESTONE_VERBS: Record<string, string> = {
   lottery_closes: 'Closes',
   lottery_draw: 'Drawing',
   qualification_deadline: 'Qualify by',
+  price_increase: 'Price rises after',
+  charity_closes: 'Charity closes',
 };
 
 export const STATUS_LABELS: Record<string, string> = {
@@ -26,7 +30,7 @@ export const STATUS_LABELS: Record<string, string> = {
   waitlist: 'Waitlist',
   sold_out: 'Sold out',
   closed: 'Closed',
-  not_announced: 'Not announced',
+  not_announced: 'Not open yet',
 };
 
 export const LIVE_STATUSES = new Set(['opening_soon', 'open', 'lottery_open', 'waitlist']);
@@ -47,6 +51,32 @@ export function formatTime(iso: string | Date): string {
 
 export function formatEt(iso: string | Date): string {
   return `${formatDay(iso)}, ${formatTime(iso)}`;
+}
+
+// The calendar date in Eastern Time, as YYYY-MM-DD.
+export function etDate(iso: string | Date): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(
+    new Date(iso),
+  );
+}
+
+export function formatLongDay(iso: string | Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: TZ,
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(new Date(iso));
+}
+
+// The time of day only when the organizer actually stated one.
+export function formatWhen(iso: string | Date, timeKnown: boolean): string {
+  return timeKnown ? formatEt(iso) : `${formatDay(iso)} (time not stated)`;
+}
+
+export function formatPrice(cents: number): string {
+  return `$${(cents / 100).toFixed(cents % 100 === 0 ? 0 : 2)}`;
 }
 
 export function milestoneVerb(kind: string): string {

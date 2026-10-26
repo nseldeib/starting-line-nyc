@@ -1,0 +1,12 @@
+{
+  "name": "TimelineItem - Passed Date Only",
+  "id": "4181fa85-f297-4f9a-9f14-57cf4fb13d2a",
+  "url": "/isolated-components/TimelineItem?s=PassedDateOnly",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "TimelineItem",
+  "scenarioType": "component",
+  "description": "TimelineItem in its passed date only state, using the real researched race data."
+}

@@ -1,6 +1,6 @@
 {
   "name": "SortToggle - Next Deadline",
-  "id": "cd936a35-964e-4c85-9a7a-60e847dac9d8",
+  "id": "348888cc-2f90-48ab-a86a-9a10a754050d",
   "url": "/isolated-components/SortToggle?s=NextDeadline",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SortToggle",
   "scenarioType": "component",
-  "description": "SortToggle in its next deadline state with sample race data."
+  "description": "SortToggle in its next deadline state, using the real researched race data."
 }

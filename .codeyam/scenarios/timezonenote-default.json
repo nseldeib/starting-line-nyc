@@ -1,6 +1,6 @@
 {
   "name": "TimezoneNote - Default",
-  "id": "cd143d44-8b74-489b-a8e1-afa81358db58",
+  "id": "0afe9678-6770-4570-b7d4-3708777f11ca",
   "url": "/isolated-components/TimezoneNote?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "TimezoneNote",
   "scenarioType": "component",
-  "description": "TimezoneNote in its default state with sample race data."
+  "description": "TimezoneNote in its default state, using the real researched race data."
 }

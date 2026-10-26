@@ -10,6 +10,35 @@
     }
   ],
   "audit": {
+    "scenarioFixtureDateSkip": [
+      {"slug": "home-all-distances-next-12-months", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-all-distances-next-12-months", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-all-distances-next-12-months", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "home-half-marathons-next-6-months", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-half-marathons-next-6-months", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-half-marathons-next-6-months", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "home-lottery-races-only", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-lottery-races-only", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-lottery-races-only", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "home-phone-layout", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-phone-layout", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-phone-layout", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "home-single-search-result", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-single-search-result", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-single-search-result", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "race-big-bear-squatch-north", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "race-big-bear-squatch-north", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "race-big-bear-squatch-north", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "race-escarpment-trail-run", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "race-escarpment-trail-run", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "race-escarpment-trail-run", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "race-great-gobble-5k", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "race-great-gobble-5k", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "race-great-gobble-5k", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "race-phone-layout", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "race-phone-layout", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "race-phone-layout", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"}
+    ],
     "allowedDocumentationOnlySlugs": [
       "post-merge-drift-sweep"
     ],
@@ -92,6 +121,7 @@
   "hooks": {},
   "port": 3000,
   "projectDescription": "Build a vibrant, mobile-friendly website that can evolve into a web application for discovering, planning, and entering running races in the greater NYC area.\n\n**The problem**\n\nRace planning is fragmented across organizers’ websites. It’s difficult to track qualification requirements, registration opening dates, entry deadlines, and race dates. Popular races, especially NYRR events, can sell out quickly. Help runners understand their options and take action in time.\n\n**Core functionality**\n\n1. **Discover and compare races**\n   - Browse NYC and greater NYC races from multiple organizers, including NYRR and independent road and trail events.\n   - Filter by distance, road vs. trail, location, race date, and registration status.\n   - Sort by race date, registration opening date, entry deadline, or distance.\n   - Support common distances and custom distances, including ultramarathons.\n\n2. **Understand entry requirements**\n   - Give each race a detail page with its date, location, distance, terrain, organizer, price when available, and official registration link.\n   - Clearly distinguish open registration, lotteries, time qualification, charity entry, and eligibility or membership requirements.\n   - Show relevant qualification windows, standards, and deadlines, including which race edition they apply to.\n   - Highlight registration status: opening soon, open, lottery open, waitlist, sold out, or closed.\n\n3. **Save and organize races**\n   - Let me save races as “Interested,” “Considering,” or “Signed up.”\n   - Provide a “My Races” view with upcoming races and registration milestones.\n   - Allow personal notes and status changes.\n\n4. **Stay ahead of registration**\n   - Let me create reminders for registration openings, lottery deadlines, and other important milestones.\n   - Support custom reminder dates and times, plus useful presets such as one day before and 15 minutes before registration opens.\n   - Prioritize Google Calendar, with Apple Calendar and Outlook support through downloadable calendar events.\n   - Let me add both race-day events and registration milestones to my calendar.\n   - Display times clearly in America/New_York and preserve the correct time zone when exporting events.\n\n**Information quality**\n\nUse official race sources wherever possible. Show a source link and “last verified” date for important information. Clearly label unknown or tentative dates, and never invent registration dates or qualification requirements. Treat each annual race edition separately so last year’s information cannot be mistaken for the upcoming event.\n\n**Visual direction**\n\nMake this feel like a product built by and for the NYC running community: energetic, expressive, welcoming, and useful.\n\nTake inspiration from Bandit, Notes, Oiselle, Patagonia, and Nike ACG without copying their branding. Explore bold typography, vibrant accent colors, strong editorial layouts, and subtle references to city streets, park loops, race bibs, and trail maps. Balance personality with excellent readability and accessible contrast. Avoid a generic dashboard aesthetic.\n\nThe experience should work especially well on a phone, with easy filtering, scannable race information, and prominent registration dates and actions.\n\n**First-version scope**\n\nPrioritize a polished discovery experience, race detail pages, saved races, and calendar exports. Design the structure to support accounts, persistent preferences, and automated reminders as the application evolves.\n\nMake clear which features are functional and which require additional integrations. Calendar exports and scheduled notifications are separate capabilities; do not imply that a reminder has been scheduled unless it actually has.\n\nStart with a focused set of NYC-area races that demonstrates different distances, terrain types, organizers, and entry methods. If verified live data is unavailable, use clearly labeled sample data.\n\nThe primary user journey should be: discover a race → understand how and when to enter → save it → set a reminder or add a calendar event → register through the official organizer.",
+  "projectTitle": "Starting Line",
   "provider": "claude",
   "proxy": {
     "controlPort": 14958,

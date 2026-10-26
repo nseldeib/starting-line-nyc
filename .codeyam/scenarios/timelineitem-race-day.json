@@ -1,0 +1,12 @@
+{
+  "name": "TimelineItem - Race Day",
+  "id": "cee6cb30-2939-4f8e-8fd1-50d8389254aa",
+  "url": "/isolated-components/TimelineItem?s=RaceDay",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "TimelineItem",
+  "scenarioType": "component",
+  "description": "TimelineItem in its race day state, using the real researched race data."
+}

@@ -1,6 +1,6 @@
 {
   "name": "Logo - Large",
-  "id": "ce4116ae-d43b-445c-85da-119c3a5f4e37",
+  "id": "0c81fbbf-66de-41db-b8ab-fd96e9424dc8",
   "url": "/isolated-components/Logo?s=Large",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "Logo",
   "scenarioType": "component",
-  "description": "The calendar mark enlarged to check its shapes hold up."
+  "description": "Logo in its large state, using the real researched race data."
 }

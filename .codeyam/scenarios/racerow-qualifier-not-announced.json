@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - Qualifier Not Announced",
+  "id": "60149c1c-7e78-4656-a68f-c858a67cf6d0",
+  "url": "/isolated-components/RaceRow?s=QualifierNotAnnounced",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its qualifier not announced state, using the real researched race data."
+}

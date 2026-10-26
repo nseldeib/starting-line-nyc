@@ -1,13 +1,13 @@
 import type Component from "../../app/components/RaceList";
 import type { ComponentProps } from "react";
-import { NOW, defaultFilters, defaultResults, manhattanHalf, nycHalf, greenbeltHalf, breakneckHalf, brooklynHalf } from "./_fixtures";
+import { NOW, defaultFilters, defaultResults, escarpment } from "./_fixtures";
 
 type Props = ComponentProps<typeof Component>;
 
 // Scenario data for this component's isolation route.
 export const scenarios: Record<string, Props> = {
   Default: { races: defaultResults, filters: defaultFilters, now: NOW },
-  WithUnannouncedRace: { races: [...defaultResults, brooklynHalf], filters: { ...defaultFilters, when: "12m" }, now: NOW },
+  WithUnannouncedRace: { races: [...defaultResults, escarpment], filters: { ...defaultFilters, distance: "any", when: "12m" }, now: NOW },
   Empty: { races: [], filters: { ...defaultFilters, distance: "marathon" }, now: NOW },
 };
 

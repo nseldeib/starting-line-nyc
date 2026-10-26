@@ -46,6 +46,14 @@ describe('buildIcs', () => {
     expect(buildIcs(event)).toContain('DESCRIPTION:Tue\\, Nov 10\\, 12:00 pm ET.\r\n');
   });
 
+  // A date with no stated time becomes an all-day event on that date.
+  it('writes all-day events with a next-day end', () => {
+    const ics = buildIcs({ ...event, allDayDate: '2026-12-31' });
+    expect(ics).toContain('DTSTART;VALUE=DATE:20261231\r\n');
+    expect(ics).toContain('DTEND;VALUE=DATE:20270101\r\n');
+    expect(ics).not.toContain('DTSTART:2026');
+  });
+
   // Location and description lines are omitted when not provided.
   it('omits optional fields when absent', () => {
     const ics = buildIcs({ ...event, location: undefined, description: undefined });

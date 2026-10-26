@@ -1,6 +1,6 @@
 {
   "name": "HeroSearch - Search Typed",
-  "id": "d7a73609-d29e-454a-b29c-afaf0c5abdad",
+  "id": "6ee0e56f-5788-4fa9-ab1e-002fbe280014",
   "url": "/isolated-components/HeroSearch?s=SearchTyped",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "HeroSearch",
   "scenarioType": "component",
-  "description": "HeroSearch in its search typed state with sample race data."
+  "description": "HeroSearch in its search typed state, using the real researched race data."
 }

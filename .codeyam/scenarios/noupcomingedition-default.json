@@ -1,0 +1,12 @@
+{
+  "name": "NoUpcomingEdition - Default",
+  "id": "c1971ee3-c3a3-40e2-8c22-2caa5d0582f1",
+  "url": "/isolated-components/NoUpcomingEdition?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NoUpcomingEdition",
+  "scenarioType": "component",
+  "description": "NoUpcomingEdition in its default state, using the real researched race data."
+}

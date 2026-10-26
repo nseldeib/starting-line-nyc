@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - No Photo Road",
+  "id": "8cc5484d-9a2f-42f7-a65b-231cf91f4b7a",
+  "url": "/isolated-components/RaceRow?s=NoPhotoRoad",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its no photo road state, using the real researched race data."
+}

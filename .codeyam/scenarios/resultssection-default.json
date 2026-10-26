@@ -1,6 +1,6 @@
 {
   "name": "ResultsSection - Default",
-  "id": "da4ecce5-a9ee-460f-a85a-52692ac522e4",
+  "id": "75483bca-1b47-4e4c-b579-94cbf87fa0f4",
   "url": "/isolated-components/ResultsSection?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "ResultsSection",
   "scenarioType": "component",
-  "description": "ResultsSection in its default state with sample race data."
+  "description": "ResultsSection in its default state, using the real researched race data."
 }

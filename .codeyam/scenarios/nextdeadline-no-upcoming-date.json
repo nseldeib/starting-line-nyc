@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - No Upcoming Date",
+  "id": "9b1c37d0-9df1-45cf-bfb7-a9c1533bffb5",
+  "url": "/isolated-components/NextDeadline?s=NoUpcomingDate",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its no upcoming date state, using the real researched race data."
+}

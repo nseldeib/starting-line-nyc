@@ -1,6 +1,6 @@
 {
   "name": "RaceList - Default",
-  "id": "ec314cfa-875e-4d3a-b814-50b18b552b37",
+  "id": "c05c848c-ee96-4f8c-a014-9054a416b486",
   "url": "/isolated-components/RaceList?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceList",
   "scenarioType": "component",
-  "description": "RaceList in its default state with sample race data."
+  "description": "RaceList in its default state, using the real researched race data."
 }

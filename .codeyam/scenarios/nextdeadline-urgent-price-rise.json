@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - Urgent Price Rise",
+  "id": "4152abb9-f2a5-4c53-bb98-5d6e31f501c7",
+  "url": "/isolated-components/NextDeadline?s=UrgentPriceRise",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its urgent price rise state, using the real researched race data."
+}

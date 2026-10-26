@@ -1,0 +1,58 @@
+// The five facts a runner needs first, plus the way to enter.
+import GlanceItem from '@/app/components/GlanceItem';
+import OfficialLinkButton from '@/app/components/OfficialLinkButton';
+import { MILESTONE_LABELS, STATUS_LABELS, formatDay, formatDistance, formatPrice, formatTime } from '@/app/lib/format';
+import type { TimelineEntry } from '@/app/lib/raceDetail';
+
+export default function AtAGlance({
+  raceDate,
+  distanceMiles,
+  elevationGainFt,
+  entryTitle,
+  status,
+  priceCents,
+  nextDeadline,
+  weeksToTrain,
+  official,
+}: {
+  raceDate: string | null;
+  distanceMiles: number;
+  elevationGainFt: number | null;
+  entryTitle: string;
+  status: string;
+  priceCents: number | null;
+  nextDeadline: TimelineEntry | null;
+  weeksToTrain: number | null;
+  official: { href: string; label: string } | null;
+}) {
+  return (
+    <section className="glance" aria-label="At a glance">
+      <dl>
+        <GlanceItem
+          label="Race day"
+          value={raceDate ? formatDay(raceDate) : 'Not announced'}
+          sub={raceDate ? `${formatTime(raceDate)} start` : null}
+        />
+        <GlanceItem
+          label="Distance"
+          value={formatDistance(distanceMiles, null)}
+          sub={elevationGainFt ? `${elevationGainFt.toLocaleString('en-US')} ft climb` : null}
+        />
+        <GlanceItem label="Entry" value={STATUS_LABELS[status] ?? status} sub={entryTitle} />
+        <GlanceItem
+          label="Price"
+          value={priceCents !== null ? formatPrice(priceCents) : 'Not listed'}
+          sub={priceCents !== null ? 'current price' : 'check the official site'}
+        />
+        <GlanceItem
+          label="Next deadline"
+          value={nextDeadline ? formatDay(nextDeadline.at) : 'None announced'}
+          sub={nextDeadline ? (MILESTONE_LABELS[nextDeadline.kind] ?? nextDeadline.kind) : null}
+          emphasis={!!nextDeadline}
+        />
+        {weeksToTrain !== null && <GlanceItem label="Weeks to train" value={String(weeksToTrain)} />}
+      </dl>
+      {official && <OfficialLinkButton href={official.href} label={official.label} />}
+    </section>
+  );
+}

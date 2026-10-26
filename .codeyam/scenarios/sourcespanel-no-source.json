@@ -1,0 +1,12 @@
+{
+  "name": "SourcesPanel - No Source",
+  "id": "3b806f60-5736-4aa7-9eae-a5aed38e29a5",
+  "url": "/isolated-components/SourcesPanel?s=NoSource",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SourcesPanel",
+  "scenarioType": "component",
+  "description": "SourcesPanel in its no source state, using the real researched race data."
+}

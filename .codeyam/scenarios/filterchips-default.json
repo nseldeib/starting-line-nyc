@@ -1,6 +1,6 @@
 {
   "name": "FilterChips - Default",
-  "id": "014eada2-5e33-46cd-981a-87890711983d",
+  "id": "8924eecc-ec67-46f8-9faa-8bb2b7a0e6e5",
   "url": "/isolated-components/FilterChips?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "FilterChips",
   "scenarioType": "component",
-  "description": "FilterChips in its default state with sample race data."
+  "description": "FilterChips in its default state, using the real researched race data."
 }

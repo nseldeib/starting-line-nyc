@@ -1,6 +1,6 @@
 {
   "name": "Hero - Default",
-  "id": "5a7fd8df-2b12-4b5c-b1ae-6b00b4e44643",
+  "id": "1fcc4359-24bd-41ae-a19a-513a427c34a4",
   "url": "/isolated-components/Hero?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "Hero",
   "scenarioType": "component",
-  "description": "Hero in its default state with sample race data."
+  "description": "Hero in its default state, using the real researched race data."
 }

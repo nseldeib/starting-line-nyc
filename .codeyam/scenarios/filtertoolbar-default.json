@@ -1,6 +1,6 @@
 {
   "name": "FilterToolbar - Default",
-  "id": "66a9aaf1-64a2-40da-9054-1c7974fc1810",
+  "id": "19aa6123-8b61-4cf7-93fc-b7189762e8e9",
   "url": "/isolated-components/FilterToolbar?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "FilterToolbar",
   "scenarioType": "component",
-  "description": "FilterToolbar in its default state with sample race data."
+  "description": "FilterToolbar in its default state, using the real researched race data."
 }

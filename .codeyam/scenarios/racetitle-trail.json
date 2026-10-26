@@ -1,0 +1,12 @@
+{
+  "name": "RaceTitle - Trail",
+  "id": "1040144a-3aa4-43d7-a4ac-884c96218033",
+  "url": "/isolated-components/RaceTitle?s=Trail",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceTitle",
+  "scenarioType": "component",
+  "description": "RaceTitle for a trail race: terrain pill, title-case name, organizer and place."
+}

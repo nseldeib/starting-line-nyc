@@ -5,9 +5,9 @@ type Props = ComponentProps<typeof Component>;
 
 // Scenario data for this component's isolation route.
 export const scenarios: Record<string, Props> = {
-  Road: { name: "Fred Lebow Manhattan Half", terrain: "road", distanceMiles: 13.1, elevationGainFt: null, organizer: "NYRR" },
-  TrailWithClimb: { name: "Breakneck Point Trail Half", terrain: "trail", distanceMiles: 13.1, elevationGainFt: 3100, organizer: "Hudson Valley Trail Co." },
-  LongNameUltra: { name: "Harriman State Park Trail 50K Ultramarathon", terrain: "trail", distanceMiles: 31.1, elevationGainFt: 5200, organizer: "Hudson Valley Trail Co." },
+  Road: { name: "Big Apple Half Marathon", terrain: "road", distanceMiles: 13.1, elevationGainFt: null, organizer: "NYCRUNS", href: "/races/nycruns-big-apple-half-marathon" },
+  TrailWithClimb: { name: "Escarpment Trail Run", terrain: "trail", distanceMiles: 18.6, elevationGainFt: 4800, organizer: "Escarpment Trail Run", href: "/races/escarpment-trail-run" },
+  LongNameUltra: { name: "Big Bear Squatch North Half Marathon", terrain: "trail", distanceMiles: 13.1, elevationGainFt: 2600, organizer: "Sassquad & NY-NJ Trail Conference", href: "/races/big-bear-squatch-north-half" },
 };
 
 // Capture width matches the component's container on the home page.

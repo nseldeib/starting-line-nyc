@@ -1,0 +1,12 @@
+{
+  "name": "RaceDetailBody - Default",
+  "id": "45d69769-a90a-4080-91d7-a507a50bf8f8",
+  "url": "/isolated-components/RaceDetailBody?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceDetailBody",
+  "scenarioType": "component",
+  "description": "RaceDetailBody in its default state, using the real researched race data."
+}

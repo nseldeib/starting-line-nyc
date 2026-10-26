@@ -1,15 +1,18 @@
 // Downloadable calendar event (.ics) for a race's next registration
-// milestone, or its race day with ?event=raceday.
+// milestone, one milestone with ?milestone=<id>, or race day with ?event=raceday.
 import { NextResponse } from 'next/server';
 import { prisma } from '@/app/lib/prisma';
 import { buildIcs } from '@/app/lib/ics';
-import { calendarFileName, raceCalendarEvent } from '@/app/lib/raceCalendar';
+import { calendarFileName, raceCalendarEvent, type CalendarEventKind } from '@/app/lib/raceCalendar';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const kind = new URL(request.url).searchParams.get('event') === 'raceday' ? 'raceday' : 'next';
+  const search = new URL(request.url).searchParams;
+  const milestoneId = Number(search.get('milestone'));
+  const kind: CalendarEventKind =
+    search.get('event') === 'raceday' ? 'raceday' : Number.isInteger(milestoneId) && milestoneId > 0 ? milestoneId : 'next';
 
   const race = await prisma.race.findUnique({ where: { slug }, include: { editions: { include: { milestones: true } } } });
   if (!race) return NextResponse.json({ error: 'Race not found' }, { status: 404 });

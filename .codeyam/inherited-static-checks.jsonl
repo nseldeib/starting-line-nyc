@@ -1,0 +1,1 @@
+{"branch":"main","check":"tsc","cited":{"app/lib/raceCalendar.test.ts":"023b8b2b80c1a140b88a6609cc9d0a89fd43e8bc","app/lib/raceList.test.ts":"ff53cfc0ed0a949d0206d203484887fbe78eff98"},"firstSeenSha":"2c690315d89f384618ef4a1dac2b222c08b7e538","sessionId":"061c6fb4-d886-40e8-a384-de9a641dee7f","recordedAt":"2026-10-26T20:42:27Z"}

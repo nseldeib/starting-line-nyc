@@ -1,0 +1,12 @@
+{
+  "name": "NotFound - Default",
+  "id": "24e594ea-0fef-43a7-89c8-f7fdf78eb945",
+  "url": "/isolated-components/NotFound?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NotFound",
+  "scenarioType": "component",
+  "description": "The full not-found page for an unknown race address: header, message, Show all races, footer."
+}

@@ -1,6 +1,6 @@
 {
   "name": "SortToggle - Race Day",
-  "id": "1c3ff323-8885-463e-ba1f-a48ffe9e96c1",
+  "id": "a9c60792-e489-46e2-a42c-6db2bcc6b3ae",
   "url": "/isolated-components/SortToggle?s=RaceDay",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SortToggle",
   "scenarioType": "component",
-  "description": "SortToggle in its race day state with sample race data."
+  "description": "SortToggle in its race day state, using the real researched race data."
 }

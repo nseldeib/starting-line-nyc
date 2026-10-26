@@ -1,6 +1,6 @@
 {
   "name": "RaceIdentity - Long Name Ultra",
-  "id": "f737242c-df61-4389-a104-e68a7eaa2884",
+  "id": "79a3e223-cf53-43ea-9557-605e06cc46f5",
   "url": "/isolated-components/RaceIdentity?s=LongNameUltra",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceIdentity",
   "scenarioType": "component",
-  "description": "A long ultramarathon name wrapping inside the row column, with distance and climb."
+  "description": "RaceIdentity in its long name ultra state, using the real researched race data."
 }

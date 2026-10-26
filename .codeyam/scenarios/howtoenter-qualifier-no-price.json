@@ -1,0 +1,12 @@
+{
+  "name": "HowToEnter - Qualifier No Price",
+  "id": "deadd072-35a7-4897-8c44-d891db5127b3",
+  "url": "/isolated-components/HowToEnter?s=QualifierNoPrice",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "HowToEnter",
+  "scenarioType": "component",
+  "description": "HowToEnter in its qualifier no price state, using the real researched race data."
+}

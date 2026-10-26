@@ -10,7 +10,8 @@ export default function RaceThumb({
   distanceMiles: number;
 }) {
   if (photoUrl) {
-    return <div className="thumb" style={{ backgroundImage: `url('${photoUrl}')` }} role="img" aria-label={photoAlt ?? ''} />;
+    // eslint-disable-next-line @next/next/no-img-element -- local licensed photo, fixed thumb size
+    return <img className="thumb" src={photoUrl} alt={photoAlt ?? ''} />;
   }
   return (
     <div className="thumb" aria-hidden="true">

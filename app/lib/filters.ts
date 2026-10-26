@@ -7,6 +7,7 @@ export const DISTANCES = {
   '10k': { label: '10K', plural: '10Ks', min: 6.1, max: 6.3 },
   '15k': { label: '15K', plural: '15Ks', min: 9.2, max: 9.4 },
   half: { label: 'Half marathon', plural: 'Half marathons', min: 13.0, max: 13.2 },
+  '30k': { label: '30K', plural: '30Ks', min: 18.5, max: 18.7 },
   marathon: { label: 'Marathon', plural: 'Marathons', min: 26.1, max: 26.3 },
   ultra: { label: 'Ultra', plural: 'Ultras', min: 26.3, max: Infinity },
 } as const;

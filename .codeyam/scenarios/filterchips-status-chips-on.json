@@ -1,6 +1,6 @@
 {
   "name": "FilterChips - Status Chips On",
-  "id": "70f487c6-6dcd-421b-b4b0-9fbcee9ac059",
+  "id": "1a55448a-9890-40c3-ae82-1c4cff39faa2",
   "url": "/isolated-components/FilterChips?s=StatusChipsOn",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "FilterChips",
   "scenarioType": "component",
-  "description": "FilterChips in its status chips on state with sample race data."
+  "description": "FilterChips in its status chips on state, using the real researched race data."
 }

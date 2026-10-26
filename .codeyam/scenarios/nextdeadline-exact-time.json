@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - Exact Time",
+  "id": "db75f03a-4cba-4b1e-9669-870c1634007c",
+  "url": "/isolated-components/NextDeadline?s=ExactTime",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its exact time state, using the real researched race data."
+}

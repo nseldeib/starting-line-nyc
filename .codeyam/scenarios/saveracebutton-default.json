@@ -1,6 +1,6 @@
 {
   "name": "SaveRaceButton - Default",
-  "id": "f988ad1b-594a-43ef-ac39-53ae8d6ec6b2",
+  "id": "9bc63156-f85d-45ab-96b2-a647590df340",
   "url": "/isolated-components/SaveRaceButton?s=Default",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "SaveRaceButton",
   "scenarioType": "component",
-  "description": "SaveRaceButton in its default state with sample race data."
+  "description": "SaveRaceButton in its default state, using the real researched race data."
 }

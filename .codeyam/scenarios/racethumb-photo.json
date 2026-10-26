@@ -1,6 +1,6 @@
 {
   "name": "RaceThumb - Photo",
-  "id": "b24b5c96-1eb5-465a-aaf3-3c42aa19a3ce",
+  "id": "36afa77e-2190-47b1-a24c-f3dced43c345",
   "url": "/isolated-components/RaceThumb?s=Photo",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceThumb",
   "scenarioType": "component",
-  "description": "RaceThumb in its photo state with sample race data."
+  "description": "RaceThumb in its photo state, using the real researched race data."
 }

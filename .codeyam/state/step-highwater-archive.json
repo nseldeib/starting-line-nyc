@@ -1,4 +1,10 @@
 {
+  "Race detail pages with real race data": {
+    "feature": "Race detail pages with real race data",
+    "maxStep": 3,
+    "version": 243,
+    "updatedAt": "2026-10-26T20:25:02.871707730+00:00"
+  },
   "main-page-v2-and-calendar-logo": {
     "feature": "main-page-v2-and-calendar-logo",
     "maxStep": 11,

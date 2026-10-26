@@ -1,0 +1,12 @@
+{
+  "name": "KeyDates - Upcoming",
+  "id": "951dedc9-42c5-4dc5-8612-fdd8fd25c3c2",
+  "url": "/isolated-components/KeyDates?s=Upcoming",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "KeyDates",
+  "scenarioType": "component",
+  "description": "KeyDates in its upcoming state, using the real researched race data."
+}

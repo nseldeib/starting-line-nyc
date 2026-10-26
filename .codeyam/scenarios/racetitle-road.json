@@ -1,0 +1,12 @@
+{
+  "name": "RaceTitle - Road",
+  "id": "40a2e39b-0413-470e-855c-0b4156c4ed3b",
+  "url": "/isolated-components/RaceTitle?s=Road",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceTitle",
+  "scenarioType": "component",
+  "description": "RaceTitle for a road race with a short name."
+}

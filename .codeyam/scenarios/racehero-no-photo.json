@@ -1,0 +1,12 @@
+{
+  "name": "RaceHero - No Photo",
+  "id": "0758a14a-43af-4122-8def-3e6256644ad4",
+  "url": "/isolated-components/RaceHero?s=NoPhoto",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceHero",
+  "scenarioType": "component",
+  "description": "RaceHero in its no photo state, using the real researched race data."
+}

@@ -1,6 +1,6 @@
 {
   "name": "Home - No Races Listed",
-  "id": "5c550b92-de42-4b64-8f2f-56fc07849d6a",
+  "id": "2b316c33-44bc-42f8-adbc-ae4eb6c6789c",
   "url": "/",
   "dimensions": [
     "Desktop"
@@ -10,21 +10,21 @@
     "organizer": [
       {
         "id": 1,
-        "name": "NYRR",
-        "slug": "nyrr",
-        "websiteUrl": "https://www.nyrr.org"
+        "name": "NYCRUNS",
+        "slug": "nycruns",
+        "websiteUrl": "https://nycruns.com"
       },
       {
         "id": 2,
-        "name": "Staten Island Trail Runners",
-        "slug": "staten-island-trail-runners",
-        "websiteUrl": null
+        "name": "Sassquad & NY-NJ Trail Conference",
+        "slug": "sassquad",
+        "websiteUrl": "https://www.sassquadtrailrunning.com"
       },
       {
         "id": 3,
-        "name": "Hudson Valley Trail Co.",
-        "slug": "hudson-valley-trail-co",
-        "websiteUrl": null
+        "name": "Escarpment Trail Run",
+        "slug": "escarpment-trail-run",
+        "websiteUrl": "https://escarpmenttrail.com"
       }
     ],
     "race": [],

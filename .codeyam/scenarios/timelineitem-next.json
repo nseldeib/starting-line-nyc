@@ -1,0 +1,12 @@
+{
+  "name": "TimelineItem - Next",
+  "id": "e1c486d8-1402-4c41-864f-216cd0431d0a",
+  "url": "/isolated-components/TimelineItem?s=Next",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "TimelineItem",
+  "scenarioType": "component",
+  "description": "TimelineItem in its next state, using the real researched race data."
+}

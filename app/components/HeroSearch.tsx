@@ -11,7 +11,7 @@ export default function HeroSearch({ filters, count }: { filters: RaceFilters; c
     <form className="finder" role="search" aria-label="Find races" action="/" method="get">
       <div>
         <label className="label" htmlFor="q">Race, park or organizer</label>
-        <input id="q" name="q" type="search" placeholder="e.g. Brooklyn Half" defaultValue={filters.q} />
+        <input id="q" name="q" type="search" placeholder="e.g. Big Apple Half" defaultValue={filters.q} />
       </div>
       <SelectField id="distance" label="Distance" value={filters.distance} options={options(DISTANCES)} />
       <SelectField id="when" label="When" value={filters.when} options={options(WINDOWS)} />

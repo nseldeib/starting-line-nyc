@@ -1,0 +1,12 @@
+{
+  "name": "CourseNote - Default",
+  "id": "0f9ca618-9c59-45fa-ab9d-1b5f8710b296",
+  "url": "/isolated-components/CourseNote?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "CourseNote",
+  "scenarioType": "component",
+  "description": "CourseNote in its default state, using the real researched race data."
+}

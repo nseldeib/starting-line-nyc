@@ -1,0 +1,12 @@
+{
+  "name": "OfficialLinkButton - Visit Site",
+  "id": "24c119b5-a89c-4113-af4b-6f51f8caf992",
+  "url": "/isolated-components/OfficialLinkButton?s=VisitSite",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "OfficialLinkButton",
+  "scenarioType": "component",
+  "description": "OfficialLinkButton in its visit site state, using the real researched race data."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "AtAGlance - Qualifier Not Open",
+  "id": "b1d3dabd-1e93-4db0-8c09-7ab59a86d5b2",
+  "url": "/isolated-components/AtAGlance?s=QualifierNotOpen",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "AtAGlance",
+  "scenarioType": "component",
+  "description": "AtAGlance in its qualifier not open state, using the real researched race data."
+}

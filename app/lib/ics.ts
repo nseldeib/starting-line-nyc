@@ -10,7 +10,16 @@ export type CalendarEvent = {
   location?: string;
   description?: string;
   stamp: Date;
+  // When the organizer gave a date but no time: an all-day event on this
+  // calendar date (YYYY-MM-DD, already in Eastern Time). Overrides start.
+  allDayDate?: string;
 };
+
+function nextDay(ymd: string): string {
+  const d = new Date(`${ymd}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
 
 export function icsDate(d: Date): string {
   return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
@@ -32,8 +41,12 @@ export function buildIcs(event: CalendarEvent): string {
     'BEGIN:VEVENT',
     `UID:${event.uid}`,
     `DTSTAMP:${icsDate(event.stamp)}`,
-    `DTSTART:${icsDate(event.start)}`,
-    `DTEND:${icsDate(end)}`,
+    ...(event.allDayDate
+      ? [
+          `DTSTART;VALUE=DATE:${event.allDayDate.replace(/-/g, '')}`,
+          `DTEND;VALUE=DATE:${nextDay(event.allDayDate).replace(/-/g, '')}`,
+        ]
+      : [`DTSTART:${icsDate(event.start)}`, `DTEND:${icsDate(end)}`]),
     `SUMMARY:${icsEscape(event.title)}`,
     ...(event.location ? [`LOCATION:${icsEscape(event.location)}`] : []),
     ...(event.description ? [`DESCRIPTION:${icsEscape(event.description)}`] : []),

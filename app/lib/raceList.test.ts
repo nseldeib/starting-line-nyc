@@ -3,6 +3,7 @@ import { DEFAULT_FILTERS, type RaceFilters } from '@/app/lib/filters';
 import {
   filterAndSortRaces,
   isUrgent,
+  milestoneEnd,
   nextMilestone,
   sortRaces,
   toListItem,
@@ -116,6 +117,33 @@ describe('isUrgent', () => {
     expect(isUrgent(null, NOW)).toBe(false);
     expect(isUrgent(undefined, NOW)).toBe(false);
   });
+
+  // A date-only deadline stored at noon ET is still urgent later the same day.
+  it('keeps a date-only deadline urgent until its ET day ends', () => {
+    const evening = new Date('2026-10-26T23:00:00Z');
+    expect(isUrgent('2026-10-26T16:00:00Z', evening, false)).toBe(true);
+    expect(isUrgent('2026-10-26T16:00:00Z', evening, true)).toBe(false);
+  });
+});
+
+describe('milestoneEnd', () => {
+  // Exact-time milestones end at their time; date-only ones at the end of that ET day.
+  it('extends date-only milestones to the end of the day', () => {
+    const at = new Date('2026-11-09T17:00:00Z');
+    expect(milestoneEnd({ at, timeKnown: true })).toEqual(at);
+    expect(milestoneEnd({ at, timeKnown: false }).toISOString()).toBe('2026-11-10T04:59:00.000Z');
+  });
+});
+
+describe('nextMilestone with date-only deadlines', () => {
+  // A date-only deadline for today is still the next milestone in the evening.
+  it('keeps today as next until the day ends', () => {
+    const ms = [
+      { at: d('2026-10-26T16:00:00Z'), timeKnown: false },
+      { at: d('2026-11-16T17:00:00Z'), timeKnown: false },
+    ];
+    expect(nextMilestone(ms, new Date('2026-10-26T23:00:00Z'))?.at.toISOString()).toBe('2026-10-26T16:00:00.000Z');
+  });
 });
 
 describe('toListItem', () => {
@@ -123,7 +151,7 @@ describe('toListItem', () => {
   it('flattens the upcoming edition into a list item', () => {
     const r = withEdition(race({ slug: 'manhattan-half', name: 'Manhattan Half' }), {
       registrationStatus: 'opening_soon',
-      milestones: [{ kind: 'registration_opens', at: d('2026-11-10T17:00:00Z'), tentative: false }],
+      milestones: [{ kind: 'registration_opens', at: d('2026-11-10T17:00:00Z'), timeKnown: true, tentative: false }],
     });
     expect(toListItem(r, NOW)).toMatchObject({
       slug: 'manhattan-half',

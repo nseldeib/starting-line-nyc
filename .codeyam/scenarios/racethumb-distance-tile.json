@@ -1,6 +1,6 @@
 {
   "name": "RaceThumb - Distance Tile",
-  "id": "1e9b366d-f87c-4074-a9fc-c4a2e717f543",
+  "id": "aa28eda6-5283-4536-98b3-7bf7cf4bd14b",
   "url": "/isolated-components/RaceThumb?s=DistanceTile",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceThumb",
   "scenarioType": "component",
-  "description": "RaceThumb in its distance tile state with sample race data."
+  "description": "RaceThumb in its distance tile state, using the real researched race data."
 }

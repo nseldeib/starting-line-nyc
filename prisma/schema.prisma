@@ -44,6 +44,7 @@ model Race {
   photoUrl       String? // licensed photo only; null shows the distance tile
   photoAlt       String?
   photoCredit    String?
+  courseNote     String? // course description, as the organizer states it
   organizerId    Int
   organizer      Organizer     @relation(fields: [organizerId], references: [id])
   editions       RaceEdition[]
@@ -60,7 +61,9 @@ model RaceEdition {
   registrationStatus String
   // "open" | "lottery" | "qualification" | "charity" | "membership"
   entryMethod        String
-  priceUsd           Int?
+  entryNote          String? // qualifying standards, caps, sell-out history …
+  priceCents         Int? // current price as listed by the organizer; null = not listed
+  priceNote          String? // e.g. which tier the price belongs to
   registrationUrl    String?
   sourceUrl          String?
   lastVerifiedAt     DateTime?
@@ -74,8 +77,11 @@ model RegistrationMilestone {
   id        Int         @id @default(autoincrement())
   editionId Int
   edition   RaceEdition @relation(fields: [editionId], references: [id])
-  // "registration_opens" | "registration_closes" | "lottery_opens" | "lottery_closes" | "lottery_draw" | "qualification_deadline"
+  // "registration_opens" | "registration_closes" | "lottery_opens" | "lottery_closes" | "lottery_draw"
+  // | "qualification_deadline" | "price_increase" | "charity_closes"
   kind      String
-  at        DateTime
+  at        DateTime // when timeKnown is false, only the ET calendar date is meaningful
+  timeKnown Boolean     @default(true)
   tentative Boolean     @default(false)
+  note      String?
 }

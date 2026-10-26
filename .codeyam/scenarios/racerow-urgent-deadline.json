@@ -1,6 +1,6 @@
 {
   "name": "RaceRow - Urgent Deadline",
-  "id": "f634b13a-4951-4918-85c5-ab03cc25ee54",
+  "id": "c5fa0e6c-4346-4d7d-a4c0-836cc8d6d00c",
   "url": "/isolated-components/RaceRow?s=UrgentDeadline",
   "dimensions": [
     "Desktop"
@@ -8,5 +8,5 @@
   "mocks": {},
   "componentName": "RaceRow",
   "scenarioType": "component",
-  "description": "RaceRow in its urgent deadline state with sample race data."
+  "description": "RaceRow in its urgent deadline state, using the real researched race data."
 }
