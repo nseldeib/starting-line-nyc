@@ -133,3 +133,32 @@ docker-compose.cloud.yml
 # codeyam-editor:end
 
 # CodeYam - local runtime state
+
+# Added by the app template
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+/coverage
+/.next/
+/out/
+/build
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+dev.db
+dev.db-journal
+.codeyam/db.sqlite3
+.codeyam/db.sqlite3-wal
+.codeyam/db.sqlite3-shm
+/app/isolated-components/
