@@ -1,0 +1,12 @@
+{
+  "name": "RaceIdentity - Road",
+  "id": "8ebb9255-f158-4b4b-817c-488a9c1f82d6",
+  "url": "/isolated-components/RaceIdentity?s=Road",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceIdentity",
+  "scenarioType": "component",
+  "description": "RaceIdentity in its road state with sample race data."
+}

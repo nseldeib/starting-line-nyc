@@ -1,4 +1,30 @@
 <!-- codeyam:codespaces-starter-readme -->
+# Starting Line
+
+Races around New York, and when to enter. A mobile-friendly site for finding
+road and trail races in the greater NYC area, with registration dates in
+Eastern Time, weeks left to train, and downloadable calendar events for
+upcoming deadlines.
+
+**Status:** the race list shown is clearly labelled **sample data**, not
+verified race information. Saving races and accounts are not live yet.
+
+### Run it
+
+Requires Node.js 20 or newer.
+
+```bash
+npm run setup   # install, create the SQLite database, load the sample races
+npm run dev     # http://localhost:3000
+```
+
+- `GET /api/races` returns the filtered race list (same query parameters as the home page).
+- `GET /api/races/<slug>/calendar` downloads an `.ics` for the next registration
+  date; add `?event=raceday` for race day.
+- `npm test` runs the unit tests.
+
+---
+
 # CodeYam Editor in GitHub Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?template_repository=codeyam-ai/codespaces-starter)
@@ -67,3 +93,53 @@ The codespace installs the editor from npm at the production `latest` tag. To
 try unreleased builds, use
 [`codeyam-ai/codespaces-starter-staging`](https://github.com/codeyam-ai/codespaces-starter-staging),
 which is the same template rendered with `--channel staging`.
+
+<!-- codeyam:run-and-edit:start d=4c81b85f4849 -->
+## Develop this project with codeyam-editor
+
+This project is built with [codeyam-editor](https://codeyam.com) — code and runnable data scenarios are authored side by side against a live preview.
+
+```bash
+# Install codeyam-editor
+npm install -g @codeyam-editor/codeyam-editor@latest
+
+# Launch the editor (split-screen terminal + live preview)
+codeyam-editor start
+```
+<!-- codeyam:run-and-edit:end -->
+
+<!-- codeyam:scenario-gallery:start d=708ec2821af9 -->
+## Scenario gallery
+
+States captured as runnable scenarios with codeyam-editor:
+
+### Home - All Distances Next 12 Months
+
+<img src=".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png" alt="Home - All Distances Next 12 Months" width="280">
+
+Every distance over the next year, sorted by next deadline: a 15K and a trail 50K join the halves, and the Brooklyn Half sits last with its registration date not yet announced and a tentative race day.
+
+### Home - Phone Layout
+
+<img src=".codeyam/scenarios/screenshots/home-phone-layout--mobile.png" alt="Home - Phone Layout" width="280">
+
+The default search on a phone: the hero search stacks into two columns, the nav collapses, and each race row folds under its thumbnail with Save beside the name.
+
+### Home - Half Marathons Next 6 Months
+
+<img src=".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png" alt="Home - Half Marathons Next 6 Months" width="280">
+
+Signed-out home page with the default search (half marathons, next 6 months): four sample races sorted by next registration deadline, the Manhattan Half highlighted with Add to calendar.
+
+### Home - Lottery Races Only
+
+<img src=".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png" alt="Home - Lottery Races Only" width="280">
+
+The Lottery chip switched on, narrowing the half marathons to the single lottery-entry race, the NYC Half.
+
+### Home - No Races Listed
+
+<img src=".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png" alt="Home - No Races Listed" width="280">
+
+The home page before any races are listed: the search and filters still render and the results show the empty state with a Show all races link.
+<!-- codeyam:scenario-gallery:end -->

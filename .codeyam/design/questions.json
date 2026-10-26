@@ -1,0 +1,46 @@
+{
+  "title": "Quick questions before I design this",
+  "lede": "A phone-friendly guide to NYC-area races that helps runners see how and when to enter, save the races they care about, and never miss a registration window. It should feel like it was made by local runners, not like a generic dashboard.",
+  "questions": [
+    { "id": "page", "type": "single", "title": "Which screen should I design first?",
+      "why": "Every design will show the same screen so you can compare them side by side. Your description calls discovery the start of the main journey.",
+      "options": [
+        { "label": "Race finder", "detail": "Browse and filter upcoming races, with registration dates up front" },
+        { "label": "Race detail page", "detail": "One race: entry method, deadlines, qualification, save and calendar actions" },
+        { "label": "My Races", "detail": "Saved races with upcoming registration milestones and notes" }
+      ] },
+    { "id": "device", "type": "single", "title": "Should I design it for a phone or a computer screen?",
+      "why": "Your description says it should work especially well on a phone, but the setup picked desktop as the default view.",
+      "options": [
+        { "label": "Phone", "detail": "Designed for a phone held in one hand" },
+        { "label": "Computer", "detail": "A wider layout for a laptop or desktop" }
+      ] },
+    { "id": "look", "type": "personality", "title": "What should it feel like?",
+      "why": "Your inspirations range from loud city streetwear to calm outdoor brands, so I'd like to know where to land.",
+      "sliders": [ ["City streets", "Trails and parks", 40], ["Loud, poster-like", "Calm, editorial", 40] ],
+      "moreSliders": [ ["Light", "Dark"], ["Roomy", "Packed with info"] ],
+      "words": ["Energetic", "Welcoming", "Gritty", "Clean", "Playful", "Trustworthy"],
+      "moreWords": ["Race-bib", "Map-like", "Neon", "Earthy", "Sporty", "Zine"],
+      "maxWords": 5,
+      "textPlaceholder": "e.g. Like a race bib pinned to a club flyer" },
+    { "id": "imagery", "type": "single", "title": "Should race listings show photos?",
+      "why": "Your description doesn't say. Photos add energy but official race photos aren't always available; maps, course lines and bold type can carry the look instead.",
+      "options": [
+        { "label": "Yes, show race photos", "detail": "A photo for each race, when there is one" },
+        { "label": "No photos", "detail": "Use course maps, route lines and type instead" }
+      ] },
+    { "id": "count", "type": "single", "title": "How many directions should I design?",
+      "why": "More directions, more range; fewer, faster to compare.",
+      "options": [ { "label": "2" }, { "label": "4" }, { "label": "6", "detail": "Recommended" }, { "label": "8" } ] },
+    { "id": "extra", "type": "free", "title": "Anything else I should know?",
+      "why": "Optional. A race you'd want featured, a color you love or hate, anything.",
+      "placeholder": "e.g. Feature the Brooklyn Half and a trail ultra" }
+  ],
+  "defaults": {
+    "page": "Race finder",
+    "device": "Phone",
+    "look": { "words": ["Energetic", "Welcoming"] },
+    "imagery": "No photos",
+    "count": "6"
+  }
+}

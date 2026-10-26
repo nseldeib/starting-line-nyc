@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="codeyam-viewport" content="mobile">
+<title>Printed photos, lime tags</title>
+<style>
+:root {
+  --paper: #F4F3EE;
+  --cream: #E9E8E1;
+  --sage: #D7DBCB;
+  --ink: #111210;
+  --muted: #5E605A;
+  --line: rgba(17, 18, 16, 0.10);
+  --lime: #D5F560;
+  --lime-deep: #C6EC44;
+  --anchor: #111210;
+  --anchor-text: #F4F3EE;
+  --coral: #E8573F;
+  --amber: #E9A23B;
+  --font: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 24px;
+  --r-pill: 100px;
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --paper: #22231D;
+  --cream: #2E2F27;
+  --sage: #15160F;
+  --ink: #F1F0EA;
+  --muted: #A3A49C;
+  --line: rgba(255, 255, 255, 0.10);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--sage); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.page { max-width: 560px; margin: 0 auto; padding: 56px 12px 0; }
+
+.top { display: flex; justify-content: space-between; align-items: center; padding: 0 6px 14px; }
+.word { font-weight: 800; font-size: 22px; letter-spacing: -0.05em; }
+.icon-btn { width: 42px; height: 42px; border-radius: 50%; background: var(--paper); border: none; display: grid; place-items: center; color: var(--ink); cursor: pointer; }
+:root[data-theme="dark"] .icon-btn { background: var(--cream); }
+
+/* photo treatment */
+.photo { position: relative; overflow: hidden; background-color: var(--paper); }
+.photo .img { position: absolute; inset: 0; filter: grayscale(1) contrast(1.45) brightness(1.08); mix-blend-mode: multiply; }
+.photo::after { content: ''; position: absolute; inset: 0; background-image: var(--grain); background-size: 160px 160px; mix-blend-mode: multiply; pointer-events: none; }
+:root[data-theme="dark"] .photo .img { mix-blend-mode: screen; }
+:root[data-theme="dark"] .photo::after { filter: invert(1); mix-blend-mode: screen; }
+
+/* hero */
+.hero { position: relative; background: var(--paper); border-radius: var(--r-lg); padding: 10px 10px 22px; }
+.hero-photo { height: 300px; border-radius: var(--r-lg); clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%, 0 28%); border-radius: 0 var(--r-lg) var(--r-lg) var(--r-lg); }
+.hero-photo .img { background-image: url('https://loremflickr.com/640/480/marathon,bridge,runners'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNiY2QzZTYiLz48cmVjdCB5PSIzMDAiIHdpZHRoPSI2NDAiIGhlaWdodD0iMTgwIiBmaWxsPSIjNWE3ZDk5Ii8+PHJlY3QgeD0iMTIwIiB5PSI3MCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjI2MCIgZmlsbD0iIzZiNWI0ZSIvPjxyZWN0IHg9IjQ4MCIgeT0iNzAiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyNjAiIGZpbGw9IiM2YjViNGUiLz48cGF0aCBkPSJNMCAxMjAgUSAxMzcgMzAwIDEzNyA5MCBRIDMyMCAzMDAgNDk3IDkwIFEgNDk3IDMwMCA2NDAgMTQwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHgxPSIxNjAiIHkxPSIxMzUuNjQ2Mjk2Mjk2Mjk2MyIgeDI9IjE2MCIgeTI9IjMwMCIgc3Ryb2tlPSIjM2QzYTNhIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSIxNzgiIHkxPSIxMjUuNzc5NjI5NjI5NjI5NjIiIHgyPSIxNzgiIHkyPSIzMDAiIHN0cm9rZT0iIzNkM2EzYSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48bGluZSB4MT0iMTk2IiB5MT0iMTE3LjExMjk2Mjk2Mjk2Mjk3IiB4Mj0iMTk2IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjIxNCIgeTE9IjEwOS42NDYyOTYyOTYyOTYzIiB4Mj0iMjE0IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjIzMiIgeTE9IjEwMy4zNzk2Mjk2Mjk2Mjk2MyIgeDI9IjIzMiIgeTI9IjMwMCIgc3Ryb2tlPSIjM2QzYTNhIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSIyNTAiIHkxPSI5OC4zMTI5NjI5NjI5NjI5NiIgeDI9IjI1MCIgeTI9IjMwMCIgc3Ryb2tlPSIjM2QzYTNhIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSIyNjgiIHkxPSI5NC40NDYyOTYyOTYyOTYzIiB4Mj0iMjY4IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjI4NiIgeTE9IjkxLjc3OTYyOTYyOTYyOTYyIiB4Mj0iMjg2IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjMwNCIgeTE9IjkwLjMxMjk2Mjk2Mjk2Mjk2IiB4Mj0iMzA0IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjMyMiIgeTE9IjkwLjA0NjI5NjI5NjI5NjI5IiB4Mj0iMzIyIiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjM0MCIgeTE9IjkwLjk3OTYyOTYyOTYyOTYzIiB4Mj0iMzQwIiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjM1OCIgeTE9IjkzLjExMjk2Mjk2Mjk2Mjk3IiB4Mj0iMzU4IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjM3NiIgeTE9Ijk2LjQ0NjI5NjI5NjI5NjMiIHgyPSIzNzYiIHkyPSIzMDAiIHN0cm9rZT0iIzNkM2EzYSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48bGluZSB4MT0iMzk0IiB5MT0iMTAwLjk3OTYyOTYyOTYyOTYzIiB4Mj0iMzk0IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PGxpbmUgeDE9IjQxMiIgeTE9IjEwNi43MTI5NjI5NjI5NjI5NiIgeDI9IjQxMiIgeTI9IjMwMCIgc3Ryb2tlPSIjM2QzYTNhIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI0MzAiIHkxPSIxMTMuNjQ2Mjk2Mjk2Mjk2MyIgeDI9IjQzMCIgeTI9IjMwMCIgc3Ryb2tlPSIjM2QzYTNhIiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI0NDgiIHkxPSIxMjEuNzc5NjI5NjI5NjI5NjIiIHgyPSI0NDgiIHkyPSIzMDAiIHN0cm9rZT0iIzNkM2EzYSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48bGluZSB4MT0iNDY2IiB5MT0iMTMxLjExMjk2Mjk2Mjk2Mjk3IiB4Mj0iNDY2IiB5Mj0iMzAwIiBzdHJva2U9IiMzZDNhM2EiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHJlY3QgeT0iMzAwIiB3aWR0aD0iNjQwIiBoZWlnaHQ9IjIyIiBmaWxsPSIjNGE0MDQwIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWIxYjFiIiBzdHJva2Utd2lkdGg9IjQuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyMzAuMCwyNjEuNiAyMjcuNCwyODIuNCIvPjxwb2x5bGluZSBwb2ludHM9IjIyOC43LDI2NS41IDIxOC4zLDI3My4zIDIxMy4xLDI2NS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjMwLjAsMjY1LjUgMjQwLjQsMjcwLjcgMjQ2LjksMjYyLjkiLz48cG9seWxpbmUgcG9pbnRzPSIyMjcuNCwyODIuNCAyNDAuNCwyOTIuOCAyMzcuOCwzMDcuMSIvPjxwb2x5bGluZSBwb2ludHM9IjIyNy40LDI4Mi40IDIxOC4zLDI5NS40IDIwNi42LDI5OC4wIi8+PC9nPjxjaXJjbGUgY3g9IjIzMS4zIiBjeT0iMjUzLjgiIHI9IjYuNSIgZmlsbD0iIzFiMWIxYiIvPjxyZWN0IHg9IjIyNC44IiB5PSIyNjYuOCIgd2lkdGg9IjcuOCIgaGVpZ2h0PSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDY0MDJmIiBzdHJva2Utd2lkdGg9IjQuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyOTAuMCwyNjEuNiAyODcuNCwyODIuNCIvPjxwb2x5bGluZSBwb2ludHM9IjI4OC43LDI2NS41IDI3OC4zLDI3My4zIDI3My4xLDI2NS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjkwLjAsMjY1LjUgMzAwLjQsMjcwLjcgMzA2LjksMjYyLjkiLz48cG9seWxpbmUgcG9pbnRzPSIyODcuNCwyODIuNCAzMDAuNCwyOTIuOCAyOTcuOCwzMDcuMSIvPjxwb2x5bGluZSBwb2ludHM9IjI4Ny40LDI4Mi40IDI3OC4zLDI5NS40IDI2Ni42LDI5OC4wIi8+PC9nPjxjaXJjbGUgY3g9IjI5MS4zIiBjeT0iMjUzLjgiIHI9IjYuNSIgZmlsbD0iI2Q2NDAyZiIvPjxyZWN0IHg9IjI4NC44IiB5PSIyNjYuOCIgd2lkdGg9IjcuOCIgaGVpZ2h0PSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWIxYjFiIiBzdHJva2Utd2lkdGg9IjQuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIzNTAuMCwyNjEuNiAzNDcuNCwyODIuNCIvPjxwb2x5bGluZSBwb2ludHM9IjM0OC43LDI2NS41IDMzOC4zLDI3My4zIDMzMy4xLDI2NS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzUwLjAsMjY1LjUgMzYwLjQsMjcwLjcgMzY2LjksMjYyLjkiLz48cG9seWxpbmUgcG9pbnRzPSIzNDcuNCwyODIuNCAzNjAuNCwyOTIuOCAzNTcuOCwzMDcuMSIvPjxwb2x5bGluZSBwb2ludHM9IjM0Ny40LDI4Mi40IDMzOC4zLDI5NS40IDMyNi42LDI5OC4wIi8+PC9nPjxjaXJjbGUgY3g9IjM1MS4zIiBjeT0iMjUzLjgiIHI9IjYuNSIgZmlsbD0iIzFiMWIxYiIvPjxyZWN0IHg9IjM0NC44IiB5PSIyNjYuOCIgd2lkdGg9IjcuOCIgaGVpZ2h0PSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWIxYjFiIiBzdHJva2Utd2lkdGg9IjQuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI0MTAuMCwyNjEuNiA0MDcuNCwyODIuNCIvPjxwb2x5bGluZSBwb2ludHM9IjQwOC43LDI2NS41IDM5OC4zLDI3My4zIDM5My4xLDI2NS41Ii8+PHBvbHlsaW5lIHBvaW50cz0iNDEwLjAsMjY1LjUgNDIwLjQsMjcwLjcgNDI2LjksMjYyLjkiLz48cG9seWxpbmUgcG9pbnRzPSI0MDcuNCwyODIuNCA0MjAuNCwyOTIuOCA0MTcuOCwzMDcuMSIvPjxwb2x5bGluZSBwb2ludHM9IjQwNy40LDI4Mi40IDM5OC4zLDI5NS40IDM4Ni42LDI5OC4wIi8+PC9nPjxjaXJjbGUgY3g9IjQxMS4zIiBjeT0iMjUzLjgiIHI9IjYuNSIgZmlsbD0iIzFiMWIxYiIvPjxyZWN0IHg9IjQwNC44IiB5PSIyNjYuOCIgd2lkdGg9IjcuOCIgaGVpZ2h0PSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PC9zdmc+'); background-size: cover; background-position: center; background-position: center 70%; }
+.star { position: absolute; top: 4px; left: 6px; width: 34px; height: 34px; color: var(--ink); }
+.hero-photo .bib { position: absolute; right: 12px; bottom: 12px; z-index: 2; }
+.hero h1 { font-size: 44px; line-height: 0.98; font-weight: 800; letter-spacing: -0.05em; margin: 22px 10px 12px; text-wrap: balance; }
+.hero p { margin: 0 10px; color: var(--muted); max-width: 34ch; }
+.hero .ctas { display: flex; align-items: center; gap: 18px; margin: 20px 10px 0; }
+.cta { background: var(--lime); color: #111210; border-radius: var(--r-pill); padding: 15px 24px; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+.cta:hover { background: var(--lime-deep); }
+.link { font-weight: 600; font-size: 14px; border-bottom: 1.5px solid currentColor; }
+
+/* filters */
+.pills { display: flex; gap: 8px; overflow-x: auto; padding: 18px 2px 4px; scrollbar-width: none; }
+.pill { flex: none; background: var(--paper); border-radius: var(--r-pill); padding: 10px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: none; color: var(--ink); }
+.pill.on { background: var(--ink); color: var(--paper); }
+
+/* deck */
+.sec-title { display: flex; justify-content: space-between; align-items: baseline; margin: 30px 8px 14px; }
+.sec-title h2 { font-size: 28px; line-height: 1; font-weight: 800; letter-spacing: -0.04em; }
+.sec-title small { font-size: 12px; color: var(--muted); }
+.deck { position: relative; padding-bottom: 28px; }
+.deck::before, .deck::after { content: ''; position: absolute; left: 18px; right: 18px; bottom: 14px; height: 40px; background: var(--paper); border-radius: 0 0 var(--r-lg) var(--r-lg); opacity: .7; }
+.deck::after { left: 32px; right: 32px; bottom: 0; opacity: .45; }
+.card { position: relative; z-index: 1; background: var(--paper); border-radius: var(--r-lg); padding: 10px; }
+.card + .card { margin-top: 10px; }
+.card-top { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: start; }
+.thumb { width: 96px; height: 112px; border-radius: var(--r-md); }
+.t1 .img { background-image: url('https://loremflickr.com/640/480/central,park,runners'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNjZmUzZWYiLz48cmVjdCB4PSIwIiB5PSIxMTIiIHdpZHRoPSI2NiIgaGVpZ2h0PSIxMzgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI2OCIgeT0iMTYwIiB3aWR0aD0iNDAiIGhlaWdodD0iOTAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI4NS4wIiB5PSIxMzAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTEwIiB5PSI3MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjEyNy4wIiB5PSI0MCIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIxNTIiIHk9IjYxIiB3aWR0aD0iMzMiIGhlaWdodD0iMTg5IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTg3IiB5PSIxOTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjIwNC4wIiB5PSIxNjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjI5IiB5PSIxMzYiIHdpZHRoPSI0OCIgaGVpZ2h0PSIxMTQiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIyNzkiIHk9IjU1IiB3aWR0aD0iNDUiIGhlaWdodD0iMTk1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjk4LjUiIHk9IjI1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjMyNiIgeT0iODgiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxNjIiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIzOTIiIHk9IjE2NiIgd2lkdGg9IjM4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNDMyIiB5PSIxNDIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxMDgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI0ODAiIHk9IjEyNyIgd2lkdGg9IjUxIiBoZWlnaHQ9IjEyMyIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjUzMyIgeT0iMTU0IiB3aWR0aD0iNDIiIGhlaWdodD0iOTYiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI1NzciIHk9IjEzOSIgd2lkdGg9IjU3IiBoZWlnaHQ9IjExMSIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjYzNiIgeT0iMTQ1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTA1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNjYwLjUiIHk9IjExNSIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48ZWxsaXBzZSBjeD0iMzIwIiBjeT0iNDIwIiByeD0iNTIwIiByeT0iMjIwIiBmaWxsPSIjNWY5YjRjIi8+PGcgZmlsbD0iIzNmN2EzNSI+PGNpcmNsZSBjeD0iNzAiIGN5PSIyNTAiIHI9IjYwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMjM1IiByPSI1MCIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjI0NSIgcj0iNjYiLz48Y2lyY2xlIGN4PSI2MjAiIGN5PSIyNzAiIHI9IjUwIi8+PC9nPjxwYXRoIGQ9Ik0tMjAgNDcwIEMgMTYwIDMzMCwgNDIwIDMzMCwgNjYwIDQyMCIgc3Ryb2tlPSIjZTlkY2MwIiBzdHJva2Utd2lkdGg9IjU0IiBmaWxsPSJub25lIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjAzMDJhIiBzdHJva2Utd2lkdGg9IjcuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyNTAuMCwzNDQuMCAyNDYuMCwzNzYuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0OC4wLDM1MC4wIDIzMi4wLDM2Mi4wIDIyNC4wLDM1MC4wIi8+PHBvbHlsaW5lIHBvaW50cz0iMjUwLjAsMzUwLjAgMjY2LjAsMzU4LjAgMjc2LjAsMzQ2LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyNDYuMCwzNzYuMCAyNjYuMCwzOTIuMCAyNjIuMCw0MTQuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0Ni4wLDM3Ni4wIDIzMi4wLDM5Ni4wIDIxNC4wLDQwMC4wIi8+PC9nPjxjaXJjbGUgY3g9IjI1Mi4wIiBjeT0iMzMyLjAiIHI9IjEwLjAiIGZpbGw9IiMyMDMwMmEiLz48cmVjdCB4PSIyNDIuMCIgeT0iMzUyLjAiIHdpZHRoPSIxMi4wIiBoZWlnaHQ9IjEwLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDY0YTJmIiBzdHJva2Utd2lkdGg9IjYuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIzMzAuMCwzMzYuOCAzMjYuMiwzNjcuMiIvPjxwb2x5bGluZSBwb2ludHM9IjMyOC4xLDM0Mi41IDMxMi45LDM1My45IDMwNS4zLDM0Mi41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzMwLjAsMzQyLjUgMzQ1LjIsMzUwLjEgMzU0LjcsMzM4LjciLz48cG9seWxpbmUgcG9pbnRzPSIzMjYuMiwzNjcuMiAzNDUuMiwzODIuNCAzNDEuNCw0MDMuMyIvPjxwb2x5bGluZSBwb2ludHM9IjMyNi4yLDM2Ny4yIDMxMi45LDM4Ni4yIDI5NS44LDM5MC4wIi8+PC9nPjxjaXJjbGUgY3g9IjMzMS45IiBjeT0iMzI1LjQiIHI9IjkuNSIgZmlsbD0iI2Q2NGEyZiIvPjxyZWN0IHg9IjMyMi40IiB5PSIzNDQuNCIgd2lkdGg9IjExLjQiIGhlaWdodD0iOS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIwMzAyYSIgc3Ryb2tlLXdpZHRoPSI3LjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iNDEwLjAsMzQ2LjIgNDA1LjgsMzc5LjgiLz48cG9seWxpbmUgcG9pbnRzPSI0MDcuOSwzNTIuNSAzOTEuMSwzNjUuMSAzODIuNywzNTIuNSIvPjxwb2x5bGluZSBwb2ludHM9IjQxMC4wLDM1Mi41IDQyNi44LDM2MC45IDQzNy4zLDM0OC4zIi8+PHBvbHlsaW5lIHBvaW50cz0iNDA1LjgsMzc5LjggNDI2LjgsMzk2LjYgNDIyLjYsNDE5LjciLz48cG9seWxpbmUgcG9pbnRzPSI0MDUuOCwzNzkuOCAzOTEuMSw0MDAuOCAzNzIuMiw0MDUuMCIvPjwvZz48Y2lyY2xlIGN4PSI0MTIuMSIgY3k9IjMzMy42IiByPSIxMC41IiBmaWxsPSIjMjAzMDJhIi8+PHJlY3QgeD0iNDAxLjYiIHk9IjM1NC42IiB3aWR0aD0iMTIuNiIgaGVpZ2h0PSIxMC41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjwvc3ZnPg=='); background-size: cover; background-position: center; }
+.t2 .img { background-image: url('https://loremflickr.com/640/480/half,marathon,runners'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjZiMjZiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmRlNmM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9InVybCgjcykiLz48Y2lyY2xlIGN4PSI0NzAiIGN5PSIyMTAiIHI9IjQ2IiBmaWxsPSIjZmZmNGRjIi8+PHJlY3QgeD0iMCIgeT0iMTk1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTM1IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjQuNSIgeT0iMTY1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU3IiB5PSIyMzEiIHdpZHRoPSI1MyIgaGVpZ2h0PSI5OSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjExMiIgeT0iMjI4IiB3aWR0aD0iNDQiIGhlaWdodD0iMTAyIiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMTU4IiB5PSIxMzgiIHdpZHRoPSIzNCIgaGVpZ2h0PSIxOTIiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIxOTQiIHk9IjE1OSIgd2lkdGg9IjM3IiBoZWlnaHQ9IjE3MSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjIzMyIgeT0iMTgzIiB3aWR0aD0iNTkiIGhlaWdodD0iMTQ3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjk0IiB5PSIyMTkiIHdpZHRoPSI0NyIgaGVpZ2h0PSIxMTEiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIzNDMiIHk9IjI0NiIgd2lkdGg9IjQ4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMzkzIiB5PSIyMDEiIHdpZHRoPSI1MyIgaGVpZ2h0PSIxMjkiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSI0NDgiIHk9IjE2MiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjE2OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjQ4NiIgeT0iMTUzIiB3aWR0aD0iMzkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNTI3IiB5PSIyNTIiIHdpZHRoPSIzNiIgaGVpZ2h0PSI3OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU2NSIgeT0iMTUzIiB3aWR0aD0iNjkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNjM2IiB5PSIxMzIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxOTgiIGZpbGw9IiMzYjRhNmIiLz48cG9seWdvbiBwb2ludHM9IjAsMzMwIDY0MCwzMzAgNjQwLDQ4MCAwLDQ4MCIgZmlsbD0iIzU1NjA3YSIvPjxwb2x5Z29uIHBvaW50cz0iMjkwLDMzMCAzNTAsMzMwIDUyMCw0ODAgMTIwLDQ4MCIgZmlsbD0iIzZiNzU5MCIvPjxnIHN0cm9rZT0iI2Y0ZDM1ZSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtZGFzaGFycmF5PSIyNCAyMiI+PGxpbmUgeDE9IjMyMCIgeTE9IjMzNCIgeDI9IjMyMCIgeTI9IjQ4MCIvPjwvZz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxZDIzMzMiIHN0cm9rZS13aWR0aD0iNy45IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjIyMC4wLDM3OC40IDIxNS42LDQxMy42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE3LjgsMzg1LjAgMjAwLjIsMzk4LjIgMTkxLjQsMzg1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyMjAuMCwzODUuMCAyMzcuNiwzOTMuOCAyNDguNiwzODAuNiIvPjxwb2x5bGluZSBwb2ludHM9IjIxNS42LDQxMy42IDIzNy42LDQzMS4yIDIzMy4yLDQ1NS40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE1LjYsNDEzLjYgMjAwLjIsNDM1LjYgMTgwLjQsNDQwLjAiLz48L2c+PGNpcmNsZSBjeD0iMjIyLjIiIGN5PSIzNjUuMiIgcj0iMTEuMCIgZmlsbD0iIzFkMjMzMyIvPjxyZWN0IHg9IjIxMS4yIiB5PSIzODcuMiIgd2lkdGg9IjEzLjIiIGhlaWdodD0iMTEuMCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjkiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNlMjQ1M2MiIHN0cm9rZS13aWR0aD0iNi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjM2MC4wLDM2OS42IDM1Ni40LDM5OC40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU4LjIsMzc1LjAgMzQzLjgsMzg1LjggMzM2LjYsMzc1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIzNjAuMCwzNzUuMCAzNzQuNCwzODIuMiAzODMuNCwzNzEuNCIvPjxwb2x5bGluZSBwb2ludHM9IjM1Ni40LDM5OC40IDM3NC40LDQxMi44IDM3MC44LDQzMi42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU2LjQsMzk4LjQgMzQzLjgsNDE2LjQgMzI3LjYsNDIwLjAiLz48L2c+PGNpcmNsZSBjeD0iMzYxLjgiIGN5PSIzNTguOCIgcj0iOS4wIiBmaWxsPSIjZTI0NTNjIi8+PHJlY3QgeD0iMzUyLjgiIHk9IjM3Ni44IiB3aWR0aD0iMTAuOCIgaGVpZ2h0PSI5LjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWQyMzMzIiBzdHJva2Utd2lkdGg9IjguNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI0NTAuMCwzODcuOCA0NDUuMiw0MjYuMiIvPjxwb2x5bGluZSBwb2ludHM9IjQ0Ny42LDM5NS4wIDQyOC40LDQwOS40IDQxOC44LDM5NS4wIi8+PHBvbHlsaW5lIHBvaW50cz0iNDUwLjAsMzk1LjAgNDY5LjIsNDA0LjYgNDgxLjIsMzkwLjIiLz48cG9seWxpbmUgcG9pbnRzPSI0NDUuMiw0MjYuMiA0NjkuMiw0NDUuNCA0NjQuNCw0NzEuOCIvPjxwb2x5bGluZSBwb2ludHM9IjQ0NS4yLDQyNi4yIDQyOC40LDQ1MC4yIDQwNi44LDQ1NS4wIi8+PC9nPjxjaXJjbGUgY3g9IjQ1Mi40IiBjeT0iMzczLjQiIHI9IjEyLjAiIGZpbGw9IiMxZDIzMzMiLz48cmVjdCB4PSI0NDAuNCIgeT0iMzk3LjQiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjEyLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PC9zdmc+'); background-size: cover; background-position: center; }
+.t3 .img { background-image: url('https://loremflickr.com/640/480/trail,running,mountain'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNkZGU2ZDgiLz48cG9seWdvbiBwb2ludHM9IjAsMjYwIDEyMCwxNTAgMjQwLDIzMCAzODAsMTEwIDUyMCwyMjAgNjQwLDE3MCA2NDAsNDgwIDAsNDgwIiBmaWxsPSIjOGZhODg5Ii8+PHBvbHlnb24gcG9pbnRzPSIwLDMzMCAxNjAsMjUwIDMzMCwzMjAgNDgwLDI0MCA2NDAsMzAwIDY0MCw0ODAgMCw0ODAiIGZpbGw9IiM1YzdhNTUiLz48cG9seWdvbiBwb2ludHM9IjYwLDI3MCA0MiwzMjYgNzgsMzI2IiBmaWxsPSIjMmY0YTJjIi8+PHBvbHlnb24gcG9pbnRzPSIxMDAsMjkwIDgyLDM0NiAxMTgsMzQ2IiBmaWxsPSIjMmY0YTJjIi8+PHBvbHlnb24gcG9pbnRzPSI1NDAsMjUwIDUyMiwzMDYgNTU4LDMwNiIgZmlsbD0iIzJmNGEyYyIvPjxwb2x5Z29uIHBvaW50cz0iNTkwLDI3MCA1NzIsMzI2IDYwOCwzMjYiIGZpbGw9IiMyZjRhMmMiLz48cG9seWdvbiBwb2ludHM9IjYxMCwzMDAgNTkyLDM1NiA2MjgsMzU2IiBmaWxsPSIjMmY0YTJjIi8+PHBvbHlnb24gcG9pbnRzPSIzMCwzMTAgMTIsMzY2IDQ4LDM2NiIgZmlsbD0iIzJmNGEyYyIvPjxwYXRoIGQ9Ik0xODAgNDgwIEMgMjYwIDQyMCwgMzAwIDQwMCwgMzQwIDM0MCBDIDM2MCAzMTAsIDQwMCAzMDAsIDQzMCAyOTAiIHN0cm9rZT0iI2I5OGQ1YSIgc3Ryb2tlLXdpZHRoPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWYyYTFjIiBzdHJva2Utd2lkdGg9IjguNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIzMDAuMCwzMzIuOCAyOTUuMiwzNzEuMiIvPjxwb2x5bGluZSBwb2ludHM9IjI5Ny42LDM0MC4wIDI3OC40LDM1NC40IDI2OC44LDM0MC4wIi8+PHBvbHlsaW5lIHBvaW50cz0iMzAwLjAsMzQwLjAgMzE5LjIsMzQ5LjYgMzMxLjIsMzM1LjIiLz48cG9seWxpbmUgcG9pbnRzPSIyOTUuMiwzNzEuMiAzMTkuMiwzOTAuNCAzMTQuNCw0MTYuOCIvPjxwb2x5bGluZSBwb2ludHM9IjI5NS4yLDM3MS4yIDI3OC40LDM5NS4yIDI1Ni44LDQwMC4wIi8+PC9nPjxjaXJjbGUgY3g9IjMwMi40IiBjeT0iMzE4LjQiIHI9IjEyLjAiIGZpbGw9IiMxZjJhMWMiLz48cmVjdCB4PSIyOTAuNCIgeT0iMzQyLjQiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjEyLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PC9zdmc+'); background-size: cover; background-position: center; }
+.tag { display: inline-flex; align-items: center; gap: 6px; background: var(--cream); border-radius: var(--r-pill); padding: 5px 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime-deep); display: inline-block; }
+.tag.amber i { background: var(--amber); }
+.tag.coral i { background: var(--coral); }
+.card h3 { font-size: 20px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 4px; }
+.meta { font-size: 13px; color: var(--muted); }
+.milestone { margin-top: 10px; background: var(--lime); color: #111210; border-radius: var(--r-md); padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; }
+.milestone b { display: block; font-size: 17px; letter-spacing: -0.03em; }
+.milestone span { font-size: 12px; opacity: .72; }
+.milestone.plain { background: var(--cream); color: var(--ink); }
+.mini { display: flex; gap: 6px; }
+.mini button { width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(17,18,16,.08); color: inherit; display: grid; place-items: center; cursor: pointer; }
+.milestone.plain .mini button { background: var(--paper); }
+.more { display: block; text-align: center; margin-top: 4px; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px; }
+
+/* bento */
+.bento { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cell { background: var(--paper); border-radius: var(--r-lg); padding: 18px; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between; }
+.cell h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+.cell p { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.cell.big { grid-column: span 2; background: var(--anchor); color: var(--anchor-text); min-height: 170px; }
+.cell.big p { color: rgba(244,243,238,.72); }
+.cell.big h3 { font-size: 30px; }
+.cell.lime { background: var(--lime); color: #111210; }
+.cell.lime p { color: rgba(17,18,16,.66); }
+.cell.wide { grid-column: span 2; min-height: 0; }
+.cell.photo-cell { padding: 0; overflow: hidden; position: relative; }
+.photo-cell .photo { height: 100%; min-height: 130px; }
+.photo-cell .img { background-image: url('https://loremflickr.com/640/480/boardwalk,running'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNiZmUxZjIiLz48cmVjdCB5PSIyNTAiIHdpZHRoPSI2NDAiIGhlaWdodD0iNzAiIGZpbGw9IiM0ZjlmYzQiLz48cmVjdCB5PSIzMjAiIHdpZHRoPSI2NDAiIGhlaWdodD0iMTYwIiBmaWxsPSIjZWZkOWE4Ii8+PGcgZmlsbD0iIzliNmI0MyI+PHJlY3QgeD0iMCIgeT0iMzYwIiB3aWR0aD0iNjQwIiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIwIiB5PSIzNzQiIHdpZHRoPSI2NDAiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjAiIHk9IjM4OCIgd2lkdGg9IjY0MCIgaGVpZ2h0PSI4Ii8+PHJlY3QgeD0iMCIgeT0iNDAyIiB3aWR0aD0iNjQwIiBoZWlnaHQ9IjgiLz48cmVjdCB4PSIwIiB5PSI0MTYiIHdpZHRoPSI2NDAiIGhlaWdodD0iOCIvPjxyZWN0IHg9IjAiIHk9IjQzMCIgd2lkdGg9IjY0MCIgaGVpZ2h0PSI4Ii8+PC9nPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMzAzYSIgc3Ryb2tlLXdpZHRoPSI3LjkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMjQwLjAsMzM4LjQgMjM1LjYsMzczLjYiLz48cG9seWxpbmUgcG9pbnRzPSIyMzcuOCwzNDUuMCAyMjAuMiwzNTguMiAyMTEuNCwzNDUuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0MC4wLDM0NS4wIDI1Ny42LDM1My44IDI2OC42LDM0MC42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjM1LjYsMzczLjYgMjU3LjYsMzkxLjIgMjUzLjIsNDE1LjQiLz48cG9seWxpbmUgcG9pbnRzPSIyMzUuNiwzNzMuNiAyMjAuMiwzOTUuNiAyMDAuNCw0MDAuMCIvPjwvZz48Y2lyY2xlIGN4PSIyNDIuMiIgY3k9IjMyNS4yIiByPSIxMS4wIiBmaWxsPSIjMjIzMDNhIi8+PHJlY3QgeD0iMjMxLjIiIHk9IjM0Ny4yIiB3aWR0aD0iMTMuMiIgaGVpZ2h0PSIxMS4wIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2UwNTAzYSIgc3Ryb2tlLXdpZHRoPSI4LjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iMzgwLjAsMzQ1LjYgMzc1LjQsMzgyLjQiLz48cG9seWxpbmUgcG9pbnRzPSIzNzcuNywzNTIuNSAzNTkuMywzNjYuMyAzNTAuMSwzNTIuNSIvPjxwb2x5bGluZSBwb2ludHM9IjM4MC4wLDM1Mi41IDM5OC40LDM2MS43IDQwOS45LDM0Ny45Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzc1LjQsMzgyLjQgMzk4LjQsNDAwLjggMzkzLjgsNDI2LjEiLz48cG9seWxpbmUgcG9pbnRzPSIzNzUuNCwzODIuNCAzNTkuMyw0MDUuNCAzMzguNiw0MTAuMCIvPjwvZz48Y2lyY2xlIGN4PSIzODIuMyIgY3k9IjMzMS44IiByPSIxMS41IiBmaWxsPSIjZTA1MDNhIi8+PHJlY3QgeD0iMzcwLjgiIHk9IjM1NC44IiB3aWR0aD0iMTMuOCIgaGVpZ2h0PSIxMS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjwvc3ZnPg=='); background-size: cover; background-position: center; }
+
+/* trust */
+.trust { margin-top: 8px; background: var(--paper); border-radius: var(--r-lg); padding: 20px; }
+.trust h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+.trust dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 16px 0; font-size: 14px; font-variant-numeric: tabular-nums; }
+.trust dt { color: var(--muted); }
+.trust dd { font-weight: 600; }
+.trust .unknown { background: var(--cream); border-radius: var(--r-sm); padding: 1px 8px; font-weight: 600; }
+.trust p { font-size: 13px; color: var(--muted); }
+.sample { text-align: center; font-size: 12px; color: var(--muted); padding: 22px 0 10px; }
+
+/* tab bar */
+.tabbar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--paper); border-top: 1px solid var(--line); display: flex; justify-content: space-around; padding: 10px 8px calc(10px + env(safe-area-inset-bottom)); }
+.tabbar a { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: var(--muted); min-width: 64px; padding: 4px 10px; border-radius: var(--r-pill); }
+.tabbar a.on { color: var(--ink); }
+.tabbar a.on svg { background: var(--lime); border-radius: var(--r-pill); color: #111210; }
+.tabbar svg { width: 44px; height: 26px; padding: 3px 12px; }
+
+@media (min-width: 900px) {
+  .page { max-width: 1080px; padding-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .top, .pills { grid-column: span 2; }
+  .hero-photo { height: 420px; }
+  .tabbar { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <a class="word" href="#">corral</a>
+    <button class="icon-btn" aria-label="Search races"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+  </header>
+
+  <section class="hero">
+    <div class="photo hero-photo" role="img" aria-label="Runners crossing a suspension bridge"><div class="img"></div></div>
+    <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14.2 9.8 L24 12 L14.2 14.2 L12 24 L9.8 14.2 L0 12 L9.8 9.8 Z" fill="currentColor"/></svg>
+    <h1>Know when every NYC race opens.</h1>
+    <p>NYRR and independent road and trail races, with entry rules and registration dates you can put on your calendar.</p>
+    <div class="ctas">
+      <a class="cta" href="#">Find a race</a>
+      <a class="link" href="#">How entry works</a>
+    </div>
+  </section>
+
+  <div class="pills" role="group" aria-label="Quick filters">
+    <span class="pill on">All</span>
+    <span class="pill">Opening soon</span>
+    <span class="pill">Road</span>
+    <span class="pill">Trail</span>
+    <span class="pill">Half</span>
+    <span class="pill">Ultra</span>
+    <span class="pill">Manhattan</span>
+  </div>
+
+  <section aria-labelledby="next">
+    <div class="sec-title"><h2 id="next">Opening next</h2><small>Times in ET</small></div>
+    <div class="deck">
+      <article class="card">
+        <div class="card-top">
+          <div class="photo thumb t1" role="img" aria-label="Runners on the Central Park loop"><div class="img"></div></div>
+          <div>
+            <span class="tag amber"><i></i>Opening soon</span>
+            <h3>Fred Lebow Manhattan Half</h3>
+            <div class="meta">Sun, Jan 24, 2027<br>Central Park, 13.1 mi road</div>
+          </div>
+        </div>
+        <div class="milestone">
+          <div><span>Registration opens</span><b>Tue, Nov 10, 12:00 pm</b></div>
+          <div class="mini">
+            <button aria-label="Save race"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+            <button aria-label="Add to calendar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-top">
+          <div class="photo thumb t2" role="img" aria-label="Runners on a city street"><div class="img"></div></div>
+          <div>
+            <span class="tag"><i></i>Lottery open</span>
+            <h3>United Airlines NYC Half</h3>
+            <div class="meta">Sun, Mar 21, 2027<br>Brooklyn to Times Square, 13.1 mi</div>
+          </div>
+        </div>
+        <div class="milestone plain">
+          <div><span>Lottery closes</span><b>Tue, Nov 17, 11:59 pm</b></div>
+          <div class="mini">
+            <button aria-label="Save race"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+            <button aria-label="Add to calendar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-top">
+          <div class="photo thumb t3" role="img" aria-label="A runner on a mountain trail"><div class="img"></div></div>
+          <div>
+            <span class="tag coral"><i></i>Waitlist</span>
+            <h3>Breakneck Point Trail 50K</h3>
+            <div class="meta">Sat, Apr 10, 2027<br>Beacon, NY, 31 mi trail</div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <a class="more" href="#">See all 48 races</a>
+  </section>
+
+  <section aria-labelledby="ways">
+    <div class="sec-title"><h2 id="ways">Five ways in</h2></div>
+    <div class="bento">
+      <div class="cell big"><h3>Lottery</h3><p>Apply inside the window, then wait for the drawing. Applying early does not improve your odds. Missing the deadline ends your chances.</p></div>
+      <div class="cell lime"><h3>Open</h3><p>First come, first served. Popular races fill in hours.</p></div>
+      <div class="cell photo-cell"><div class="photo" role="img" aria-label="Runners on a boardwalk"><div class="img"></div></div></div>
+      <div class="cell"><h3>Time qualifier</h3><p>A fast enough time, in the window for that edition.</p></div>
+      <div class="cell"><h3>Charity</h3><p>Guaranteed entry for a fundraising pledge.</p></div>
+      <div class="cell wide"><h3>Membership</h3><p>Club membership or prior-year races, like NYRR’s 9+1 program.</p></div>
+    </div>
+  </section>
+
+  <section class="trust" aria-labelledby="src">
+    <h2 id="src">Every date links to the organizer.</h2>
+    <dl>
+      <dt>Race</dt><dd>Brooklyn Half, 2027 edition</dd>
+      <dt>Race day</dt><dd>Sat, May 15, 2027</dd>
+      <dt>Registration</dt><dd><span class="unknown">Not announced yet</span></dd>
+      <dt>Source</dt><dd><a href="#" class="link">nyrr.org</a>, checked Oct 24, 2026</dd>
+    </dl>
+    <p>Calendar downloads work now. Automatic reminders arrive with accounts, so nothing is scheduled until you add it to your calendar.</p>
+  </section>
+  <p class="sample">Races shown are sample data.</p>
+</div>
+
+<nav class="tabbar" aria-label="Main">
+  <a class="on" href="#"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l7-6 7 6v8H3z"/></svg>Home</a>
+  <a href="#"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="6"/><path d="M17 17l-3.5-3.5"/></svg>Races</a>
+  <a href="#"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2h10v16l-5-3.5L5 18z"/></svg>My races</a>
+  <a href="#"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M2 8h16"/></svg>Calendar</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - Not Announced",
+  "id": "4ad1bc38-bf1e-4dc0-8ac2-ba987f07df75",
+  "url": "/isolated-components/RaceRow?s=NotAnnounced",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its not announced state with sample race data."
+}

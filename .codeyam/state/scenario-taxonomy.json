@@ -1,0 +1,33 @@
+{
+  "views": {
+    "Home": {
+      "empty": {
+        "status": "covered"
+      },
+      "single": {
+        "status": "covered"
+      },
+      "typical": {
+        "status": "covered"
+      },
+      "many": {
+        "status": "n-a",
+        "reason": "the page has no truncation or pagination yet; the 12-month scenario already renders the whole sample set of seven races"
+      },
+      "loading": {
+        "status": "n-a",
+        "reason": "server-rendered with no client fetch, so there is no in-page loading state"
+      },
+      "edge": {
+        "status": "added"
+      },
+      "error": {
+        "status": "n-a",
+        "reason": "there is no in-page error state yet; a database failure falls through to the framework error page"
+      },
+      "key-interaction": {
+        "status": "added"
+      }
+    }
+  }
+}

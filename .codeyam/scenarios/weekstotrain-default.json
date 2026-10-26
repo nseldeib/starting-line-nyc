@@ -1,0 +1,12 @@
+{
+  "name": "WeeksToTrain - Default",
+  "id": "a3154612-76a6-4a1a-aaf0-ea855d7b3b94",
+  "url": "/isolated-components/WeeksToTrain?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "WeeksToTrain",
+  "scenarioType": "component",
+  "description": "WeeksToTrain in its default state with sample race data."
+}

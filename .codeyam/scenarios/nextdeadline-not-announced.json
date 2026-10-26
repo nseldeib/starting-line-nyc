@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - Not Announced",
+  "id": "87d8485d-c223-4254-9779-32e0ad8749b1",
+  "url": "/isolated-components/NextDeadline?s=NotAnnounced",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its not announced state with sample race data."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "RaceDayCell - Tentative",
+  "id": "6bc18ce4-5fe0-4ed4-9c4d-6856de861cec",
+  "url": "/isolated-components/RaceDayCell?s=Tentative",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceDayCell",
+  "scenarioType": "component",
+  "description": "RaceDayCell in its tentative state with sample race data."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "FilterChips - Nothing Narrowing",
+  "id": "c36f8796-0d79-415f-9043-b1a69e1c3caa",
+  "url": "/isolated-components/FilterChips?s=NothingNarrowing",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "FilterChips",
+  "scenarioType": "component",
+  "description": "FilterChips in its nothing narrowing state with sample race data."
+}

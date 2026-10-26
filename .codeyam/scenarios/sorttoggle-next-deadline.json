@@ -1,0 +1,12 @@
+{
+  "name": "SortToggle - Next Deadline",
+  "id": "cd936a35-964e-4c85-9a7a-60e847dac9d8",
+  "url": "/isolated-components/SortToggle?s=NextDeadline",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SortToggle",
+  "scenarioType": "component",
+  "description": "SortToggle in its next deadline state with sample race data."
+}

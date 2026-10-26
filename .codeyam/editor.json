@@ -1,0 +1,234 @@
+{
+  "$comment": "Per-developer settings (port, provider, proxy ports, startCommand, etc.) belong in editor.local.json. That file is gitignored and is deep-merged on top of this one at load time. Changing `provider` after scaffold does NOT install that agent's surface — re-run `codeyam-editor editor install-hooks` (or `codeyam-editor init --provider <name>`) to install it. See CLAUDE.md or run `codeyam-editor editor config-show` to inspect the effective config.",
+  "apps": [
+    {
+      "dir": ".",
+      "name": "Next.js + Prisma + SQLite",
+      "port": 3000,
+      "startCommand": "npm run dev",
+      "type": "web"
+    }
+  ],
+  "audit": {
+    "allowedDocumentationOnlySlugs": [
+      "post-merge-drift-sweep"
+    ],
+    "branchBaseRef": "main",
+    "coverageBootstrap": {
+      "enabled": true
+    },
+    "itemShape": {
+      "changeWithoutVerify": "note",
+      "compound": "warning",
+      "vague": "warning"
+    },
+    "scenarioFreshnessDays": 14,
+    "sharedBaselineMinScenarios": 10,
+    "sizeBudget": {
+      "maxEntityLines": 150,
+      "maxFileLines": 500,
+      "severity": "warning"
+    },
+    "stepBudget": {
+      "maxChecklistItems": 6,
+      "maxLines": 80,
+      "severity": "warning"
+    },
+    "suppressions": {
+      "ratchet": true,
+      "severity": "warning"
+    },
+    "testNamingConventions": {}
+  },
+  "catalogAutoAdd": {
+    "allow": [],
+    "deny": []
+  },
+  "cleanup": {
+    "completedPlanMinAgeDays": 90,
+    "completedPlanRetention": 500,
+    "logCompress": true,
+    "logDeleteDays": 30,
+    "logRotateDays": 7,
+    "screenshotPruneOrphans": true,
+    "tmpDeleteHours": 24
+  },
+  "coverageThresholds": {
+    "global": {
+      "minLinePercent": 90.0
+    }
+  },
+  "database": null,
+  "defaultScreenSize": "Desktop",
+  "deviceScaleFactor": 2.0,
+  "env": {},
+  "files": {
+    "eventLogMaxBytes": null,
+    "journalShardEntries": null,
+    "logKeepRotated": null,
+    "textLogMaxBytes": null
+  },
+  "formatters": [],
+  "git": {
+    "commitQueue": {
+      "enabled": true,
+      "headAutoReclaimEnabled": true,
+      "heartbeatIntervalSec": 15,
+      "machineAliveHookTimeoutMs": 5000,
+      "maxHookPrunePerSweep": 10,
+      "maxProgressStallSec": 900,
+      "pollIntervalMs": 2000,
+      "serverHeartbeatIntervalSec": 60,
+      "stallEscalationSec": 1800,
+      "surfaceWaitAfterSec": 1800,
+      "waitTimeoutSec": 300,
+      "yieldOnQuestionSec": 600
+    },
+    "planClaims": {
+      "enabled": true,
+      "fetchIntervalSec": 3
+    }
+  },
+  "hooks": {},
+  "port": 3000,
+  "projectDescription": "Build a vibrant, mobile-friendly website that can evolve into a web application for discovering, planning, and entering running races in the greater NYC area.\n\n**The problem**\n\nRace planning is fragmented across organizers’ websites. It’s difficult to track qualification requirements, registration opening dates, entry deadlines, and race dates. Popular races, especially NYRR events, can sell out quickly. Help runners understand their options and take action in time.\n\n**Core functionality**\n\n1. **Discover and compare races**\n   - Browse NYC and greater NYC races from multiple organizers, including NYRR and independent road and trail events.\n   - Filter by distance, road vs. trail, location, race date, and registration status.\n   - Sort by race date, registration opening date, entry deadline, or distance.\n   - Support common distances and custom distances, including ultramarathons.\n\n2. **Understand entry requirements**\n   - Give each race a detail page with its date, location, distance, terrain, organizer, price when available, and official registration link.\n   - Clearly distinguish open registration, lotteries, time qualification, charity entry, and eligibility or membership requirements.\n   - Show relevant qualification windows, standards, and deadlines, including which race edition they apply to.\n   - Highlight registration status: opening soon, open, lottery open, waitlist, sold out, or closed.\n\n3. **Save and organize races**\n   - Let me save races as “Interested,” “Considering,” or “Signed up.”\n   - Provide a “My Races” view with upcoming races and registration milestones.\n   - Allow personal notes and status changes.\n\n4. **Stay ahead of registration**\n   - Let me create reminders for registration openings, lottery deadlines, and other important milestones.\n   - Support custom reminder dates and times, plus useful presets such as one day before and 15 minutes before registration opens.\n   - Prioritize Google Calendar, with Apple Calendar and Outlook support through downloadable calendar events.\n   - Let me add both race-day events and registration milestones to my calendar.\n   - Display times clearly in America/New_York and preserve the correct time zone when exporting events.\n\n**Information quality**\n\nUse official race sources wherever possible. Show a source link and “last verified” date for important information. Clearly label unknown or tentative dates, and never invent registration dates or qualification requirements. Treat each annual race edition separately so last year’s information cannot be mistaken for the upcoming event.\n\n**Visual direction**\n\nMake this feel like a product built by and for the NYC running community: energetic, expressive, welcoming, and useful.\n\nTake inspiration from Bandit, Notes, Oiselle, Patagonia, and Nike ACG without copying their branding. Explore bold typography, vibrant accent colors, strong editorial layouts, and subtle references to city streets, park loops, race bibs, and trail maps. Balance personality with excellent readability and accessible contrast. Avoid a generic dashboard aesthetic.\n\nThe experience should work especially well on a phone, with easy filtering, scannable race information, and prominent registration dates and actions.\n\n**First-version scope**\n\nPrioritize a polished discovery experience, race detail pages, saved races, and calendar exports. Design the structure to support accounts, persistent preferences, and automated reminders as the application evolves.\n\nMake clear which features are functional and which require additional integrations. Calendar exports and scheduled notifications are separate capabilities; do not imply that a reminder has been scheduled unless it actually has.\n\nStart with a focused set of NYC-area races that demonstrates different distances, terrain types, organizers, and entry methods. If verified live data is unavailable, use clearly labeled sample data.\n\nThe primary user journey should be: discover a race → understand how and when to enter → save it → set a reminder or add a calendar event → register through the official organizer.",
+  "provider": "claude",
+  "proxy": {
+    "controlPort": 14958,
+    "dbPort": 14860,
+    "httpPort": 14859,
+    "httpsPassthrough": [
+      "crates.io",
+      "static.crates.io",
+      "index.crates.io",
+      "registry.npmjs.org",
+      "pypi.org",
+      "files.pythonhosted.org",
+      "proxy.golang.org",
+      "sum.golang.org",
+      "storage.googleapis.com",
+      "cdn.playwright.dev",
+      "rubygems.org",
+      "github.com",
+      "codeload.github.com",
+      "objects.githubusercontent.com"
+    ],
+    "httpsPreview": false
+  },
+  "runnerTimeout": {
+    "changedFanoutMaxExtraSeconds": 1800,
+    "changedFanoutPerUnitSeconds": 180,
+    "changedFanoutThreshold": 2,
+    "floorSeconds": 900,
+    "headroomSeconds": 90,
+    "mode": "auto"
+  },
+  "scenarios": {
+    "dir": ".codeyam/scenarios"
+  },
+  "screenSizes": {
+    "Desktop": {
+      "height": 900,
+      "width": 1440
+    },
+    "Laptop": {
+      "height": 800,
+      "width": 1280
+    },
+    "Mobile": {
+      "height": 844,
+      "width": 390
+    },
+    "Tablet": {
+      "height": 1024,
+      "width": 768
+    }
+  },
+  "server": {
+    "access": {
+      "mode": "loopback"
+    },
+    "autoRestartOnStaleBinary": true,
+    "devServerMaxRssMb": null,
+    "environment": "local",
+    "maxRssMb": 6144
+  },
+  "setupBrowserEnabled": false,
+  "silenceHookStderr": false,
+  "startCommand": "npm run dev",
+  "staticChecks": [
+    {
+      "command": "npx tsc --noEmit",
+      "description": "TypeScript strict type-check",
+      "excludePatterns": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/build/**"
+      ],
+      "filePatterns": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "name": "tsc"
+    },
+    {
+      "command": "codeyam-editor editor check-lockfile-sync",
+      "description": "package-lock.json passes `npm ci` under the project's pinned npm — the npm CI uses",
+      "excludePatterns": [
+        "**/node_modules/**"
+      ],
+      "filePatterns": [
+        "**/package.json",
+        "**/package-lock.json"
+      ],
+      "name": "lockfile-sync"
+    }
+  ],
+  "testCacheIgnorePatterns": [],
+  "testParallelism": {
+    "loadGuard": true
+  },
+  "testPartitions": [],
+  "testRunners": [
+    {
+      "changedCommand": "npx vitest run --changed --reporter=json",
+      "command": "npx vitest run --reporter=json",
+      "excludePatterns": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/build/**"
+      ],
+      "name": "tests",
+      "outputFormat": "vitest-json",
+      "sourceFilePatterns": [
+        "**/*.{ts,tsx,js,jsx}"
+      ],
+      "targetedCommand": "npx vitest run -t \"{test_names}\" --reporter=json",
+      "testFilePatterns": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.test.js",
+        "**/*.test.jsx"
+      ]
+    }
+  ],
+  "toolchainPaths": [],
+  "workflow": {
+    "audience": null,
+    "checkIns": {
+      "hardeningCompleted": {
+        "autoAction": "commit",
+        "pause": true
+      },
+      "planAccepted": {
+        "pause": true
+      },
+      "prototypeCompleted": {
+        "pause": true
+      },
+      "push": {
+        "pause": true
+      }
+    }
+  }
+}

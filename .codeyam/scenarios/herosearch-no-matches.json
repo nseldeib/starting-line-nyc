@@ -1,0 +1,12 @@
+{
+  "name": "HeroSearch - No Matches",
+  "id": "bf355e7a-c0db-49b1-8bba-46becfbe4e3c",
+  "url": "/isolated-components/HeroSearch?s=NoMatches",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "HeroSearch",
+  "scenarioType": "component",
+  "description": "HeroSearch in its no matches state with sample race data."
+}

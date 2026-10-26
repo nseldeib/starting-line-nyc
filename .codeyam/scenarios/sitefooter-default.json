@@ -1,0 +1,12 @@
+{
+  "name": "SiteFooter - Default",
+  "id": "3706fd3d-43e8-4273-9270-721f8b7d3e3f",
+  "url": "/isolated-components/SiteFooter?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SiteFooter",
+  "scenarioType": "component",
+  "description": "SiteFooter in its default state with sample race data."
+}

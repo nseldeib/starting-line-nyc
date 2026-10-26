@@ -1,0 +1,12 @@
+{
+  "name": "RaceDayCell - Date To Come",
+  "id": "cc1ec13c-39c6-472b-a9ee-9d78bd90a335",
+  "url": "/isolated-components/RaceDayCell?s=DateToCome",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceDayCell",
+  "scenarioType": "component",
+  "description": "RaceDayCell in its date to come state with sample race data."
+}

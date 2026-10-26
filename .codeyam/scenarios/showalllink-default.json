@@ -1,0 +1,12 @@
+{
+  "name": "ShowAllLink - Default",
+  "id": "7910cf46-9d5b-41a2-ab4f-9a9a829833bc",
+  "url": "/isolated-components/ShowAllLink?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "ShowAllLink",
+  "scenarioType": "component",
+  "description": "ShowAllLink in its default state with sample race data."
+}

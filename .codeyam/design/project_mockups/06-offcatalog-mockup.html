@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="codeyam-viewport" content="mobile">
+<title>Pink running-club zine</title>
+<style>
+:root {
+  --bg: #FF8DB8;
+  --bg-deep: #A3215C;
+  --paper: #FFFCFA;
+  --ink: #1C1420;
+  --ink-2: #3A2C3E;
+  --muted: #6E5A70;
+  --rule: rgba(28, 20, 32, 0.18);
+  --on-ink: #FFFCFA;
+  --grain-op: 0.22;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --r: 18px;
+  --r-pill: 999px;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #2A1424;
+  --bg-deep: #3A1C32;
+  --paper: #3F2338;
+  --ink: #FFD3E5;
+  --ink-2: #F3C7DA;
+  --muted: #C79DB2;
+  --rule: rgba(255, 211, 229, 0.22);
+  --on-ink: #2A1424;
+  --grain-op: 0.12;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--ink-2); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; padding-bottom: calc(80px + env(safe-area-inset-bottom)); position: relative; }
+body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: var(--grain-op); mix-blend-mode: multiply; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1  0 0 0 0 0.05  0 0 0 0 0.12  0 0 0 1.4 -0.5'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>"); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 3px; }
+.page { max-width: 560px; margin: 0 auto; position: relative; overflow-x: clip; }
+
+.top { display: flex; justify-content: space-between; align-items: center; padding: 58px 20px 0; }
+.mark { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--ink); letter-spacing: -0.02em; }
+.menu { background: var(--ink); color: var(--on-ink); border: none; border-radius: var(--r-pill); padding: 10px 18px; font-weight: 700; font-size: 14px; min-height: 42px; }
+
+/* poster hero */
+.hero { text-align: center; padding: 34px 20px 0; }
+.hero h1 { font-family: var(--serif); font-weight: 700; color: var(--ink); font-size: 50px; line-height: 0.98; letter-spacing: -0.03em; text-wrap: balance; }
+.frames { position: relative; height: 250px; margin: 30px 18px 0; }
+.frames .back { position: absolute; inset: 14px -6px -10px 10px; background: var(--ink); border-radius: var(--r); transform: rotate(3deg); }
+.frames .front { position: absolute; inset: 0; border-radius: var(--r); border: 6px solid var(--paper); transform: rotate(-2deg); background-image: url('https://loremflickr.com/640/480/central,park,runners,race'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNjZmUzZWYiLz48cmVjdCB4PSIwIiB5PSIxMTIiIHdpZHRoPSI2NiIgaGVpZ2h0PSIxMzgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI2OCIgeT0iMTYwIiB3aWR0aD0iNDAiIGhlaWdodD0iOTAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI4NS4wIiB5PSIxMzAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTEwIiB5PSI3MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjEyNy4wIiB5PSI0MCIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIxNTIiIHk9IjYxIiB3aWR0aD0iMzMiIGhlaWdodD0iMTg5IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTg3IiB5PSIxOTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjIwNC4wIiB5PSIxNjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjI5IiB5PSIxMzYiIHdpZHRoPSI0OCIgaGVpZ2h0PSIxMTQiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIyNzkiIHk9IjU1IiB3aWR0aD0iNDUiIGhlaWdodD0iMTk1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjk4LjUiIHk9IjI1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjMyNiIgeT0iODgiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxNjIiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIzOTIiIHk9IjE2NiIgd2lkdGg9IjM4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNDMyIiB5PSIxNDIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxMDgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI0ODAiIHk9IjEyNyIgd2lkdGg9IjUxIiBoZWlnaHQ9IjEyMyIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjUzMyIgeT0iMTU0IiB3aWR0aD0iNDIiIGhlaWdodD0iOTYiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI1NzciIHk9IjEzOSIgd2lkdGg9IjU3IiBoZWlnaHQ9IjExMSIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjYzNiIgeT0iMTQ1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTA1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNjYwLjUiIHk9IjExNSIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48ZWxsaXBzZSBjeD0iMzIwIiBjeT0iNDIwIiByeD0iNTIwIiByeT0iMjIwIiBmaWxsPSIjNWY5YjRjIi8+PGcgZmlsbD0iIzNmN2EzNSI+PGNpcmNsZSBjeD0iNzAiIGN5PSIyNTAiIHI9IjYwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMjM1IiByPSI1MCIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjI0NSIgcj0iNjYiLz48Y2lyY2xlIGN4PSI2MjAiIGN5PSIyNzAiIHI9IjUwIi8+PC9nPjxwYXRoIGQ9Ik0tMjAgNDcwIEMgMTYwIDMzMCwgNDIwIDMzMCwgNjYwIDQyMCIgc3Ryb2tlPSIjZTlkY2MwIiBzdHJva2Utd2lkdGg9IjU0IiBmaWxsPSJub25lIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjAzMDJhIiBzdHJva2Utd2lkdGg9IjcuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyNTAuMCwzNDQuMCAyNDYuMCwzNzYuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0OC4wLDM1MC4wIDIzMi4wLDM2Mi4wIDIyNC4wLDM1MC4wIi8+PHBvbHlsaW5lIHBvaW50cz0iMjUwLjAsMzUwLjAgMjY2LjAsMzU4LjAgMjc2LjAsMzQ2LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyNDYuMCwzNzYuMCAyNjYuMCwzOTIuMCAyNjIuMCw0MTQuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0Ni4wLDM3Ni4wIDIzMi4wLDM5Ni4wIDIxNC4wLDQwMC4wIi8+PC9nPjxjaXJjbGUgY3g9IjI1Mi4wIiBjeT0iMzMyLjAiIHI9IjEwLjAiIGZpbGw9IiMyMDMwMmEiLz48cmVjdCB4PSIyNDIuMCIgeT0iMzUyLjAiIHdpZHRoPSIxMi4wIiBoZWlnaHQ9IjEwLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDY0YTJmIiBzdHJva2Utd2lkdGg9IjYuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIzMzAuMCwzMzYuOCAzMjYuMiwzNjcuMiIvPjxwb2x5bGluZSBwb2ludHM9IjMyOC4xLDM0Mi41IDMxMi45LDM1My45IDMwNS4zLDM0Mi41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzMwLjAsMzQyLjUgMzQ1LjIsMzUwLjEgMzU0LjcsMzM4LjciLz48cG9seWxpbmUgcG9pbnRzPSIzMjYuMiwzNjcuMiAzNDUuMiwzODIuNCAzNDEuNCw0MDMuMyIvPjxwb2x5bGluZSBwb2ludHM9IjMyNi4yLDM2Ny4yIDMxMi45LDM4Ni4yIDI5NS44LDM5MC4wIi8+PC9nPjxjaXJjbGUgY3g9IjMzMS45IiBjeT0iMzI1LjQiIHI9IjkuNSIgZmlsbD0iI2Q2NGEyZiIvPjxyZWN0IHg9IjMyMi40IiB5PSIzNDQuNCIgd2lkdGg9IjExLjQiIGhlaWdodD0iOS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIwMzAyYSIgc3Ryb2tlLXdpZHRoPSI3LjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iNDEwLjAsMzQ2LjIgNDA1LjgsMzc5LjgiLz48cG9seWxpbmUgcG9pbnRzPSI0MDcuOSwzNTIuNSAzOTEuMSwzNjUuMSAzODIuNywzNTIuNSIvPjxwb2x5bGluZSBwb2ludHM9IjQxMC4wLDM1Mi41IDQyNi44LDM2MC45IDQzNy4zLDM0OC4zIi8+PHBvbHlsaW5lIHBvaW50cz0iNDA1LjgsMzc5LjggNDI2LjgsMzk2LjYgNDIyLjYsNDE5LjciLz48cG9seWxpbmUgcG9pbnRzPSI0MDUuOCwzNzkuOCAzOTEuMSw0MDAuOCAzNzIuMiw0MDUuMCIvPjwvZz48Y2lyY2xlIGN4PSI0MTIuMSIgY3k9IjMzMy42IiByPSIxMC41IiBmaWxsPSIjMjAzMDJhIi8+PHJlY3QgeD0iNDAxLjYiIHk9IjM1NC42IiB3aWR0aD0iMTIuNiIgaGVpZ2h0PSIxMC41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjwvc3ZnPg=='); background-size: cover; background-position: center; background-position: center 80%; }
+.hero p { margin: 30px auto 0; max-width: 30ch; color: var(--ink); font-size: 16px; }
+.ctas { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 22px 20px 0; }
+.btn { display: block; width: 100%; text-align: center; background: var(--ink); color: var(--on-ink); border-radius: var(--r-pill); padding: 17px; font-weight: 700; font-size: 16px; white-space: nowrap; }
+.btn:active { transform: scale(0.98); }
+.link { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--ink); }
+
+/* marquee */
+.marquee { margin-top: 40px; background: var(--ink); color: var(--on-ink); transform: rotate(-2deg); width: 110%; margin-left: -5%; overflow: hidden; white-space: nowrap; }
+.marquee div { display: flex; gap: 28px; padding: 13px 20px; font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.marquee span { opacity: .9; }
+.marquee em { font-style: italic; font-weight: 400; }
+
+/* tickets */
+.sec { padding: 46px 20px 0; }
+.sec h2 { font-family: var(--serif); font-weight: 700; color: var(--ink); font-size: 32px; line-height: 1.05; letter-spacing: -0.02em; text-align: center; text-wrap: balance; }
+.sec .sub { text-align: center; color: var(--ink); margin-top: 6px; font-size: 14px; }
+.tickets { margin-top: 20px; display: grid; gap: 12px; }
+.ticket { background: var(--paper); border-radius: var(--r); display: grid; grid-template-columns: 86px 1fr; overflow: hidden; }
+.ticket .date { border-right: 2px dashed var(--rule); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px 6px; text-align: center; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ticket .date small { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.ticket .date b { font-family: var(--serif); font-size: 40px; line-height: 1; }
+.ticket .info { padding: 14px 16px; }
+.ticket .what { font-size: 13px; font-weight: 700; color: var(--bg-deep); }
+:root[data-theme="dark"] .ticket .what { color: #FF8DB8; }
+.ticket h3 { font-family: var(--serif); font-size: 20px; line-height: 1.1; color: var(--ink); margin: 2px 0 4px; }
+.ticket .m { font-size: 13px; color: var(--muted); }
+.ticket .acts { display: flex; gap: 8px; margin-top: 10px; }
+.chip { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; border-radius: var(--r-pill); padding: 7px 13px; font-weight: 700; font-size: 13px; min-height: 36px; }
+.chip.fill { background: var(--ink); color: var(--on-ink); }
+.ticket .thumb { grid-column: span 2; height: 120px; }
+.th1 { background-image: url('https://loremflickr.com/640/480/half,marathon,street'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjZiMjZiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmRlNmM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9InVybCgjcykiLz48Y2lyY2xlIGN4PSI0NzAiIGN5PSIyMTAiIHI9IjQ2IiBmaWxsPSIjZmZmNGRjIi8+PHJlY3QgeD0iMCIgeT0iMTk1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTM1IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjQuNSIgeT0iMTY1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU3IiB5PSIyMzEiIHdpZHRoPSI1MyIgaGVpZ2h0PSI5OSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjExMiIgeT0iMjI4IiB3aWR0aD0iNDQiIGhlaWdodD0iMTAyIiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMTU4IiB5PSIxMzgiIHdpZHRoPSIzNCIgaGVpZ2h0PSIxOTIiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIxOTQiIHk9IjE1OSIgd2lkdGg9IjM3IiBoZWlnaHQ9IjE3MSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjIzMyIgeT0iMTgzIiB3aWR0aD0iNTkiIGhlaWdodD0iMTQ3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjk0IiB5PSIyMTkiIHdpZHRoPSI0NyIgaGVpZ2h0PSIxMTEiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIzNDMiIHk9IjI0NiIgd2lkdGg9IjQ4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMzkzIiB5PSIyMDEiIHdpZHRoPSI1MyIgaGVpZ2h0PSIxMjkiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSI0NDgiIHk9IjE2MiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjE2OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjQ4NiIgeT0iMTUzIiB3aWR0aD0iMzkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNTI3IiB5PSIyNTIiIHdpZHRoPSIzNiIgaGVpZ2h0PSI3OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU2NSIgeT0iMTUzIiB3aWR0aD0iNjkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNjM2IiB5PSIxMzIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxOTgiIGZpbGw9IiMzYjRhNmIiLz48cG9seWdvbiBwb2ludHM9IjAsMzMwIDY0MCwzMzAgNjQwLDQ4MCAwLDQ4MCIgZmlsbD0iIzU1NjA3YSIvPjxwb2x5Z29uIHBvaW50cz0iMjkwLDMzMCAzNTAsMzMwIDUyMCw0ODAgMTIwLDQ4MCIgZmlsbD0iIzZiNzU5MCIvPjxnIHN0cm9rZT0iI2Y0ZDM1ZSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtZGFzaGFycmF5PSIyNCAyMiI+PGxpbmUgeDE9IjMyMCIgeTE9IjMzNCIgeDI9IjMyMCIgeTI9IjQ4MCIvPjwvZz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxZDIzMzMiIHN0cm9rZS13aWR0aD0iNy45IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjIyMC4wLDM3OC40IDIxNS42LDQxMy42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE3LjgsMzg1LjAgMjAwLjIsMzk4LjIgMTkxLjQsMzg1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyMjAuMCwzODUuMCAyMzcuNiwzOTMuOCAyNDguNiwzODAuNiIvPjxwb2x5bGluZSBwb2ludHM9IjIxNS42LDQxMy42IDIzNy42LDQzMS4yIDIzMy4yLDQ1NS40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE1LjYsNDEzLjYgMjAwLjIsNDM1LjYgMTgwLjQsNDQwLjAiLz48L2c+PGNpcmNsZSBjeD0iMjIyLjIiIGN5PSIzNjUuMiIgcj0iMTEuMCIgZmlsbD0iIzFkMjMzMyIvPjxyZWN0IHg9IjIxMS4yIiB5PSIzODcuMiIgd2lkdGg9IjEzLjIiIGhlaWdodD0iMTEuMCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjkiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNlMjQ1M2MiIHN0cm9rZS13aWR0aD0iNi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjM2MC4wLDM2OS42IDM1Ni40LDM5OC40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU4LjIsMzc1LjAgMzQzLjgsMzg1LjggMzM2LjYsMzc1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIzNjAuMCwzNzUuMCAzNzQuNCwzODIuMiAzODMuNCwzNzEuNCIvPjxwb2x5bGluZSBwb2ludHM9IjM1Ni40LDM5OC40IDM3NC40LDQxMi44IDM3MC44LDQzMi42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU2LjQsMzk4LjQgMzQzLjgsNDE2LjQgMzI3LjYsNDIwLjAiLz48L2c+PGNpcmNsZSBjeD0iMzYxLjgiIGN5PSIzNTguOCIgcj0iOS4wIiBmaWxsPSIjZTI0NTNjIi8+PHJlY3QgeD0iMzUyLjgiIHk9IjM3Ni44IiB3aWR0aD0iMTAuOCIgaGVpZ2h0PSI5LjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWQyMzMzIiBzdHJva2Utd2lkdGg9IjguNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI0NTAuMCwzODcuOCA0NDUuMiw0MjYuMiIvPjxwb2x5bGluZSBwb2ludHM9IjQ0Ny42LDM5NS4wIDQyOC40LDQwOS40IDQxOC44LDM5NS4wIi8+PHBvbHlsaW5lIHBvaW50cz0iNDUwLjAsMzk1LjAgNDY5LjIsNDA0LjYgNDgxLjIsMzkwLjIiLz48cG9seWxpbmUgcG9pbnRzPSI0NDUuMiw0MjYuMiA0NjkuMiw0NDUuNCA0NjQuNCw0NzEuOCIvPjxwb2x5bGluZSBwb2ludHM9IjQ0NS4yLDQyNi4yIDQyOC40LDQ1MC4yIDQwNi44LDQ1NS4wIi8+PC9nPjxjaXJjbGUgY3g9IjQ1Mi40IiBjeT0iMzczLjQiIHI9IjEyLjAiIGZpbGw9IiMxZDIzMzMiLz48cmVjdCB4PSI0NDAuNCIgeT0iMzk3LjQiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjEyLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PC9zdmc+'); background-size: cover; background-position: center; background-position: center 88%; }
+.see { display: block; text-align: center; margin-top: 18px; }
+
+/* question wall */
+.wall { margin-top: 22px; display: grid; gap: 12px; }
+.q { background: var(--paper); border-radius: var(--r) var(--r) var(--r) 4px; padding: 16px 18px; max-width: 88%; }
+.q:nth-child(even) { margin-left: auto; border-radius: var(--r) var(--r) 4px var(--r); background: var(--ink); color: var(--on-ink); }
+.q p { font-family: var(--serif); font-size: 19px; line-height: 1.25; }
+.q span { display: block; margin-top: 8px; font-size: 13px; opacity: .78; }
+
+/* ways */
+.ways { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.ways span { background: var(--paper); color: var(--ink); border-radius: var(--r-pill); padding: 10px 16px; font-weight: 700; font-size: 14px; }
+.note { margin: 36px 20px 0; border-top: 2px solid var(--ink); padding-top: 16px; color: var(--ink); font-size: 14px; }
+.note b { font-family: var(--serif); font-size: 18px; display: block; margin-bottom: 4px; }
+.sample { text-align: center; color: var(--ink); font-size: 12px; padding: 22px 0 6px; opacity: .8; }
+
+.tabbar { position: fixed; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); background: var(--ink); border-radius: var(--r-pill); display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px; }
+.tabbar a { text-align: center; color: var(--on-ink); opacity: .7; font-weight: 700; font-size: 12.5px; padding: 10px 0; border-radius: var(--r-pill); }
+.tabbar a.on { opacity: 1; background: var(--bg); color: var(--ink); }
+
+@media (min-width: 900px) {
+  .page { max-width: 720px; }
+  .hero h1 { font-size: 76px; }
+  .frames { height: 380px; }
+  .btn { width: auto; padding: 17px 40px; }
+  .tabbar { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <a class="mark" href="#">Corral</a>
+    <button class="menu">Menu</button>
+  </header>
+
+  <section class="hero" aria-labelledby="h">
+    <h1 id="h">Know when every NYC race opens.</h1>
+    <div class="frames"><div class="back"></div><div class="front" role="img" aria-label="Runners on the Central Park loop"></div></div>
+    <p>NYRR and independent road and trail races, with entry rules and registration dates you can add to your calendar.</p>
+  </section>
+  <div class="ctas">
+    <a class="btn" href="#">Find a race</a>
+    <a class="link" href="#">How entry works</a>
+  </div>
+
+  <div class="marquee" aria-label="Featured races">
+    <div><span>Manhattan Half <em>opens Nov 10</em></span><span>NYC Half <em>lottery open</em></span><span>Ted Corbitt 15K <em>open</em></span><span>Breakneck 50K <em>waitlist</em></span></div>
+  </div>
+
+  <section class="sec" aria-labelledby="t">
+    <h2 id="t">Coming up on the calendar</h2>
+    <p class="sub">The next registration dates, in New York time.</p>
+    <div class="tickets">
+      <article class="ticket">
+        <div class="date"><small>Nov</small><b>10</b><small>Tue</small></div>
+        <div class="info">
+          <div class="what">Registration opens, 12:00 pm</div>
+          <h3>Fred Lebow Manhattan Half</h3>
+          <div class="m">Sun, Jan 24, 2027. Central Park, 13.1 mi.</div>
+          <div class="acts"><button class="chip fill">Save</button><button class="chip">Add to calendar</button></div>
+        </div>
+      </article>
+      <article class="ticket">
+        <div class="thumb th1" role="img" aria-label="Runners on a city street"></div>
+        <div class="date"><small>Nov</small><b>17</b><small>Tue</small></div>
+        <div class="info">
+          <div class="what">Lottery closes, 11:59 pm</div>
+          <h3>United Airlines NYC Half</h3>
+          <div class="m">Sun, Mar 21, 2027. Brooklyn to Times Square.</div>
+          <div class="acts"><button class="chip fill">Save</button><button class="chip">Add to calendar</button></div>
+        </div>
+      </article>
+      <article class="ticket">
+        <div class="date"><small>Dec</small><b>9</b><small>Wed</small></div>
+        <div class="info">
+          <div class="what">Entry closes, or sooner if full</div>
+          <h3>Ted Corbitt 15K</h3>
+          <div class="m">Sat, Dec 12, 2026. Central Park, 9.3 mi.</div>
+          <div class="acts"><button class="chip fill">Save</button><button class="chip">Add to calendar</button></div>
+        </div>
+      </article>
+    </div>
+    <a class="link see" href="#" style="display:table;margin:18px auto 0">See all 48 races</a>
+  </section>
+
+  <section class="sec" aria-labelledby="qa">
+    <h2 id="qa">The questions every runner asks</h2>
+    <div class="wall">
+      <div class="q"><p>“When does Brooklyn Half registration open?”</p><span>Not announced yet for 2027. We’ll show it once NYRR does.</span></div>
+      <div class="q"><p>“Is the NYC Half a lottery?”</p><span>Yes, plus charity and time qualifier entry. Lottery closes Nov 17.</span></div>
+      <div class="q"><p>“Any trail ultras close to the city?”</p><span>Breakneck Point 50K in Beacon, about 55 miles north. Waitlist only.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="w">
+    <h2 id="w">Five ways into a race</h2>
+    <div class="ways"><span>Open</span><span>Lottery</span><span>Time qualifier</span><span>Charity</span><span>Membership, like 9+1</span></div>
+  </section>
+
+  <div class="note"><b>Every date links to the organizer.</b>Each one shows when we last checked it. Calendar downloads work now; email reminders come later with accounts.</div>
+  <p class="sample">Races shown are sample data.</p>
+</div>
+
+<nav class="tabbar" aria-label="Main">
+  <a class="on" href="#">Home</a><a href="#">Races</a><a href="#">Saved</a><a href="#">Calendar</a>
+</nav>
+</body>
+</html>

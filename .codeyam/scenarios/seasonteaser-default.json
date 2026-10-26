@@ -1,0 +1,12 @@
+{
+  "name": "SeasonTeaser - Default",
+  "id": "7043e022-ab14-4b93-a156-515ccdb99d9d",
+  "url": "/isolated-components/SeasonTeaser?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SeasonTeaser",
+  "scenarioType": "component",
+  "description": "SeasonTeaser in its default state with sample race data."
+}

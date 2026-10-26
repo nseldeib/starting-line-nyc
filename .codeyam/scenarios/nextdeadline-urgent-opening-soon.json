@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - Urgent Opening Soon",
+  "id": "1991ec98-8f9d-4a60-a49b-9e472e26ed34",
+  "url": "/isolated-components/NextDeadline?s=UrgentOpeningSoon",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its urgent opening soon state with sample race data."
+}

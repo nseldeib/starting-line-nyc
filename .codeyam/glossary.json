@@ -1,0 +1,637 @@
+[
+  {
+    "description": "Template-provided layout for codeyam isolation captures.",
+    "filePath": "app/codeyam-isolate/layout.tsx",
+    "name": "CodeYamIsolateLayout",
+    "untestabilityReason": {
+      "justification": "codeyam template shell, not app UI",
+      "kind": "scaffold"
+    }
+  },
+  {
+    "description": "Empty state when no races match, with a Show all races link.",
+    "filePath": "app/components/EmptyResults.tsx",
+    "name": "EmptyResults",
+    "scenarios": [
+      "emptyresults-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Active search choices as dark removable chips, then toggleable registration-status chips and More filters.",
+    "filePath": "app/components/FilterChips.tsx",
+    "name": "FilterChips",
+    "scenarios": [
+      "filterchips-default",
+      "filterchips-nothing-narrowing",
+      "filterchips-status-chips-on"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Toolbar row composing FilterChips and SortToggle above the results.",
+    "filePath": "app/components/FilterToolbar.tsx",
+    "name": "FilterToolbar",
+    "scenarios": [
+      "filtertoolbar-default",
+      "filtertoolbar-lottery-sorted-by-race-day"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Central Park photo hero with credit, headline and lede, wrapping the race search.",
+    "filePath": "app/components/Hero.tsx",
+    "name": "Hero",
+    "scenarios": [
+      "hero-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "The single race search form: race/park/organizer text plus distance, when and terrain dropdowns, with a Show N races button. Works without JavaScript.",
+    "filePath": "app/components/HeroSearch.tsx",
+    "name": "HeroSearch",
+    "scenarios": [
+      "herosearch-default",
+      "herosearch-no-matches",
+      "herosearch-search-typed"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Signed-out home page: reads the search filters from the URL, loads matching races and composes the header, hero search, results and footer.",
+    "filePath": "app/page.tsx",
+    "name": "Home",
+    "scenarios": [
+      "home-half-marathons-next-6-months",
+      "home-no-races-listed",
+      "home-all-distances-next-12-months",
+      "home-lottery-races-only",
+      "home-phone-layout"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Placeholder brand mark: the Deadline day calendar with one blue deadline day. Kept in one component so the logo can be swapped later.",
+    "filePath": "app/components/Logo.tsx",
+    "name": "Logo",
+    "scenarios": [
+      "logo-default",
+      "logo-large"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Registration status and next milestone in ET; within three weeks it is highlighted and offers Add to calendar.",
+    "filePath": "app/components/NextDeadline.tsx",
+    "name": "NextDeadline",
+    "scenarios": [
+      "nextdeadline-lottery-open",
+      "nextdeadline-not-announced",
+      "nextdeadline-tentative-date",
+      "nextdeadline-urgent-opening-soon"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Centred page column wrapper.",
+    "filePath": "app/components/PageShell.tsx",
+    "name": "PageShell",
+    "tags": [
+      "race-discovery"
+    ],
+    "untestabilityReason": {
+      "justification": "renders children inside one div with no logic",
+      "kind": "trivial-wrapper"
+    }
+  },
+  {
+    "description": "Race day in ET with location, marking tentative or not-yet-announced dates.",
+    "filePath": "app/components/RaceDayCell.tsx",
+    "name": "RaceDayCell",
+    "scenarios": [
+      "racedaycell-confirmed",
+      "racedaycell-date-to-come",
+      "racedaycell-tentative"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Race name with terrain pill, distance (and climb) and organizer.",
+    "filePath": "app/components/RaceIdentity.tsx",
+    "name": "RaceIdentity",
+    "scenarios": [
+      "raceidentity-road",
+      "raceidentity-trail-with-climb",
+      "raceidentity-long-name-ultra"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "List of race rows with urgency computed per row, the empty state, and a show-all link.",
+    "filePath": "app/components/RaceList.tsx",
+    "name": "RaceList",
+    "scenarios": [
+      "racelist-default",
+      "racelist-empty",
+      "racelist-with-unannounced-race"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "One results row: thumbnail, identity, race day, next deadline, weeks to train and Save.",
+    "filePath": "app/components/RaceRow.tsx",
+    "name": "RaceRow",
+    "scenarios": [
+      "racerow-lottery-open",
+      "racerow-no-photo-trail",
+      "racerow-not-announced",
+      "racerow-urgent-deadline"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Licensed race photo thumbnail, or the distance as a tile when there is no photo. Never invented imagery.",
+    "filePath": "app/components/RaceThumb.tsx",
+    "name": "RaceThumb",
+    "scenarios": [
+      "racethumb-distance-tile",
+      "racethumb-photo"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Results heading naming the distance and window, with the race count.",
+    "filePath": "app/components/ResultsHeader.tsx",
+    "name": "ResultsHeader",
+    "scenarios": [
+      "resultsheader-default",
+      "resultsheader-single-race"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Results column composing header, toolbar, timezone note, race list and season teaser.",
+    "filePath": "app/components/ResultsSection.tsx",
+    "name": "ResultsSection",
+    "scenarios": [
+      "resultssection-default",
+      "resultssection-empty"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Next.js root layout: html/body shell, global stylesheet and the site title and description metadata.",
+    "filePath": "app/layout.tsx",
+    "name": "RootLayout",
+    "untestabilityReason": {
+      "justification": "framework template shell with only metadata text; every page scenario renders through it",
+      "kind": "scaffold"
+    }
+  },
+  {
+    "description": "Save button that points to the season teaser because accounts are not live yet.",
+    "filePath": "app/components/SaveRaceButton.tsx",
+    "name": "SaveRaceButton",
+    "scenarios": [
+      "saveracebutton-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Template-provided route that redirects a scenario slug to its page.",
+    "filePath": "app/scenario/[slug]/page.tsx",
+    "name": "ScenarioRedirectPage",
+    "untestabilityReason": {
+      "justification": "codeyam template redirect route, not app UI",
+      "kind": "scaffold"
+    }
+  },
+  {
+    "description": "Static, labelled example of the saved-races season timeline.",
+    "filePath": "app/components/SeasonPreview.tsx",
+    "name": "SeasonPreview",
+    "scenarios": [
+      "seasonpreview-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Save races to see your season teaser, honest that accounts are not live, with the season preview.",
+    "filePath": "app/components/SeasonTeaser.tsx",
+    "name": "SeasonTeaser",
+    "scenarios": [
+      "seasonteaser-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Labelled dropdown cell in the hero search bar with a caret.",
+    "filePath": "app/components/SelectField.tsx",
+    "name": "SelectField",
+    "scenarios": [
+      "selectfield-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Centred button linking to the full list for the current distance.",
+    "filePath": "app/components/ShowAllLink.tsx",
+    "name": "ShowAllLink",
+    "scenarios": [
+      "showalllink-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Footer with the sample-data and official-source disclaimer and photo credits.",
+    "filePath": "app/components/SiteFooter.tsx",
+    "name": "SiteFooter",
+    "scenarios": [
+      "sitefooter-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Top bar with the logo and wordmark, main nav (Races, Deadlines, How entry works) and log in / sign up links.",
+    "filePath": "app/components/SiteHeader.tsx",
+    "name": "SiteHeader",
+    "scenarios": [
+      "siteheader-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Segmented Next deadline / Race day sort control built from links.",
+    "filePath": "app/components/SortToggle.tsx",
+    "name": "SortToggle",
+    "scenarios": [
+      "sorttoggle-next-deadline",
+      "sorttoggle-race-day"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Note that all times are Eastern Time and highlighted dates are within three weeks.",
+    "filePath": "app/components/TimezoneNote.tsx",
+    "name": "TimezoneNote",
+    "scenarios": [
+      "timezonenote-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Weeks remaining to train before race day.",
+    "filePath": "app/components/WeeksToTrain.tsx",
+    "name": "WeeksToTrain",
+    "scenarios": [
+      "weekstotrain-default"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "The search choices currently narrowing results, each with the change that removes it, shown as dark removable chips.",
+    "filePath": "app/lib/filters.ts",
+    "name": "activeFilterChips",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Builds a single-event .ics file in UTC that Google, Apple and Outlook calendars import.",
+    "filePath": "app/lib/ics.ts",
+    "name": "buildIcs",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/ics.test.ts"
+  },
+  {
+    "description": "Download file name for a race calendar event.",
+    "filePath": "app/lib/raceCalendar.ts",
+    "name": "calendarFileName",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/raceCalendar.test.ts"
+  },
+  {
+    "description": "Applies distance, window, terrain, search text and status-chip filters to stored races and returns sorted results rows.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "filterAndSortRaces",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Builds the home page URL for a set of filters with a change applied; always writes distance and window so any survives the round trip.",
+    "filePath": "app/lib/filters.ts",
+    "name": "filterHref",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Loads every race with organizer, editions and milestones from the database and hands them to filterAndSortRaces.",
+    "filePath": "app/lib/races.ts",
+    "name": "findRaces",
+    "tags": [
+      "race-discovery"
+    ],
+    "untestabilityReason": {
+      "justification": "database read only; all filtering logic is in filterAndSortRaces, which is unit tested",
+      "kind": "platform-glue"
+    }
+  },
+  {
+    "description": "Formats a date as weekday, month and day in America/New_York.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatDay",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Race distance in miles with optional elevation gain.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatDistance",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Day and time in Eastern Time on one line, used in calendar event descriptions.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatEt",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Formats a time of day in America/New_York with a lowercase am or pm and an ET suffix.",
+    "filePath": "app/lib/format.ts",
+    "name": "formatTime",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Formats a date as a compact UTC iCalendar timestamp.",
+    "filePath": "app/lib/ics.ts",
+    "name": "icsDate",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/ics.test.ts"
+  },
+  {
+    "description": "Escapes iCalendar text fields: backslash, comma, semicolon and newlines.",
+    "filePath": "app/lib/ics.ts",
+    "name": "icsEscape",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/ics.test.ts"
+  },
+  {
+    "description": "True when a deadline falls within the next three weeks, which highlights it and offers Add to calendar.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "isUrgent",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Template build helper that finds isolation route folders to exclude from production builds.",
+    "filePath": "scripts/build-app.mjs",
+    "name": "isolationDirs",
+    "untestabilityReason": {
+      "justification": "codeyam template build script, unchanged",
+      "kind": "scaffold"
+    }
+  },
+  {
+    "description": "Replaces the development database contents with the labelled sample races from prisma/sample-data.json.",
+    "filePath": "prisma/seed.ts",
+    "name": "main",
+    "untestabilityReason": {
+      "justification": "database write script run by npm run setup; the same sample data drives every app scenario",
+      "kind": "platform-glue"
+    }
+  },
+  {
+    "description": "Whether one race passes the distance, window, terrain, search text and status-chip filters.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "matches",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Short verb for a registration milestone kind such as Opens, Closes or Qualify by.",
+    "filePath": "app/lib/format.ts",
+    "name": "milestoneVerb",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "The soonest registration milestone that has not passed yet.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "nextMilestone",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Turns a filter option table into dropdown options for the hero search.",
+    "filePath": "app/components/HeroSearch.tsx",
+    "name": "options",
+    "scenarios": [
+      "herosearch-default",
+      "herosearch-search-typed",
+      "herosearch-no-matches"
+    ],
+    "tags": [
+      "race-discovery"
+    ]
+  },
+  {
+    "description": "Reads the home page query string into race search filters, falling back to defaults for unknown values and de-duplicating status chips.",
+    "filePath": "app/lib/filters.ts",
+    "name": "parseFilters",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Returns a query value when it is one of the allowed options, otherwise the default; used by parseFilters.",
+    "filePath": "app/lib/filters.ts",
+    "name": "pick",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Chooses the calendar event for a race, its next registration milestone or race day, with an ET description, official link and sample-data notice; refuses when no date is known.",
+    "filePath": "app/lib/raceCalendar.ts",
+    "name": "raceCalendarEvent",
+    "tags": [
+      "calendar-export"
+    ],
+    "testFile": "app/lib/raceCalendar.test.ts"
+  },
+  {
+    "description": "Singular or plural race count label used in the search button and results header.",
+    "filePath": "app/lib/filters.ts",
+    "name": "raceCountLabel",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Heading above the results, naming the distance and time window, for example Half marathons, next 6 months.",
+    "filePath": "app/lib/filters.ts",
+    "name": "resultsHeading",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Template build helper that runs the Next.js production build without isolation routes.",
+    "filePath": "scripts/build-app.mjs",
+    "name": "runBuild",
+    "untestabilityReason": {
+      "justification": "codeyam template build script, unchanged",
+      "kind": "scaffold"
+    }
+  },
+  {
+    "description": "Sorts results by next deadline, unknown last with race day as tiebreak, or by race day.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "sortRaces",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Sort key for an ISO date, putting unknown dates last.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "time",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Flattens a stored race and its upcoming edition into one results row with next milestone and weeks to train.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "toListItem",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Adds or removes one registration-status chip from the selected list without mutating it.",
+    "filePath": "app/lib/filters.ts",
+    "name": "toggleStatus",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "Picks the annual edition a runner can still enter: the earliest whose race day has not passed, counting unannounced dates as upcoming.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "upcomingEdition",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Whole weeks from now until race day, rounded down; null when the race date is unknown.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "weeksToTrain",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "End of the When window, a number of months after now, or null for any time.",
+    "filePath": "app/lib/raceList.ts",
+    "name": "windowEnd",
+    "tags": [
+      "race-discovery"
+    ],
+    "testFile": "app/lib/raceList.test.ts"
+  }
+]

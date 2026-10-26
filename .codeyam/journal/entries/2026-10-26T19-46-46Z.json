@@ -1,0 +1,1807 @@
+{
+  "timestamp": "2026-10-26T19:46:46Z",
+  "title": "Main page v2 and calendar logo",
+  "type": "feature",
+  "userRequest": "# Main page v2 and logo update (Starting Line)\n\n## What was prototyped\n\nThere is no app code yet. The prototype exists only as design mockups under `.codeyam/design/project_mockups/`. Design 11 was left unchanged for comparison.\n\n### Mockup 12: revised main page (now the selected design)\nFile: `.codeyam/design/project_mockups/12-offcatalog-mockup.html`. It is also copied to `.codeyam/design/selected_mockup.html`, and `selection.json` points at it.\n\nGoals: remove the duplication in Design 11 and make the page clearer.\n- **One search instead of two.** Design 11 had a hero search and a second \"Race, park or organizer\" search in the sidebar. Now there is a single search bar on the hero photo with these fields: Race/park/organizer (text), Distance, When and Terrain. Its button shows the result count (\"Show 5 races\").\n- **Filters sit above the results.** The left sidebar is removed. The filter row shows active filters as dark chips with a remove ✕, other options as plain chips (Registration open, Opening soon, Lottery, 12+ weeks to train) and a dashed \"More filters\" chip, plus a Sort toggle (Next deadline / Race day).\n- **Each race appears once.** The featured race card in the hero and the \"Registration opening and closing soon\" strip are removed. There is one list sorted by next deadline. Each row shows: thumbnail, name, terrain pill, distance, organizer, race day and place, registration status and next date in ET, weeks to train, and Save. Deadlines within 3 weeks get a blue-tinted highlight and an \"Add to calendar\" link.\n- **Less repeated wording.** The nav is Races / Deadlines / How entry works. The headline is \"Races around New York, and when to enter.\" The bottom section is a single \"Save races to see your season\" teaser with the season timeline preview and one \"Sign up free\" button. The separate closing CTA is removed.\n- Mobile (≤1050px): the hero search stacks into a 2-column grid, rows collapse to thumbnail + text, the nav is hidden.\n- Sample data change: \"Greenbelt Trail 10K\" became \"Greenbelt Trail Half\" so it fits the half filter. That race has no licensed photo, so its tile shows \"13.1\" instead of an image (no invented imagery, no route maps).\n\n### Mockup 13: logo exploration\nFile: `.codeyam/design/project_mockups/13-offcatalog-mockup.html`. It contains the current mark plus 8 directions on a 48-unit grid: the line, the SL monogram (interlocking, slanted; the S's top stroke sweeps behind the L stem and its tail crosses over the blue foot), race bib, Deadline day calendar, stopwatch, go arrow, starting blocks and lanes. Each card shows the mark in the header on light and dark backgrounds and as 16 px and 32 px favicons.\n\n**Decision:** use 04 \"Deadline day\" (a calendar with an ink header, binder rings, a grey day grid and one blue day for the registration deadline) **for now**. The user doesn't love any of the options and wants to revisit the logo later. Treat the mark as a swappable placeholder: keep it in one component or asset.\n\nMockup 12 already uses it in the header (inline SVG, 30 px) and as the SVG favicon.\n\n## Files touched\n- `.codeyam/design/project_mockups/12-offcatalog-mockup.html` (new)\n- `.codeyam/design/project_mockups/13-offcatalog-mockup.html` (new)\n- `.codeyam/design/project_mockups/target.json` (count 11 → 13)\n- `.codeyam/design/selected_mockup.html`, `.codeyam/design/selection.json` (now mockup 12)\n- `.codeyam/design/design_system.md` (source mockup reference → 12; tokens unchanged)\n\n## Scenarios\nNone were registered. There are no app routes yet, so everything was reviewed in the design-exploration mockups view.\n\n## For Build\n- Build the signed-out home page from mockup 12, using the Design 11/12 tokens (white paper, ink #111, one blue accent #2B4ACB, Didone headings, Avenir body).\n- Components to extract: Header (logo slot + nav), HeroSearch (fields + count button), FilterChips + SortToggle, RaceRow (the deadline highlight applies within 3 weeks), SeasonTeaser, Footer (photo credits + sample-data disclaimer).\n- Logo: a single `Logo` component or SVG asset for the Deadline day mark, so it is easy to swap later.\n- Show all times in ET. Use licensed photos with credits. Never draw invented course maps.\n- Scenarios to add in Build: default results (5 halves), empty results, a race with no announced date, mobile layout.",
+  "description": "Built the signed-out Starting Line home page from design mockup 12 on a new Next.js + Prisma + SQLite app: one hero search (race/park/organizer, distance, when, terrain), filter and status chips with a sort toggle above a single race list sorted by next deadline in Eastern Time, weeks to train, a 3-week deadline highlight with a working Add to calendar (.ics) download, an honest saved-races teaser, and the Deadline day calendar logo kept in one swappable component. Races are stored as annual editions with separate registration milestones, seeded with clearly labelled sample data; filtering, formatting and calendar logic are unit tested (55 tests) and every component has isolated scenarios. Scope verdict (no deliverables are recorded for this project, so judged against the plan): delivered the home page, logo, ET times, licensed photos with credits, and the planned scenarios (default, empty, race with no announced date, phone layout). Deferred: the default view shows 4 halves rather than the mockup's 5 because the Brooklyn Half falls outside 6 months; Save, Log in, Sign up and More filters are placeholders until accounts exist; race data is sample, not verified; per-photo credits exist only for the hero; the template lint config is broken and was not fixed. These deferrals were disclosed to and approved by the user at the save gate.",
+  "modifiedFiles": [
+    {
+      "path": ".codeyam/plans/completed/main-page-v2-and-calendar-logo.md",
+      "status": "added"
+    },
+    {
+      "path": "README.md",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/capture.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/data-structure.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/dependency-graph.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/active_tab.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/answers.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/README.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/airbnb.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/airtable.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/apple.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/binance.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/bmw-m.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/bmw.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/bugatti.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/cal.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/claude.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/clay.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/clickhouse.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/cohere.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/coinbase.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/composio.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/cursor.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/dell-1996.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/elevenlabs.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/expo.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/ferrari.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/figma.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/framer.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/hashicorp.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/hp.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/ibm.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/intercom.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/kraken.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/lamborghini.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/linear.app.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/lovable.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/mastercard.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/meta.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/minimax.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/mintlify.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/miro.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/mistral.ai.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/mongodb.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/nike.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/nintendo-2001.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/notion.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/nvidia.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/ollama.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/opencode.ai.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/pinterest.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/playstation.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/posthog.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/raycast.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/renault.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/replicate.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/resend.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/revolut.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/runwayml.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/sanity.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/sentry.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/shopify.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/slack.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/spacex.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/spotify.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/starbucks.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/stripe.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/supabase.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/superhuman.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/tesla.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/theverge.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/together.ai.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/uber.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/vercel.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/vodafone.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/voltagent.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/warp.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/webflow.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/wired.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/wise.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/x.ai.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_references/zapier.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_system.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/README.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/atlas.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/bureau-north.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/clean-dashboard.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/coder.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/console.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/editorial.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/ethereal.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/gardener.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/gummy.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/keylime.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/letters-to-sean.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/manifesto.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/marquee.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/minimalistic.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/mono-brutalist.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/n15.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/neo-brutalist.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/plinth.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/design_systems/space-odyssey.md",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/01-manifesto-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/02-keylime-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/03-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/04-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/05-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/06-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/07-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/08-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/09-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/10-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/11-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/12-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/13-offcatalog-mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/project_mockups/target.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/questions.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/selected_mockup.html",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/design/selection.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/editor.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/first-build-session.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/glossary.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/EmptyResults.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/FilterChips.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/FilterToolbar.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/Hero.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/HeroSearch.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/Logo.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/NextDeadline.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/PageShell.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/RaceDayCell.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/RaceIdentity.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/RaceList.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/RaceRow.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/RaceThumb.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/ResultsHeader.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/ResultsSection.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SaveRaceButton.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SeasonPreview.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SeasonTeaser.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SelectField.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/ShowAllLink.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SiteFooter.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SiteHeader.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SortToggle.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/TimezoneNote.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/WeeksToTrain.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/_fixtures.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/package.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/package.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/per-test-evidence.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-handlers.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-interactivity.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-issues.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-launch.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-metrics.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-mocks.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-playwright.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenario-targeting.js",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/coverage-plan/app-page-tsx.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/emptyresults-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/filterchips-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/filterchips-nothing-narrowing.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/filterchips-status-chips-on.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/filtertoolbar-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/filtertoolbar-lottery-sorted-by-race-day.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/hero-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/herosearch-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/herosearch-no-matches.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/herosearch-search-typed.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-all-distances-next-12-months.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-half-marathons-next-6-months.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-lottery-races-only.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-no-races-listed.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-phone-layout.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/logo-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/logo-large.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/nextdeadline-lottery-open.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/nextdeadline-not-announced.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/nextdeadline-tentative-date.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/nextdeadline-urgent-opening-soon.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racedaycell-confirmed.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racedaycell-date-to-come.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racedaycell-tentative.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/raceidentity-long-name-ultra.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/raceidentity-road.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/raceidentity-trail-with-climb.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racelist-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racelist-empty.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racelist-with-unannounced-race.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racerow-lottery-open.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racerow-no-photo-trail.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racerow-not-announced.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racerow-urgent-deadline.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racethumb-distance-tile.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/racethumb-photo.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/resultsheader-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/resultsheader-single-race.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/resultssection-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/resultssection-empty.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/saveracebutton-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/.capture-pipeline.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/emptyresults-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/emptyresults-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-nothing-narrowing--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-nothing-narrowing--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-status-chips-on--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filterchips-status-chips-on--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filtertoolbar-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filtertoolbar-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filtertoolbar-lottery-sorted-by-race-day--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/filtertoolbar-lottery-sorted-by-race-day--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/hero-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/hero-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-no-matches--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-no-matches--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-search-typed--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/herosearch-search-typed--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-phone-layout--mobile.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-phone-layout--mobile.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/logo-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/logo-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/logo-large--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/logo-large--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-lottery-open--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-lottery-open--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-not-announced--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-not-announced--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-tentative-date--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-tentative-date--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-urgent-opening-soon--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-urgent-opening-soon--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-confirmed--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-confirmed--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-date-to-come--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-date-to-come--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-tentative--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racedaycell-tentative--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-long-name-ultra--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-long-name-ultra--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-road--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-road--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-trail-with-climb--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/raceidentity-trail-with-climb--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-empty--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-empty--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-lottery-open--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-lottery-open--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-trail--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-trail--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-not-announced--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-not-announced--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racethumb-distance-tile--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racethumb-distance-tile--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racethumb-photo--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racethumb-photo--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultsheader-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultsheader-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultsheader-single-race--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultsheader-single-race--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-empty--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-empty--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonpreview-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonpreview-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonteaser-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonteaser-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/selectfield-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/selectfield-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/showalllink-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/showalllink-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sitefooter-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sitefooter-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/siteheader-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/siteheader-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sorttoggle-next-deadline--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sorttoggle-next-deadline--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sorttoggle-race-day--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/sorttoggle-race-day--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timezonenote-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timezonenote-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/weekstotrain-default--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/weekstotrain-default--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/seasonpreview-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/seasonteaser-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/selectfield-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/showalllink-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/sitefooter-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/siteheader-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/sorttoggle-next-deadline.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/sorttoggle-race-day.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/timezonenote-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/weekstotrain-default.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/seed-adapter.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/setup-answers.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/stack.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/state/finalize-debt.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/state/hosted-published-ports.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/state/preview-subpath-hydration.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/state/scenario-taxonomy.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/state/step-highwater-archive.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/all.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/ba0c4ac85f4dd6f6ab0e3690aa3b644537c6c1f14bc1318588cf15fa3d7faf97.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/c4ed1a35c4918ab74d2860266bebc2ccfb3eb453d7bf279ec6ea742ab493b18f.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-registry.json",
+      "status": "added"
+    },
+    {
+      "path": "AUTH_PATTERNS.md",
+      "status": "added"
+    },
+    {
+      "path": "AUTH_UPGRADE.md",
+      "status": "added"
+    },
+    {
+      "path": "DATABASE.md",
+      "status": "added"
+    },
+    {
+      "path": "FEATURE_PATTERNS.md",
+      "status": "added"
+    },
+    {
+      "path": "app/api/codeyam-revalidate/route.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/api/races/[slug]/calendar/route.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/api/races/route.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/codeyam-isolate/layout.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/EmptyResults.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/FilterChips.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/FilterToolbar.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/Hero.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/HeroSearch.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/Logo.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/NextDeadline.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/PageShell.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/RaceDayCell.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/RaceIdentity.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/RaceList.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/RaceRow.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/RaceThumb.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/ResultsHeader.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/ResultsSection.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SaveRaceButton.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SeasonPreview.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SeasonTeaser.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SelectField.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/ShowAllLink.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SiteFooter.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SiteHeader.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SortToggle.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/TimezoneNote.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/WeeksToTrain.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/globals.css",
+      "status": "added"
+    },
+    {
+      "path": "app/icon.svg",
+      "status": "added"
+    },
+    {
+      "path": "app/layout.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/filters.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/filters.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/format.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/format.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/ics.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/ics.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/loadEnv.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/prisma.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/raceCalendar.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/raceCalendar.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/raceList.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/raceList.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/races.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/page.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/scenario/[slug]/page.tsx",
+      "status": "added"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "status": "added"
+    },
+    {
+      "path": "next.config.ts",
+      "status": "added"
+    },
+    {
+      "path": "package-lock.json",
+      "status": "added"
+    },
+    {
+      "path": "package.json",
+      "status": "added"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "status": "added"
+    },
+    {
+      "path": "prisma.config.ts",
+      "status": "added"
+    },
+    {
+      "path": "prisma/sample-data.json",
+      "status": "added"
+    },
+    {
+      "path": "prisma/schema.prisma",
+      "status": "added"
+    },
+    {
+      "path": "prisma/seed.ts",
+      "status": "added"
+    },
+    {
+      "path": "public/images/breakneck-ridge.jpg",
+      "status": "added"
+    },
+    {
+      "path": "public/images/central-park-drive.jpg",
+      "status": "added"
+    },
+    {
+      "path": "public/images/nyc-half-manhattan.jpg",
+      "status": "added"
+    },
+    {
+      "path": "public/images/prospect-park-drive.jpg",
+      "status": "added"
+    },
+    {
+      "path": "scripts/build-app.mjs",
+      "status": "added"
+    },
+    {
+      "path": "tsconfig.json",
+      "status": "added"
+    },
+    {
+      "path": "vitest.config.ts",
+      "status": "added"
+    }
+  ],
+  "scenarioScreenshots": [
+    {
+      "name": "Home - All Distances Next 12 Months",
+      "screenshotPath": "home-all-distances-next-12-months--desktop.png"
+    },
+    {
+      "name": "Home - Half Marathons Next 6 Months",
+      "screenshotPath": "home-half-marathons-next-6-months--desktop.png"
+    },
+    {
+      "name": "Home - Lottery Races Only",
+      "screenshotPath": "home-lottery-races-only--desktop.png"
+    },
+    {
+      "name": "Home - No Races Listed",
+      "screenshotPath": "home-no-races-listed--desktop.png"
+    },
+    {
+      "name": "Home - Phone Layout",
+      "screenshotPath": "home-phone-layout--mobile.png"
+    },
+    {
+      "name": "EmptyResults - Default",
+      "screenshotPath": "emptyresults-default--desktop.png"
+    },
+    {
+      "name": "FilterChips - Default",
+      "screenshotPath": "filterchips-default--desktop.png"
+    },
+    {
+      "name": "FilterChips - Nothing Narrowing",
+      "screenshotPath": "filterchips-nothing-narrowing--desktop.png"
+    },
+    {
+      "name": "FilterChips - Status Chips On",
+      "screenshotPath": "filterchips-status-chips-on--desktop.png"
+    },
+    {
+      "name": "FilterToolbar - Default",
+      "screenshotPath": "filtertoolbar-default--desktop.png"
+    },
+    {
+      "name": "FilterToolbar - Lottery Sorted By Race Day",
+      "screenshotPath": "filtertoolbar-lottery-sorted-by-race-day--desktop.png"
+    },
+    {
+      "name": "Hero - Default",
+      "screenshotPath": "hero-default--desktop.png"
+    },
+    {
+      "name": "HeroSearch - Default",
+      "screenshotPath": "herosearch-default--desktop.png"
+    },
+    {
+      "name": "HeroSearch - No Matches",
+      "screenshotPath": "herosearch-no-matches--desktop.png"
+    },
+    {
+      "name": "HeroSearch - Search Typed",
+      "screenshotPath": "herosearch-search-typed--desktop.png"
+    },
+    {
+      "name": "Logo - Default",
+      "screenshotPath": "logo-default--desktop.png"
+    },
+    {
+      "name": "Logo - Large",
+      "screenshotPath": "logo-large--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Lottery Open",
+      "screenshotPath": "nextdeadline-lottery-open--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Not Announced",
+      "screenshotPath": "nextdeadline-not-announced--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Tentative Date",
+      "screenshotPath": "nextdeadline-tentative-date--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Urgent Opening Soon",
+      "screenshotPath": "nextdeadline-urgent-opening-soon--desktop.png"
+    },
+    {
+      "name": "RaceDayCell - Confirmed",
+      "screenshotPath": "racedaycell-confirmed--desktop.png"
+    },
+    {
+      "name": "RaceDayCell - Date To Come",
+      "screenshotPath": "racedaycell-date-to-come--desktop.png"
+    },
+    {
+      "name": "RaceDayCell - Tentative",
+      "screenshotPath": "racedaycell-tentative--desktop.png"
+    },
+    {
+      "name": "RaceIdentity - Long Name Ultra",
+      "screenshotPath": "raceidentity-long-name-ultra--desktop.png"
+    },
+    {
+      "name": "RaceIdentity - Road",
+      "screenshotPath": "raceidentity-road--desktop.png"
+    },
+    {
+      "name": "RaceIdentity - Trail With Climb",
+      "screenshotPath": "raceidentity-trail-with-climb--desktop.png"
+    },
+    {
+      "name": "RaceList - Default",
+      "screenshotPath": "racelist-default--desktop.png"
+    },
+    {
+      "name": "RaceList - Empty",
+      "screenshotPath": "racelist-empty--desktop.png"
+    },
+    {
+      "name": "RaceList - With Unannounced Race",
+      "screenshotPath": "racelist-with-unannounced-race--desktop.png"
+    },
+    {
+      "name": "RaceRow - Lottery Open",
+      "screenshotPath": "racerow-lottery-open--desktop.png"
+    },
+    {
+      "name": "RaceRow - No Photo Trail",
+      "screenshotPath": "racerow-no-photo-trail--desktop.png"
+    },
+    {
+      "name": "RaceRow - Not Announced",
+      "screenshotPath": "racerow-not-announced--desktop.png"
+    },
+    {
+      "name": "RaceRow - Urgent Deadline",
+      "screenshotPath": "racerow-urgent-deadline--desktop.png"
+    },
+    {
+      "name": "RaceThumb - Distance Tile",
+      "screenshotPath": "racethumb-distance-tile--desktop.png"
+    },
+    {
+      "name": "RaceThumb - Photo",
+      "screenshotPath": "racethumb-photo--desktop.png"
+    },
+    {
+      "name": "ResultsHeader - Default",
+      "screenshotPath": "resultsheader-default--desktop.png"
+    },
+    {
+      "name": "ResultsHeader - Single Race",
+      "screenshotPath": "resultsheader-single-race--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Default",
+      "screenshotPath": "resultssection-default--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Empty",
+      "screenshotPath": "resultssection-empty--desktop.png"
+    },
+    {
+      "name": "SaveRaceButton - Default",
+      "screenshotPath": "saveracebutton-default--desktop.png"
+    },
+    {
+      "name": "SeasonPreview - Default",
+      "screenshotPath": "seasonpreview-default--desktop.png"
+    },
+    {
+      "name": "SeasonTeaser - Default",
+      "screenshotPath": "seasonteaser-default--desktop.png"
+    },
+    {
+      "name": "SelectField - Default",
+      "screenshotPath": "selectfield-default--desktop.png"
+    },
+    {
+      "name": "ShowAllLink - Default",
+      "screenshotPath": "showalllink-default--desktop.png"
+    },
+    {
+      "name": "SiteFooter - Default",
+      "screenshotPath": "sitefooter-default--desktop.png"
+    },
+    {
+      "name": "SiteHeader - Default",
+      "screenshotPath": "siteheader-default--desktop.png"
+    },
+    {
+      "name": "SortToggle - Next Deadline",
+      "screenshotPath": "sorttoggle-next-deadline--desktop.png"
+    },
+    {
+      "name": "SortToggle - Race Day",
+      "screenshotPath": "sorttoggle-race-day--desktop.png"
+    },
+    {
+      "name": "TimezoneNote - Default",
+      "screenshotPath": "timezonenote-default--desktop.png"
+    },
+    {
+      "name": "WeeksToTrain - Default",
+      "screenshotPath": "weekstotrain-default--desktop.png"
+    }
+  ],
+  "testResults": {
+    "total": 55,
+    "passed": 55,
+    "failed": 0,
+    "runners": [
+      {
+        "name": "tests",
+        "total": 55,
+        "passed": 55
+      }
+    ]
+  }
+}

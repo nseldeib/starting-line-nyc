@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="codeyam-viewport" content="desktop">
+<title>Big type, race ledger</title>
+<style>
+:root {
+  --paper: #E8E6E1;
+  --paper-card: #F2F0EB;
+  --paper-deep: #DBD8D2;
+  --ink: #0A0A0A;
+  --ink-soft: #1A1A1A;
+  --ash: #5F5C58;
+  --ash-soft: #807C76;
+  --mist: #C9C5BE;
+  --white: #FAF9F6;
+  --pulse: #E85A12;
+  --pulse-ink: #B8440A;
+  --pulse-soft: rgba(232, 90, 18, 0.10);
+  --highlight: #FFCB47;
+  --display: "Big Shoulders Display", "Oswald", "Bebas Neue", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --body: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-pill: 999px;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --paper: #0F0E0C;
+  --paper-card: #1A1815;
+  --paper-deep: #252320;
+  --ink: #E8E6E1;
+  --ink-soft: #D8D6D1;
+  --ash: #A29E97;
+  --ash-soft: #7E7A74;
+  --mist: #3A3833;
+  --pulse: #FF7A33;
+  --pulse-ink: #FF9A5E;
+  --pulse-soft: rgba(255, 122, 51, 0.14);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--paper); color: var(--ink-soft); font-family: var(--body); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--pulse); outline-offset: 3px; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ash); }
+.dot { color: var(--pulse); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* nav */
+.nav { display: flex; align-items: center; justify-content: space-between; height: 68px; border-bottom: 1px solid var(--mist); }
+.logo { font-family: var(--display); font-weight: 900; font-size: 30px; letter-spacing: -0.01em; color: var(--ink); font-stretch: condensed; }
+.nav ul { display: flex; gap: 32px; list-style: none; }
+.nav ul a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); }
+.btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 13px 18px; border: none; border-radius: var(--r-1); cursor: pointer; display: inline-block; white-space: nowrap; transition: background .2s, color .2s; }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--pulse); color: var(--white); }
+.btn-pulse { background: var(--pulse); color: var(--white); }
+.btn-pulse:hover { background: var(--ink); color: var(--paper); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* hero */
+.opener { padding: 56px 0 0; }
+.opener h1 { font-family: var(--display); font-weight: 900; font-stretch: condensed; text-transform: uppercase; color: var(--ink); font-size: clamp(64px, 10.4vw, 168px); line-height: 0.84; letter-spacing: -0.03em; text-wrap: balance; max-width: 13ch; }
+.lead-row { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; margin-top: 40px; align-items: end; }
+.lead-copy p { font-size: 18px; color: var(--ink-soft); max-width: 40ch; }
+.lead-copy .ctas { display: flex; gap: 12px; margin-top: 24px; }
+.hero-photo { height: 300px; border-radius: var(--r-2); background-image: url('https://loremflickr.com/640/480/marathon,runners,city'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjZiMjZiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmRlNmM0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9InVybCgjcykiLz48Y2lyY2xlIGN4PSI0NzAiIGN5PSIyMTAiIHI9IjQ2IiBmaWxsPSIjZmZmNGRjIi8+PHJlY3QgeD0iMCIgeT0iMTk1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTM1IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjQuNSIgeT0iMTY1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU3IiB5PSIyMzEiIHdpZHRoPSI1MyIgaGVpZ2h0PSI5OSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjExMiIgeT0iMjI4IiB3aWR0aD0iNDQiIGhlaWdodD0iMTAyIiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMTU4IiB5PSIxMzgiIHdpZHRoPSIzNCIgaGVpZ2h0PSIxOTIiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIxOTQiIHk9IjE1OSIgd2lkdGg9IjM3IiBoZWlnaHQ9IjE3MSIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjIzMyIgeT0iMTgzIiB3aWR0aD0iNTkiIGhlaWdodD0iMTQ3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMjk0IiB5PSIyMTkiIHdpZHRoPSI0NyIgaGVpZ2h0PSIxMTEiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSIzNDMiIHk9IjI0NiIgd2lkdGg9IjQ4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iMzkzIiB5PSIyMDEiIHdpZHRoPSI1MyIgaGVpZ2h0PSIxMjkiIGZpbGw9IiMzYjRhNmIiLz48cmVjdCB4PSI0NDgiIHk9IjE2MiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjE2OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjQ4NiIgeT0iMTUzIiB3aWR0aD0iMzkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNTI3IiB5PSIyNTIiIHdpZHRoPSIzNiIgaGVpZ2h0PSI3OCIgZmlsbD0iIzNiNGE2YiIvPjxyZWN0IHg9IjU2NSIgeT0iMTUzIiB3aWR0aD0iNjkiIGhlaWdodD0iMTc3IiBmaWxsPSIjM2I0YTZiIi8+PHJlY3QgeD0iNjM2IiB5PSIxMzIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxOTgiIGZpbGw9IiMzYjRhNmIiLz48cG9seWdvbiBwb2ludHM9IjAsMzMwIDY0MCwzMzAgNjQwLDQ4MCAwLDQ4MCIgZmlsbD0iIzU1NjA3YSIvPjxwb2x5Z29uIHBvaW50cz0iMjkwLDMzMCAzNTAsMzMwIDUyMCw0ODAgMTIwLDQ4MCIgZmlsbD0iIzZiNzU5MCIvPjxnIHN0cm9rZT0iI2Y0ZDM1ZSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtZGFzaGFycmF5PSIyNCAyMiI+PGxpbmUgeDE9IjMyMCIgeTE9IjMzNCIgeDI9IjMyMCIgeTI9IjQ4MCIvPjwvZz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxZDIzMzMiIHN0cm9rZS13aWR0aD0iNy45IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjIyMC4wLDM3OC40IDIxNS42LDQxMy42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE3LjgsMzg1LjAgMjAwLjIsMzk4LjIgMTkxLjQsMzg1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyMjAuMCwzODUuMCAyMzcuNiwzOTMuOCAyNDguNiwzODAuNiIvPjxwb2x5bGluZSBwb2ludHM9IjIxNS42LDQxMy42IDIzNy42LDQzMS4yIDIzMy4yLDQ1NS40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMjE1LjYsNDEzLjYgMjAwLjIsNDM1LjYgMTgwLjQsNDQwLjAiLz48L2c+PGNpcmNsZSBjeD0iMjIyLjIiIGN5PSIzNjUuMiIgcj0iMTEuMCIgZmlsbD0iIzFkMjMzMyIvPjxyZWN0IHg9IjIxMS4yIiB5PSIzODcuMiIgd2lkdGg9IjEzLjIiIGhlaWdodD0iMTEuMCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjkiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNlMjQ1M2MiIHN0cm9rZS13aWR0aD0iNi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjM2MC4wLDM2OS42IDM1Ni40LDM5OC40Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU4LjIsMzc1LjAgMzQzLjgsMzg1LjggMzM2LjYsMzc1LjAiLz48cG9seWxpbmUgcG9pbnRzPSIzNjAuMCwzNzUuMCAzNzQuNCwzODIuMiAzODMuNCwzNzEuNCIvPjxwb2x5bGluZSBwb2ludHM9IjM1Ni40LDM5OC40IDM3NC40LDQxMi44IDM3MC44LDQzMi42Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzU2LjQsMzk4LjQgMzQzLjgsNDE2LjQgMzI3LjYsNDIwLjAiLz48L2c+PGNpcmNsZSBjeD0iMzYxLjgiIGN5PSIzNTguOCIgcj0iOS4wIiBmaWxsPSIjZTI0NTNjIi8+PHJlY3QgeD0iMzUyLjgiIHk9IjM3Ni44IiB3aWR0aD0iMTAuOCIgaGVpZ2h0PSI5LjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWQyMzMzIiBzdHJva2Utd2lkdGg9IjguNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI0NTAuMCwzODcuOCA0NDUuMiw0MjYuMiIvPjxwb2x5bGluZSBwb2ludHM9IjQ0Ny42LDM5NS4wIDQyOC40LDQwOS40IDQxOC44LDM5NS4wIi8+PHBvbHlsaW5lIHBvaW50cz0iNDUwLjAsMzk1LjAgNDY5LjIsNDA0LjYgNDgxLjIsMzkwLjIiLz48cG9seWxpbmUgcG9pbnRzPSI0NDUuMiw0MjYuMiA0NjkuMiw0NDUuNCA0NjQuNCw0NzEuOCIvPjxwb2x5bGluZSBwb2ludHM9IjQ0NS4yLDQyNi4yIDQyOC40LDQ1MC4yIDQwNi44LDQ1NS4wIi8+PC9nPjxjaXJjbGUgY3g9IjQ1Mi40IiBjeT0iMzczLjQiIHI9IjEyLjAiIGZpbGw9IiMxZDIzMzMiLz48cmVjdCB4PSI0NDAuNCIgeT0iMzk3LjQiIHdpZHRoPSIxNC40IiBoZWlnaHQ9IjEyLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PC9zdmc+'); background-size: cover; background-position: center; background-position: center 85%; }
+
+/* ticker */
+.ticker { margin-top: 56px; background: var(--ink); color: var(--paper); overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: flex; gap: 56px; padding: 14px 32px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.ticker b { color: var(--pulse); font-weight: 500; }
+
+/* finder */
+.section { padding: 96px 0; }
+.section h2, .journey h2 { font-family: var(--display); font-weight: 900; font-stretch: condensed; text-transform: uppercase; color: var(--ink); font-size: clamp(48px, 6.4vw, 96px); line-height: 0.86; letter-spacing: -0.025em; text-wrap: balance; }
+.finder-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 32px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; }
+.tag { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; background: var(--paper-deep); color: var(--ink); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--r-pill); border: 1px solid var(--mist); }
+.tag.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.sort { margin-left: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-family: var(--mono); font-weight: 500; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ash); padding: 10px 12px; background: var(--paper-deep); }
+td { padding: 18px 12px; border-bottom: 1px solid var(--mist); vertical-align: top; }
+tr:hover td { background: var(--paper-card); }
+.race { font-family: var(--display); font-weight: 800; font-stretch: condensed; text-transform: uppercase; font-size: 22px; line-height: 0.95; color: var(--ink); }
+.where { font-size: 13px; color: var(--ash); margin-top: 4px; }
+.when { font-weight: 600; color: var(--ink); }
+.sub { font-size: 12.5px; color: var(--ash); }
+.status { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: var(--r-pill); white-space: nowrap; border: 1px solid var(--mist); color: var(--ink); display: inline-block; }
+.status.open { background: var(--pulse); color: var(--white); border-color: var(--pulse); }
+.status.soon { background: var(--highlight); color: #0A0A0A; border-color: var(--highlight); font-weight: 600; }
+.status.lottery { border-color: var(--pulse); color: var(--pulse-ink); }
+.status.out { color: var(--ash); text-decoration: line-through; }
+.save { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; background: none; border: none; border-bottom: 1px solid var(--ink); color: var(--ink); padding: 2px 0; cursor: pointer; }
+.table-foot { display: flex; justify-content: space-between; margin-top: 20px; }
+.table-foot a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--ink); }
+
+/* entry types */
+.entry { border-top: 1px solid var(--ink); }
+.entry-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 64px; }
+.entry-list { list-style: none; }
+.entry-list li { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 24px 0; border-bottom: 1px solid var(--mist); }
+.entry-list h3 { font-family: var(--display); font-weight: 800; font-stretch: condensed; text-transform: uppercase; font-size: 30px; line-height: 0.9; color: var(--ink); }
+.entry-list p { max-width: 54ch; }
+.entry-list .eg { display: block; margin-top: 6px; font-size: 13px; color: var(--ash); }
+
+/* journey: dark moment */
+.journey { background: var(--ink); color: var(--paper); border-radius: var(--r-2); padding: 64px 48px; }
+:root[data-theme="dark"] .journey { background: var(--paper-card); color: var(--ink); }
+.journey h2 { color: inherit; }
+.steps { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 48px; counter-reset: s; }
+.steps li { border-top: 1px solid currentColor; padding-top: 16px; counter-increment: s; }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 900; font-size: 56px; line-height: 1; color: var(--pulse); display: block; margin-bottom: 12px; }
+.steps h3 { font-family: var(--body); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.steps p { font-size: 14px; opacity: 0.78; }
+
+/* trust */
+.trust { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: start; }
+.trust p.lead { font-size: 18px; max-width: 46ch; margin-top: 24px; }
+.proof { background: var(--paper-card); border-radius: var(--r-2); padding: 28px; border: 1px solid var(--mist); }
+.proof dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-size: 14px; margin-top: 16px; font-variant-numeric: tabular-nums; }
+.proof dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ash); padding-top: 3px; }
+.proof dd { color: var(--ink); }
+.proof .tentative { background: var(--pulse-soft); padding: 2px 6px; border-radius: var(--r-1); }
+.note { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--mist); font-size: 13px; color: var(--ash); }
+
+footer { border-top: 1px solid var(--mist); padding: 32px 0 48px; display: flex; justify-content: space-between; gap: 24px; font-size: 13px; color: var(--ash); }
+
+@media (max-width: 860px) {
+  .wrap { padding: 0 16px; }
+  .nav ul { display: none; }
+  .lead-row, .entry-grid, .trust { grid-template-columns: 1fr; gap: 32px; }
+  .hero-photo { height: 220px; }
+  .steps { grid-template-columns: 1fr; }
+  .entry-list li { grid-template-columns: 1fr; gap: 8px; }
+  thead { display: none; }
+  table, tbody, tr, td { display: block; }
+  tr { padding: 16px 0; border-bottom: 1px solid var(--mist); }
+  td { border: none; padding: 3px 0; }
+  .journey { padding: 40px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#">CORRAL<span class="dot">.</span></a>
+    <ul>
+      <li><a href="#">Races</a></li>
+      <li><a href="#">My races</a></li>
+      <li><a href="#">Calendar</a></li>
+      <li><a href="#">How entry works</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#">Find a race</a>
+  </nav>
+
+  <header class="opener">
+    <h1>Know when every NYC race opens<span class="dot">.</span></h1>
+    <div class="lead-row">
+      <div class="lead-copy">
+        <p>Road and trail races from NYRR and independent organizers, with entry rules, registration dates and calendar reminders in one place.</p>
+        <div class="ctas">
+          <a class="btn btn-pulse" href="#">Find a race</a>
+          <a class="btn btn-ghost" href="#">How entry works</a>
+        </div>
+      </div>
+      <div class="hero-photo" role="img" aria-label="Runners on a city avenue at sunrise"></div>
+    </div>
+  </header>
+</div>
+
+<div class="ticker" aria-label="Upcoming registration milestones">
+  <div class="ticker-inner">
+    <span><b>Lottery closes Nov 17</b> United Airlines NYC Half</span>
+    <span><b>Opens Nov 10, 12:00 pm ET</b> Fred Lebow Manhattan Half</span>
+    <span><b>Entry closes Dec 9</b> Ted Corbitt 15K</span>
+    <span><b>Waitlist</b> Breakneck Point Trail 50K</span>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="section" aria-labelledby="finder">
+    <div class="finder-head">
+      <h2 id="finder">Opening next<span class="dot">.</span></h2>
+      <span class="mono">Sample data, not yet verified</span>
+    </div>
+    <div class="filters" role="group" aria-label="Filters">
+      <span class="tag on">All distances</span>
+      <span class="tag">5K to 10K</span>
+      <span class="tag">Half</span>
+      <span class="tag">Marathon</span>
+      <span class="tag">Ultra</span>
+      <span class="tag">Road</span>
+      <span class="tag">Trail</span>
+      <span class="tag">Open now</span>
+      <span class="tag sort">Sort: registration opens</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Race</th><th>Race day</th><th>Distance</th><th>How to enter</th><th>Registration</th><th>Status</th><th><span class="sr">Save</span></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="race">Fred Lebow Manhattan Half</div><div class="where">Central Park, NYRR</div></td>
+          <td class="when">Sun, Jan 24, 2027</td>
+          <td>13.1 mi<div class="sub">Road</div></td>
+          <td>Open registration<div class="sub">NYRR members first</div></td>
+          <td class="when">Opens Tue, Nov 10<div class="sub">12:00 pm ET</div></td>
+          <td><span class="status soon">Opening soon</span></td>
+          <td><button class="save">Save</button></td>
+        </tr>
+        <tr>
+          <td><div class="race">United Airlines NYC Half</div><div class="where">Brooklyn to Times Square, NYRR</div></td>
+          <td class="when">Sun, Mar 21, 2027</td>
+          <td>13.1 mi<div class="sub">Road</div></td>
+          <td>Lottery, charity, time qualifier</td>
+          <td class="when">Lottery closes Nov 17<div class="sub">11:59 pm ET</div></td>
+          <td><span class="status lottery">Lottery open</span></td>
+          <td><button class="save">Save</button></td>
+        </tr>
+        <tr>
+          <td><div class="race">Ted Corbitt 15K</div><div class="where">Central Park, NYRR</div></td>
+          <td class="when">Sat, Dec 12, 2026</td>
+          <td>9.3 mi<div class="sub">Road</div></td>
+          <td>Open registration</td>
+          <td class="when">Closes Wed, Dec 9<div class="sub">or when full</div></td>
+          <td><span class="status open">Open</span></td>
+          <td><button class="save">Save</button></td>
+        </tr>
+        <tr>
+          <td><div class="race">Breakneck Point Trail 50K</div><div class="where">Hudson Highlands, Beacon NY</div></td>
+          <td class="when">Sat, Apr 10, 2027</td>
+          <td>31 mi<div class="sub">Trail, 7,800 ft gain</div></td>
+          <td>Open, then waitlist</td>
+          <td class="when">Waitlist only</td>
+          <td><span class="status">Waitlist</span></td>
+          <td><button class="save">Save</button></td>
+        </tr>
+        <tr>
+          <td><div class="race">Midnight Run</div><div class="where">Central Park, NYRR</div></td>
+          <td class="when">Thu, Dec 31, 2026</td>
+          <td>4 mi<div class="sub">Road, night</div></td>
+          <td>Open registration</td>
+          <td class="when">Sold out Oct 14</td>
+          <td><span class="status out">Sold out</span></td>
+          <td><button class="save">Save</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-foot">
+      <span class="mono">Times shown in New York time (ET)</span>
+      <a href="#">See all 48 races</a>
+    </div>
+  </section>
+
+  <section class="section entry" aria-labelledby="entry">
+    <div class="entry-grid">
+      <h2 id="entry">Five ways in<span class="dot">.</span></h2>
+      <ul class="entry-list">
+        <li><h3>Open</h3><p>First come, first served until the field fills. Popular NYRR races can sell out in hours, so set a reminder for the opening minute.<span class="eg">Ted Corbitt 15K, Queens 10K</span></p></li>
+        <li><h3>Lottery</h3><p>Apply during a window, then wait for the drawing. Applying early gives you no better odds; missing the deadline means no chance.<span class="eg">NYC Half, TCS New York City Marathon</span></p></li>
+        <li><h3>Time qualifier</h3><p>Run a qualifying time in a set window before the race edition you want. We show which edition each window applies to.</p></li>
+        <li><h3>Charity</h3><p>Guaranteed entry in exchange for a fundraising commitment with an official charity partner.</p></li>
+        <li><h3>Membership</h3><p>Some races need a club membership or a completed set of races in the prior year, like NYRR’s 9+1 program.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="journey" aria-labelledby="journey">
+    <h2 id="journey">From first look to start line<span class="dot">.</span></h2>
+    <ol class="steps">
+      <li><h3>Find a race</h3><p>Filter by distance, road or trail, borough and status.</p></li>
+      <li><h3>Learn how to enter</h3><p>Entry method, deadlines and the edition they apply to.</p></li>
+      <li><h3>Save it</h3><p>Mark it Interested, Considering or Signed up.</p></li>
+      <li><h3>Add to your calendar</h3><p>Race day and registration dates, for Google, Apple or Outlook.</p></li>
+      <li><h3>Register</h3><p>We send you to the official organizer’s page to sign up.</p></li>
+    </ol>
+  </section>
+
+  <section class="section trust" aria-labelledby="trust">
+    <div>
+      <h2 id="trust">Every date has a source<span class="dot">.</span></h2>
+      <p class="lead">Dates come from official organizer pages and show when we last checked them. Anything not yet announced says so. We never guess.</p>
+    </div>
+    <div class="proof">
+      <span class="mono">Brooklyn Half, 2027 edition</span>
+      <dl>
+        <dt>Race day</dt><dd>Sat, May 15, 2027</dd>
+        <dt>Registration</dt><dd><span class="tentative">Not announced yet</span></dd>
+        <dt>Source</dt><dd><a href="#" style="border-bottom:1px solid var(--ink)">nyrr.org/races</a></dd>
+        <dt>Verified</dt><dd>Oct 24, 2026</dd>
+      </dl>
+      <p class="note">Calendar downloads work today. Automatic reminders by email or text will come with accounts; until then, nothing is scheduled unless you add it to your calendar.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Corral. Made in New York by runners. Not affiliated with NYRR or any race organizer.</span>
+    <span>Race data on this page is sample data.</span>
+  </footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "HeroSearch - Default",
+  "id": "b3aafcb2-3014-4102-8d9b-64ab7373effa",
+  "url": "/isolated-components/HeroSearch?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "HeroSearch",
+  "scenarioType": "component",
+  "description": "HeroSearch in its default state with sample race data."
+}

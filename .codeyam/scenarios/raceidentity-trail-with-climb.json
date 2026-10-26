@@ -1,0 +1,12 @@
+{
+  "name": "RaceIdentity - Trail With Climb",
+  "id": "19bd1213-86b5-4831-a4db-544dad496090",
+  "url": "/isolated-components/RaceIdentity?s=TrailWithClimb",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceIdentity",
+  "scenarioType": "component",
+  "description": "RaceIdentity in its trail with climb state with sample race data."
+}

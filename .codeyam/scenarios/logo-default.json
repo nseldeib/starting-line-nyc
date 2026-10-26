@@ -1,0 +1,12 @@
+{
+  "name": "Logo - Default",
+  "id": "4f7d70d2-333a-4164-9395-ca478ee360b5",
+  "url": "/isolated-components/Logo?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "Logo",
+  "scenarioType": "component",
+  "description": "Deadline day calendar mark at header size, the swappable placeholder logo."
+}

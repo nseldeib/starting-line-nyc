@@ -1,0 +1,24 @@
+{
+  "surface": "app/page.tsx",
+  "surface_kind": "file",
+  "states": [
+    {
+      "dimension": "races",
+      "value": "empty",
+      "rationale": "source-derived state races=empty",
+      "status": "covered"
+    },
+    {
+      "dimension": "races",
+      "value": "one",
+      "rationale": "source-derived state races=one",
+      "status": "covered"
+    },
+    {
+      "dimension": "races",
+      "value": "many",
+      "rationale": "source-derived state races=many",
+      "status": "covered"
+    }
+  ]
+}

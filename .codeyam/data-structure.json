@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Organizer",
+    "description": "A race organizer such as NYRR or an independent trail club.",
+    "category": "datastore",
+    "order": 2,
+    "fields": [
+      { "name": "id", "type": "number", "isId": true, "required": true },
+      { "name": "slug", "type": "string", "required": true },
+      { "name": "name", "type": "string", "required": true },
+      { "name": "websiteUrl", "type": "string", "required": false }
+    ]
+  },
+  {
+    "name": "Race",
+    "description": "A recurring race (the event itself, independent of year). Photo fields hold licensed photos only; a null photoUrl shows a distance tile.",
+    "category": "datastore",
+    "order": 1,
+    "fields": [
+      { "name": "id", "type": "number", "isId": true, "required": true },
+      { "name": "slug", "type": "string", "required": true },
+      { "name": "name", "type": "string", "required": true },
+      { "name": "terrain", "type": "string", "required": true },
+      { "name": "distanceMiles", "type": "number", "required": true },
+      { "name": "elevationGainFt", "type": "number", "required": false },
+      { "name": "locationName", "type": "string", "required": true },
+      { "name": "area", "type": "string", "required": true },
+      { "name": "photoUrl", "type": "string", "required": false },
+      { "name": "photoAlt", "type": "string", "required": false },
+      { "name": "photoCredit", "type": "string", "required": false },
+      { "name": "organizerId", "type": "number", "required": true }
+    ]
+  },
+  {
+    "name": "RaceEdition",
+    "description": "One annual edition of a race: race date (null when not announced), registration status, entry method, official links and last-verified date.",
+    "category": "datastore",
+    "order": 1,
+    "fields": [
+      { "name": "id", "type": "number", "isId": true, "required": true },
+      { "name": "raceId", "type": "number", "required": true },
+      { "name": "year", "type": "number", "required": true },
+      { "name": "raceDate", "type": "string", "required": false },
+      { "name": "raceDateTentative", "type": "boolean", "required": true },
+      { "name": "registrationStatus", "type": "string", "required": true },
+      { "name": "entryMethod", "type": "string", "required": true },
+      { "name": "priceUsd", "type": "number", "required": false },
+      { "name": "registrationUrl", "type": "string", "required": false },
+      { "name": "sourceUrl", "type": "string", "required": false },
+      { "name": "lastVerifiedAt", "type": "string", "required": false },
+      { "name": "isSample", "type": "boolean", "required": true }
+    ]
+  },
+  {
+    "name": "RegistrationMilestone",
+    "description": "A dated registration event for an edition (opens, closes, lottery closes, draw, qualification deadline). Drives the 'next deadline' column and calendar exports.",
+    "category": "datastore",
+    "order": 1,
+    "fields": [
+      { "name": "id", "type": "number", "isId": true, "required": true },
+      { "name": "editionId", "type": "number", "required": true },
+      { "name": "kind", "type": "string", "required": true },
+      { "name": "at", "type": "string", "required": true },
+      { "name": "tentative", "type": "boolean", "required": true }
+    ]
+  }
+]

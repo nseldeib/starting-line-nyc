@@ -1,0 +1,81 @@
+// Prisma 7 with SQLite via better-sqlite3 driver adapter.
+//
+// IMPORTANT: Use "prisma-client-js" (NOT "prisma-client").
+// The "prisma-client" generator requires a custom output path which
+// breaks Turbopack import resolution and seed script imports.
+// "prisma-client-js" outputs to node_modules/@prisma/client which
+// works everywhere with standard imports.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// ──────────────────────────────────────────────
+// Starting Line data model.
+//
+// A Race is the recurring event; each annual RaceEdition is stored
+// separately so last year's dates can never be mistaken for the next
+// one. Registration milestones (opens, lottery closes, closes …) are
+// their own rows so they can be listed, sorted and exported to calendars.
+// All DateTime values are stored in UTC and displayed in America/New_York.
+// ──────────────────────────────────────────────
+
+model Organizer {
+  id         Int    @id @default(autoincrement())
+  slug       String @unique
+  name       String
+  websiteUrl String?
+  races      Race[]
+}
+
+model Race {
+  id             Int     @id @default(autoincrement())
+  slug           String  @unique
+  name           String
+  terrain        String // "road" | "trail"
+  distanceMiles  Float
+  elevationGainFt Int?
+  locationName   String // e.g. "Central Park"
+  area           String // e.g. "Manhattan", "Hudson Valley"
+  photoUrl       String? // licensed photo only; null shows the distance tile
+  photoAlt       String?
+  photoCredit    String?
+  organizerId    Int
+  organizer      Organizer     @relation(fields: [organizerId], references: [id])
+  editions       RaceEdition[]
+}
+
+model RaceEdition {
+  id                 Int       @id @default(autoincrement())
+  raceId             Int
+  race               Race      @relation(fields: [raceId], references: [id])
+  year               Int
+  raceDate           DateTime? // null = not announced
+  raceDateTentative  Boolean   @default(false)
+  // "opening_soon" | "open" | "lottery_open" | "waitlist" | "sold_out" | "closed" | "not_announced"
+  registrationStatus String
+  // "open" | "lottery" | "qualification" | "charity" | "membership"
+  entryMethod        String
+  priceUsd           Int?
+  registrationUrl    String?
+  sourceUrl          String?
+  lastVerifiedAt     DateTime?
+  isSample           Boolean   @default(true)
+  milestones         RegistrationMilestone[]
+
+  @@unique([raceId, year])
+}
+
+model RegistrationMilestone {
+  id        Int         @id @default(autoincrement())
+  editionId Int
+  edition   RaceEdition @relation(fields: [editionId], references: [id])
+  // "registration_opens" | "registration_closes" | "lottery_opens" | "lottery_closes" | "lottery_draw" | "qualification_deadline"
+  kind      String
+  at        DateTime
+  tentative Boolean     @default(false)
+}

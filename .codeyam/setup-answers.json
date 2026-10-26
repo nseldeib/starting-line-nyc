@@ -1,0 +1,9 @@
+{
+  "appFormats": [
+    "static",
+    "web"
+  ],
+  "defaultDevice": "Desktop",
+  "designApproach": "chat",
+  "techStackId": null
+}

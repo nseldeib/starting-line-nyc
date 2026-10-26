@@ -1,0 +1,37 @@
+{
+  "name": "Home - No Races Listed",
+  "id": "5c550b92-de42-4b64-8f2f-56fc07849d6a",
+  "url": "/",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "seed": {
+    "organizer": [
+      {
+        "id": 1,
+        "name": "NYRR",
+        "slug": "nyrr",
+        "websiteUrl": "https://www.nyrr.org"
+      },
+      {
+        "id": 2,
+        "name": "Staten Island Trail Runners",
+        "slug": "staten-island-trail-runners",
+        "websiteUrl": null
+      },
+      {
+        "id": 3,
+        "name": "Hudson Valley Trail Co.",
+        "slug": "hudson-valley-trail-co",
+        "websiteUrl": null
+      }
+    ],
+    "race": [],
+    "raceEdition": [],
+    "registrationMilestone": []
+  },
+  "scenarioType": "application",
+  "pageFilePath": "app/page.tsx",
+  "description": "The home page before any races are listed: the search and filters still render and the results show the empty state with a Show all races link."
+}

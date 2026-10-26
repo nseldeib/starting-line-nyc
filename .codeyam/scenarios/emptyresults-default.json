@@ -1,0 +1,12 @@
+{
+  "name": "EmptyResults - Default",
+  "id": "74616f67-0359-41a4-b4d9-ef334644a044",
+  "url": "/isolated-components/EmptyResults?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "EmptyResults",
+  "scenarioType": "component",
+  "description": "EmptyResults in its default state with sample race data."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ResultsHeader - Single Race",
+  "id": "9ba5f3de-7ad6-480a-941c-db020a3d5303",
+  "url": "/isolated-components/ResultsHeader?s=SingleRace",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "ResultsHeader",
+  "scenarioType": "component",
+  "description": "ResultsHeader in its single race state with sample race data."
+}

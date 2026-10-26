@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="codeyam-viewport" content="desktop">
+<title>Pinned race bibs</title>
+<style>
+:root {
+  --bg: #F7F8FA;
+  --bg-glow: #E4EAFB;
+  --surface: #FFFFFF;
+  --ink: #12141C;
+  --ink-2: #3C4052;
+  --muted: #646A7E;
+  --rule: #DCE0EA;
+  --blue: #2443D6;
+  --blue-ink: #1B34AE;
+  --blue-tint: #E8EDFF;
+  --on-blue: #FFFFFF;
+  --pin: #A9AFBF;
+  --warn: #B4361E;
+  --shadow: rgba(36, 67, 214, 0.14);
+  --display: "Archivo Black", "Arial Black", "Helvetica Neue", Helvetica, sans-serif;
+  --text: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --r: 14px;
+  --r-pill: 999px;
+  --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 40px; --s-5: 64px; --s-6: 112px;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0E1120;
+  --bg-glow: #18214A;
+  --surface: #171B2E;
+  --ink: #EEF0F8;
+  --ink-2: #C3C8DA;
+  --muted: #959CB4;
+  --rule: #2A3050;
+  --blue: #6F86FF;
+  --blue-ink: #A3B2FF;
+  --blue-tint: #1E2853;
+  --on-blue: #0E1120;
+  --pin: #5B6280;
+  --warn: #FF8A70;
+  --shadow: rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: radial-gradient(1200px 700px at 78% 8%, var(--bg-glow), transparent 70%), var(--bg); color: var(--ink-2); font-family: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+.nav { display: flex; align-items: center; gap: 40px; height: 72px; }
+.logo { font-family: var(--display); font-size: 22px; color: var(--ink); letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+.logo svg { color: var(--blue); }
+.nav ul { display: flex; gap: 28px; list-style: none; margin-left: auto; font-size: 15px; font-weight: 500; color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-pill); padding: 14px 26px; font-weight: 700; font-size: 15px; white-space: nowrap; transition: transform .15s, background .15s; border: 2px solid transparent; cursor: pointer; }
+.btn:active { transform: translateY(1px); }
+.btn-blue { background: var(--blue); color: var(--on-blue); }
+.btn-blue:hover { background: var(--blue-ink); }
+.btn-line { border-color: var(--ink); color: var(--ink); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 5fr 6fr; gap: var(--s-4); align-items: center; padding: 56px 0 var(--s-6); min-height: 640px; }
+.hero h1 { font-family: var(--display); color: var(--ink); font-size: clamp(48px, 5.4vw, 76px); line-height: 0.98; letter-spacing: -0.035em; text-wrap: balance; }
+.hero p { font-size: 19px; max-width: 36ch; margin-top: var(--s-3); }
+.ctas { display: flex; gap: 12px; margin-top: var(--s-4); }
+
+.board { position: relative; height: 620px; }
+.photo { position: absolute; right: 0; top: 10px; width: 66%; height: 360px; border-radius: var(--r); transform: rotate(2.5deg); box-shadow: 0 30px 60px -30px var(--shadow); background-image: url('https://loremflickr.com/640/480/central,park,marathon'), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDgwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBzbGljZSI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0ODAiIGZpbGw9IiNjZmUzZWYiLz48cmVjdCB4PSIwIiB5PSIxMTIiIHdpZHRoPSI2NiIgaGVpZ2h0PSIxMzgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI2OCIgeT0iMTYwIiB3aWR0aD0iNDAiIGhlaWdodD0iOTAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI4NS4wIiB5PSIxMzAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTEwIiB5PSI3MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjEyNy4wIiB5PSI0MCIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIxNTIiIHk9IjYxIiB3aWR0aD0iMzMiIGhlaWdodD0iMTg5IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMTg3IiB5PSIxOTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjIwNC4wIiB5PSIxNjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjMwIiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjI5IiB5PSIxMzYiIHdpZHRoPSI0OCIgaGVpZ2h0PSIxMTQiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIyNzkiIHk9IjU1IiB3aWR0aD0iNDUiIGhlaWdodD0iMTk1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iMjk4LjUiIHk9IjI1IiB3aWR0aD0iNiIgaGVpZ2h0PSIzMCIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjMyNiIgeT0iODgiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxNjIiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSIzOTIiIHk9IjE2NiIgd2lkdGg9IjM4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNDMyIiB5PSIxNDIiIHdpZHRoPSI0NiIgaGVpZ2h0PSIxMDgiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI0ODAiIHk9IjEyNyIgd2lkdGg9IjUxIiBoZWlnaHQ9IjEyMyIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjUzMyIgeT0iMTU0IiB3aWR0aD0iNDIiIGhlaWdodD0iOTYiIGZpbGw9IiM5ZmIzYzQiLz48cmVjdCB4PSI1NzciIHk9IjEzOSIgd2lkdGg9IjU3IiBoZWlnaHQ9IjExMSIgZmlsbD0iIzlmYjNjNCIvPjxyZWN0IHg9IjYzNiIgeT0iMTQ1IiB3aWR0aD0iNTUiIGhlaWdodD0iMTA1IiBmaWxsPSIjOWZiM2M0Ii8+PHJlY3QgeD0iNjYwLjUiIHk9IjExNSIgd2lkdGg9IjYiIGhlaWdodD0iMzAiIGZpbGw9IiM5ZmIzYzQiLz48ZWxsaXBzZSBjeD0iMzIwIiBjeT0iNDIwIiByeD0iNTIwIiByeT0iMjIwIiBmaWxsPSIjNWY5YjRjIi8+PGcgZmlsbD0iIzNmN2EzNSI+PGNpcmNsZSBjeD0iNzAiIGN5PSIyNTAiIHI9IjYwIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMjM1IiByPSI1MCIvPjxjaXJjbGUgY3g9IjU2MCIgY3k9IjI0NSIgcj0iNjYiLz48Y2lyY2xlIGN4PSI2MjAiIGN5PSIyNzAiIHI9IjUwIi8+PC9nPjxwYXRoIGQ9Ik0tMjAgNDcwIEMgMTYwIDMzMCwgNDIwIDMzMCwgNjYwIDQyMCIgc3Ryb2tlPSIjZTlkY2MwIiBzdHJva2Utd2lkdGg9IjU0IiBmaWxsPSJub25lIi8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjAzMDJhIiBzdHJva2Utd2lkdGg9IjcuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIyNTAuMCwzNDQuMCAyNDYuMCwzNzYuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0OC4wLDM1MC4wIDIzMi4wLDM2Mi4wIDIyNC4wLDM1MC4wIi8+PHBvbHlsaW5lIHBvaW50cz0iMjUwLjAsMzUwLjAgMjY2LjAsMzU4LjAgMjc2LjAsMzQ2LjAiLz48cG9seWxpbmUgcG9pbnRzPSIyNDYuMCwzNzYuMCAyNjYuMCwzOTIuMCAyNjIuMCw0MTQuMCIvPjxwb2x5bGluZSBwb2ludHM9IjI0Ni4wLDM3Ni4wIDIzMi4wLDM5Ni4wIDIxNC4wLDQwMC4wIi8+PC9nPjxjaXJjbGUgY3g9IjI1Mi4wIiBjeT0iMzMyLjAiIHI9IjEwLjAiIGZpbGw9IiMyMDMwMmEiLz48cmVjdCB4PSIyNDIuMCIgeT0iMzUyLjAiIHdpZHRoPSIxMi4wIiBoZWlnaHQ9IjEwLjAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii45Ii8+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDY0YTJmIiBzdHJva2Utd2lkdGg9IjYuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSIzMzAuMCwzMzYuOCAzMjYuMiwzNjcuMiIvPjxwb2x5bGluZSBwb2ludHM9IjMyOC4xLDM0Mi41IDMxMi45LDM1My45IDMwNS4zLDM0Mi41Ii8+PHBvbHlsaW5lIHBvaW50cz0iMzMwLjAsMzQyLjUgMzQ1LjIsMzUwLjEgMzU0LjcsMzM4LjciLz48cG9seWxpbmUgcG9pbnRzPSIzMjYuMiwzNjcuMiAzNDUuMiwzODIuNCAzNDEuNCw0MDMuMyIvPjxwb2x5bGluZSBwb2ludHM9IjMyNi4yLDM2Ny4yIDMxMi45LDM4Ni4yIDI5NS44LDM5MC4wIi8+PC9nPjxjaXJjbGUgY3g9IjMzMS45IiBjeT0iMzI1LjQiIHI9IjkuNSIgZmlsbD0iI2Q2NGEyZiIvPjxyZWN0IHg9IjMyMi40IiB5PSIzNDQuNCIgd2lkdGg9IjExLjQiIGhlaWdodD0iOS41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIwMzAyYSIgc3Ryb2tlLXdpZHRoPSI3LjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHBvaW50cz0iNDEwLjAsMzQ2LjIgNDA1LjgsMzc5LjgiLz48cG9seWxpbmUgcG9pbnRzPSI0MDcuOSwzNTIuNSAzOTEuMSwzNjUuMSAzODIuNywzNTIuNSIvPjxwb2x5bGluZSBwb2ludHM9IjQxMC4wLDM1Mi41IDQyNi44LDM2MC45IDQzNy4zLDM0OC4zIi8+PHBvbHlsaW5lIHBvaW50cz0iNDA1LjgsMzc5LjggNDI2LjgsMzk2LjYgNDIyLjYsNDE5LjciLz48cG9seWxpbmUgcG9pbnRzPSI0MDUuOCwzNzkuOCAzOTEuMSw0MDAuOCAzNzIuMiw0MDUuMCIvPjwvZz48Y2lyY2xlIGN4PSI0MTIuMSIgY3k9IjMzMy42IiByPSIxMC41IiBmaWxsPSIjMjAzMDJhIi8+PHJlY3QgeD0iNDAxLjYiIHk9IjM1NC42IiB3aWR0aD0iMTIuNiIgaGVpZ2h0PSIxMC41IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOSIvPjwvc3ZnPg=='); background-size: cover; background-position: center; background-position: center 80%; }
+.bib { position: absolute; width: 300px; background: var(--surface); border-radius: var(--r); box-shadow: 0 24px 48px -24px var(--shadow), 0 0 0 1px var(--rule); overflow: hidden; font-variant-numeric: tabular-nums; }
+.bib::before, .bib::after { content: ''; position: absolute; top: 12px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 2px var(--pin); }
+.bib::before { left: 12px; } .bib::after { right: 12px; }
+.bib-band { background: var(--blue); color: var(--on-blue); padding: 30px 22px 12px; font-weight: 700; font-size: 14px; display: flex; justify-content: space-between; }
+.bib-num { font-family: var(--display); color: var(--ink); font-size: 84px; line-height: 1; letter-spacing: -0.04em; padding: 10px 22px 6px; }
+.bib-name { padding: 0 22px 16px; font-weight: 700; color: var(--ink); }
+.bib-tab { border-top: 2px dashed var(--rule); padding: 14px 22px 18px; font-size: 14px; }
+.bib-tab b { display: block; color: var(--ink); font-size: 17px; }
+.b1 { left: 10px; top: 215px; transform: rotate(-5deg); z-index: 2; }
+.b2 { left: 290px; top: 300px; transform: rotate(3deg); z-index: 3; }
+.b3 { left: 0; top: 0; transform: rotate(-1.5deg); width: 230px; z-index: 1; }
+.b3 .bib-num { font-size: 56px; }
+.b2 .bib-band { background: var(--ink); color: var(--bg); }
+
+/* countdown */
+.count { padding: var(--s-6) 0; display: grid; grid-template-columns: 4fr 8fr; gap: var(--s-5); align-items: start; }
+.count h2, .ways h2, .trust h2 { font-family: var(--display); color: var(--ink); font-size: clamp(36px, 3.6vw, 52px); line-height: 1; letter-spacing: -0.03em; text-wrap: balance; }
+.count .intro p { margin-top: var(--s-2); max-width: 30ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-3); }
+.chip { border: 1.5px solid var(--rule); background: var(--surface); border-radius: var(--r-pill); padding: 8px 15px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.chip.on { background: var(--blue-tint); border-color: var(--blue); color: var(--blue-ink); }
+.ranks { list-style: none; }
+.ranks li { display: grid; grid-template-columns: 170px 1fr auto; gap: var(--s-3); align-items: center; padding: 26px 0; }
+.ranks li + li { border-top: 1px solid var(--rule); }
+.days { font-family: var(--display); color: var(--blue); font-size: 76px; line-height: 0.9; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.days small { display: block; font-family: var(--text); font-size: 14px; letter-spacing: 0; color: var(--muted); font-weight: 600; margin-top: 6px; }
+.ranks h3 { font-size: 22px; color: var(--ink); line-height: 1.2; letter-spacing: -0.01em; }
+.ranks .what { font-weight: 600; color: var(--ink); }
+.ranks .meta { font-size: 14px; color: var(--muted); }
+.status { display: inline-block; font-size: 13px; font-weight: 700; padding: 4px 11px; border-radius: var(--r-pill); background: var(--blue-tint); color: var(--blue-ink); margin-bottom: 6px; }
+.status.closed { background: transparent; color: var(--warn); box-shadow: inset 0 0 0 1.5px currentColor; }
+.act { display: flex; gap: 8px; }
+.act .btn { padding: 10px 18px; font-size: 14px; }
+.list-foot { margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+.list-foot a { color: var(--blue-ink); font-weight: 700; }
+
+/* ways in */
+.ways { background: var(--surface); border-radius: 28px; padding: var(--s-5); box-shadow: 0 0 0 1px var(--rule); display: grid; grid-template-columns: 7fr 5fr; gap: var(--s-5); }
+.ways-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s-4); }
+.way { border-radius: var(--r-pill); padding: 12px 20px; font-weight: 700; color: var(--ink); background: var(--bg); }
+.way.sel { background: var(--blue); color: var(--on-blue); }
+.ways .detail { border-left: 4px solid var(--blue); padding-left: var(--s-3); align-self: center; }
+.ways .detail h3 { font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+.ways .detail dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 15px; margin-top: var(--s-2); font-variant-numeric: tabular-nums; }
+.ways .detail dt { color: var(--muted); }
+.ways .detail dd { color: var(--ink); font-weight: 600; }
+
+/* trust */
+.trust { padding: var(--s-6) 0 var(--s-5); max-width: 720px; }
+.trust p { font-size: 19px; margin-top: var(--s-2); }
+.trust .fine { font-size: 15px; color: var(--muted); margin-top: var(--s-3); padding: var(--s-2) var(--s-3); border-radius: var(--r); background: var(--blue-tint); color: var(--ink-2); }
+footer { border-top: 1px solid var(--rule); padding: var(--s-3) 0 var(--s-5); display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .wrap { padding: 0 16px; }
+  .nav ul { display: none; }
+  .hero, .count, .ways { grid-template-columns: 1fr; }
+  .board { height: 460px; }
+  .b2 { left: 120px; }
+  .ranks li { grid-template-columns: 1fr; gap: 8px; }
+  .ways { padding: var(--s-4) 20px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="3"><rect x="2" y="5" width="22" height="16" rx="3"/><circle cx="7" cy="9.5" r="1.2" fill="currentColor"/><circle cx="19" cy="9.5" r="1.2" fill="currentColor"/></svg>Corral</a>
+    <ul>
+      <li><a href="#">Races</a></li>
+      <li><a href="#">My races</a></li>
+      <li><a href="#">How entry works</a></li>
+    </ul>
+    <a class="btn btn-blue" href="#">Find a race</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Know when every NYC race opens.</h1>
+      <p>NYRR and independent road and trail races, with entry rules, registration dates and calendar reminders in one place.</p>
+      <div class="ctas">
+        <a class="btn btn-blue" href="#">Find a race</a>
+        <a class="btn btn-line" href="#">How entry works</a>
+      </div>
+    </div>
+    <div class="board" aria-label="Featured races">
+      <div class="photo" role="img" aria-label="Runners on the Central Park loop"></div>
+      <div class="bib b3">
+        <div class="bib-band"><span>Trail</span><span>50K</span></div>
+        <div class="bib-num">4817</div>
+        <div class="bib-name">Breakneck Point</div>
+      </div>
+      <div class="bib b1">
+        <div class="bib-band"><span>NYRR</span><span>Half</span></div>
+        <div class="bib-num">2207</div>
+        <div class="bib-name">Fred Lebow Manhattan Half</div>
+        <div class="bib-tab">Registration opens<b>Tue, Nov 10, 12:00 pm ET</b></div>
+      </div>
+      <div class="bib b2">
+        <div class="bib-band"><span>Lottery</span><span>13.1 mi</span></div>
+        <div class="bib-num">0321</div>
+        <div class="bib-name">United Airlines NYC Half</div>
+        <div class="bib-tab">Lottery closes<b>Tue, Nov 17, 11:59 pm ET</b></div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main class="wrap">
+  <section class="count" aria-labelledby="count">
+    <div class="intro">
+      <h2 id="count">Your next deadlines</h2>
+      <p>Sorted by what closes or opens soonest, counted from today, Oct 26.</p>
+      <div class="chips" role="group" aria-label="Filters">
+        <span class="chip on">Any distance</span>
+        <span class="chip">Road</span>
+        <span class="chip">Trail</span>
+        <span class="chip">Brooklyn</span>
+        <span class="chip">Open now</span>
+        <span class="chip">Ultra</span>
+      </div>
+    </div>
+    <div>
+      <ol class="ranks">
+        <li>
+          <div class="days">15<small>days until it opens</small></div>
+          <div><span class="status">Opening soon</span><h3>Fred Lebow Manhattan Half</h3><div class="meta">Sun, Jan 24, 2027 in Central Park. 13.1 mi road, open registration.</div></div>
+          <div class="act"><a class="btn btn-line" href="#">Save</a></div>
+        </li>
+        <li>
+          <div class="days">22<small>days until lottery closes</small></div>
+          <div><span class="status">Lottery open</span><h3>United Airlines NYC Half</h3><div class="meta">Sun, Mar 21, 2027 from Brooklyn to Times Square. Lottery, charity or time qualifier.</div></div>
+          <div class="act"><a class="btn btn-line" href="#">Save</a></div>
+        </li>
+        <li>
+          <div class="days">44<small>days until entry closes</small></div>
+          <div><span class="status">Open</span><h3>Ted Corbitt 15K</h3><div class="meta">Sat, Dec 12, 2026 in Central Park. 9.3 mi road, closes Dec 9 or when full.</div></div>
+          <div class="act"><a class="btn btn-line" href="#">Save</a></div>
+        </li>
+        <li>
+          <div class="days">Full<small>sold out Oct 14</small></div>
+          <div><span class="status closed">Sold out</span><h3>Midnight Run</h3><div class="meta">Thu, Dec 31, 2026 in Central Park. 4 mi at midnight.</div></div>
+          <div class="act"><a class="btn btn-line" href="#">Save</a></div>
+        </li>
+      </ol>
+      <div class="list-foot"><span>Sample data. All times New York time.</span><a href="#">See all 48 races</a></div>
+    </div>
+  </section>
+
+  <section class="ways" aria-labelledby="ways">
+    <div>
+      <h2 id="ways">Lottery, qualifier, charity or open. Each race tells you which.</h2>
+      <div class="ways-list">
+        <span class="way">Open</span>
+        <span class="way sel">Lottery</span>
+        <span class="way">Time qualifier</span>
+        <span class="way">Charity</span>
+        <span class="way">Membership</span>
+      </div>
+    </div>
+    <div class="detail">
+      <h3>NYC Half lottery, 2027 edition</h3>
+      <p>Apply before the window closes. The drawing happens after; applying early does not change your odds.</p>
+      <dl>
+        <dt>Window</dt><dd>Open until Tue, Nov 17, 11:59 pm ET</dd>
+        <dt>Drawing</dt><dd>Date not announced</dd>
+        <dt>Source</dt><dd>nyrr.org, checked Oct 24</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="trust" aria-labelledby="trust">
+    <h2 id="trust">Official dates, or no date at all.</h2>
+    <p>Every date links to the organizer’s page and shows when we last checked it. If a date isn’t announced, we say so instead of guessing from last year.</p>
+    <p class="fine">Calendar downloads for Google, Apple and Outlook work today. Automatic reminders need an account and are coming later; nothing is scheduled until you add it to your calendar.</p>
+  </section>
+
+  <footer>
+    <span>Corral is made by New York runners and is not affiliated with any race organizer.</span>
+    <span>Race data shown is sample data.</span>
+  </footer>
+</main>
+</body>
+</html>

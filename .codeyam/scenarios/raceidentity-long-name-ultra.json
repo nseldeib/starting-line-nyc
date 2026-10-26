@@ -1,0 +1,12 @@
+{
+  "name": "RaceIdentity - Long Name Ultra",
+  "id": "f737242c-df61-4389-a104-e68a7eaa2884",
+  "url": "/isolated-components/RaceIdentity?s=LongNameUltra",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceIdentity",
+  "scenarioType": "component",
+  "description": "A long ultramarathon name wrapping inside the row column, with distance and climb."
+}

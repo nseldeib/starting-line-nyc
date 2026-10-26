@@ -1,0 +1,12 @@
+{
+  "name": "RaceList - With Unannounced Race",
+  "id": "de561657-b076-4f4d-aafa-f21ef944574d",
+  "url": "/isolated-components/RaceList?s=WithUnannouncedRace",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceList",
+  "scenarioType": "component",
+  "description": "RaceList in its with unannounced race state with sample race data."
+}

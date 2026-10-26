@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - Urgent Deadline",
+  "id": "f634b13a-4951-4918-85c5-ab03cc25ee54",
+  "url": "/isolated-components/RaceRow?s=UrgentDeadline",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its urgent deadline state with sample race data."
+}

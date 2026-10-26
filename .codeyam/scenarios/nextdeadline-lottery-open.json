@@ -1,0 +1,12 @@
+{
+  "name": "NextDeadline - Lottery Open",
+  "id": "586050eb-e5a9-4509-a450-95bcd2195703",
+  "url": "/isolated-components/NextDeadline?s=LotteryOpen",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "NextDeadline",
+  "scenarioType": "component",
+  "description": "NextDeadline in its lottery open state with sample race data."
+}

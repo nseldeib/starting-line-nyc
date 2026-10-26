@@ -1,0 +1,12 @@
+{
+  "name": "ResultsHeader - Default",
+  "id": "509c1cdb-cc7a-413d-998e-eff5d96beb5d",
+  "url": "/isolated-components/ResultsHeader?s=Default",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "ResultsHeader",
+  "scenarioType": "component",
+  "description": "ResultsHeader in its default state with sample race data."
+}

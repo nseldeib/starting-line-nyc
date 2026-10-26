@@ -1,0 +1,278 @@
+{
+  "name": "Home - Phone Layout",
+  "id": "35023fb0-4442-4017-bd8c-9b435301f64e",
+  "url": "/",
+  "dimensions": [
+    "Mobile"
+  ],
+  "mocks": {},
+  "seed": {
+    "organizer": [
+      {
+        "id": 1,
+        "name": "NYRR",
+        "slug": "nyrr",
+        "websiteUrl": "https://www.nyrr.org"
+      },
+      {
+        "id": 2,
+        "name": "Staten Island Trail Runners",
+        "slug": "staten-island-trail-runners",
+        "websiteUrl": null
+      },
+      {
+        "id": 3,
+        "name": "Hudson Valley Trail Co.",
+        "slug": "hudson-valley-trail-co",
+        "websiteUrl": null
+      }
+    ],
+    "race": [
+      {
+        "area": "Manhattan",
+        "distanceMiles": 13.1,
+        "elevationGainFt": null,
+        "id": 1,
+        "locationName": "Central Park",
+        "name": "Fred Lebow Manhattan Half",
+        "organizerId": 1,
+        "photoAlt": "Runners on the Central Park drive",
+        "photoCredit": "Mike Peel, CC BY-SA 4.0",
+        "photoUrl": "/images/central-park-drive.jpg",
+        "slug": "fred-lebow-manhattan-half",
+        "terrain": "road"
+      },
+      {
+        "area": "Brooklyn and Manhattan",
+        "distanceMiles": 13.1,
+        "elevationGainFt": null,
+        "id": 2,
+        "locationName": "Brooklyn to Times Square",
+        "name": "United Airlines NYC Half",
+        "organizerId": 1,
+        "photoAlt": "NYC Half runners on a Manhattan avenue",
+        "photoCredit": null,
+        "photoUrl": "/images/nyc-half-manhattan.jpg",
+        "slug": "united-airlines-nyc-half",
+        "terrain": "road"
+      },
+      {
+        "area": "Staten Island",
+        "distanceMiles": 13.1,
+        "elevationGainFt": null,
+        "id": 3,
+        "locationName": "Staten Island Greenbelt",
+        "name": "Greenbelt Trail Half",
+        "organizerId": 2,
+        "photoAlt": null,
+        "photoCredit": null,
+        "photoUrl": null,
+        "slug": "greenbelt-trail-half",
+        "terrain": "trail"
+      },
+      {
+        "area": "Hudson Valley",
+        "distanceMiles": 13.1,
+        "elevationGainFt": 3100,
+        "id": 4,
+        "locationName": "Beacon, NY",
+        "name": "Breakneck Point Trail Half",
+        "organizerId": 3,
+        "photoAlt": "The Hudson Highlands seen from Breakneck Ridge",
+        "photoCredit": null,
+        "photoUrl": "/images/breakneck-ridge.jpg",
+        "slug": "breakneck-point-trail-half",
+        "terrain": "trail"
+      },
+      {
+        "area": "Brooklyn",
+        "distanceMiles": 13.1,
+        "elevationGainFt": null,
+        "id": 5,
+        "locationName": "Prospect Park to Coney Island",
+        "name": "Brooklyn Half",
+        "organizerId": 1,
+        "photoAlt": "Runners on the Prospect Park drive",
+        "photoCredit": null,
+        "photoUrl": "/images/prospect-park-drive.jpg",
+        "slug": "brooklyn-half",
+        "terrain": "road"
+      },
+      {
+        "area": "Manhattan",
+        "distanceMiles": 9.3,
+        "elevationGainFt": null,
+        "id": 6,
+        "locationName": "Central Park",
+        "name": "Ted Corbitt 15K",
+        "organizerId": 1,
+        "photoAlt": null,
+        "photoCredit": null,
+        "photoUrl": null,
+        "slug": "ted-corbitt-15k",
+        "terrain": "road"
+      },
+      {
+        "area": "Hudson Valley",
+        "distanceMiles": 31.1,
+        "elevationGainFt": 5200,
+        "id": 7,
+        "locationName": "Harriman State Park",
+        "name": "Harriman Trail 50K",
+        "organizerId": 3,
+        "photoAlt": null,
+        "photoCredit": null,
+        "photoUrl": null,
+        "slug": "harriman-trail-50k",
+        "terrain": "trail"
+      }
+    ],
+    "raceEdition": [
+      {
+        "entryMethod": "open",
+        "id": 1,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+2158h",
+        "raceDateTentative": false,
+        "raceId": 1,
+        "registrationStatus": "opening_soon",
+        "registrationUrl": "https://www.nyrr.org",
+        "sourceUrl": "https://www.nyrr.org",
+        "year": 2027
+      },
+      {
+        "entryMethod": "lottery",
+        "id": 2,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+3501h",
+        "raceDateTentative": false,
+        "raceId": 2,
+        "registrationStatus": "lottery_open",
+        "registrationUrl": "https://www.nyrr.org",
+        "sourceUrl": "https://www.nyrr.org",
+        "year": 2027
+      },
+      {
+        "entryMethod": "open",
+        "id": 3,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+2495h",
+        "raceDateTentative": false,
+        "raceId": 3,
+        "registrationStatus": "open",
+        "registrationUrl": null,
+        "sourceUrl": null,
+        "year": 2027
+      },
+      {
+        "entryMethod": "open",
+        "id": 4,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+3981h",
+        "raceDateTentative": false,
+        "raceId": 4,
+        "registrationStatus": "open",
+        "registrationUrl": null,
+        "sourceUrl": null,
+        "year": 2027
+      },
+      {
+        "entryMethod": "open",
+        "id": 5,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+4821h",
+        "raceDateTentative": true,
+        "raceId": 5,
+        "registrationStatus": "not_announced",
+        "registrationUrl": "https://www.nyrr.org",
+        "sourceUrl": "https://www.nyrr.org",
+        "year": 2027
+      },
+      {
+        "entryMethod": "open",
+        "id": 6,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+1127h",
+        "raceDateTentative": false,
+        "raceId": 6,
+        "registrationStatus": "open",
+        "registrationUrl": "https://www.nyrr.org",
+        "sourceUrl": "https://www.nyrr.org",
+        "year": 2026
+      },
+      {
+        "entryMethod": "open",
+        "id": 7,
+        "isSample": true,
+        "lastVerifiedAt": null,
+        "priceUsd": null,
+        "raceDate": "@now+3142h",
+        "raceDateTentative": false,
+        "raceId": 7,
+        "registrationStatus": "waitlist",
+        "registrationUrl": null,
+        "sourceUrl": null,
+        "year": 2027
+      }
+    ],
+    "registrationMilestone": [
+      {
+        "at": "@now+363h",
+        "editionId": 1,
+        "id": 1,
+        "kind": "registration_opens",
+        "tentative": false
+      },
+      {
+        "at": "@now+32579m",
+        "editionId": 2,
+        "id": 2,
+        "kind": "lottery_closes",
+        "tentative": false
+      },
+      {
+        "at": "@now+140579m",
+        "editionId": 3,
+        "id": 3,
+        "kind": "registration_closes",
+        "tentative": false
+      },
+      {
+        "at": "@now+228359m",
+        "editionId": 4,
+        "id": 4,
+        "kind": "registration_closes",
+        "tentative": false
+      },
+      {
+        "at": "@now+65699m",
+        "editionId": 6,
+        "id": 5,
+        "kind": "registration_closes",
+        "tentative": false
+      },
+      {
+        "at": "@now+178019m",
+        "editionId": 7,
+        "id": 6,
+        "kind": "registration_closes",
+        "tentative": false
+      }
+    ]
+  },
+  "scenarioType": "application",
+  "pageFilePath": "app/page.tsx",
+  "description": "The default search on a phone: the hero search stacks into two columns, the nav collapses, and each race row folds under its thumbnail with Save beside the name."
+}

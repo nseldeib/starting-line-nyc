@@ -1,0 +1,12 @@
+{
+  "name": "RaceRow - No Photo Trail",
+  "id": "e76d60af-7d3a-4a89-98ba-f77a7821fdb7",
+  "url": "/isolated-components/RaceRow?s=NoPhotoTrail",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceRow",
+  "scenarioType": "component",
+  "description": "RaceRow in its no photo trail state with sample race data."
+}

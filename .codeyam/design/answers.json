@@ -1,0 +1,63 @@
+{
+  "answers": {
+    "count": [
+      "6"
+    ],
+    "device": [
+      "Phone",
+      "Computer"
+    ],
+    "imagery": [
+      "Yes, show race photos"
+    ],
+    "look": {
+      "sliders": {
+        "Light|Dark": 30,
+        "Loud, poster-like|Calm, editorial": 75,
+        "Roomy|Packed with info": 40
+      },
+      "text": "",
+      "words": [
+        "Gritty",
+        "Clean",
+        "Trustworthy",
+        "Playful",
+        "Energetic"
+      ]
+    },
+    "page": [
+      "Race finder"
+    ]
+  },
+  "own": {
+    "device": "It needs to work well on both screens.",
+    "page": "Home page of the experience / landing page that has marketing and also overviews the race finder"
+  },
+  "summary": [
+    {
+      "answer": "Race finder, Home page of the experience / landing page that has marketing and also overviews the race finder",
+      "id": "page",
+      "title": "Which screen should I design first?"
+    },
+    {
+      "answer": "Phone, Computer, It needs to work well on both screens.",
+      "id": "device",
+      "title": "Should I design it for a phone or a computer screen?"
+    },
+    {
+      "answer": "calm, editorial, light, roomy, gritty, clean, trustworthy, playful, energetic",
+      "id": "look",
+      "title": "What should it feel like?"
+    },
+    {
+      "answer": "Yes, show race photos",
+      "id": "imagery",
+      "title": "Should race listings show photos?"
+    },
+    {
+      "answer": "6",
+      "id": "count",
+      "title": "How many directions should I design?"
+    }
+  ]
+}

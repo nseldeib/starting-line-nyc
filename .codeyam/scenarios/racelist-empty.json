@@ -1,0 +1,12 @@
+{
+  "name": "RaceList - Empty",
+  "id": "a5375ead-df10-4844-8c63-c46091979197",
+  "url": "/isolated-components/RaceList?s=Empty",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "RaceList",
+  "scenarioType": "component",
+  "description": "RaceList in its empty state with sample race data."
+}

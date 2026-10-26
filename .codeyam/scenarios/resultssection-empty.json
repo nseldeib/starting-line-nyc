@@ -1,0 +1,12 @@
+{
+  "name": "ResultsSection - Empty",
+  "id": "c1f45117-e224-45e3-a883-a66fdcf94768",
+  "url": "/isolated-components/ResultsSection?s=Empty",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "ResultsSection",
+  "scenarioType": "component",
+  "description": "ResultsSection in its empty state with sample race data."
+}

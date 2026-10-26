@@ -1,0 +1,1235 @@
+{
+  "files": {
+    ".claude/hooks/_step_metadata.py": {
+      "imports": [],
+      "importedBy": []
+    },
+    ".claude/hooks/editor-pretool-hook.py": {
+      "imports": [],
+      "importedBy": []
+    },
+    ".claude/hooks/editor-step-hook.py": {
+      "imports": [],
+      "importedBy": []
+    },
+    ".claude/skills/review-session/scripts/extract-session-helpers.mjs": {
+      "imports": [],
+      "importedBy": [
+        ".claude/skills/review-session/scripts/extract-session.mjs"
+      ]
+    },
+    ".claude/skills/review-session/scripts/extract-session.mjs": {
+      "imports": [
+        ".claude/skills/review-session/scripts/extract-session-helpers.mjs"
+      ],
+      "importedBy": []
+    },
+    ".claude/skills/review-session/scripts/find-last-session-helpers.mjs": {
+      "imports": [],
+      "importedBy": [
+        ".claude/skills/review-session/scripts/find-last-session.mjs"
+      ]
+    },
+    ".claude/skills/review-session/scripts/find-last-session.mjs": {
+      "imports": [
+        ".claude/skills/review-session/scripts/find-last-session-helpers.mjs"
+      ],
+      "importedBy": []
+    },
+    "app/api/codeyam-revalidate/route.ts": {
+      "imports": [],
+      "importedBy": []
+    },
+    "app/api/races/[slug]/calendar/route.ts": {
+      "imports": [
+        "app/lib/prisma.ts",
+        "app/lib/ics.ts",
+        "app/lib/raceCalendar.ts"
+      ],
+      "importedBy": []
+    },
+    "app/api/races/route.ts": {
+      "imports": [
+        "app/lib/filters.ts",
+        "app/lib/races.ts"
+      ],
+      "importedBy": []
+    },
+    "app/codeyam-isolate/layout.tsx": {
+      "imports": [],
+      "importedBy": []
+    },
+    "app/components/EmptyResults.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceList.tsx"
+      ]
+    },
+    "app/components/FilterChips.tsx": {
+      "imports": [
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/components/FilterToolbar.tsx"
+      ]
+    },
+    "app/components/FilterToolbar.tsx": {
+      "imports": [
+        "app/components/FilterChips.tsx",
+        "app/components/SortToggle.tsx",
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/Hero.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/HeroSearch.tsx": {
+      "imports": [
+        "app/components/SelectField.tsx",
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/Logo.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/SiteHeader.tsx"
+      ]
+    },
+    "app/components/NextDeadline.tsx": {
+      "imports": [
+        "app/lib/format.ts"
+      ],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/components/PageShell.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/RaceDayCell.tsx": {
+      "imports": [
+        "app/lib/format.ts"
+      ],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/components/RaceIdentity.tsx": {
+      "imports": [
+        "app/lib/format.ts"
+      ],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/components/RaceList.tsx": {
+      "imports": [
+        "app/components/EmptyResults.tsx",
+        "app/components/RaceRow.tsx",
+        "app/components/ShowAllLink.tsx",
+        "app/lib/filters.ts",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": [
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/RaceRow.tsx": {
+      "imports": [
+        "app/components/NextDeadline.tsx",
+        "app/components/RaceDayCell.tsx",
+        "app/components/RaceIdentity.tsx",
+        "app/components/RaceThumb.tsx",
+        "app/components/SaveRaceButton.tsx",
+        "app/components/WeeksToTrain.tsx",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": [
+        "app/components/RaceList.tsx"
+      ]
+    },
+    "app/components/RaceThumb.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/components/ResultsHeader.tsx": {
+      "imports": [
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/ResultsSection.tsx": {
+      "imports": [
+        "app/components/FilterToolbar.tsx",
+        "app/components/RaceList.tsx",
+        "app/components/ResultsHeader.tsx",
+        "app/components/SeasonTeaser.tsx",
+        "app/components/TimezoneNote.tsx",
+        "app/lib/filters.ts",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/SaveRaceButton.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/components/SeasonPreview.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/SeasonTeaser.tsx"
+      ]
+    },
+    "app/components/SeasonTeaser.tsx": {
+      "imports": [
+        "app/components/SeasonPreview.tsx"
+      ],
+      "importedBy": [
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/SelectField.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/HeroSearch.tsx"
+      ]
+    },
+    "app/components/ShowAllLink.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceList.tsx"
+      ]
+    },
+    "app/components/SiteFooter.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/SiteHeader.tsx": {
+      "imports": [
+        "app/components/Logo.tsx"
+      ],
+      "importedBy": [
+        "app/page.tsx"
+      ]
+    },
+    "app/components/SortToggle.tsx": {
+      "imports": [
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/components/FilterToolbar.tsx"
+      ]
+    },
+    "app/components/TimezoneNote.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/WeeksToTrain.tsx": {
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx"
+      ]
+    },
+    "app/globals.css": {
+      "imports": [],
+      "importedBy": [
+        "app/layout.tsx"
+      ]
+    },
+    "app/layout.tsx": {
+      "imports": [
+        "app/globals.css"
+      ],
+      "importedBy": []
+    },
+    "app/lib/filters.test.ts": {
+      "imports": [
+        "app/lib/filters.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/filters.ts": {
+      "imports": [],
+      "importedBy": [
+        "app/lib/races.ts",
+        "app/lib/raceList.test.ts",
+        "app/lib/raceList.ts",
+        "app/lib/filters.test.ts",
+        "app/api/races/route.ts",
+        "app/components/RaceList.tsx",
+        "app/components/ResultsHeader.tsx",
+        "app/components/FilterChips.tsx",
+        "app/components/SortToggle.tsx",
+        "app/components/FilterToolbar.tsx",
+        "app/components/ResultsSection.tsx",
+        "app/components/HeroSearch.tsx",
+        "app/page.tsx"
+      ]
+    },
+    "app/lib/format.test.ts": {
+      "imports": [
+        "app/lib/format.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/format.ts": {
+      "imports": [],
+      "importedBy": [
+        "app/lib/raceCalendar.ts",
+        "app/lib/format.test.ts",
+        "app/components/RaceDayCell.tsx",
+        "app/components/RaceIdentity.tsx",
+        "app/components/NextDeadline.tsx"
+      ]
+    },
+    "app/lib/ics.test.ts": {
+      "imports": [
+        "app/lib/ics.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/ics.ts": {
+      "imports": [],
+      "importedBy": [
+        "app/lib/ics.test.ts",
+        "app/lib/raceCalendar.ts",
+        "app/api/races/[slug]/calendar/route.ts"
+      ]
+    },
+    "app/lib/loadEnv.ts": {
+      "imports": [],
+      "importedBy": [
+        "vitest.config.ts",
+        "prisma/seed.ts",
+        "prisma.config.ts"
+      ]
+    },
+    "app/lib/prisma.ts": {
+      "imports": [],
+      "importedBy": [
+        "app/lib/races.ts",
+        "app/api/races/[slug]/calendar/route.ts"
+      ]
+    },
+    "app/lib/raceCalendar.test.ts": {
+      "imports": [
+        "app/lib/raceCalendar.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceCalendar.ts": {
+      "imports": [
+        "app/lib/format.ts",
+        "app/lib/ics.ts",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": [
+        "app/lib/raceCalendar.test.ts",
+        "app/api/races/[slug]/calendar/route.ts"
+      ]
+    },
+    "app/lib/raceList.test.ts": {
+      "imports": [
+        "app/lib/filters.ts",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceList.ts": {
+      "imports": [
+        "app/lib/filters.ts"
+      ],
+      "importedBy": [
+        "app/lib/races.ts",
+        "app/lib/raceCalendar.ts",
+        "app/lib/raceList.test.ts",
+        "app/components/RaceList.tsx",
+        "app/components/RaceRow.tsx",
+        "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/lib/races.ts": {
+      "imports": [
+        "app/lib/prisma.ts",
+        "app/lib/filters.ts",
+        "app/lib/raceList.ts"
+      ],
+      "importedBy": [
+        "app/api/races/route.ts",
+        "app/page.tsx"
+      ]
+    },
+    "app/page.tsx": {
+      "imports": [
+        "app/components/Hero.tsx",
+        "app/components/HeroSearch.tsx",
+        "app/components/PageShell.tsx",
+        "app/components/ResultsSection.tsx",
+        "app/components/SiteFooter.tsx",
+        "app/components/SiteHeader.tsx",
+        "app/lib/filters.ts",
+        "app/lib/races.ts"
+      ],
+      "importedBy": []
+    },
+    "app/scenario/[slug]/page.tsx": {
+      "imports": [],
+      "importedBy": []
+    },
+    "eslint.config.mjs": {
+      "imports": [],
+      "importedBy": []
+    },
+    "next.config.ts": {
+      "imports": [],
+      "importedBy": []
+    },
+    "postcss.config.mjs": {
+      "imports": [],
+      "importedBy": []
+    },
+    "prisma.config.ts": {
+      "imports": [
+        "app/lib/loadEnv.ts"
+      ],
+      "importedBy": []
+    },
+    "prisma/sample-data.json": {
+      "imports": [],
+      "importedBy": [
+        "prisma/seed.ts"
+      ]
+    },
+    "prisma/seed.ts": {
+      "imports": [
+        "app/lib/loadEnv.ts",
+        "prisma/sample-data.json"
+      ],
+      "importedBy": []
+    },
+    "scripts/build-app.mjs": {
+      "imports": [],
+      "importedBy": []
+    },
+    "vitest.config.ts": {
+      "imports": [
+        "app/lib/loadEnv.ts"
+      ],
+      "importedBy": []
+    }
+  },
+  "entities": {
+    ".claude/skills/review-session/scripts/extract-session-helpers.mjs::buildConversationTurns": {
+      "filePath": ".claude/skills/review-session/scripts/extract-session-helpers.mjs",
+      "name": "buildConversationTurns",
+      "imports": [],
+      "importedBy": [
+        ".claude/skills/review-session/scripts/extract-session.mjs::__file_root__"
+      ]
+    },
+    ".claude/skills/review-session/scripts/extract-session-helpers.mjs::detectFormat": {
+      "filePath": ".claude/skills/review-session/scripts/extract-session-helpers.mjs",
+      "name": "detectFormat",
+      "imports": [],
+      "importedBy": [
+        ".claude/skills/review-session/scripts/extract-session.mjs::__file_root__"
+      ]
+    },
+    ".claude/skills/review-session/scripts/extract-session-helpers.mjs::detectFormatFromPath": {
+      "filePath": ".claude/skills/review-session/scripts/extract-session-helpers.mjs",
+      "name": "detectFormatFromPath",
+      "imports": [],
+      "importedBy": [
+        ".claude/skills/review-session/scripts/extract-session.mjs::__file_root__"
+      ]
+    },
+    ".claude/skills/review-session/scripts/extract-session.mjs::__file_root__": {
+      "filePath": ".claude/skills/review-session/scripts/extract-session.mjs",
+      "name": "__file_root__",
+      "imports": [
+        ".claude/skills/review-session/scripts/extract-session-helpers.mjs::buildConversationTurns",
+        ".claude/skills/review-session/scripts/extract-session-helpers.mjs::detectFormat",
+        ".claude/skills/review-session/scripts/extract-session-helpers.mjs::detectFormatFromPath"
+      ],
+      "importedBy": []
+    },
+    ".claude/skills/review-session/scripts/find-last-session.mjs::__file_root__": {
+      "filePath": ".claude/skills/review-session/scripts/find-last-session.mjs",
+      "name": "__file_root__",
+      "imports": [
+        ".claude/skills/review-session/scripts/find-last-session-helpers.mjs::claudeProjectHashFromPath",
+        ".claude/skills/review-session/scripts/find-last-session-helpers.mjs::readBuildSessionIds",
+        ".claude/skills/review-session/scripts/find-last-session-helpers.mjs::sessionSourceLabel"
+      ],
+      "importedBy": []
+    },
+    "app/api/races/[slug]/calendar/route.ts::__file_root__": {
+      "filePath": "app/api/races/[slug]/calendar/route.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/prisma.ts::__file_root__",
+        "app/lib/ics.ts::buildIcs",
+        "app/lib/raceCalendar.ts::calendarFileName",
+        "app/lib/raceCalendar.ts::raceCalendarEvent"
+      ],
+      "importedBy": []
+    },
+    "app/api/races/route.ts::__file_root__": {
+      "filePath": "app/api/races/route.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::parseFilters",
+        "app/lib/races.ts::findRaces"
+      ],
+      "importedBy": []
+    },
+    "app/components/FilterChips.tsx::FilterChips": {
+      "filePath": "app/components/FilterChips.tsx",
+      "name": "FilterChips",
+      "imports": [],
+      "importedBy": [
+        "app/components/FilterToolbar.tsx::__file_root__"
+      ]
+    },
+    "app/components/FilterChips.tsx::__file_root__": {
+      "filePath": "app/components/FilterChips.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::StatusChip",
+        "app/lib/filters.ts::__file_root__",
+        "app/lib/filters.ts::activeFilterChips",
+        "app/lib/filters.ts::filterHref",
+        "app/lib/filters.ts::toggleStatus"
+      ],
+      "importedBy": []
+    },
+    "app/components/FilterToolbar.tsx::FilterToolbar": {
+      "filePath": "app/components/FilterToolbar.tsx",
+      "name": "FilterToolbar",
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/components/FilterToolbar.tsx::__file_root__": {
+      "filePath": "app/components/FilterToolbar.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/FilterChips.tsx::FilterChips",
+        "app/components/SortToggle.tsx::SortToggle",
+        "app/lib/filters.ts::RaceFilters"
+      ],
+      "importedBy": []
+    },
+    "app/components/Hero.tsx::Hero": {
+      "filePath": "app/components/Hero.tsx",
+      "name": "Hero",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/HeroSearch.tsx::HeroSearch": {
+      "filePath": "app/components/HeroSearch.tsx",
+      "name": "HeroSearch",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/HeroSearch.tsx::__file_root__": {
+      "filePath": "app/components/HeroSearch.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/SelectField.tsx::SelectField",
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::__file_root__",
+        "app/lib/filters.ts::raceCountLabel"
+      ],
+      "importedBy": []
+    },
+    "app/components/Logo.tsx::Logo": {
+      "filePath": "app/components/Logo.tsx",
+      "name": "Logo",
+      "imports": [],
+      "importedBy": [
+        "app/components/SiteHeader.tsx::__file_root__"
+      ]
+    },
+    "app/components/NextDeadline.tsx::NextDeadline": {
+      "filePath": "app/components/NextDeadline.tsx",
+      "name": "NextDeadline",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/components/NextDeadline.tsx::__file_root__": {
+      "filePath": "app/components/NextDeadline.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/format.ts::__file_root__",
+        "app/lib/format.ts::formatDay",
+        "app/lib/format.ts::formatTime",
+        "app/lib/format.ts::milestoneVerb"
+      ],
+      "importedBy": []
+    },
+    "app/components/PageShell.tsx::PageShell": {
+      "filePath": "app/components/PageShell.tsx",
+      "name": "PageShell",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/RaceDayCell.tsx::RaceDayCell": {
+      "filePath": "app/components/RaceDayCell.tsx",
+      "name": "RaceDayCell",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/components/RaceDayCell.tsx::__file_root__": {
+      "filePath": "app/components/RaceDayCell.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/format.ts::formatDay"
+      ],
+      "importedBy": []
+    },
+    "app/components/RaceIdentity.tsx::RaceIdentity": {
+      "filePath": "app/components/RaceIdentity.tsx",
+      "name": "RaceIdentity",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/components/RaceIdentity.tsx::__file_root__": {
+      "filePath": "app/components/RaceIdentity.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/format.ts::formatDistance"
+      ],
+      "importedBy": []
+    },
+    "app/components/RaceList.tsx::RaceList": {
+      "filePath": "app/components/RaceList.tsx",
+      "name": "RaceList",
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/components/RaceList.tsx::__file_root__": {
+      "filePath": "app/components/RaceList.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/EmptyResults.tsx::EmptyResults",
+        "app/components/RaceRow.tsx::RaceRow",
+        "app/components/ShowAllLink.tsx::ShowAllLink",
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::__file_root__",
+        "app/lib/filters.ts::filterHref",
+        "app/lib/raceList.ts::RaceListItem",
+        "app/lib/raceList.ts::isUrgent"
+      ],
+      "importedBy": []
+    },
+    "app/components/RaceRow.tsx::__file_root__": {
+      "filePath": "app/components/RaceRow.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/NextDeadline.tsx::NextDeadline",
+        "app/components/RaceDayCell.tsx::RaceDayCell",
+        "app/components/RaceIdentity.tsx::RaceIdentity",
+        "app/components/RaceThumb.tsx::RaceThumb",
+        "app/components/SaveRaceButton.tsx::SaveRaceButton",
+        "app/components/WeeksToTrain.tsx::WeeksToTrain",
+        "app/lib/raceList.ts::RaceListItem"
+      ],
+      "importedBy": []
+    },
+    "app/components/RaceThumb.tsx::RaceThumb": {
+      "filePath": "app/components/RaceThumb.tsx",
+      "name": "RaceThumb",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/components/ResultsHeader.tsx::ResultsHeader": {
+      "filePath": "app/components/ResultsHeader.tsx",
+      "name": "ResultsHeader",
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/components/ResultsHeader.tsx::__file_root__": {
+      "filePath": "app/components/ResultsHeader.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::raceCountLabel"
+      ],
+      "importedBy": []
+    },
+    "app/components/ResultsSection.tsx::ResultsSection": {
+      "filePath": "app/components/ResultsSection.tsx",
+      "name": "ResultsSection",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/ResultsSection.tsx::__file_root__": {
+      "filePath": "app/components/ResultsSection.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/FilterToolbar.tsx::FilterToolbar",
+        "app/components/RaceList.tsx::RaceList",
+        "app/components/ResultsHeader.tsx::ResultsHeader",
+        "app/components/SeasonTeaser.tsx::SeasonTeaser",
+        "app/components/TimezoneNote.tsx::TimezoneNote",
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::resultsHeading",
+        "app/lib/raceList.ts::RaceListItem"
+      ],
+      "importedBy": []
+    },
+    "app/components/SaveRaceButton.tsx::SaveRaceButton": {
+      "filePath": "app/components/SaveRaceButton.tsx",
+      "name": "SaveRaceButton",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/components/SeasonTeaser.tsx::SeasonTeaser": {
+      "filePath": "app/components/SeasonTeaser.tsx",
+      "name": "SeasonTeaser",
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/components/SeasonTeaser.tsx::__file_root__": {
+      "filePath": "app/components/SeasonTeaser.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/SeasonPreview.tsx::SeasonPreview"
+      ],
+      "importedBy": []
+    },
+    "app/components/SelectField.tsx::SelectField": {
+      "filePath": "app/components/SelectField.tsx",
+      "name": "SelectField",
+      "imports": [],
+      "importedBy": [
+        "app/components/HeroSearch.tsx::__file_root__"
+      ]
+    },
+    "app/components/SiteFooter.tsx::SiteFooter": {
+      "filePath": "app/components/SiteFooter.tsx",
+      "name": "SiteFooter",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/SiteHeader.tsx::SiteHeader": {
+      "filePath": "app/components/SiteHeader.tsx",
+      "name": "SiteHeader",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/components/SiteHeader.tsx::__file_root__": {
+      "filePath": "app/components/SiteHeader.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/Logo.tsx::Logo"
+      ],
+      "importedBy": []
+    },
+    "app/components/SortToggle.tsx::SortToggle": {
+      "filePath": "app/components/SortToggle.tsx",
+      "name": "SortToggle",
+      "imports": [],
+      "importedBy": [
+        "app/components/FilterToolbar.tsx::__file_root__"
+      ]
+    },
+    "app/components/SortToggle.tsx::__file_root__": {
+      "filePath": "app/components/SortToggle.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::SortKey",
+        "app/lib/filters.ts::filterHref"
+      ],
+      "importedBy": []
+    },
+    "app/components/TimezoneNote.tsx::TimezoneNote": {
+      "filePath": "app/components/TimezoneNote.tsx",
+      "name": "TimezoneNote",
+      "imports": [],
+      "importedBy": [
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/components/WeeksToTrain.tsx::WeeksToTrain": {
+      "filePath": "app/components/WeeksToTrain.tsx",
+      "name": "WeeksToTrain",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceRow.tsx::__file_root__"
+      ]
+    },
+    "app/globals.css::__file_root__": {
+      "filePath": "app/globals.css",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "app/layout.tsx::__file_root__"
+      ]
+    },
+    "app/layout.tsx::__file_root__": {
+      "filePath": "app/layout.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/globals.css::__file_root__"
+      ],
+      "importedBy": []
+    },
+    "app/lib/filters.test.ts::__file_root__": {
+      "filePath": "app/lib/filters.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::__file_root__",
+        "app/lib/filters.ts::activeFilterChips",
+        "app/lib/filters.ts::filterHref",
+        "app/lib/filters.ts::parseFilters",
+        "app/lib/filters.ts::raceCountLabel",
+        "app/lib/filters.ts::resultsHeading",
+        "app/lib/filters.ts::toggleStatus"
+      ],
+      "importedBy": []
+    },
+    "app/lib/filters.ts::RaceFilters": {
+      "filePath": "app/lib/filters.ts",
+      "name": "RaceFilters",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceList.tsx::__file_root__",
+        "app/components/FilterChips.tsx::__file_root__",
+        "app/components/SortToggle.tsx::__file_root__",
+        "app/components/FilterToolbar.tsx::__file_root__",
+        "app/components/ResultsSection.tsx::__file_root__",
+        "app/components/HeroSearch.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::SearchParams": {
+      "filePath": "app/lib/filters.ts",
+      "name": "SearchParams",
+      "imports": [],
+      "importedBy": [
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::SortKey": {
+      "filePath": "app/lib/filters.ts",
+      "name": "SortKey",
+      "imports": [],
+      "importedBy": [
+        "app/components/SortToggle.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::StatusChip": {
+      "filePath": "app/lib/filters.ts",
+      "name": "StatusChip",
+      "imports": [],
+      "importedBy": [
+        "app/components/FilterChips.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::__file_root__": {
+      "filePath": "app/lib/filters.ts",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/RaceList.tsx::__file_root__",
+        "app/components/FilterChips.tsx::__file_root__",
+        "app/components/HeroSearch.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::activeFilterChips": {
+      "filePath": "app/lib/filters.ts",
+      "name": "activeFilterChips",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/FilterChips.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::filterHref": {
+      "filePath": "app/lib/filters.ts",
+      "name": "filterHref",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/RaceList.tsx::__file_root__",
+        "app/components/FilterChips.tsx::__file_root__",
+        "app/components/SortToggle.tsx::__file_root__",
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::parseFilters": {
+      "filePath": "app/lib/filters.ts",
+      "name": "parseFilters",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/api/races/route.ts::__file_root__",
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::raceCountLabel": {
+      "filePath": "app/lib/filters.ts",
+      "name": "raceCountLabel",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/ResultsHeader.tsx::__file_root__",
+        "app/components/HeroSearch.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::resultsHeading": {
+      "filePath": "app/lib/filters.ts",
+      "name": "resultsHeading",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/lib/filters.ts::toggleStatus": {
+      "filePath": "app/lib/filters.ts",
+      "name": "toggleStatus",
+      "imports": [],
+      "importedBy": [
+        "app/lib/filters.test.ts::__file_root__",
+        "app/components/FilterChips.tsx::__file_root__"
+      ]
+    },
+    "app/lib/format.test.ts::__file_root__": {
+      "filePath": "app/lib/format.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/format.ts::formatDay",
+        "app/lib/format.ts::formatDistance",
+        "app/lib/format.ts::formatEt",
+        "app/lib/format.ts::formatTime",
+        "app/lib/format.ts::milestoneVerb"
+      ],
+      "importedBy": []
+    },
+    "app/lib/format.ts::__file_root__": {
+      "filePath": "app/lib/format.ts",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "app/components/NextDeadline.tsx::__file_root__"
+      ]
+    },
+    "app/lib/format.ts::formatDay": {
+      "filePath": "app/lib/format.ts",
+      "name": "formatDay",
+      "imports": [],
+      "importedBy": [
+        "app/lib/format.test.ts::__file_root__",
+        "app/components/RaceDayCell.tsx::__file_root__",
+        "app/components/NextDeadline.tsx::__file_root__"
+      ]
+    },
+    "app/lib/format.ts::formatDistance": {
+      "filePath": "app/lib/format.ts",
+      "name": "formatDistance",
+      "imports": [],
+      "importedBy": [
+        "app/lib/format.test.ts::__file_root__",
+        "app/components/RaceIdentity.tsx::__file_root__"
+      ]
+    },
+    "app/lib/format.ts::formatEt": {
+      "filePath": "app/lib/format.ts",
+      "name": "formatEt",
+      "imports": [],
+      "importedBy": [
+        "app/lib/format.test.ts::__file_root__"
+      ]
+    },
+    "app/lib/format.ts::formatTime": {
+      "filePath": "app/lib/format.ts",
+      "name": "formatTime",
+      "imports": [],
+      "importedBy": [
+        "app/lib/format.test.ts::__file_root__",
+        "app/components/NextDeadline.tsx::__file_root__"
+      ]
+    },
+    "app/lib/format.ts::milestoneVerb": {
+      "filePath": "app/lib/format.ts",
+      "name": "milestoneVerb",
+      "imports": [],
+      "importedBy": [
+        "app/lib/format.test.ts::__file_root__",
+        "app/components/NextDeadline.tsx::__file_root__"
+      ]
+    },
+    "app/lib/ics.test.ts::__file_root__": {
+      "filePath": "app/lib/ics.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/ics.ts::buildIcs",
+        "app/lib/ics.ts::icsDate",
+        "app/lib/ics.ts::icsEscape"
+      ],
+      "importedBy": []
+    },
+    "app/lib/ics.ts::CalendarEvent": {
+      "filePath": "app/lib/ics.ts",
+      "name": "CalendarEvent",
+      "imports": [],
+      "importedBy": [
+        "app/lib/raceCalendar.ts::__file_root__"
+      ]
+    },
+    "app/lib/ics.ts::buildIcs": {
+      "filePath": "app/lib/ics.ts",
+      "name": "buildIcs",
+      "imports": [],
+      "importedBy": [
+        "app/lib/ics.test.ts::__file_root__",
+        "app/api/races/[slug]/calendar/route.ts::__file_root__"
+      ]
+    },
+    "app/lib/ics.ts::icsDate": {
+      "filePath": "app/lib/ics.ts",
+      "name": "icsDate",
+      "imports": [],
+      "importedBy": [
+        "app/lib/ics.test.ts::__file_root__"
+      ]
+    },
+    "app/lib/ics.ts::icsEscape": {
+      "filePath": "app/lib/ics.ts",
+      "name": "icsEscape",
+      "imports": [],
+      "importedBy": [
+        "app/lib/ics.test.ts::__file_root__"
+      ]
+    },
+    "app/lib/loadEnv.ts::__file_root__": {
+      "filePath": "app/lib/loadEnv.ts",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "vitest.config.ts::__file_root__",
+        "prisma/seed.ts::__file_root__",
+        "prisma.config.ts::__file_root__"
+      ]
+    },
+    "app/lib/prisma.ts::__file_root__": {
+      "filePath": "app/lib/prisma.ts",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "app/api/races/[slug]/calendar/route.ts::__file_root__"
+      ]
+    },
+    "app/lib/raceCalendar.test.ts::__file_root__": {
+      "filePath": "app/lib/raceCalendar.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/raceCalendar.ts::CalendarRace",
+        "app/lib/raceCalendar.ts::calendarFileName",
+        "app/lib/raceCalendar.ts::raceCalendarEvent"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceCalendar.ts::__file_root__": {
+      "filePath": "app/lib/raceCalendar.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/format.ts::__file_root__",
+        "app/lib/format.ts::formatEt",
+        "app/lib/ics.ts::CalendarEvent",
+        "app/lib/raceList.ts::MilestoneRecord",
+        "app/lib/raceList.ts::nextMilestone",
+        "app/lib/raceList.ts::upcomingEdition"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceCalendar.ts::calendarFileName": {
+      "filePath": "app/lib/raceCalendar.ts",
+      "name": "calendarFileName",
+      "imports": [],
+      "importedBy": [
+        "app/api/races/[slug]/calendar/route.ts::__file_root__"
+      ]
+    },
+    "app/lib/raceCalendar.ts::raceCalendarEvent": {
+      "filePath": "app/lib/raceCalendar.ts",
+      "name": "raceCalendarEvent",
+      "imports": [],
+      "importedBy": [
+        "app/api/races/[slug]/calendar/route.ts::__file_root__"
+      ]
+    },
+    "app/lib/raceList.test.ts::__file_root__": {
+      "filePath": "app/lib/raceList.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::__file_root__",
+        "app/lib/raceList.ts::RaceRecord",
+        "app/lib/raceList.ts::filterAndSortRaces",
+        "app/lib/raceList.ts::isUrgent",
+        "app/lib/raceList.ts::nextMilestone",
+        "app/lib/raceList.ts::sortRaces",
+        "app/lib/raceList.ts::toListItem",
+        "app/lib/raceList.ts::upcomingEdition",
+        "app/lib/raceList.ts::weeksToTrain"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceList.ts::RaceListItem": {
+      "filePath": "app/lib/raceList.ts",
+      "name": "RaceListItem",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceList.tsx::__file_root__",
+        "app/components/RaceRow.tsx::__file_root__",
+        "app/components/ResultsSection.tsx::__file_root__"
+      ]
+    },
+    "app/lib/raceList.ts::__file_root__": {
+      "filePath": "app/lib/raceList.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/filters.ts::__file_root__"
+      ],
+      "importedBy": []
+    },
+    "app/lib/raceList.ts::isUrgent": {
+      "filePath": "app/lib/raceList.ts",
+      "name": "isUrgent",
+      "imports": [],
+      "importedBy": [
+        "app/components/RaceList.tsx::__file_root__"
+      ]
+    },
+    "app/lib/races.ts::__file_root__": {
+      "filePath": "app/lib/races.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/prisma.ts::__file_root__",
+        "app/lib/filters.ts::RaceFilters",
+        "app/lib/raceList.ts::RaceListItem",
+        "app/lib/raceList.ts::filterAndSortRaces"
+      ],
+      "importedBy": []
+    },
+    "app/lib/races.ts::findRaces": {
+      "filePath": "app/lib/races.ts",
+      "name": "findRaces",
+      "imports": [],
+      "importedBy": [
+        "app/api/races/route.ts::__file_root__",
+        "app/page.tsx::__file_root__"
+      ]
+    },
+    "app/page.tsx::__file_root__": {
+      "filePath": "app/page.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/Hero.tsx::Hero",
+        "app/components/HeroSearch.tsx::HeroSearch",
+        "app/components/PageShell.tsx::PageShell",
+        "app/components/ResultsSection.tsx::ResultsSection",
+        "app/components/SiteFooter.tsx::SiteFooter",
+        "app/components/SiteHeader.tsx::SiteHeader",
+        "app/lib/filters.ts::SearchParams",
+        "app/lib/filters.ts::filterHref",
+        "app/lib/filters.ts::parseFilters",
+        "app/lib/races.ts::findRaces"
+      ],
+      "importedBy": []
+    },
+    "prisma.config.ts::__file_root__": {
+      "filePath": "prisma.config.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/loadEnv.ts::__file_root__"
+      ],
+      "importedBy": []
+    },
+    "prisma/sample-data.json::__file_root__": {
+      "filePath": "prisma/sample-data.json",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "prisma/seed.ts::__file_root__"
+      ]
+    },
+    "prisma/seed.ts::__file_root__": {
+      "filePath": "prisma/seed.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/loadEnv.ts::__file_root__",
+        "prisma/sample-data.json::__file_root__"
+      ],
+      "importedBy": []
+    },
+    "vitest.config.ts::__file_root__": {
+      "filePath": "vitest.config.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/loadEnv.ts::__file_root__"
+      ],
+      "importedBy": []
+    }
+  },
+  "lastUpdated": "2026-10-26T19:48:43Z"
+}

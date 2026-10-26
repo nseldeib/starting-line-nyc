@@ -1,0 +1,145 @@
+// Turns stored races into the home page's filtered, sorted list. Pure — the
+// database read lives in races.ts.
+import { DISTANCES, WINDOWS, type RaceFilters } from '@/app/lib/filters';
+
+export type MilestoneRecord = { kind: string; at: Date; tentative: boolean };
+
+export type EditionRecord = {
+  year: number;
+  raceDate: Date | null;
+  raceDateTentative: boolean;
+  registrationStatus: string;
+  entryMethod: string;
+  isSample: boolean;
+  milestones: MilestoneRecord[];
+};
+
+export type RaceRecord = {
+  slug: string;
+  name: string;
+  terrain: string;
+  distanceMiles: number;
+  elevationGainFt: number | null;
+  locationName: string;
+  area: string;
+  photoUrl: string | null;
+  photoAlt: string | null;
+  organizer: { name: string };
+  editions: EditionRecord[];
+};
+
+export type RaceListItem = {
+  slug: string;
+  name: string;
+  terrain: string;
+  distanceMiles: number;
+  elevationGainFt: number | null;
+  locationName: string;
+  organizer: string;
+  photoUrl: string | null;
+  photoAlt: string | null;
+  raceDate: string | null;
+  raceDateTentative: boolean;
+  registrationStatus: string;
+  entryMethod: string;
+  isSample: boolean;
+  nextMilestone: { kind: string; at: string; tentative: boolean } | null;
+  weeksToTrain: number | null;
+};
+
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+export const URGENT_DAYS = 21;
+
+// The edition a runner can still enter: the earliest whose race day hasn't
+// passed. An edition with no announced date counts as upcoming.
+export function upcomingEdition<E extends { year: number; raceDate: Date | null }>(
+  editions: E[],
+  now: Date,
+): E | null {
+  const sorted = [...editions].sort((a, b) => a.year - b.year);
+  return sorted.find((e) => !e.raceDate || e.raceDate >= now) ?? null;
+}
+
+export function nextMilestone<M extends { at: Date }>(milestones: M[], now: Date): M | null {
+  const future = milestones.filter((m) => m.at >= now).sort((a, b) => a.at.getTime() - b.at.getTime());
+  return future[0] ?? null;
+}
+
+// Whole weeks from now until race day, rounded down; null when the date is unknown.
+export function weeksToTrain(raceDate: Date | null, now: Date): number | null {
+  return raceDate ? Math.floor((raceDate.getTime() - now.getTime()) / (7 * MS_PER_DAY)) : null;
+}
+
+// True when a deadline is within the next three weeks (and not past).
+export function isUrgent(at: string | null | undefined, now: Date): boolean {
+  if (!at) return false;
+  const ms = Date.parse(at) - now.getTime();
+  return ms >= 0 && ms <= URGENT_DAYS * MS_PER_DAY;
+}
+
+function windowEnd(months: number | null, now: Date): Date | null {
+  if (!months) return null;
+  const end = new Date(now.getTime());
+  end.setMonth(end.getMonth() + months);
+  return end;
+}
+
+export function toListItem(race: RaceRecord, now: Date): RaceListItem | null {
+  const edition = upcomingEdition(race.editions, now);
+  if (!edition) return null;
+  const next = nextMilestone(edition.milestones, now);
+  return {
+    slug: race.slug,
+    name: race.name,
+    terrain: race.terrain,
+    distanceMiles: race.distanceMiles,
+    elevationGainFt: race.elevationGainFt,
+    locationName: race.locationName,
+    organizer: race.organizer.name,
+    photoUrl: race.photoUrl,
+    photoAlt: race.photoAlt,
+    raceDate: edition.raceDate?.toISOString() ?? null,
+    raceDateTentative: edition.raceDateTentative,
+    registrationStatus: edition.registrationStatus,
+    entryMethod: edition.entryMethod,
+    isSample: edition.isSample,
+    nextMilestone: next ? { kind: next.kind, at: next.at.toISOString(), tentative: next.tentative } : null,
+    weeksToTrain: weeksToTrain(edition.raceDate, now),
+  };
+}
+
+function matches(race: RaceRecord, item: RaceListItem, filters: RaceFilters, until: Date | null): boolean {
+  const dist = DISTANCES[filters.distance];
+  if (race.distanceMiles < dist.min || race.distanceMiles > dist.max) return false;
+  if (filters.terrain !== 'any' && race.terrain !== filters.terrain) return false;
+  if (until && item.raceDate && Date.parse(item.raceDate) > until.getTime()) return false;
+  const q = filters.q.toLowerCase();
+  if (q && ![race.name, race.locationName, race.area, race.organizer.name].some((s) => s.toLowerCase().includes(q)))
+    return false;
+  if (filters.status.includes('open') && item.registrationStatus !== 'open') return false;
+  if (filters.status.includes('opening_soon') && item.registrationStatus !== 'opening_soon') return false;
+  if (filters.status.includes('lottery') && item.entryMethod !== 'lottery') return false;
+  if (filters.status.includes('train12') && (item.weeksToTrain === null || item.weeksToTrain < 12)) return false;
+  return true;
+}
+
+const time = (iso: string | null | undefined) => (iso ? Date.parse(iso) : Infinity);
+
+// Sort by next deadline: unknown deadlines go last, ties fall back to race day.
+export function sortRaces(items: RaceListItem[], sort: RaceFilters['sort']): RaceListItem[] {
+  return [...items].sort((a, b) =>
+    sort === 'raceday'
+      ? time(a.raceDate) - time(b.raceDate)
+      : time(a.nextMilestone?.at) - time(b.nextMilestone?.at) || time(a.raceDate) - time(b.raceDate),
+  );
+}
+
+export function filterAndSortRaces(races: RaceRecord[], filters: RaceFilters, now: Date): RaceListItem[] {
+  const until = windowEnd(WINDOWS[filters.when].months, now);
+  const items: RaceListItem[] = [];
+  for (const race of races) {
+    const item = toListItem(race, now);
+    if (item && matches(race, item, filters, until)) items.push(item);
+  }
+  return sortRaces(items, filters.sort);
+}

@@ -1,0 +1,500 @@
+{
+  "tests": [
+    {
+      "description": "Search text and terrain also become chips; nothing shows when all are any.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "activeFilterChips › includes query and terrain, and is empty when nothing narrows",
+      "line": 94,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The default search shows the distance and window as removable chips.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "activeFilterChips › lists distance and window for the defaults",
+      "line": 86,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Text fields are escaped so commas in descriptions do not break parsing.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "buildIcs › escapes text fields",
+      "line": 45,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Location and description lines are omitted when not provided.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "buildIcs › omits optional fields when absent",
+      "line": 50,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The event starts and ends at the right UTC times, with CRLF line endings.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "buildIcs › writes a single event with start, end and CRLF endings",
+      "line": 35,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Race day downloads get a distinct file name.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "calendarFileName › names next and race day files",
+      "line": 74,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The default search keeps halves inside six months and drops the May race.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "filterAndSortRaces › applies distance and six month window by default",
+      "line": 176,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Status chips combine: lottery entry, opening soon, open, and 12 plus weeks.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "filterAndSortRaces › filters by status chips",
+      "line": 198,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Terrain and free-text search narrow by trail and by place or organizer.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "filterAndSortRaces › filters by terrain and by search text across name, place and organizer",
+      "line": 191,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Ultras are anything longer than a marathon.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "filterAndSortRaces › matches ultras beyond marathon distance",
+      "line": 186,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Any distance and any time returns every race.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "filterAndSortRaces › returns everything with any distance and any time",
+      "line": 181,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Defaults still write distance and window so \"any\" can be expressed.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "filterHref › always writes distance and window and omits defaults otherwise",
+      "line": 54,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "A change is applied on top of the current filters.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "filterHref › applies a change over the current filters",
+      "line": 59,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Parsing the built URL gives back the same filters.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "filterHref › round trips through parseFilters",
+      "line": 65,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Days are shown in New York time, which can differ from the UTC date.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatDay › formats in Eastern Time even across a UTC date boundary",
+      "line": 6,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Elevation gain is appended with a thousands separator.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatDistance › appends elevation gain",
+      "line": 53,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Distances keep one decimal, whole numbers stay whole.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatDistance › formats miles",
+      "line": 47,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Day and time combine into one line.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatEt › joins day and time",
+      "line": 26,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Standard time in November: 17:00 UTC is noon ET.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatTime › formats standard time with a lowercase meridiem and ET",
+      "line": 14,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Daylight time in April: 03:59 UTC is 11:59 pm the previous evening.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "formatTime › handles daylight saving time",
+      "line": 19,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Dates are written as compact UTC timestamps without milliseconds.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "icsDate › formats as basic UTC",
+      "line": 6,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Commas, semicolons, backslashes and newlines are escaped per the spec.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "icsEscape › escapes special characters and newlines",
+      "line": 13,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Plain text passes through unchanged.",
+      "file": "app/lib/ics.test.ts",
+      "format": "vitest",
+      "key": "icsEscape › leaves plain text alone",
+      "line": 18,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Later deadlines, past deadlines and missing deadlines are not urgent.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "isUrgent › is false beyond three weeks, in the past, or missing",
+      "line": 113,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Deadlines inside three weeks are urgent, including exactly 21 days out.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "isUrgent › is true within three weeks",
+      "line": 107,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "An unknown kind is shown as-is rather than hidden.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "milestoneVerb › falls back to the raw kind",
+      "line": 40,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Each milestone kind reads as a short verb in the deadline column.",
+      "file": "app/lib/format.test.ts",
+      "format": "vitest",
+      "key": "milestoneVerb › maps known kinds to verbs",
+      "line": 33,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "No future milestones means no next deadline.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "nextMilestone › returns null when nothing is upcoming",
+      "line": 86,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The soonest future milestone wins; past ones are ignored.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "nextMilestone › returns the earliest future milestone",
+      "line": 80,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Unknown values fall back to defaults instead of breaking the page.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "parseFilters › falls back to defaults for unknown values",
+      "line": 31,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Status chips come comma-separated; unknown and repeated chips are dropped.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "parseFilters › parses comma separated status chips, dropping unknown and duplicates",
+      "line": 40,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Recognised values are read and the search text is trimmed.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "parseFilters › reads valid values and trims the query",
+      "line": 19,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "No query string gives the default search: half marathons, next 6 months.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "parseFilters › returns the defaults for empty params",
+      "line": 14,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Repeated query keys arrive as arrays; the first value wins for single fields.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "parseFilters › uses the first value of repeated single fields and all values of status",
+      "line": 45,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Race day events use the race date and a longer block.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › builds a race day event",
+      "line": 45,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The default event is the next registration milestone, titled by its kind.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › builds the next milestone event",
+      "line": 26,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The description restates the time in ET, links the official site and flags sample data.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › describes the time in ET with the official link and sample notice",
+      "line": 36,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "A race day export is refused when the date has not been announced.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › refuses race day when the date is unannounced",
+      "line": 54,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "With no future milestone there is nothing to remind about.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › refuses when no registration date is upcoming",
+      "line": 60,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "A race whose editions are all past has nothing to export.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "raceCalendarEvent › refuses when there is no upcoming edition",
+      "line": 66,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Singular and plural wording for the count.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "raceCountLabel › pluralises correctly",
+      "line": 118,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "The default search reads like the mockup heading.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "resultsHeading › names the distance and the window",
+      "line": 74,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "With no time window only the distance is named.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "resultsHeading › omits the window when it is any time",
+      "line": 79,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "By next deadline, unknown deadlines go last and ties fall back to race day.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "sortRaces › sorts by next deadline with unknown last",
+      "line": 149,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "By race day, unknown race dates go last.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "sortRaces › sorts by race day with unknown last",
+      "line": 158,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "A race flattens into a row with its next milestone and weeks to train.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "toListItem › flattens the upcoming edition into a list item",
+      "line": 123,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "A race with no upcoming edition is left off the list.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "toListItem › returns null when the race has no upcoming edition",
+      "line": 139,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Toggling adds a chip that is off.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "toggleStatus › adds a chip that is not selected",
+      "line": 103,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Toggling removes a chip that is on, without touching the input array.",
+      "file": "app/lib/filters.test.ts",
+      "format": "vitest",
+      "key": "toggleStatus › removes a selected chip without mutating the input",
+      "line": 108,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Editions are considered in year order even if stored out of order.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "upcomingEdition › picks the earliest upcoming year regardless of input order",
+      "line": 64,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "With only past editions there is nothing to enter.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "upcomingEdition › returns null when every edition is past",
+      "line": 73,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Last year's finished edition is skipped in favour of the next one.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "upcomingEdition › skips editions whose race day has passed",
+      "line": 50,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "An edition with no announced date still counts as upcoming.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "upcomingEdition › treats an unannounced date as upcoming",
+      "line": 59,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "An unknown race date gives no week count.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "weeksToTrain › returns null for an unknown date",
+      "line": 100,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Whole weeks are counted, rounding down.",
+      "file": "app/lib/raceList.test.ts",
+      "format": "vitest",
+      "key": "weeksToTrain › rounds down to whole weeks",
+      "line": 94,
+      "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    }
+  ],
+  "version": 2
+}
