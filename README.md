@@ -27,7 +27,7 @@ npm run dev     # http://localhost:3000
 
 # CodeYam Editor in GitHub Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?template_repository=codeyam-ai/codespaces-starter)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nseldeib/starting-line-nyc?quickstart=1)
 
 Click the button to try the [CodeYam Editor](https://codeyam.com) with nothing
 installed on your own machine. It runs in a GitHub codespace, a Linux machine
