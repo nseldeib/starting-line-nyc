@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "derivedFromHash": "af9d6d04712dcfe8e2aee36d05d33f7e88601b02e73423a593b8f200d64796ec",
+  "derivedAt": "2026-10-26T20:10:57.659624396+00:00",
+  "deliverables": [
+    {
+      "id": "browse-filter",
+      "text": "Browse NYC-area races from several organizers and filter by distance, road vs. trail, location, race date and registration status",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Home page search and chips; location is matched through the race/park/organizer text search.",
+      "decidedBy": null
+    },
+    {
+      "id": "sort-options",
+      "text": "Sort by race date, registration opening date, entry deadline, or distance",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "This cycle built next deadline and race day sorts; opening-date and distance sorts are not built yet.",
+      "decidedBy": null
+    },
+    {
+      "id": "custom-distances",
+      "text": "Support common and custom distances, including ultramarathons",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "5K to marathon buckets plus an Ultra bucket; the sample set includes a trail 50K.",
+      "decidedBy": null
+    },
+    {
+      "id": "race-detail-page",
+      "text": "Race detail page with date, location, distance, terrain, organizer, price and official registration link",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Out of scope for this home-page cycle; the data model already stores price and registration links.",
+      "decidedBy": null
+    },
+    {
+      "id": "entry-requirements",
+      "text": "Distinguish open registration, lotteries, time qualification, charity and membership entry, with qualification windows per edition",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Entry method is stored per edition and the Lottery chip uses it; the other methods and qualification windows have no UI yet.",
+      "decidedBy": null
+    },
+    {
+      "id": "registration-status",
+      "text": "Highlight registration status: opening soon, open, lottery open, waitlist, sold out, closed",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Status label on every row, plus a highlight for deadlines within three weeks.",
+      "decidedBy": null
+    },
+    {
+      "id": "save-races",
+      "text": "Save races as Interested, Considering or Signed up",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Needs accounts; the page says accounts are not live yet.",
+      "decidedBy": null
+    },
+    {
+      "id": "my-races",
+      "text": "My Races view with upcoming races, registration milestones, notes and status changes",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Needs accounts; only a labelled example season timeline is shown.",
+      "decidedBy": null
+    },
+    {
+      "id": "reminders",
+      "text": "Reminders for registration openings and deadlines with custom times and presets",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Scheduled reminders need a notification integration; nothing implies one is scheduled.",
+      "decidedBy": null
+    },
+    {
+      "id": "calendar-ics",
+      "text": "Downloadable calendar events for registration milestones and race day, working in Apple Calendar and Outlook",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "An .ics file for the next milestone (Add to calendar) and for race day via the API.",
+      "decidedBy": null
+    },
+    {
+      "id": "google-calendar",
+      "text": "Prioritise Google Calendar for adding events",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "The .ics file imports into Google Calendar; a one-click Google Calendar link is not built yet.",
+      "decidedBy": null
+    },
+    {
+      "id": "eastern-time",
+      "text": "Show times in America/New_York and keep the correct time zone in exports",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "All times are shown in ET; exports use UTC so every calendar converts correctly.",
+      "decidedBy": null
+    },
+    {
+      "id": "information-quality",
+      "text": "Show official source links and last-verified dates, label unknown or tentative dates, and keep each annual edition separate",
+      "status": "deferred",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Editions are separate and unknown or tentative dates are labelled; source links and last-verified dates are stored but not shown yet.",
+      "decidedBy": null
+    },
+    {
+      "id": "visual-direction",
+      "text": "Energetic, editorial, mobile-friendly visual design with accessible contrast",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Built from mockup 12, checked at phone width.",
+      "decidedBy": null
+    },
+    {
+      "id": "sample-data",
+      "text": "A focused, clearly labelled sample set of NYC-area races across distances, terrain, organizers and entry methods",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Seven sample races, labelled on the page and in the README.",
+      "decidedBy": null
+    },
+    {
+      "id": "functional-vs-integration",
+      "text": "Make clear which features work and which need more integrations",
+      "status": "delivered",
+      "resolvedAt": null,
+      "resolvedInFeature": null,
+      "planSlug": null,
+      "note": "Accounts, saving and sign-up are marked as not live.",
+      "decidedBy": null
+    }
+  ]
+}
