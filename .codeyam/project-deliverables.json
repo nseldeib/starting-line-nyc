@@ -66,11 +66,11 @@
     {
       "id": "save-races",
       "text": "Save races as Interested, Considering or Signed up",
-      "status": "deferred",
-      "resolvedAt": "2026-10-27T16:47:03.867767657+00:00",
-      "resolvedInFeature": null,
+      "status": "delivered",
+      "resolvedAt": "2026-10-27T19:31:52.648233426+00:00",
+      "resolvedInFeature": "Save races on this device",
       "planSlug": "save-races-as-interested-considering-or-signed-up",
-      "note": "Deferred at the race detail page plan gate; approved by the user.",
+      "note": "Save button on the race list and race pages; kept in this browser only. Approved at the demo and save gates.",
       "decidedBy": "user"
     },
     {

@@ -13,8 +13,9 @@ official page. Every race page shows its source and the date it was last
 checked; details we could not confirm are left out, not guessed. Races do not
 update automatically, so always check the official site before you register.
 Spotted something missing or wrong? Use **Report a missing or wrong detail** on
-the race page, which opens a pre-filled issue here. Saving races and accounts
-are not live yet.
+the race page, which opens a pre-filled issue here. You can save races as
+Interested, Considering or Signed up; saves stay in your browser on that device,
+because accounts are not live yet.
 
 Photos are from Wikimedia Commons, used under the licences credited in the
 site footer.

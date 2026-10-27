@@ -1,0 +1,12 @@
+{
+  "name": "SaveMenu - Storage Blocked",
+  "id": "3611f6a4-d706-4534-a8e1-a145df3c2a0e",
+  "url": "/isolated-components/SaveMenu?s=StorageBlocked",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SaveMenu",
+  "scenarioType": "component",
+  "description": "The browser blocks saving (for example private browsing): the menu explains it can't save instead of offering choices."
+}

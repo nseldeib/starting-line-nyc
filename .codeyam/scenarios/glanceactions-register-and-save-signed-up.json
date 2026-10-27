@@ -1,0 +1,17 @@
+{
+  "name": "GlanceActions - Register And Save Signed Up",
+  "id": "fe6cd94c-5450-4537-bff7-d7ff11d9c1cf",
+  "url": "/isolated-components/GlanceActions?s=RegisterAndSave",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "browserState": {
+    "localStorage": {
+      "starting-line:saved-races": "{\"nycruns-brooklyn-experience-half-marathon\":{\"status\":\"signed-up\",\"savedAt\":\"2026-10-20T14:00:00.000Z\"}}"
+    }
+  },
+  "componentName": "GlanceActions",
+  "scenarioType": "component",
+  "description": "The race page's actions for a race saved as Signed up: the black Register on the official site button beside the blue '✓ Signed up' button."
+}

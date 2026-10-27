@@ -26,7 +26,7 @@ export default function RaceRow({ race, urgent }: { race: RaceListItem; urgent: 
         calendarHref={`/api/races/${race.slug}/calendar`}
       />
       <WeeksToTrain weeks={race.weeksToTrain} />
-      <SaveRaceButton raceName={race.name} />
+      <SaveRaceButton slug={race.slug} raceName={race.name} />
     </div>
   );
 }

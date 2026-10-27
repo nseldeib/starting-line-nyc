@@ -11,6 +11,12 @@
   ],
   "audit": {
     "scenarioFixtureDateSkip": [
+      {"slug": "home-races-saved-on-this-device", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "home-races-saved-on-this-device", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "home-races-saved-on-this-device", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
+      {"slug": "race-saved-as-considering", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
+      {"slug": "race-saved-as-considering", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
+      {"slug": "race-saved-as-considering", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},
       {"slug": "home-all-distances-next-12-months", "table": "raceEdition", "field": "lastVerifiedAt", "reason": "fixed-reference-data"},
       {"slug": "home-all-distances-next-12-months", "table": "raceEdition", "field": "raceDate", "reason": "fixed-reference-data"},
       {"slug": "home-all-distances-next-12-months", "table": "registrationMilestone", "field": "at", "reason": "fixed-reference-data"},

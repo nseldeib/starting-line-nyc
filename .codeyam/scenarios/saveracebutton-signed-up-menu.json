@@ -1,0 +1,23 @@
+{
+  "name": "SaveRaceButton - Signed Up Menu",
+  "id": "ba1dd790-e832-4e39-b22a-a177cd19cb77",
+  "url": "/isolated-components/SaveRaceButton?s=SignedUpMenu",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "browserState": {
+    "localStorage": {
+      "starting-line:saved-races": "{\"nycruns-brooklyn-experience-half-marathon\":{\"status\":\"signed-up\",\"savedAt\":\"2026-10-20T14:00:00.000Z\"}}"
+    }
+  },
+  "componentName": "SaveRaceButton",
+  "scenarioType": "component",
+  "description": "A race already saved as Signed up: the button reads '✓ Signed up' and, once opened, marks the current choice and offers Remove.",
+  "interactions": [
+    {
+      "action": "click",
+      "text": "Signed up"
+    }
+  ]
+}

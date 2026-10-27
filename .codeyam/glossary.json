@@ -12,7 +12,7 @@
     ]
   },
   {
-    "description": "Strip of the facts a runner needs first: race day, distance, entry status, price, next deadline, weeks to train, and the official link.",
+    "description": "Strip of the facts a runner needs first: race day, distance, entry status, price, next deadline, weeks to train, plus the official link and Save.",
     "filePath": "app/components/AtAGlance.tsx",
     "name": "AtAGlance",
     "scenarios": [
@@ -88,6 +88,18 @@
     ],
     "tags": [
       "race-discovery"
+    ]
+  },
+  {
+    "description": "The race page's actions side by side: register on the organizer's site and save the race on this device.",
+    "filePath": "app/components/GlanceActions.tsx",
+    "name": "GlanceActions",
+    "scenarios": [
+      "glanceactions-register-and-save-signed-up"
+    ],
+    "tags": [
+      "race-detail",
+      "saved-races"
     ]
   },
   {
@@ -398,14 +410,30 @@
     }
   },
   {
-    "description": "Save button that points to the season teaser because accounts are not live yet.",
+    "description": "The menu behind a Save button: Interested, Considering, Signed up (current one ticked), Remove once saved, and a note that saves stay on this device; or a message when the browser blocks saving.",
+    "filePath": "app/components/SaveMenu.tsx",
+    "name": "SaveMenu",
+    "scenarios": [
+      "savemenu-unsaved",
+      "savemenu-considering",
+      "savemenu-storage-blocked"
+    ],
+    "tags": [
+      "saved-races"
+    ]
+  },
+  {
+    "description": "Save button that lets a runner mark a race Interested, Considering or Signed up, kept in this browser only; shows the saved status once chosen.",
     "filePath": "app/components/SaveRaceButton.tsx",
     "name": "SaveRaceButton",
     "scenarios": [
-      "saveracebutton-default"
+      "saveracebutton-default",
+      "saveracebutton-menu-open",
+      "saveracebutton-signed-up-menu"
     ],
     "tags": [
-      "race-discovery"
+      "race-discovery",
+      "saved-races"
     ]
   },
   {
@@ -739,6 +767,15 @@
     "testFile": "app/lib/ics.test.ts"
   },
   {
+    "description": "Whether a stored value is one of Interested, Considering or Signed up.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "isSaveStatus",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
+  },
+  {
     "description": "True when a deadline falls within the next three weeks, which highlights it and offers Add to calendar.",
     "filePath": "app/lib/raceList.ts",
     "name": "isUrgent",
@@ -820,6 +857,15 @@
     "testFile": "app/lib/raceList.test.ts"
   },
   {
+    "description": "Server-render snapshot for saved races: always null, since the server cannot see this browser.",
+    "filePath": "app/lib/useSaveStatus.ts",
+    "name": "noStorageSnapshot",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/useSaveStatus.test.tsx"
+  },
+  {
     "description": "Where the main button sends a runner: the registration page (Register on the official site), else the source or organizer site (Visit the official site).",
     "filePath": "app/lib/raceDetail.ts",
     "name": "officialLink",
@@ -860,6 +906,15 @@
     "testFile": "app/lib/filters.test.ts"
   },
   {
+    "description": "Reads the stored saved-races JSON, treating missing or corrupt storage as nothing saved and dropping any unknown status.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "parseSavedRaces",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
+  },
+  {
     "description": "Returns a query value when it is one of the allowed options, otherwise the default; used by parseFilters.",
     "filePath": "app/lib/filters.ts",
     "name": "pick",
@@ -885,6 +940,15 @@
       "race-discovery"
     ],
     "testFile": "app/lib/filters.test.ts"
+  },
+  {
+    "description": "The raw stored saved-races string (a stable snapshot for useSyncExternalStore), or null when nothing is stored or storage is blocked.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "readSavedRacesRaw",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
   },
   {
     "description": "A pre-filled GitHub issue link for reporting a missing or wrong race detail, labelled race-data.",
@@ -914,6 +978,15 @@
     }
   },
   {
+    "description": "Saves a race's status (or removes it) in this browser and notifies listeners; returns false when storage is unavailable.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "setSaveStatus",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
+  },
+  {
     "description": "Sorts results by next deadline, unknown last with race day as tiebreak, or by race day.",
     "filePath": "app/lib/raceList.ts",
     "name": "sortRaces",
@@ -930,6 +1003,33 @@
       "race-detail"
     ],
     "testFile": "app/lib/raceDetail.test.ts"
+  },
+  {
+    "description": "This browser's localStorage, or null on the server or when the browser blocks access.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "storage",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
+  },
+  {
+    "description": "Whether this browser lets the page write to localStorage (private browsing can block it).",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "storageAvailable",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
+  },
+  {
+    "description": "Listens for saved-race changes made on this page or in other tabs; returns the unsubscribe function.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "subscribeSavedRaces",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
   },
   {
     "description": "Sort key for an ISO date, putting unknown dates last.",
@@ -978,6 +1078,15 @@
     "testFile": "app/lib/raceList.test.ts"
   },
   {
+    "description": "Hook giving a race's saved status in this browser, kept in sync across buttons and tabs; null on the server so the first render is a plain Save.",
+    "filePath": "app/lib/useSaveStatus.ts",
+    "name": "useSaveStatus",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/useSaveStatus.test.tsx"
+  },
+  {
     "description": "Whole weeks from now until race day, rounded down; null when the race date is unknown.",
     "filePath": "app/lib/raceList.ts",
     "name": "weeksToTrain",
@@ -994,5 +1103,14 @@
       "race-discovery"
     ],
     "testFile": "app/lib/raceList.test.ts"
+  },
+  {
+    "description": "Returns the saved set with one race's status set (stamped with when it was saved) or the race removed, without mutating the input.",
+    "filePath": "app/lib/savedRaces.ts",
+    "name": "withSaveStatus",
+    "tags": [
+      "saved-races"
+    ],
+    "testFile": "app/lib/savedRaces.test.ts"
   }
 ]

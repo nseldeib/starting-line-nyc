@@ -622,6 +622,24 @@
       "runner": "tests"
     },
     {
+      "description": "Only the three known statuses survive; anything else is dropped, not guessed.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "parseSavedRaces › keeps known statuses and drops unknown ones",
+      "line": 48,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Nothing stored, or storage written by something else, reads as nothing saved.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "parseSavedRaces › treats missing or corrupt storage as nothing saved",
+      "line": 40,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
       "description": "A date-only milestone becomes an all-day event on its ET date, with its note.",
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
@@ -739,6 +757,33 @@
       "runner": "tests"
     },
     {
+      "description": "When the browser blocks storage (private browsing), saving reports failure instead of throwing.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "setSaveStatus › reports failure when storage is blocked",
+      "line": 110,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
+      "description": "On the server there is no browser at all.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "setSaveStatus › reports nothing saved and no storage outside a browser",
+      "line": 118,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A save lands in this browser's storage and tells listeners on the page.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "setSaveStatus › stores the status and notifies subscribers",
+      "line": 93,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
       "description": "By next deadline, unknown deadlines go last and ties fall back to race day.",
       "file": "app/lib/raceList.test.ts",
       "format": "vitest",
@@ -847,6 +892,15 @@
       "runner": "tests"
     },
     {
+      "description": "The server can't see this browser's saves, so it always renders the plain unsaved state; the saved status appears once the page hydrates.",
+      "file": "app/lib/useSaveStatus.test.tsx",
+      "format": "vitest",
+      "key": "useSaveStatus › reports no status during server rendering",
+      "line": 13,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
       "description": "An unknown race date gives no week count.",
       "file": "app/lib/raceList.test.ts",
       "format": "vitest",
@@ -862,6 +916,33 @@
       "key": "weeksToTrain › rounds down to whole weeks",
       "line": 95,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
+      "runner": "tests"
+    },
+    {
+      "description": "Saving a race records its status and when it was saved.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "withSaveStatus › adds a race with the time it was saved",
+      "line": 66,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Remove takes the race out entirely and leaves the input untouched.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "withSaveStatus › removes a race without mutating the input",
+      "line": 84,
+      "registeredAt": "2026-10-27T19:18:21Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Changing the status is a new save; choosing the same status keeps the original time.",
+      "file": "app/lib/savedRaces.test.ts",
+      "format": "vitest",
+      "key": "withSaveStatus › restamps a changed status and keeps the time for an unchanged one",
+      "line": 73,
+      "registeredAt": "2026-10-27T19:18:21Z",
       "runner": "tests"
     }
   ],

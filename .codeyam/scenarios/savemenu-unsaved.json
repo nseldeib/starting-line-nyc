@@ -1,0 +1,18 @@
+{
+  "name": "SaveMenu - Unsaved",
+  "id": "3fc26412-7339-4e02-a83a-cc5ebe930499",
+  "url": "/isolated-components/SaveMenu?s=Unsaved",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SaveMenu",
+  "scenarioType": "component",
+  "description": "Menu for a race not saved yet, pointer over Considering (highlighted): Interested, Considering and Signed up, with the note that saves stay on this device. No Remove option.",
+  "interactions": [
+    {
+      "action": "hover",
+      "text": "Considering"
+    }
+  ]
+}

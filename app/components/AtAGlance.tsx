@@ -1,6 +1,6 @@
-// The five facts a runner needs first, plus the way to enter.
+// The five facts a runner needs first, plus the way to enter and save.
+import GlanceActions from '@/app/components/GlanceActions';
 import GlanceItem from '@/app/components/GlanceItem';
-import OfficialLinkButton from '@/app/components/OfficialLinkButton';
 import { MILESTONE_LABELS, STATUS_LABELS, formatDay, formatDistance, formatPrice, formatTime } from '@/app/lib/format';
 import type { TimelineEntry } from '@/app/lib/raceDetail';
 
@@ -14,6 +14,7 @@ export default function AtAGlance({
   nextDeadline,
   weeksToTrain,
   official,
+  save,
 }: {
   raceDate: string | null;
   distanceMiles: number;
@@ -24,6 +25,7 @@ export default function AtAGlance({
   nextDeadline: TimelineEntry | null;
   weeksToTrain: number | null;
   official: { href: string; label: string } | null;
+  save?: { slug: string; raceName: string };
 }) {
   return (
     <section className="glance" aria-label="At a glance">
@@ -52,7 +54,7 @@ export default function AtAGlance({
         />
         {weeksToTrain !== null && <GlanceItem label="Weeks to train" value={String(weeksToTrain)} />}
       </dl>
-      {official && <OfficialLinkButton href={official.href} label={official.label} />}
+      <GlanceActions official={official} save={save} />
     </section>
   );
 }

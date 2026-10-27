@@ -36,6 +36,13 @@
       ],
       "importedBy": []
     },
+    ".codeyam/isolation-props/AtAGlance.ts": {
+      "imports": [
+        "app/components/AtAGlance.tsx",
+        ".codeyam/isolation-props/_raceDetail.ts"
+      ],
+      "importedBy": []
+    },
     ".codeyam/isolation-props/FilterChips.ts": {
       "imports": [
         "app/components/FilterChips.tsx",
@@ -127,6 +134,12 @@
         ".codeyam/isolation-props/SortToggle.ts"
       ]
     },
+    ".codeyam/isolation-props/_raceDetail.ts": {
+      "imports": [],
+      "importedBy": [
+        ".codeyam/isolation-props/AtAGlance.ts"
+      ]
+    },
     ".devcontainer/codeyam-preview-origin.test.ts": {
       "imports": [],
       "importedBy": []
@@ -165,12 +178,13 @@
     },
     "app/components/AtAGlance.tsx": {
       "imports": [
+        "app/components/GlanceActions.tsx",
         "app/components/GlanceItem.tsx",
-        "app/components/OfficialLinkButton.tsx",
         "app/lib/format.ts",
         "app/lib/raceDetail.ts"
       ],
       "importedBy": [
+        ".codeyam/isolation-props/AtAGlance.ts",
         "app/races/[slug]/page.tsx"
       ]
     },
@@ -210,6 +224,15 @@
       "importedBy": [
         ".codeyam/isolation-props/FilterToolbar.ts",
         "app/components/ResultsSection.tsx"
+      ]
+    },
+    "app/components/GlanceActions.tsx": {
+      "imports": [
+        "app/components/OfficialLinkButton.tsx",
+        "app/components/SaveRaceButton.tsx"
+      ],
+      "importedBy": [
+        "app/components/AtAGlance.tsx"
       ]
     },
     "app/components/GlanceItem.tsx": {
@@ -278,7 +301,7 @@
     "app/components/OfficialLinkButton.tsx": {
       "imports": [],
       "importedBy": [
-        "app/components/AtAGlance.tsx"
+        "app/components/GlanceActions.tsx"
       ]
     },
     "app/components/PageShell.tsx": {
@@ -387,10 +410,23 @@
         "app/page.tsx"
       ]
     },
+    "app/components/SaveMenu.tsx": {
+      "imports": [
+        "app/lib/savedRaces.ts"
+      ],
+      "importedBy": [
+        "app/components/SaveRaceButton.tsx"
+      ]
+    },
     "app/components/SaveRaceButton.tsx": {
-      "imports": [],
+      "imports": [
+        "app/components/SaveMenu.tsx",
+        "app/lib/savedRaces.ts",
+        "app/lib/useSaveStatus.ts"
+      ],
       "importedBy": [
         ".codeyam/isolation-props/SaveRaceButton.ts",
+        "app/components/GlanceActions.tsx",
         "app/components/RaceRow.tsx"
       ]
     },
@@ -639,6 +675,36 @@
         "app/page.tsx"
       ]
     },
+    "app/lib/savedRaces.test.ts": {
+      "imports": [
+        "app/lib/savedRaces.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/savedRaces.ts": {
+      "imports": [],
+      "importedBy": [
+        "app/lib/savedRaces.test.ts",
+        "app/lib/useSaveStatus.ts",
+        "app/components/SaveRaceButton.tsx",
+        "app/components/SaveMenu.tsx"
+      ]
+    },
+    "app/lib/useSaveStatus.test.tsx": {
+      "imports": [
+        "app/lib/useSaveStatus.ts"
+      ],
+      "importedBy": []
+    },
+    "app/lib/useSaveStatus.ts": {
+      "imports": [
+        "app/lib/savedRaces.ts"
+      ],
+      "importedBy": [
+        "app/lib/useSaveStatus.test.tsx",
+        "app/components/SaveRaceButton.tsx"
+      ]
+    },
     "app/page.tsx": {
       "imports": [
         "app/components/Hero.tsx",
@@ -772,6 +838,17 @@
       ],
       "importedBy": []
     },
+    ".codeyam/isolation-props/AtAGlance.ts::__file_root__": {
+      "filePath": ".codeyam/isolation-props/AtAGlance.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/AtAGlance.tsx::__file_root__",
+        ".codeyam/isolation-props/_raceDetail.ts::bigBearTimeline",
+        ".codeyam/isolation-props/_raceDetail.ts::centralParkTimelineDec10",
+        ".codeyam/isolation-props/_raceDetail.ts::escarpmentTimeline"
+      ],
+      "importedBy": []
+    },
     ".codeyam/isolation-props/FilterChips.ts::__file_root__": {
       "filePath": ".codeyam/isolation-props/FilterChips.ts",
       "name": "__file_root__",
@@ -878,6 +955,30 @@
       ],
       "importedBy": []
     },
+    ".codeyam/isolation-props/_raceDetail.ts::bigBearTimeline": {
+      "filePath": ".codeyam/isolation-props/_raceDetail.ts",
+      "name": "bigBearTimeline",
+      "imports": [],
+      "importedBy": [
+        ".codeyam/isolation-props/AtAGlance.ts::__file_root__"
+      ]
+    },
+    ".codeyam/isolation-props/_raceDetail.ts::centralParkTimelineDec10": {
+      "filePath": ".codeyam/isolation-props/_raceDetail.ts",
+      "name": "centralParkTimelineDec10",
+      "imports": [],
+      "importedBy": [
+        ".codeyam/isolation-props/AtAGlance.ts::__file_root__"
+      ]
+    },
+    ".codeyam/isolation-props/_raceDetail.ts::escarpmentTimeline": {
+      "filePath": ".codeyam/isolation-props/_raceDetail.ts",
+      "name": "escarpmentTimeline",
+      "imports": [],
+      "importedBy": [
+        ".codeyam/isolation-props/AtAGlance.ts::__file_root__"
+      ]
+    },
     "app/api/races/[slug]/calendar/route.ts::__file_root__": {
       "filePath": "app/api/races/[slug]/calendar/route.ts",
       "name": "__file_root__",
@@ -912,8 +1013,8 @@
       "filePath": "app/components/AtAGlance.tsx",
       "name": "__file_root__",
       "imports": [
+        "app/components/GlanceActions.tsx::GlanceActions",
         "app/components/GlanceItem.tsx::GlanceItem",
-        "app/components/OfficialLinkButton.tsx::OfficialLinkButton",
         "app/lib/format.ts::__file_root__",
         "app/lib/format.ts::formatDay",
         "app/lib/format.ts::formatDistance",
@@ -959,6 +1060,23 @@
         "app/components/FilterChips.tsx::FilterChips",
         "app/components/SortToggle.tsx::SortToggle",
         "app/lib/filters.ts::RaceFilters"
+      ],
+      "importedBy": []
+    },
+    "app/components/GlanceActions.tsx::GlanceActions": {
+      "filePath": "app/components/GlanceActions.tsx",
+      "name": "GlanceActions",
+      "imports": [],
+      "importedBy": [
+        "app/components/AtAGlance.tsx::__file_root__"
+      ]
+    },
+    "app/components/GlanceActions.tsx::__file_root__": {
+      "filePath": "app/components/GlanceActions.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/OfficialLinkButton.tsx::OfficialLinkButton",
+        "app/components/SaveRaceButton.tsx::SaveRaceButton"
       ],
       "importedBy": []
     },
@@ -1048,7 +1166,7 @@
       "name": "OfficialLinkButton",
       "imports": [],
       "importedBy": [
-        "app/components/AtAGlance.tsx::__file_root__"
+        "app/components/GlanceActions.tsx::__file_root__"
       ]
     },
     "app/components/PageShell.tsx::PageShell": {
@@ -1175,13 +1293,36 @@
       ],
       "importedBy": []
     },
+    "app/components/SaveMenu.tsx::__file_root__": {
+      "filePath": "app/components/SaveMenu.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/savedRaces.ts::SaveStatus",
+        "app/lib/savedRaces.ts::__file_root__"
+      ],
+      "importedBy": []
+    },
     "app/components/SaveRaceButton.tsx::SaveRaceButton": {
       "filePath": "app/components/SaveRaceButton.tsx",
       "name": "SaveRaceButton",
       "imports": [],
       "importedBy": [
+        "app/components/GlanceActions.tsx::__file_root__",
         "app/components/RaceRow.tsx::__file_root__"
       ]
+    },
+    "app/components/SaveRaceButton.tsx::__file_root__": {
+      "filePath": "app/components/SaveRaceButton.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/components/SaveMenu.tsx::SaveMenu",
+        "app/lib/savedRaces.ts::SaveStatus",
+        "app/lib/savedRaces.ts::__file_root__",
+        "app/lib/savedRaces.ts::setSaveStatus",
+        "app/lib/savedRaces.ts::storageAvailable",
+        "app/lib/useSaveStatus.ts::useSaveStatus"
+      ],
+      "importedBy": []
     },
     "app/components/SeasonTeaser.tsx::SeasonTeaser": {
       "filePath": "app/components/SeasonTeaser.tsx",
@@ -1854,6 +1995,106 @@
         "app/page.tsx::__file_root__"
       ]
     },
+    "app/lib/savedRaces.test.ts::__file_root__": {
+      "filePath": "app/lib/savedRaces.test.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/savedRaces.ts::__file_root__",
+        "app/lib/savedRaces.ts::parseSavedRaces",
+        "app/lib/savedRaces.ts::readSavedRacesRaw",
+        "app/lib/savedRaces.ts::setSaveStatus",
+        "app/lib/savedRaces.ts::storageAvailable",
+        "app/lib/savedRaces.ts::subscribeSavedRaces",
+        "app/lib/savedRaces.ts::withSaveStatus"
+      ],
+      "importedBy": []
+    },
+    "app/lib/savedRaces.ts::SaveStatus": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "SaveStatus",
+      "imports": [],
+      "importedBy": [
+        "app/lib/useSaveStatus.ts::__file_root__",
+        "app/components/SaveRaceButton.tsx::__file_root__",
+        "app/components/SaveMenu.tsx::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::__file_root__": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "__file_root__",
+      "imports": [],
+      "importedBy": [
+        "app/components/SaveRaceButton.tsx::__file_root__",
+        "app/components/SaveMenu.tsx::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::parseSavedRaces": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "parseSavedRaces",
+      "imports": [],
+      "importedBy": [
+        "app/lib/useSaveStatus.ts::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::readSavedRacesRaw": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "readSavedRacesRaw",
+      "imports": [],
+      "importedBy": [
+        "app/lib/useSaveStatus.ts::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::setSaveStatus": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "setSaveStatus",
+      "imports": [],
+      "importedBy": [
+        "app/components/SaveRaceButton.tsx::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::storageAvailable": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "storageAvailable",
+      "imports": [],
+      "importedBy": [
+        "app/components/SaveRaceButton.tsx::__file_root__"
+      ]
+    },
+    "app/lib/savedRaces.ts::subscribeSavedRaces": {
+      "filePath": "app/lib/savedRaces.ts",
+      "name": "subscribeSavedRaces",
+      "imports": [],
+      "importedBy": [
+        "app/lib/useSaveStatus.ts::__file_root__"
+      ]
+    },
+    "app/lib/useSaveStatus.test.tsx::__file_root__": {
+      "filePath": "app/lib/useSaveStatus.test.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/useSaveStatus.ts::useSaveStatus"
+      ],
+      "importedBy": []
+    },
+    "app/lib/useSaveStatus.ts::__file_root__": {
+      "filePath": "app/lib/useSaveStatus.ts",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/savedRaces.ts::SaveStatus",
+        "app/lib/savedRaces.ts::parseSavedRaces",
+        "app/lib/savedRaces.ts::readSavedRacesRaw",
+        "app/lib/savedRaces.ts::subscribeSavedRaces"
+      ],
+      "importedBy": []
+    },
+    "app/lib/useSaveStatus.ts::useSaveStatus": {
+      "filePath": "app/lib/useSaveStatus.ts",
+      "name": "useSaveStatus",
+      "imports": [],
+      "importedBy": [
+        "app/components/SaveRaceButton.tsx::__file_root__"
+      ]
+    },
     "app/page.tsx::__file_root__": {
       "filePath": "app/page.tsx",
       "name": "__file_root__",
@@ -1942,5 +2183,5 @@
       "importedBy": []
     }
   },
-  "lastUpdated": "2026-10-27T16:32:37Z"
+  "lastUpdated": "2026-10-27T19:32:56Z"
 }

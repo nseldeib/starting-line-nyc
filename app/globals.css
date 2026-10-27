@@ -86,7 +86,7 @@ h2 { font-family: var(--display); font-weight: 400; color: var(--ink); font-size
 .tz { font-size: 14px; color: var(--muted); margin-top: 10px; }
 .tz b { color: var(--ink); font-weight: 600; }
 
-.row { display: grid; grid-template-columns: 76px minmax(0, 1.5fr) minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(0, 0.6fr) auto; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--rule); align-items: center; }
+.row { display: grid; grid-template-columns: 76px minmax(0, 1.5fr) minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(0, 0.6fr) 152px; gap: 22px; padding: 18px 0; border-bottom: 1px solid var(--rule); align-items: center; }
 .thumb { width: 76px; height: 76px; border-radius: var(--r); background-size: cover; background-position: center; background-color: var(--soft); display: grid; place-items: center; font-family: var(--display); font-size: 22px; color: var(--ink); }
 img.thumb { display: block; object-fit: cover; }
 .name { font-family: var(--display); font-size: 25px; line-height: 1.1; color: var(--ink); }
@@ -125,6 +125,22 @@ img.thumb { display: block; object-fit: cover; }
 .row:has(.row-link:focus-visible) { outline: 2px solid var(--route); outline-offset: 2px; }
 .row .cal, .row .btn { position: relative; z-index: 1; }
 .row .addcal { z-index: 2; }
+
+/* save: a status menu kept on this device */
+.save { position: relative; display: inline-block; }
+.row .save { z-index: 3; justify-self: end; }
+.save-btn.is-saved { border-color: var(--route); color: var(--route-ink); background: var(--route-soft); }
+.save-btn.is-signed-up { border-color: var(--route-ink); background: var(--route-ink); color: var(--on-ink); }
+.save .save-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 6; }
+.save-menu { width: 240px; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); box-shadow: 0 6px 20px rgba(17, 17, 17, 0.12); padding: 6px; }
+.save-menu button { padding: 10px 12px; border: 0; border-radius: 4px; background: transparent; text-align: left; font: 600 15px var(--text); color: var(--ink); cursor: pointer; }
+.save-menu button:hover, .save-menu button:focus-visible { background: var(--soft); }
+.save-menu button.is-current { color: var(--route-ink); }
+.save-menu button.is-current::after { content: ' ✓'; }
+.save-menu .save-remove { color: var(--muted); border-top: 1px solid var(--rule); border-radius: 0 0 4px 4px; }
+.save-note { margin: 6px 12px 4px; font-size: 13px; color: var(--muted); }
+.glance-actions { display: flex; align-items: center; gap: 10px; }
+.glance-actions .save-btn { height: 46px; }
 
 /* race page */
 .crumb { margin-top: 20px; font-size: 15px; }
@@ -235,6 +251,9 @@ img.thumb { display: block; object-fit: cover; }
   .glance { margin: -36px 10px 0; flex-direction: column; align-items: stretch; padding: 16px; }
   .glance dl { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
   .glance .btn { width: 100%; }
+  .glance-actions { flex-direction: column; align-items: stretch; }
+  .glance-actions .save { display: block; }
+  .glance-actions .save-menu { left: 0; right: 0; width: auto; }
 }
 @media (max-width: 560px) {
   .bar .right a:not(.btn) { display: none; }

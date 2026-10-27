@@ -1,0 +1,12 @@
+{
+  "name": "SaveMenu - Considering",
+  "id": "7863214c-01f6-4392-8789-2f3aeb1463d0",
+  "url": "/isolated-components/SaveMenu?s=Considering",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "SaveMenu",
+  "scenarioType": "component",
+  "description": "Menu for a race saved as Considering: that choice is ticked and Remove appears below the three statuses."
+}

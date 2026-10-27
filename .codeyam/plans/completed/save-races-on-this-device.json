@@ -1,0 +1,43 @@
+{
+  "claimStartedAt": "2026-10-27T18:40:20Z",
+  "completedAt": "2026-10-27T19:31:52Z",
+  "completedBy": {
+    "agentProvider": "claude",
+    "codeyamEditorVersion": "0.1.16",
+    "currentStep": "ui-step22",
+    "machine": "codespaces-fc8fe4",
+    "originId": "e205292a-3d38-4add-b78a-90f94f6135f8",
+    "pid": 323936,
+    "priority": 0,
+    "selectedPlan": "save-races-on-this-device",
+    "sessionId": "90ac8eae-4976-407a-9ca4-7904503dc5b5",
+    "startedAt": "2026-10-27T18:40:20Z"
+  },
+  "createdAt": "2026-10-26T21:39:36Z",
+  "deliverables": [
+    "README.md",
+    "app/api/races/[slug]/calendar/route.ts",
+    "app/components/AddToCalendar.tsx",
+    "app/components/AtAGlance.tsx",
+    "app/components/GlanceActions.tsx",
+    "app/components/NextDeadline.tsx",
+    "app/components/RaceRow.tsx",
+    "app/components/SaveMenu.tsx",
+    "app/components/SaveRaceButton.tsx",
+    "app/components/SeasonTeaser.tsx",
+    "app/components/TimelineItem.tsx",
+    "app/globals.css",
+    "app/lib/raceCalendar.test.ts",
+    "app/lib/raceCalendar.ts",
+    "app/lib/savedRaces.test.ts",
+    "app/lib/savedRaces.ts",
+    "app/lib/useSaveStatus.test.tsx",
+    "app/lib/useSaveStatus.ts",
+    "app/races/[slug]/page.tsx"
+  ],
+  "journalTimestamp": "2026-10-27T19:31:52Z",
+  "mode": "ui",
+  "planFile": "completed/save-races-on-this-device.md",
+  "slug": "save-races-on-this-device",
+  "title": "Save races on this device"
+}

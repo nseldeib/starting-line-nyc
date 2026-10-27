@@ -13,7 +13,9 @@ export default function SeasonTeaser() {
         <a className="btn btn-ink" href="#season" aria-disabled="true" title="Accounts are coming soon">
           Sign up free
         </a>
-        <p className="sub">Accounts aren’t live yet. This is a preview of what saved races will look like.</p>
+        <p className="sub">
+          Saving works now and stays on this device. Accounts aren’t live yet, so this timeline is a preview.
+        </p>
       </div>
       <SeasonPreview />
     </section>

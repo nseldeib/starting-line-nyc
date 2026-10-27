@@ -1,0 +1,559 @@
+{
+  "timestamp": "2026-10-27T19:31:52Z",
+  "title": "Save races on this device",
+  "type": "feature",
+  "userRequest": "## Summary\n\nMake the Save button work: a runner can mark any race as Interested, Considering or Signed up, kept on their own device with no account.\n\n## What the runner gets\n\n- Save on each home-page row and on the race page opens a small choice: Interested, Considering, Signed up, or Remove.\n- Saved races show their status on the row and race page.\n- A short note explains saving is on this device only; accounts are not live yet.\n\n## Key Decisions\n\n- Stored in the browser (localStorage) by race slug, so it ships without accounts or a server. Clearing site data clears saves, and the copy says so.\n- The page renders correctly with nothing saved and when storage is unavailable (private browsing).\n\n## Implementation\n\n- `app/lib/savedRaces.ts`: read/write saved statuses, tolerant of missing or corrupt storage.\n- `app/components/SaveRaceButton.tsx`: client component with the three statuses.\n- Race page: add the Save control near the official-site button.\n- Remove \"not live\" wording for saving from the footer/README.\n\n## Scenarios\n\nNothing saved; a race marked Signed up; storage unavailable; phone layout.",
+  "description": "The Save button now works: on the race list or a race page, a runner can mark a race Interested, Considering or Signed up, change it, or remove it. Saves are kept in this browser only (accounts are not live yet), and the menu and season teaser say so; a browser that blocks storage gets a plain message instead. Scope: delivers save-races. Still deferred (user-approved earlier): my-races (the My Races page, next in the queue) and sort-options. Not done from the plan: no phone-size demo of saved races yet.",
+  "modifiedFiles": [
+    {
+      "path": ".codeyam/dependency-graph.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/editor.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/glossary.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/isolation-props/AtAGlance.ts",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/isolation-props/SaveRaceButton.ts",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/plans/save-races-on-this-device.md\t.codeyam/plans/completed/save-races-on-this-device.md",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/project-deliverables.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/.capture-pipeline.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/ataglance-open--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/ataglance-open--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/ataglance-qualifier-not-open--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-phone-layout--mobile.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-single-search-result--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-single-search-result--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-big-bear-squatch-north--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-big-bear-squatch-north--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-escarpment-trail-run--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-escarpment-trail-run--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-great-gobble-5k--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-great-gobble-5k--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-phone-layout--mobile.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-phone-layout--mobile.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-empty--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-exact-time-trail--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-exact-time-trail--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-lottery-open--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-road--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-road--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-trail--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-not-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-qualifier-not-announced--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-qualifier-not-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-empty--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-empty--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonteaser-default--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/seasonteaser-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/state/finalize-debt.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache/all.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/1faed428626abd3490ca3ce4876ac93dc03f8aad569fa98a1de3dee694cd26bf.json",
+      "status": "deleted"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/2a9c449a75044bcbd9de08b8b35e98f97d3e507e20d69ac76087b58322e8a4ad.json",
+      "status": "deleted"
+    },
+    {
+      "path": ".codeyam/test-registry.json",
+      "status": "modified"
+    },
+    {
+      "path": "README.md",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/AtAGlance.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/RaceRow.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/SaveRaceButton.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/SeasonTeaser.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/globals.css",
+      "status": "modified"
+    },
+    {
+      "path": "app/races/[slug]/page.tsx",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/isolation-props/GlanceActions.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/isolation-props/SaveMenu.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/glanceactions-register-and-save-signed-up.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/home-races-saved-on-this-device.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/race-saved-as-considering.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/savemenu-considering.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/savemenu-storage-blocked.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/savemenu-unsaved.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/saveracebutton-menu-open.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/saveracebutton-signed-up-menu.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/glanceactions-register-and-save-signed-up--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/glanceactions-register-and-save-signed-up--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-races-saved-on-this-device--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-races-saved-on-this-device--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-saved-as-considering--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-saved-as-considering--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-considering--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-considering--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-storage-blocked--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-storage-blocked--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-unsaved--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/savemenu-unsaved--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-menu-open--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-menu-open--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-signed-up-menu--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/saveracebutton-signed-up-menu--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/960c1a5d033f4489a4596124fd19a063bed1b99c25d5e154b76f509339d51591.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/a7628cf1c2747930f173c84ca6bebb80479ebedd58dc911cdb315a8e4d1bf028.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/b764e72418976629b3b3799c3862f13d74ab1bd78f12363eef3302fe7d5f9ac9.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/cea8f35be925f9ad9e17f05376ae5db0d84a7a852686bbc66d36cea7559d996d.json",
+      "status": "added"
+    },
+    {
+      "path": "app/components/GlanceActions.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/components/SaveMenu.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/savedRaces.test.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/savedRaces.ts",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/useSaveStatus.test.tsx",
+      "status": "added"
+    },
+    {
+      "path": "app/lib/useSaveStatus.ts",
+      "status": "added"
+    }
+  ],
+  "scenarioScreenshots": [
+    {
+      "name": "Home - All Distances Next 12 Months",
+      "screenshotPath": "home-all-distances-next-12-months--desktop.png"
+    },
+    {
+      "name": "Home - Half Marathons Next 6 Months",
+      "screenshotPath": "home-half-marathons-next-6-months--desktop.png"
+    },
+    {
+      "name": "Home - Lottery Races Only",
+      "screenshotPath": "home-lottery-races-only--desktop.png"
+    },
+    {
+      "name": "Home - No Races Listed",
+      "screenshotPath": "home-no-races-listed--desktop.png"
+    },
+    {
+      "name": "Home - Phone Layout",
+      "screenshotPath": "home-phone-layout--mobile.png"
+    },
+    {
+      "name": "Home - Races Saved On This Device",
+      "screenshotPath": "home-races-saved-on-this-device--desktop.png"
+    },
+    {
+      "name": "Home - Single Search Result",
+      "screenshotPath": "home-single-search-result--desktop.png"
+    },
+    {
+      "name": "Race - Big Bear Squatch North",
+      "screenshotPath": "race-big-bear-squatch-north--desktop.png"
+    },
+    {
+      "name": "Race - Escarpment Trail Run",
+      "screenshotPath": "race-escarpment-trail-run--desktop.png"
+    },
+    {
+      "name": "Race - Great Gobble 5K",
+      "screenshotPath": "race-great-gobble-5k--desktop.png"
+    },
+    {
+      "name": "Race - Phone Layout",
+      "screenshotPath": "race-phone-layout--mobile.png"
+    },
+    {
+      "name": "Race - Saved As Considering",
+      "screenshotPath": "race-saved-as-considering--desktop.png"
+    },
+    {
+      "name": "AtAGlance - Open",
+      "screenshotPath": "ataglance-open--desktop.png"
+    },
+    {
+      "name": "AtAGlance - Qualifier Not Open",
+      "screenshotPath": "ataglance-qualifier-not-open--desktop.png"
+    },
+    {
+      "name": "GlanceActions - Register And Save Signed Up",
+      "screenshotPath": "glanceactions-register-and-save-signed-up--desktop.png"
+    },
+    {
+      "name": "RaceList - Default",
+      "screenshotPath": "racelist-default--desktop.png"
+    },
+    {
+      "name": "RaceList - Empty",
+      "screenshotPath": "racelist-empty--desktop.png"
+    },
+    {
+      "name": "RaceList - With Unannounced Race",
+      "screenshotPath": "racelist-with-unannounced-race--desktop.png"
+    },
+    {
+      "name": "RaceRow - Exact Time Trail",
+      "screenshotPath": "racerow-exact-time-trail--desktop.png"
+    },
+    {
+      "name": "RaceRow - Lottery Open",
+      "screenshotPath": "racerow-lottery-open--desktop.png"
+    },
+    {
+      "name": "RaceRow - No Photo Road",
+      "screenshotPath": "racerow-no-photo-road--desktop.png"
+    },
+    {
+      "name": "RaceRow - No Photo Trail",
+      "screenshotPath": "racerow-no-photo-trail--desktop.png"
+    },
+    {
+      "name": "RaceRow - Not Announced",
+      "screenshotPath": "racerow-not-announced--desktop.png"
+    },
+    {
+      "name": "RaceRow - Qualifier Not Announced",
+      "screenshotPath": "racerow-qualifier-not-announced--desktop.png"
+    },
+    {
+      "name": "RaceRow - Urgent Deadline",
+      "screenshotPath": "racerow-urgent-deadline--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Default",
+      "screenshotPath": "resultssection-default--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Empty",
+      "screenshotPath": "resultssection-empty--desktop.png"
+    },
+    {
+      "name": "SaveMenu - Considering",
+      "screenshotPath": "savemenu-considering--desktop.png"
+    },
+    {
+      "name": "SaveMenu - Storage Blocked",
+      "screenshotPath": "savemenu-storage-blocked--desktop.png"
+    },
+    {
+      "name": "SaveMenu - Unsaved",
+      "screenshotPath": "savemenu-unsaved--desktop.png"
+    },
+    {
+      "name": "SaveRaceButton - Default",
+      "screenshotPath": "saveracebutton-default--desktop.png"
+    },
+    {
+      "name": "SaveRaceButton - Menu Open",
+      "screenshotPath": "saveracebutton-menu-open--desktop.png"
+    },
+    {
+      "name": "SaveRaceButton - Signed Up Menu",
+      "screenshotPath": "saveracebutton-signed-up-menu--desktop.png"
+    },
+    {
+      "name": "SeasonTeaser - Default",
+      "screenshotPath": "seasonteaser-default--desktop.png"
+    }
+  ],
+  "testResults": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "runners": [
+      {
+        "name": "tests",
+        "total": 9,
+        "passed": 9
+      }
+    ]
+  }
+}

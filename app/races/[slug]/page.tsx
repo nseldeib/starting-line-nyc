@@ -51,6 +51,7 @@ export default async function RacePage({ params }: { params: Promise<{ slug: str
             nextDeadline={nextDeadline(timeline)}
             weeksToTrain={weeksToTrain}
             official={officialLink(edition, race.organizer.websiteUrl)}
+            save={{ slug: race.slug, raceName: race.name }}
           />
           <RaceDetailBody
             main={<KeyDates year={edition.year} timeline={timeline} calendarBase={calendarBase} />}
