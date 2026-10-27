@@ -42,13 +42,15 @@
       "reason": "Blank preview again after a session restart",
       "severity": 4,
       "source": "codeyam-improvement",
-      "status": "pending",
+      "status": "copied",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "sightings": 4,
       "notes": [
         "2026-10-26: Seen again: port 3000 went back to private after a session restart; preview-origin-mode same-origin reported success but server-identity still showed the escalated port-3000 origin, so the pane stayed blank until the user made …",
         "2026-10-27: 2026-10-27: worked around in app code with a postStartCommand script; this is the workaround the improvement would make unnecessary."
-      ]
+      ],
+      "decidedAt": "2026-10-27T14:57:49Z",
+      "sightingsAtDecision": 4
     },
     {
       "id": "relative-seed-token-today-nh-silently-drops-the-hours",
