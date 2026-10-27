@@ -276,11 +276,14 @@
       "severity": 3,
       "source": "deferred-deliverable",
       "deliverableId": "reminders",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
       "rank": 3,
-      "sightings": 5
+      "sightings": 5,
+      "decidedAt": "2026-10-27T18:40:01Z",
+      "sightingsAtDecision": 5
     },
     {
       "id": "prioritise-google-calendar-for-adding-events",
@@ -358,10 +361,13 @@
       "body": "",
       "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
       "source": "session-review",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
       "rank": 6,
-      "sightings": 1
+      "sightings": 1,
+      "decidedAt": "2026-10-27T18:40:01Z",
+      "sightingsAtDecision": 1
     },
     {
       "id": "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
