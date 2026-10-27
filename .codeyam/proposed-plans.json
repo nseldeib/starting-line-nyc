@@ -121,7 +121,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 17,
+      "rank": 12,
       "sightings": 2
     },
     {
@@ -133,7 +133,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 16,
+      "rank": 11,
       "sightings": 2
     },
     {
@@ -145,7 +145,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 14,
+      "rank": 8,
       "sightings": 2
     },
     {
@@ -157,7 +157,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 10,
+      "rank": 2,
       "sightings": 2
     },
     {
@@ -169,7 +169,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 15,
+      "rank": 7,
       "sightings": 2
     },
     {
@@ -181,7 +181,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 19,
+      "rank": 14,
       "sightings": 2
     },
     {
@@ -196,8 +196,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 6,
-      "sightings": 4
+      "rank": 5,
+      "sightings": 5
     },
     {
       "id": "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
@@ -211,7 +211,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 8,
+      "rank": 16,
       "sightings": 1
     },
     {
@@ -226,7 +226,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 7,
+      "rank": 15,
       "sightings": 1
     },
     {
@@ -241,8 +241,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 2,
-      "sightings": 4
+      "rank": 1,
+      "sightings": 5
     },
     {
       "id": "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
@@ -256,8 +256,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 3,
-      "sightings": 4
+      "rank": 4,
+      "sightings": 5
     },
     {
       "id": "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
@@ -271,8 +271,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 4,
-      "sightings": 4
+      "rank": 3,
+      "sightings": 5
     },
     {
       "id": "prioritise-google-calendar-for-adding-events",
@@ -286,7 +286,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 5,
+      "rank": 17,
       "sightings": 4
     },
     {
@@ -352,7 +352,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 11,
+      "rank": 6,
       "sightings": 1
     },
     {
@@ -364,7 +364,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 18,
+      "rank": 13,
       "sightings": 1
     },
     {
@@ -383,13 +383,16 @@
       "id": "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
       "title": "Review gate refused to advance after the user answered until save-approval was run",
       "mode": "backend",
-      "body": "## What happened\n\nAt the backend Review gate the user picked \"Save my work — full check now\" in AskUserQuestion. `advance` then failed with \"no answer from the user is on record\" and named `save-approval --answer`. The step's instructions only say to advance on that answer.\n\n## What would have helped\n\nEither the question hook recording the gate answer automatically (as it does for the audience question), or the step text listing save-approval before advance.",
+      "body": "## What happened\n\nAt the Present (save) gate the user picked \"Save my work — full check now\" via the structured question. Running `fast-commit-stop` then `advance` as the step text instructs was refused with BLOCKED: no answer from the user is on record, naming `save-approval --answer`. The step body never mentions `save-approval`, so the approval had to be recorded on a second attempt.\n\n## What would have helped\n\nEither record the answer automatically from the question hook (as the audience question does), or list `save-approval --answer \"<label>\"` in the step's RUN THIS AFTERWARDS section next to `fast-commit-stop`.",
       "reason": "The step text never mentions save-approval; advance blocked right after a valid approval",
       "severity": 2,
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "sightings": 1
+      "sightings": 2,
+      "notes": [
+        "2026-10-27: Hit again in the Google Calendar cycle: advance from the save gate blocked until save-approval was run by hand."
+      ]
     },
     {
       "id": "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
@@ -400,7 +403,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "rank": 12,
+      "rank": 9,
       "sightings": 2
     },
     {
@@ -412,8 +415,31 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "rank": 13,
+      "rank": 10,
       "sightings": 2
+    },
+    {
+      "id": "preview-flow-cannot-scroll-a-below-the-fold-element-into-view-before-capturing",
+      "title": "preview-flow cannot scroll a below-the-fold element into view before capturing",
+      "mode": "backend",
+      "body": "## What happened\n\nTo demo an opened Add to calendar menu on a race page, `preview-flow` clicked the menu trigger and captured, but the trigger sits near the bottom of the 1440x900 frame, so the opened menu was cut off. Adding a `#dates` anchor to the flow's path did not scroll the capture either. The workaround was a separate phone-width `preview-interact` capture copied into the demo folder by hand.\n\n## What would have helped\n\nA `scrollTo` step verb (selector or text) in `preview-flow`, or having `capture` scroll the last-interacted element into view, or honouring a URL fragment on navigate.",
+      "reason": "A demo capture of an opened menu below the fold cut the menu off at the frame edge",
+      "severity": 2,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-27T16:34:02.438055494+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "the-plan-listed-separate-saved-previews-for-the-open-menu-on-a-timed-deadline-a-date-only-deadline-race-day-and-a-phone-they-all-look-identical-so-there-is-one-open-menu-preview-the-differences-between-them-are-checked-by-automated-te",
+      "title": "The plan listed separate saved previews for the open menu on a timed deadline, a date-only deadline, race day and a phone. They all look identical, so there is one open-menu preview; the differences between them are checked by automated te…",
+      "mode": "backend",
+      "body": "",
+      "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
+      "source": "session-review",
+      "status": "pending",
+      "proposedAt": "2026-10-27T16:34:02.438055494+00:00",
+      "sightings": 1
     }
   ],
   "rounds": [
@@ -604,6 +630,39 @@
         "the-default-search-shows-4-half-marathons-not-the-mockup-s-5-the-brooklyn-half-may-15-falls-outside-the-next-6-months-so-it-appears-in-the-12-month-view-instead",
         "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
         "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge"
+      ]
+    },
+    {
+      "at": "2026-10-27T16:34:02.438055494+00:00",
+      "feature": "Google Calendar first for Add to calendar",
+      "notes": "This cycle delivered the google-calendar deliverable, so 'Prioritise Google Calendar for adding events' is now done and ranked last; the race-detail-page and entry-requirements rows are also already delivered per the deliverables list and …",
+      "proposedIds": [
+        "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
+        "preview-flow-cannot-scroll-a-below-the-fold-element-into-view-before-capturing",
+        "the-plan-listed-separate-saved-previews-for-the-open-menu-on-a-timed-deadline-a-date-only-deadline-race-day-and-a-phone-they-all-look-identical-so-there-is-one-open-menu-preview-the-differences-between-them-are-checked-by-automated-te",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets"
+      ],
+      "rankedIds": [
+        "save-races-as-interested-considering-or-signed-up",
+        "race-dates-and-deadlines-are-sample-data-not-verified-against-organizers-photo-credits-were-copied-from-the-mockup-and-only-the-hero-photo-has-its-own-credit",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing-because-their-site-blocks-automated-reading",
+        "the-template-s-lint-setup-is-broken-it-points-at-a-missing-file-so-lint-was-not-run-type-checks-and-55-unit-tests-pass",
+        "save-log-in-sign-up-and-more-filters-do-not-work-yet-there-are-no-accounts-and-the-page-says-so",
+        "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
+        "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
+        "the-nyc-half-lottery-deadline-is-22-days-away-so-it-is-not-highlighted-the-mockup-highlighted-it",
+        "the-default-search-shows-4-half-marathons-not-the-mockup-s-5-the-brooklyn-half-may-15-falls-outside-the-next-6-months-so-it-appears-in-the-12-month-view-instead",
+        "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
+        "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge",
+        "distinguish-open-registration-lotteries-time-qualification-charity-and-membership-entry-with-qualification-windows-per-edition",
+        "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
+        "prioritise-google-calendar-for-adding-events"
       ]
     }
   ],
