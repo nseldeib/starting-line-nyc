@@ -214,7 +214,22 @@
       "name": "lockfile-sync"
     }
   ],
-  "testCacheIgnorePatterns": [],
+  "testCacheIgnorePatterns": [
+    "**/*.md",
+    ".codex/**",
+    ".devcontainer/**",
+    ".gitattributes",
+    ".gitignore",
+    "app/icon.svg",
+    "public/images/**",
+    ".claude/**",
+    "**/.claude/**",
+    "**/.codex/**",
+    ".gemini/**",
+    "**/.gemini/**",
+    ".opencode/**",
+    "**/.opencode/**"
+  ],
   "testParallelism": {
     "loadGuard": true
   },
@@ -231,7 +246,14 @@
       "name": "tests",
       "outputFormat": "vitest-json",
       "sourceFilePatterns": [
-        "**/*.{ts,tsx,js,jsx}"
+        "**/*.{ts,tsx,js,jsx}",
+        "**/*.mjs",
+        ".nvmrc",
+        "app/globals.css",
+        "package.json",
+        "package-lock.json",
+        "prisma/**",
+        "tsconfig.json"
       ],
       "targetedCommand": "npx vitest run -t \"{test_names}\" --reporter=json",
       "testFilePatterns": [
