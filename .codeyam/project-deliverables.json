@@ -127,11 +127,11 @@
       "id": "information-quality",
       "text": "Show official source links and last-verified dates, label unknown or tentative dates, and keep each annual edition separate",
       "status": "delivered",
-      "resolvedAt": "2026-10-26T21:53:40.464241920+00:00",
-      "resolvedInFeature": "Race detail pages with real race data",
-      "planSlug": null,
+      "resolvedAt": "2026-10-27T14:57:42.612810210+00:00",
+      "resolvedInFeature": null,
+      "planSlug": "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition",
       "note": "Source link and last-verified date per edition; untimed, unannounced and tentative dates labelled.",
-      "decidedBy": "agent"
+      "decidedBy": "user"
     },
     {
       "id": "visual-direction",

@@ -293,11 +293,14 @@
       "severity": 3,
       "source": "deferred-deliverable",
       "deliverableId": "information-quality",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
       "rank": 1,
-      "sightings": 1
+      "sightings": 1,
+      "decidedAt": "2026-10-27T14:57:42Z",
+      "sightingsAtDecision": 1
     },
     {
       "id": "build-agent-taking-longer-than-usual-notice-fires-while-the-agent-is-mid-task",
