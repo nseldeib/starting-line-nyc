@@ -106,7 +106,7 @@
   "preview": {
     "defaultPort": 3000,
     "kind": "iframe",
-    "sameOriginSafe": true
+    "sameOriginSafe": false
   },
   "routeDataExports": [
     {

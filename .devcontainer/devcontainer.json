@@ -20,6 +20,10 @@
     "onAutoForward": "silent"
   },
   "portsAttributes": {
+    "3000": {
+      "label": "CodeYam Live Preview",
+      "onAutoForward": "silent"
+    },
     "14199": {
       "label": "CodeYam Editor",
       "onAutoForward": "notify"
@@ -27,5 +31,5 @@
   },
   "postAttachCommand": "sh .devcontainer/codeyam-ready.sh",
   "postCreateCommand": "sh .devcontainer/codeyam-system-deps.sh && npm install -g @codeyam-editor/codeyam-editor@latest @anthropic-ai/claude-code && npx -y playwright install --with-deps chromium",
-  "postStartCommand": "sh .devcontainer/codeyam-system-deps.sh && mkdir -p .codeyam/logs && setsid -f nohup codeyam-editor start --hosted --no-open --port 14199 > .codeyam/logs/codespaces-editor.log 2>&1 < /dev/null"
+  "postStartCommand": "sh .devcontainer/codeyam-system-deps.sh && mkdir -p .codeyam/logs && sh .devcontainer/codeyam-preview-origin.sh > .codeyam/logs/codespaces-preview-origin.log 2>&1; setsid -f nohup codeyam-editor start --hosted --no-open --port 14199 > .codeyam/logs/codespaces-editor.log 2>&1 < /dev/null"
 }
