@@ -101,6 +101,16 @@ img.thumb { display: block; object-fit: cover; }
 .next .v.quiet { color: var(--ink); font-weight: 500; }
 .next.urgent { background: var(--route-soft); border-radius: var(--r); padding: 8px 12px; margin: -8px 0 -8px -12px; }
 .cal { font-size: 14px; font-weight: 600; color: var(--route-ink); border-bottom: 1px solid currentColor; }
+/* Add to calendar menu: Google first, .ics for Apple / Outlook */
+.addcal { position: relative; display: inline-block; }
+.addcal summary { display: inline-block; cursor: pointer; list-style: none; }
+.addcal summary::-webkit-details-marker { display: none; }
+.addcal summary::after { content: ' ▾'; font-size: 11px; }
+.addcal[open] summary::after { content: ' ▴'; }
+.addcal-menu { position: absolute; left: 0; top: calc(100% + 6px); z-index: 5; min-width: 220px; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); box-shadow: 0 6px 20px rgba(17, 17, 17, 0.12); padding: 6px; }
+.addcal-menu a { padding: 10px 12px; border-radius: 4px; font-size: 15px; font-weight: 600; color: var(--ink); }
+.addcal-menu a:first-child { color: var(--route-ink); }
+.addcal-menu a:hover, .addcal-menu a:focus-visible { background: var(--soft); }
 .wk { font-family: var(--display); font-size: 26px; color: var(--ink); line-height: 1; }
 .wk small { display: block; font-family: var(--text); font-size: 13px; color: var(--muted); margin-top: 4px; }
 .seeall { display: flex; justify-content: center; margin-top: 22px; }
@@ -114,6 +124,7 @@ img.thumb { display: block; object-fit: cover; }
 .row-link:focus-visible { outline: none; }
 .row:has(.row-link:focus-visible) { outline: 2px solid var(--route); outline-offset: 2px; }
 .row .cal, .row .btn { position: relative; z-index: 1; }
+.row .addcal { z-index: 2; }
 
 /* race page */
 .crumb { margin-top: 20px; font-size: 15px; }

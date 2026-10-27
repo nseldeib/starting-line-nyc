@@ -1,0 +1,18 @@
+{
+  "name": "AddToCalendar - Open Deadline",
+  "id": "a6cfcd3f-743f-401c-bdfb-f93ebfa0c355",
+  "url": "/isolated-components/AddToCalendar?s=OpenDeadline",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "AddToCalendar",
+  "scenarioType": "component",
+  "description": "Menu opened for a registration deadline: Google Calendar first, Apple / Outlook (.ics) second.",
+  "interactions": [
+    {
+      "action": "click",
+      "text": "Add to calendar"
+    }
+  ]
+}

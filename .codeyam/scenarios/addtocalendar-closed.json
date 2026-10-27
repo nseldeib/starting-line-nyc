@@ -1,0 +1,12 @@
+{
+  "name": "AddToCalendar - Closed",
+  "id": "b40cee83-d1c9-46a3-8392-fdb45556ef19",
+  "url": "/isolated-components/AddToCalendar?s=Closed",
+  "dimensions": [
+    "Desktop"
+  ],
+  "mocks": {},
+  "componentName": "AddToCalendar",
+  "scenarioType": "component",
+  "description": "The Add to calendar link at rest, before the menu is opened."
+}

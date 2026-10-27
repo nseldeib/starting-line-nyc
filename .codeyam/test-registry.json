@@ -95,7 +95,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "calendarFileName › names next, race day and milestone files",
-      "line": 114,
+      "line": 121,
       "registeredAt": "2026-10-26T21:01:51Z",
       "runner": "tests"
     },
@@ -334,6 +334,96 @@
       "runner": "tests"
     },
     {
+      "description": "A plain calendar link gains the Google target as its only query.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarHref › adds the Google target to a bare link",
+      "line": 198,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A milestone or race-day link keeps its query and adds the target.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarHref › keeps an existing query",
+      "line": 205,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Title, location and description are carried over and safely encoded.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › carries the title, location and details",
+      "line": 172,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A date-only deadline is an all-day event whose end is the following day.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › encodes a date-only deadline as all day",
+      "line": 160,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A timed event carries its UTC start and end, matching the .ics times.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › encodes a timed event in UTC",
+      "line": 149,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A summer start is in daylight time: 9 am EDT is 13:00 UTC, while 8 am EST in December is also 13:00 UTC.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › keeps a summer start correct across daylight saving",
+      "line": 154,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "The Google link and the .ics come from the same event, so they agree on the times.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › matches the event built for the ics file",
+      "line": 187,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Missing location or description are left out rather than sent empty.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › omits absent location and details",
+      "line": 180,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "The link opens Google's create-event page in Eastern Time.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › points at the Google create-event page",
+      "line": 141,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
+      "description": "An all-day event at the end of a month rolls into the next month.",
+      "file": "app/lib/raceCalendar.test.ts",
+      "format": "vitest",
+      "key": "googleCalendarUrl › rolls an all-day end date over a month boundary",
+      "line": 166,
+      "registeredAt": "2026-10-27T16:24:46Z",
+      "runner": "tests"
+    },
+    {
       "description": "Dates are written as compact UTC timestamps without milliseconds.",
       "file": "app/lib/ics.test.ts",
       "format": "vitest",
@@ -536,7 +626,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent for one milestone › exports a date-only milestone as all day",
-      "line": 88,
+      "line": 95,
       "registeredAt": "2026-10-26T21:01:51Z",
       "runner": "tests"
     },
@@ -545,7 +635,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent for one milestone › exports a timed milestone at its time",
-      "line": 98,
+      "line": 105,
       "registeredAt": "2026-10-26T21:01:51Z",
       "runner": "tests"
     },
@@ -554,7 +644,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent for one milestone › refuses missing or past milestones",
-      "line": 106,
+      "line": 113,
       "registeredAt": "2026-10-26T21:01:51Z",
       "runner": "tests"
     },
@@ -563,7 +653,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › builds a race day event",
-      "line": 45,
+      "line": 52,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },
@@ -572,7 +662,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › builds the next milestone event",
-      "line": 26,
+      "line": 33,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },
@@ -581,7 +671,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › describes the time in ET with the official link and sample notice",
-      "line": 36,
+      "line": 43,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },
@@ -590,7 +680,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › refuses race day when the date is unannounced",
-      "line": 54,
+      "line": 61,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },
@@ -599,7 +689,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › refuses when no registration date is upcoming",
-      "line": 60,
+      "line": 67,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },
@@ -608,7 +698,7 @@
       "file": "app/lib/raceCalendar.test.ts",
       "format": "vitest",
       "key": "raceCalendarEvent › refuses when there is no upcoming edition",
-      "line": 66,
+      "line": 73,
       "registeredAt": "2026-10-26T19:24:54.655006964+00:00",
       "runner": "tests"
     },

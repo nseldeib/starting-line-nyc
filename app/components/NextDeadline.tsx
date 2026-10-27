@@ -1,5 +1,6 @@
 // Registration status and the next dated milestone in ET. Deadlines within
-// three weeks are highlighted and offer a downloadable calendar event.
+// three weeks are highlighted and offer an Add to calendar menu.
+import AddToCalendar from '@/app/components/AddToCalendar';
 import { LIVE_STATUSES, STATUS_LABELS, formatDay, formatTime, milestoneVerb } from '@/app/lib/format';
 
 export default function NextDeadline({
@@ -31,11 +32,7 @@ export default function NextDeadline({
       ) : (
         <div className="v quiet">Registration date to come</div>
       )}
-      {urgent && (
-        <a className="cal" href={calendarHref} download>
-          Add to calendar
-        </a>
-      )}
+      {urgent && <AddToCalendar href={calendarHref} />}
     </div>
   );
 }

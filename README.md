@@ -3,8 +3,9 @@
 
 Races around New York, and when to enter. A mobile-friendly site for finding
 road and trail races in the greater NYC area, with registration dates in
-Eastern Time, weeks left to train, and downloadable calendar events for
-upcoming deadlines. Every race has its own page at `/races/<race>` with how to
+Eastern Time, weeks left to train, and Add to calendar for upcoming
+deadlines: one tap to Google Calendar, or an `.ics` download for Apple
+Calendar and Outlook. Every race has its own page at `/races/<race>` with how to
 enter, the full registration timeline and a link to the official site.
 
 **Status:** the races are real, researched by hand from each organizer's
@@ -33,6 +34,8 @@ again to reload.
 - `GET /api/races` returns the filtered race list (same query parameters as the home page).
 - `GET /api/races/<slug>/calendar` downloads an `.ics` for the next registration
   date; add `?milestone=<id>` for a specific date or `?event=raceday` for race day.
+  Add `target=google` to redirect to Google Calendar's create-event page for the
+  same event instead (nothing is sent to Google until the runner taps it).
 - `npm test` runs the unit tests.
 
 ---

@@ -1,0 +1,523 @@
+{
+  "timestamp": "2026-10-27T16:31:47Z",
+  "title": "Google Calendar first for Add to calendar",
+  "type": "feature",
+  "userRequest": "## Summary\n\nPut Google Calendar first: every Add to calendar offers a one-tap \"Google Calendar\" link, with the .ics download kept for Apple Calendar and Outlook.\n\n## What the runner gets\n\n- Add to calendar opens a small menu: Google Calendar (first), Apple / Outlook (.ics download).\n- The Google event has the same title, Eastern Time date and time (or all-day for date-only deadlines), official link and source as the .ics file.\n\n## Key Decisions\n\n- Uses Google's public \"create event\" link; no Google sign-in or API key, nothing sent to Google until the runner taps it.\n- One shared event builder produces both the Google link and the .ics, so they can't disagree.\n\n## Implementation\n\n- `app/lib/raceCalendar.ts`: shared event model; new `googleCalendarUrl(event)`.\n- Add-to-calendar control on the home rows and race-page timeline becomes a two-option menu.\n- Tests: the Google link encodes timed and all-day events correctly across a daylight-saving change.\n\n## Scenarios\n\nMenu open on a timed deadline; menu open on a date-only deadline; race-day event; phone layout.",
+  "description": "Every Add to calendar on the race list and race page timeline now opens a small menu: Google Calendar first, which opens Google's create-event page with the same title, Eastern Time date and time (all-day for date-only deadlines), location and details as the .ics, and Apple / Outlook (.ics) second. One shared event builder feeds both, and the calendar route redirects to Google only when the runner taps it. Scope: delivers the previously deferred google-calendar deliverable; save-races, my-races, reminders and sort-options remain deferred (user-approved at an earlier plan gate). None deferred by the agent this cycle.",
+  "modifiedFiles": [
+    {
+      "path": ".codeyam/dependency-graph.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/design/active_tab.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/glossary.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/per-test-evidence.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/plans/google-calendar-first-for-add-to-calendar.md\t.codeyam/plans/completed/google-calendar-first-for-add-to-calendar.md",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/project-deliverables.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/.capture-pipeline.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-all-distances-next-12-months--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-half-marathons-next-6-months--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-lottery-races-only--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-no-races-listed--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-phone-layout--mobile.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/home-single-search-result--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/keydates-nothing-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/keydates-some-passed--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/keydates-some-passed--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/keydates-upcoming--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/keydates-upcoming--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-exact-time--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-lottery-open--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-no-upcoming-date--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-not-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-tentative-date--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-urgent-opening-soon--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-urgent-price-rise--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/nextdeadline-urgent-price-rise--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-big-bear-squatch-north--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-big-bear-squatch-north--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-escarpment-trail-run--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-escarpment-trail-run--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-great-gobble-5k--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-great-gobble-5k--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/race-phone-layout--mobile.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-empty--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racelist-with-unannounced-race--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-exact-time-trail--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-lottery-open--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-road--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-road--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-no-photo-trail--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-not-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-qualifier-not-announced--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/racerow-urgent-deadline--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-default--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/resultssection-empty--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-next--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-next--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-passed-date-only--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-race-day--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-race-day--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-upcoming-timed--desktop.png",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/timelineitem-upcoming-timed--desktop.png.hash",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/state/finalize-debt.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/state/recapture-skip-clean.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/state/scenario-taxonomy.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache/all.json",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/3530543fec4ee1ae94a2abda035690e4b650ee9d5ea68f5500583bed111039b9.json",
+      "status": "deleted"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/94be43bcdcb3be9fa383c96b21947c951d1189591f977cc8986f4836ee8cfd70.json",
+      "status": "deleted"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/b610133fe395b7e781d4cc9e0ceeea26682a5b81b5cf003de04b198104eb35d2.json",
+      "status": "deleted"
+    },
+    {
+      "path": ".codeyam/test-registry.json",
+      "status": "modified"
+    },
+    {
+      "path": "README.md",
+      "status": "modified"
+    },
+    {
+      "path": "app/api/races/[slug]/calendar/route.ts",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/NextDeadline.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/components/TimelineItem.tsx",
+      "status": "modified"
+    },
+    {
+      "path": "app/globals.css",
+      "status": "modified"
+    },
+    {
+      "path": "app/lib/raceCalendar.test.ts",
+      "status": "modified"
+    },
+    {
+      "path": "app/lib/raceCalendar.ts",
+      "status": "modified"
+    },
+    {
+      "path": ".codeyam/isolation-props/AddToCalendar.ts",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/addtocalendar-closed.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/addtocalendar-open-deadline.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/coverage-plan/addtocalendar.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/addtocalendar-closed--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/addtocalendar-closed--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/addtocalendar-open-deadline--desktop.png",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/scenarios/screenshots/addtocalendar-open-deadline--desktop.png.hash",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/7de6c7fa2e722b6a70b65e978ace0be8da49c55348a9b635d254be844ace017e.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/bf514acb4eb0dc60a4034fe197dacc6092754c9169749a17c548888a4b93fee0.json",
+      "status": "added"
+    },
+    {
+      "path": ".codeyam/test-cache/blobs/d7c9df53436b072a5bfcc8eba32a950eacca6da80922d4655442e17acee7fdb0.json",
+      "status": "added"
+    },
+    {
+      "path": "app/components/AddToCalendar.tsx",
+      "status": "added"
+    }
+  ],
+  "scenarioScreenshots": [
+    {
+      "name": "Home - All Distances Next 12 Months",
+      "screenshotPath": "home-all-distances-next-12-months--desktop.png"
+    },
+    {
+      "name": "Home - Half Marathons Next 6 Months",
+      "screenshotPath": "home-half-marathons-next-6-months--desktop.png"
+    },
+    {
+      "name": "Home - Lottery Races Only",
+      "screenshotPath": "home-lottery-races-only--desktop.png"
+    },
+    {
+      "name": "Home - No Races Listed",
+      "screenshotPath": "home-no-races-listed--desktop.png"
+    },
+    {
+      "name": "Home - Phone Layout",
+      "screenshotPath": "home-phone-layout--mobile.png"
+    },
+    {
+      "name": "Home - Single Search Result",
+      "screenshotPath": "home-single-search-result--desktop.png"
+    },
+    {
+      "name": "Race - Big Bear Squatch North",
+      "screenshotPath": "race-big-bear-squatch-north--desktop.png"
+    },
+    {
+      "name": "Race - Escarpment Trail Run",
+      "screenshotPath": "race-escarpment-trail-run--desktop.png"
+    },
+    {
+      "name": "Race - Great Gobble 5K",
+      "screenshotPath": "race-great-gobble-5k--desktop.png"
+    },
+    {
+      "name": "Race - Phone Layout",
+      "screenshotPath": "race-phone-layout--mobile.png"
+    },
+    {
+      "name": "AddToCalendar - Closed",
+      "screenshotPath": "addtocalendar-closed--desktop.png"
+    },
+    {
+      "name": "AddToCalendar - Open Deadline",
+      "screenshotPath": "addtocalendar-open-deadline--desktop.png"
+    },
+    {
+      "name": "KeyDates - Nothing Announced",
+      "screenshotPath": "keydates-nothing-announced--desktop.png"
+    },
+    {
+      "name": "KeyDates - Some Passed",
+      "screenshotPath": "keydates-some-passed--desktop.png"
+    },
+    {
+      "name": "KeyDates - Upcoming",
+      "screenshotPath": "keydates-upcoming--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Exact Time",
+      "screenshotPath": "nextdeadline-exact-time--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Lottery Open",
+      "screenshotPath": "nextdeadline-lottery-open--desktop.png"
+    },
+    {
+      "name": "NextDeadline - No Upcoming Date",
+      "screenshotPath": "nextdeadline-no-upcoming-date--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Not Announced",
+      "screenshotPath": "nextdeadline-not-announced--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Tentative Date",
+      "screenshotPath": "nextdeadline-tentative-date--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Urgent Opening Soon",
+      "screenshotPath": "nextdeadline-urgent-opening-soon--desktop.png"
+    },
+    {
+      "name": "NextDeadline - Urgent Price Rise",
+      "screenshotPath": "nextdeadline-urgent-price-rise--desktop.png"
+    },
+    {
+      "name": "RaceList - Default",
+      "screenshotPath": "racelist-default--desktop.png"
+    },
+    {
+      "name": "RaceList - Empty",
+      "screenshotPath": "racelist-empty--desktop.png"
+    },
+    {
+      "name": "RaceList - With Unannounced Race",
+      "screenshotPath": "racelist-with-unannounced-race--desktop.png"
+    },
+    {
+      "name": "RaceRow - Exact Time Trail",
+      "screenshotPath": "racerow-exact-time-trail--desktop.png"
+    },
+    {
+      "name": "RaceRow - Lottery Open",
+      "screenshotPath": "racerow-lottery-open--desktop.png"
+    },
+    {
+      "name": "RaceRow - No Photo Road",
+      "screenshotPath": "racerow-no-photo-road--desktop.png"
+    },
+    {
+      "name": "RaceRow - No Photo Trail",
+      "screenshotPath": "racerow-no-photo-trail--desktop.png"
+    },
+    {
+      "name": "RaceRow - Not Announced",
+      "screenshotPath": "racerow-not-announced--desktop.png"
+    },
+    {
+      "name": "RaceRow - Qualifier Not Announced",
+      "screenshotPath": "racerow-qualifier-not-announced--desktop.png"
+    },
+    {
+      "name": "RaceRow - Urgent Deadline",
+      "screenshotPath": "racerow-urgent-deadline--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Default",
+      "screenshotPath": "resultssection-default--desktop.png"
+    },
+    {
+      "name": "ResultsSection - Empty",
+      "screenshotPath": "resultssection-empty--desktop.png"
+    },
+    {
+      "name": "TimelineItem - Next",
+      "screenshotPath": "timelineitem-next--desktop.png"
+    },
+    {
+      "name": "TimelineItem - Passed Date Only",
+      "screenshotPath": "timelineitem-passed-date-only--desktop.png"
+    },
+    {
+      "name": "TimelineItem - Race Day",
+      "screenshotPath": "timelineitem-race-day--desktop.png"
+    },
+    {
+      "name": "TimelineItem - Upcoming Timed",
+      "screenshotPath": "timelineitem-upcoming-timed--desktop.png"
+    }
+  ],
+  "testResults": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "runners": [
+      {
+        "name": "tests",
+        "total": 20,
+        "passed": 20
+      }
+    ]
+  }
+}

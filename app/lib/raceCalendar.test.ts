@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { calendarFileName, raceCalendarEvent, type CalendarRace } from '@/app/lib/raceCalendar';
+import type { CalendarEvent } from '@/app/lib/ics';
+import {
+  calendarFileName,
+  googleCalendarHref,
+  googleCalendarUrl,
+  raceCalendarEvent,
+  type CalendarRace,
+} from '@/app/lib/raceCalendar';
 
 const NOW = new Date('2026-10-26T14:00:00Z');
 
@@ -115,5 +122,92 @@ describe('calendarFileName', () => {
     expect(calendarFileName('brooklyn-half', 'next')).toBe('brooklyn-half.ics');
     expect(calendarFileName('brooklyn-half', 'raceday')).toBe('brooklyn-half-raceday.ics');
     expect(calendarFileName('brooklyn-half', 4)).toBe('brooklyn-half-deadline-4.ics');
+  });
+});
+
+describe('googleCalendarUrl', () => {
+  const base: CalendarEvent = {
+    uid: 'x@startingline',
+    title: 'Big Apple Half (race day)',
+    start: new Date('2026-12-13T13:00:00Z'),
+    durationMinutes: 240,
+    location: 'Central Park',
+    description: 'Sun, Dec 13, 8:00 am ET (Eastern Time).\nOfficial registration: https://nycruns.com',
+    stamp: new Date('2026-10-26T14:00:00Z'),
+  };
+  const params = (url: string) => new URL(url).searchParams;
+
+  // The link opens Google's create-event page in Eastern Time.
+  it('points at the Google create-event page', () => {
+    const url = googleCalendarUrl(base);
+    expect(url.startsWith('https://calendar.google.com/calendar/render?')).toBe(true);
+    expect(params(url).get('action')).toBe('TEMPLATE');
+    expect(params(url).get('ctz')).toBe('America/New_York');
+  });
+
+  // A timed event carries its UTC start and end, matching the .ics times.
+  it('encodes a timed event in UTC', () => {
+    expect(params(googleCalendarUrl(base)).get('dates')).toBe('20261213T130000Z/20261213T170000Z');
+  });
+
+  // A summer start is in daylight time: 9 am EDT is 13:00 UTC, while 8 am EST in December is also 13:00 UTC.
+  it('keeps a summer start correct across daylight saving', () => {
+    const summer = { ...base, start: new Date('2027-07-25T13:00:00Z'), durationMinutes: 30 };
+    expect(params(googleCalendarUrl(summer)).get('dates')).toBe('20270725T130000Z/20270725T133000Z');
+  });
+
+  // A date-only deadline is an all-day event whose end is the following day.
+  it('encodes a date-only deadline as all day', () => {
+    const allDay = { ...base, allDayDate: '2026-11-09' };
+    expect(params(googleCalendarUrl(allDay)).get('dates')).toBe('20261109/20261110');
+  });
+
+  // An all-day event at the end of a month rolls into the next month.
+  it('rolls an all-day end date over a month boundary', () => {
+    const allDay = { ...base, allDayDate: '2026-11-30' };
+    expect(params(googleCalendarUrl(allDay)).get('dates')).toBe('20261130/20261201');
+  });
+
+  // Title, location and description are carried over and safely encoded.
+  it('carries the title, location and details', () => {
+    const p = params(googleCalendarUrl(base));
+    expect(p.get('text')).toBe('Big Apple Half (race day)');
+    expect(p.get('location')).toBe('Central Park');
+    expect(p.get('details')).toBe(base.description);
+  });
+
+  // Missing location or description are left out rather than sent empty.
+  it('omits absent location and details', () => {
+    const p = params(googleCalendarUrl({ ...base, location: undefined, description: undefined }));
+    expect(p.has('location')).toBe(false);
+    expect(p.has('details')).toBe(false);
+  });
+
+  // The Google link and the .ics come from the same event, so they agree on the times.
+  it('matches the event built for the ics file', () => {
+    const r = raceCalendarEvent(race, 'raceday', NOW);
+    if ('error' in r) throw new Error(r.error);
+    const p = params(googleCalendarUrl(r.event));
+    expect(p.get('dates')).toBe('20270124T120000Z/20270124T160000Z');
+    expect(p.get('text')).toBe('Fred Lebow Manhattan Half (race day)');
+  });
+});
+
+describe('googleCalendarHref', () => {
+  // A plain calendar link gains the Google target as its only query.
+  it('adds the Google target to a bare link', () => {
+    expect(googleCalendarHref('/api/races/brooklyn-half/calendar')).toBe(
+      '/api/races/brooklyn-half/calendar?target=google',
+    );
+  });
+
+  // A milestone or race-day link keeps its query and adds the target.
+  it('keeps an existing query', () => {
+    expect(googleCalendarHref('/api/races/brooklyn-half/calendar?milestone=4')).toBe(
+      '/api/races/brooklyn-half/calendar?milestone=4&target=google',
+    );
+    expect(googleCalendarHref('/api/races/brooklyn-half/calendar?event=raceday')).toBe(
+      '/api/races/brooklyn-half/calendar?event=raceday&target=google',
+    );
   });
 });

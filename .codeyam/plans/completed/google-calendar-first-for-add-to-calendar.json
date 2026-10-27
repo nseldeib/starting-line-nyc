@@ -1,0 +1,32 @@
+{
+  "claimStartedAt": "2026-10-27T14:58:49Z",
+  "completedAt": "2026-10-27T16:31:47Z",
+  "completedBy": {
+    "agentProvider": "claude",
+    "codeyamEditorVersion": "0.1.16",
+    "currentStep": "ui-step22",
+    "machine": "codespaces-fc8fe4",
+    "originId": "e205292a-3d38-4add-b78a-90f94f6135f8",
+    "pid": 3989,
+    "priority": 0,
+    "selectedPlan": "google-calendar-first-for-add-to-calendar",
+    "sessionId": "90ac8eae-4976-407a-9ca4-7904503dc5b5",
+    "startedAt": "2026-10-27T14:58:49Z"
+  },
+  "createdAt": "2026-10-26T21:39:36Z",
+  "deliverables": [
+    "README.md",
+    "app/api/races/[slug]/calendar/route.ts",
+    "app/components/AddToCalendar.tsx",
+    "app/components/NextDeadline.tsx",
+    "app/components/TimelineItem.tsx",
+    "app/globals.css",
+    "app/lib/raceCalendar.test.ts",
+    "app/lib/raceCalendar.ts"
+  ],
+  "journalTimestamp": "2026-10-27T16:31:47Z",
+  "mode": "ui",
+  "planFile": "completed/google-calendar-first-for-add-to-calendar.md",
+  "slug": "google-calendar-first-for-add-to-calendar",
+  "title": "Google Calendar first for Add to calendar"
+}

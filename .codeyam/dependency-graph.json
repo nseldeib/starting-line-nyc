@@ -154,6 +154,15 @@
       "imports": [],
       "importedBy": []
     },
+    "app/components/AddToCalendar.tsx": {
+      "imports": [
+        "app/lib/raceCalendar.ts"
+      ],
+      "importedBy": [
+        "app/components/TimelineItem.tsx",
+        "app/components/NextDeadline.tsx"
+      ]
+    },
     "app/components/AtAGlance.tsx": {
       "imports": [
         "app/components/GlanceItem.tsx",
@@ -252,6 +261,7 @@
     },
     "app/components/NextDeadline.tsx": {
       "imports": [
+        "app/components/AddToCalendar.tsx",
         "app/lib/format.ts"
       ],
       "importedBy": [
@@ -448,6 +458,7 @@
     },
     "app/components/TimelineItem.tsx": {
       "imports": [
+        "app/components/AddToCalendar.tsx",
         "app/lib/format.ts",
         "app/lib/raceDetail.ts"
       ],
@@ -533,6 +544,7 @@
     "app/lib/ics.ts": {
       "imports": [],
       "importedBy": [
+        "app/lib/raceCalendar.test.ts",
         "app/lib/ics.test.ts",
         "app/lib/raceCalendar.ts",
         "app/api/races/[slug]/calendar/route.ts"
@@ -555,6 +567,7 @@
     },
     "app/lib/raceCalendar.test.ts": {
       "imports": [
+        "app/lib/ics.ts",
         "app/lib/raceCalendar.ts"
       ],
       "importedBy": []
@@ -567,7 +580,8 @@
       ],
       "importedBy": [
         "app/lib/raceCalendar.test.ts",
-        "app/api/races/[slug]/calendar/route.ts"
+        "app/api/races/[slug]/calendar/route.ts",
+        "app/components/AddToCalendar.tsx"
       ]
     },
     "app/lib/raceDetail.test.ts": {
@@ -872,6 +886,7 @@
         "app/lib/ics.ts::buildIcs",
         "app/lib/raceCalendar.ts::CalendarEventKind",
         "app/lib/raceCalendar.ts::calendarFileName",
+        "app/lib/raceCalendar.ts::googleCalendarUrl",
         "app/lib/raceCalendar.ts::raceCalendarEvent"
       ],
       "importedBy": []
@@ -882,6 +897,14 @@
       "imports": [
         "app/lib/filters.ts::parseFilters",
         "app/lib/races.ts::findRaces"
+      ],
+      "importedBy": []
+    },
+    "app/components/AddToCalendar.tsx::__file_root__": {
+      "filePath": "app/components/AddToCalendar.tsx",
+      "name": "__file_root__",
+      "imports": [
+        "app/lib/raceCalendar.ts::googleCalendarHref"
       ],
       "importedBy": []
     },
@@ -1012,6 +1035,7 @@
       "filePath": "app/components/NextDeadline.tsx",
       "name": "__file_root__",
       "imports": [
+        "app/components/AddToCalendar.tsx::AddToCalendar",
         "app/lib/format.ts::__file_root__",
         "app/lib/format.ts::formatDay",
         "app/lib/format.ts::formatTime",
@@ -1246,6 +1270,7 @@
       "filePath": "app/components/TimelineItem.tsx",
       "name": "__file_root__",
       "imports": [
+        "app/components/AddToCalendar.tsx::AddToCalendar",
         "app/lib/format.ts::__file_root__",
         "app/lib/format.ts::formatWhen",
         "app/lib/raceDetail.ts::TimelineEntry"
@@ -1547,7 +1572,8 @@
       "name": "icsDate",
       "imports": [],
       "importedBy": [
-        "app/lib/ics.test.ts::__file_root__"
+        "app/lib/ics.test.ts::__file_root__",
+        "app/lib/raceCalendar.ts::__file_root__"
       ]
     },
     "app/lib/ics.ts::icsEscape": {
@@ -1580,8 +1606,11 @@
       "filePath": "app/lib/raceCalendar.test.ts",
       "name": "__file_root__",
       "imports": [
+        "app/lib/ics.ts::CalendarEvent",
         "app/lib/raceCalendar.ts::CalendarRace",
         "app/lib/raceCalendar.ts::calendarFileName",
+        "app/lib/raceCalendar.ts::googleCalendarHref",
+        "app/lib/raceCalendar.ts::googleCalendarUrl",
         "app/lib/raceCalendar.ts::raceCalendarEvent"
       ],
       "importedBy": []
@@ -1602,6 +1631,7 @@
         "app/lib/format.ts::etDate",
         "app/lib/format.ts::formatWhen",
         "app/lib/ics.ts::CalendarEvent",
+        "app/lib/ics.ts::icsDate",
         "app/lib/raceList.ts::MilestoneRecord",
         "app/lib/raceList.ts::milestoneEnd",
         "app/lib/raceList.ts::nextMilestone",
@@ -1612,6 +1642,22 @@
     "app/lib/raceCalendar.ts::calendarFileName": {
       "filePath": "app/lib/raceCalendar.ts",
       "name": "calendarFileName",
+      "imports": [],
+      "importedBy": [
+        "app/api/races/[slug]/calendar/route.ts::__file_root__"
+      ]
+    },
+    "app/lib/raceCalendar.ts::googleCalendarHref": {
+      "filePath": "app/lib/raceCalendar.ts",
+      "name": "googleCalendarHref",
+      "imports": [],
+      "importedBy": [
+        "app/components/AddToCalendar.tsx::__file_root__"
+      ]
+    },
+    "app/lib/raceCalendar.ts::googleCalendarUrl": {
+      "filePath": "app/lib/raceCalendar.ts",
+      "name": "googleCalendarUrl",
       "imports": [],
       "importedBy": [
         "app/api/races/[slug]/calendar/route.ts::__file_root__"
@@ -1896,5 +1942,5 @@
       "importedBy": []
     }
   },
-  "lastUpdated": "2026-10-27T14:38:30Z"
+  "lastUpdated": "2026-10-27T16:32:37Z"
 }

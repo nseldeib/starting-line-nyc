@@ -1,5 +1,17 @@
 [
   {
+    "description": "Add to calendar disclosure menu: Google Calendar first via the calendar route's Google redirect, then the .ics download for Apple Calendar and Outlook. Used on race list deadlines and race page timeline dates.",
+    "filePath": "app/components/AddToCalendar.tsx",
+    "name": "AddToCalendar",
+    "scenarios": [
+      "addtocalendar-closed",
+      "addtocalendar-open-deadline"
+    ],
+    "tags": [
+      "calendar"
+    ]
+  },
+  {
     "description": "Strip of the facts a runner needs first: race day, distance, entry status, price, next deadline, weeks to train, and the official link.",
     "filePath": "app/components/AtAGlance.tsx",
     "name": "AtAGlance",
@@ -689,6 +701,24 @@
       "race-detail"
     ],
     "testFile": "app/lib/format.test.ts"
+  },
+  {
+    "description": "Turns a race calendar route link into the variant that redirects to Google Calendar, keeping any milestone or race-day query.",
+    "filePath": "app/lib/raceCalendar.ts",
+    "name": "googleCalendarHref",
+    "tags": [
+      "calendar"
+    ],
+    "testFile": "app/lib/raceCalendar.test.ts"
+  },
+  {
+    "description": "Builds Google Calendar's public create-event link for a calendar event: UTC start/end for timed events, Eastern date with an exclusive next-day end for all-day events, plus title, location and details, in America/New_York.",
+    "filePath": "app/lib/raceCalendar.ts",
+    "name": "googleCalendarUrl",
+    "tags": [
+      "calendar"
+    ],
+    "testFile": "app/lib/raceCalendar.test.ts"
   },
   {
     "description": "Formats a date as a compact UTC iCalendar timestamp.",

@@ -2,7 +2,7 @@
 // one specific milestone, or its race day. Pure — the route loads the race
 // and serves the file.
 import { etDate, formatWhen, MILESTONE_LABELS } from '@/app/lib/format';
-import type { CalendarEvent } from '@/app/lib/ics';
+import { icsDate, type CalendarEvent } from '@/app/lib/ics';
 import { milestoneEnd, nextMilestone, upcomingEdition, type MilestoneRecord } from '@/app/lib/raceList';
 
 export type CalendarRace = {
@@ -75,6 +75,32 @@ export function raceCalendarEvent(race: CalendarRace, kind: CalendarEventKind, n
       ...(timeKnown ? {} : { allDayDate: etDate(start) }),
     },
   };
+}
+
+// Google Calendar's public "create event" link for the same event the .ics
+// carries. Timed events go in UTC; all-day events use the Eastern date with
+// Google's exclusive end date (the following day).
+export function googleCalendarUrl(event: CalendarEvent): string {
+  let dates: string;
+  if (event.allDayDate) {
+    const day = event.allDayDate.replace(/-/g, '');
+    const next = new Date(`${event.allDayDate}T00:00:00Z`);
+    next.setUTCDate(next.getUTCDate() + 1);
+    dates = `${day}/${next.toISOString().slice(0, 10).replace(/-/g, '')}`;
+  } else {
+    const end = new Date(event.start.getTime() + event.durationMinutes * 60_000);
+    dates = `${icsDate(event.start)}/${icsDate(end)}`;
+  }
+  const params = new URLSearchParams({ action: 'TEMPLATE', text: event.title, dates, ctz: 'America/New_York' });
+  if (event.description) params.set('details', event.description);
+  if (event.location) params.set('location', event.location);
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+// The calendar route link that redirects to Google Calendar instead of
+// downloading the .ics, keeping any milestone or race-day query.
+export function googleCalendarHref(calendarHref: string): string {
+  return `${calendarHref}${calendarHref.includes('?') ? '&' : '?'}target=google`;
 }
 
 export function calendarFileName(slug: string, kind: CalendarEventKind): string {

@@ -1,5 +1,6 @@
 // One date on the race's key-dates timeline: passed (checked off), next
-// (highlighted) or upcoming, each upcoming one with its own calendar file.
+// (highlighted) or upcoming, each upcoming one with its own calendar event.
+import AddToCalendar from '@/app/components/AddToCalendar';
 import { MILESTONE_LABELS, formatWhen } from '@/app/lib/format';
 import type { TimelineEntry } from '@/app/lib/raceDetail';
 
@@ -19,11 +20,7 @@ export default function TimelineItem({ entry, calendarHref }: { entry: TimelineE
         </div>
         <div className="what">{label}</div>
         {entry.note && <div className="sub">{entry.note}</div>}
-        {entry.state !== 'past' && (
-          <a className="cal" href={calendarHref} download>
-            Add to calendar
-          </a>
-        )}
+        {entry.state !== 'past' && <AddToCalendar href={calendarHref} />}
       </div>
     </li>
   );

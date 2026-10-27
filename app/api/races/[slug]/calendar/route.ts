@@ -1,9 +1,15 @@
 // Downloadable calendar event (.ics) for a race's next registration
 // milestone, one milestone with ?milestone=<id>, or race day with ?event=raceday.
+// ?target=google redirects to Google Calendar's create-event page instead.
 import { NextResponse } from 'next/server';
 import { prisma } from '@/app/lib/prisma';
 import { buildIcs } from '@/app/lib/ics';
-import { calendarFileName, raceCalendarEvent, type CalendarEventKind } from '@/app/lib/raceCalendar';
+import {
+  calendarFileName,
+  googleCalendarUrl,
+  raceCalendarEvent,
+  type CalendarEventKind,
+} from '@/app/lib/raceCalendar';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +25,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
 
   const result = raceCalendarEvent(race, kind, new Date());
   if ('error' in result) return NextResponse.json({ error: result.error }, { status: 404 });
+
+  if (search.get('target') === 'google') return NextResponse.redirect(googleCalendarUrl(result.event));
 
   return new NextResponse(buildIcs(result.event), {
     headers: {
