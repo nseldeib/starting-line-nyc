@@ -4,7 +4,7 @@
       "id": "fix-the-broken-lint-setup",
       "title": "Fix the broken lint setup",
       "mode": "backend",
-      "body": "## Summary\n\nMake `npm run lint` work so lint can join the build checks.\n\n## Key Decisions\n\n- Fix the config import rather than removing lint.\n\n## Implementation\n\n- `eslint.config.mjs`: import the Next config with the path Next 16 expects.\n- Add lint to the project's static checks once it passes.",
+      "body": "## Summary\n\nLint cannot start. `eslint.config.mjs` imports `eslint-config-next/core-web-vitals` and `eslint-config-next/typescript`, but the installed `eslint-config-next` is v15 while the app runs Next 16, and ESLint fails with ERR_MODULE_NOT_FOUND before checking any file.\n\n## Key Decisions\n\n- Align `eslint-config-next` with the installed Next major version rather than rewriting the config by hand.\n\n## Implementation\n\n- Bump `eslint-config-next` in `package.json` to the version matching `next`.\n- Confirm `npx eslint` runs on `app/` and `.devcontainer/codeyam-preview-origin.test.ts`, then fix any findings.",
       "reason": "Lint still cannot run, so no lint check guards the new race pages",
       "severity": 2,
       "source": "session-review",
@@ -12,10 +12,11 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "kind": "tech-debt",
-      "rank": 1,
-      "sightings": 3,
+      "rank": 2,
+      "sightings": 4,
       "notes": [
-        "2026-10-26: Seen again: running eslint on app/components/RaceThumb.tsx crashed with a module-resolution error before linting anything."
+        "2026-10-26: Seen again: running eslint on app/components/RaceThumb.tsx crashed with a module-resolution error before linting anything.",
+        "2026-10-27: Seen again 2026-10-27: ESLint failed with ERR_MODULE_NOT_FOUND on eslint-config-next/core-web-vitals while linting the new devcontainer test."
       ]
     },
     {
@@ -28,21 +29,24 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 22,
       "sightings": 2
     },
     {
       "id": "live-preview-blank-in-codespaces-until-preview-origin-and-dev-origins-are-changed",
       "title": "Live Preview blank in Codespaces until preview origin and dev origins are changed",
       "mode": "backend",
-      "body": "## What happened\n\nThe Live Preview stayed blank in a GitHub Codespace until the app port was public. After a session restart the port reverted to private; switching to same-origin mode did not take effect because the escalated origin persisted.\n\n## What would have helped\n\nDetect a private forwarded port and say so in the preview pane, and make same-origin mode actually override an escalated origin.",
+      "body": "## What happened\n\nThe preview kept going blank after codespace restarts. The project had to add its own start-up script (.devcontainer/codeyam-preview-origin.sh) to set a dedicated preview origin from CODESPACE_NAME, make port 3000 public, and push the database schema.\n\n## What would have helped\n\nThe editor detecting Codespaces and deriving the forwarded-port origin and port visibility itself, so projects do not each carry a workaround.",
       "reason": "Blank preview again after a session restart",
       "severity": 4,
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "sightings": 3,
+      "rank": 18,
+      "sightings": 4,
       "notes": [
-        "2026-10-26: Seen again: port 3000 went back to private after a session restart; preview-origin-mode same-origin reported success but server-identity still showed the escalated port-3000 origin, so the pane stayed blank until the user made …"
+        "2026-10-26: Seen again: port 3000 went back to private after a session restart; preview-origin-mode same-origin reported success but server-identity still showed the escalated port-3000 origin, so the pane stayed blank until the user made …",
+        "2026-10-27: 2026-10-27: worked around in app code with a postStartCommand script; this is the workaround the improvement would make unnecessary."
       ]
     },
     {
@@ -55,6 +59,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 23,
       "sightings": 2
     },
     {
@@ -67,6 +72,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 21,
       "sightings": 2
     },
     {
@@ -79,6 +85,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 19,
       "sightings": 2
     },
     {
@@ -91,6 +98,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 20,
       "sightings": 2
     },
     {
@@ -103,6 +111,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 28,
       "sightings": 2
     },
     {
@@ -114,6 +123,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
+      "rank": 15,
       "sightings": 2
     },
     {
@@ -125,7 +135,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 13,
+      "rank": 14,
       "sightings": 2
     },
     {
@@ -137,7 +147,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 7,
+      "rank": 10,
       "sightings": 2
     },
     {
@@ -149,7 +159,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 12,
+      "rank": 9,
       "sightings": 2
     },
     {
@@ -161,7 +171,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 8,
+      "rank": 11,
       "sightings": 2
     },
     {
@@ -173,7 +183,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 14,
+      "rank": 17,
       "sightings": 2
     },
     {
@@ -188,8 +198,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 2,
-      "sightings": 2
+      "rank": 7,
+      "sightings": 3
     },
     {
       "id": "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
@@ -203,7 +213,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 9,
+      "rank": 13,
       "sightings": 1
     },
     {
@@ -218,7 +228,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 10,
+      "rank": 12,
       "sightings": 1
     },
     {
@@ -234,7 +244,7 @@
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
       "rank": 3,
-      "sightings": 2
+      "sightings": 3
     },
     {
       "id": "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
@@ -249,7 +259,7 @@
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
       "rank": 4,
-      "sightings": 2
+      "sightings": 3
     },
     {
       "id": "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
@@ -263,8 +273,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 6,
-      "sightings": 2
+      "rank": 5,
+      "sightings": 3
     },
     {
       "id": "prioritise-google-calendar-for-adding-events",
@@ -278,8 +288,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 5,
-      "sightings": 2
+      "rank": 6,
+      "sightings": 3
     },
     {
       "id": "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
@@ -293,7 +303,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 11,
+      "rank": 1,
       "sightings": 1
     },
     {
@@ -306,6 +316,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "rank": 25,
       "sightings": 1
     },
     {
@@ -318,6 +329,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "rank": 29,
       "sightings": 1
     },
     {
@@ -330,6 +342,7 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "rank": 24,
       "sightings": 1
     },
     {
@@ -341,6 +354,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "rank": 8,
       "sightings": 1
     },
     {
@@ -352,6 +366,55 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
+      "rank": 16,
+      "sightings": 1
+    },
+    {
+      "id": "prove-red-cannot-measure-a-fix-that-lives-in-a-shell-script",
+      "title": "prove-red cannot measure a fix that lives in a shell script",
+      "mode": "backend",
+      "body": "## What happened\n\n`prove-red --neuter-file .devcontainer/codeyam-preview-origin.sh ...` with five named vitest tests ended BLOCKED: \"its scope resolved to no files a configured runner owns\". The named tests live in a .test.ts the vitest runner does own; only the neutered file was a .sh. I had to sed the script, run refresh-tests --file, git checkout, and record six prove-red-attest rows by hand.\n\n## What would have helped\n\nWhen --test names resolve to owned test files, route by those test files even if the neutered/--path files are outside every runner's sourceFilePatterns.",
+      "reason": "Neutering a .sh fix reported selected-nothing; red had to be proven by hand and attested",
+      "severity": 2,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
+      "rank": 26,
+      "sightings": 1
+    },
+    {
+      "id": "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
+      "title": "Review gate refused to advance after the user answered until save-approval was run",
+      "mode": "backend",
+      "body": "## What happened\n\nAt the backend Review gate the user picked \"Save my work — full check now\" in AskUserQuestion. `advance` then failed with \"no answer from the user is on record\" and named `save-approval --answer`. The step's instructions only say to advance on that answer.\n\n## What would have helped\n\nEither the question hook recording the gate answer automatically (as it does for the audience question), or the step text listing save-approval before advance.",
+      "reason": "The step text never mentions save-approval; advance blocked right after a valid approval",
+      "severity": 2,
+      "source": "codeyam-improvement",
+      "status": "pending",
+      "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
+      "rank": 27,
+      "sightings": 1
+    },
+    {
+      "id": "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
+      "title": "Not yet tried on a real codespace restart or a brand-new codespace; tests run the start-up script with stand-in commands.",
+      "mode": "backend",
+      "body": "",
+      "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
+      "source": "session-review",
+      "status": "pending",
+      "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
+      "sightings": 1
+    },
+    {
+      "id": "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
+      "title": "Unconfirmed whether the missing dev database is what left the scenario sandbox empty; the start-up schema push is a safeguard.",
+      "mode": "backend",
+      "body": "",
+      "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
+      "source": "session-review",
+      "status": "pending",
+      "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
       "sightings": 1
     }
   ],
@@ -460,6 +523,71 @@
         "the-nyc-half-lottery-deadline-is-22-days-away-so-it-is-not-highlighted-the-mockup-highlighted-it",
         "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge"
       ]
+    },
+    {
+      "at": "2026-10-27T14:50:47.901425810+00:00",
+      "feature": "Live Preview that keeps working in Codespaces",
+      "notes": "Infrastructure-only cycle: the Codespaces Live Preview fix (already prototyped and committed as 5651798) was carried through Build. Six vitest tests drive the real start-up script with stub commands. prove-red could not route the .sh, so r…",
+      "proposedIds": [
+        "fix-the-broken-lint-setup",
+        "live-preview-blank-in-codespaces-until-preview-origin-and-dev-origins-are-changed",
+        "prove-red-cannot-measure-a-fix-that-lives-in-a-shell-script",
+        "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
+        "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
+        "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "prioritise-google-calendar-for-adding-events"
+      ],
+      "rankedIds": [
+        "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
+        "fix-the-broken-lint-setup",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "prioritise-google-calendar-for-adding-events",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing-because-their-site-blocks-automated-reading",
+        "race-dates-and-deadlines-are-sample-data-not-verified-against-organizers-photo-credits-were-copied-from-the-mockup-and-only-the-hero-photo-has-its-own-credit",
+        "save-log-in-sign-up-and-more-filters-do-not-work-yet-there-are-no-accounts-and-the-page-says-so",
+        "the-template-s-lint-setup-is-broken-it-points-at-a-missing-file-so-lint-was-not-run-type-checks-and-55-unit-tests-pass",
+        "distinguish-open-registration-lotteries-time-qualification-charity-and-membership-entry-with-qualification-windows-per-edition",
+        "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
+        "the-nyc-half-lottery-deadline-is-22-days-away-so-it-is-not-highlighted-the-mockup-highlighted-it",
+        "the-default-search-shows-4-half-marathons-not-the-mockup-s-5-the-brooklyn-half-may-15-falls-outside-the-next-6-months-so-it-appears-in-the-12-month-view-instead",
+        "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
+        "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge",
+        "live-preview-blank-in-codespaces-until-preview-origin-and-dev-origins-are-changed",
+        "stage-feature-path-replaces-earlier-staging-so-the-commit-lost-the-app-source",
+        "scenario-sandbox-database-emptied-after-a-test-run",
+        "github-setup-unusable-in-codespaces-because-github-token-shadows-a-real-login",
+        "prototype-plan-resumes-at-deconstruct-with-no-app-scaffolded",
+        "relative-seed-token-today-nh-silently-drops-the-hours",
+        "a-malformed-scenariofixturedateskip-entry-breaks-every-editor-command",
+        "build-agent-taking-longer-than-usual-notice-fires-while-the-agent-is-mid-task",
+        "prove-red-cannot-measure-a-fix-that-lives-in-a-shell-script",
+        "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
+        "commit-step-lint-gate-needs-a-file-edit-that-the-commit-step-forbids",
+        "blank-page-check-misses-photos-drawn-as-css-backgrounds"
+      ]
+    }
+  ],
+  "syntheses": [
+    {
+      "at": "2026-10-27T14:50:47.901425810+00:00",
+      "consumedIds": [
+        "obs-99303dee409d",
+        "obs-acf726afcd6c",
+        "obs-9200baafb4a4",
+        "obs-198a8a475d85",
+        "obs-64e27443776f",
+        "obs-d22f28ba7373",
+        "obs-c0f813dc2c9c",
+        "obs-e8f49b043382"
+      ],
+      "notes": "All 8 observations since the last pass concern the development environment (blank Live Preview, GitHub repo creation in Codespaces, a taken repo name) or the user queuing plans themselves; none describes an unmet need of a Starting Line runner, so no app feature cluster clears the bar."
     }
   ]
 }
