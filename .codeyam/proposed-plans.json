@@ -155,10 +155,13 @@
       "body": "",
       "reason": "Disclosed at the approval gate: the built work differs from the plan here.",
       "source": "session-review",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "race-dates-and-deadlines-are-sample-data-not-verified-against-organizers-photo-credits-were-copied-from-the-mockup-and",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "rank": 2,
-      "sightings": 2
+      "sightings": 2,
+      "decidedAt": "2026-10-27T16:47:05Z",
+      "sightingsAtDecision": 2
     },
     {
       "id": "the-template-s-lint-setup-is-broken-it-points-at-a-missing-file-so-lint-was-not-run-type-checks-and-55-unit-tests-pass",
