@@ -1,0 +1,89 @@
+{
+  "provenAt": "2026-10-27T14:34:44Z",
+  "slug": "codespaces-live-preview-origin-fix",
+  "paths": [],
+  "runScope": [
+    ".devcontainer/codeyam-preview-origin.sh"
+  ],
+  "neuters": [
+    {
+      "file": ".devcontainer/codeyam-preview-origin.sh",
+      "find": "origin=\"https://$CODESPACE_NAME-$port.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-app.github.dev}\"",
+      "replace": "origin=\"http://localhost:$port\""
+    },
+    {
+      "file": ".devcontainer/codeyam-preview-origin.sh",
+      "find": "gh codespace ports visibility \"$port:public\" -c \"$CODESPACE_NAME\"",
+      "replace": "true"
+    },
+    {
+      "file": ".devcontainer/codeyam-preview-origin.sh",
+      "find": "[ -n \"${CODESPACE_NAME:-}\" ] || exit 0",
+      "replace": ":"
+    }
+  ],
+  "tests": {
+    "does nothing outside Codespaces": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    },
+    "falls back to app.github.dev when the domain is unset": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    },
+    "makes the app port public for this codespace": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    },
+    "points the preview at the forwarded app port": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    },
+    "pushes the schema to dev.db": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    },
+    "runs every step and says which one failed": {
+      "withoutFix": "missing",
+      "withFix": "missing",
+      "established": {
+        "kind": "attestedByHand",
+        "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+        "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+      }
+    }
+  },
+  "proof": {
+    "verdict": "provenByHand",
+    "attested": [
+      "runs every step and says which one failed"
+    ],
+    "method": "prove-red cannot route .sh files (no runner owns them). Neutered .devcontainer/codeyam-preview-origin.sh in place: CODESPACE_NAME guard replaced with ':', origin line replaced with http://localhost:$port, gh ports-visibility call replaced with 'true'; ran refresh-tests --file .devcontainer/codeyam-preview-origin.test.ts; restored with git checkout and re-ran.",
+    "evidence": "Neutered run a2f418bf-dfec-48c7-818a-cf45fd3999a0: 6 failed / 0 passed. Restored run fba7a639-8a0c-42a9-bcc0-acb3eba57ea1: 6 passed / 0 failed. git diff --quiet confirmed the script was restored byte-identical."
+  }
+}

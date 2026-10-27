@@ -100,6 +100,60 @@
       "runner": "tests"
     },
     {
+      "description": "Outside a codespace the editor's own origin choice is right, so the script must touch nothing — not the origin, the ports, or the database.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › does nothing outside Codespaces",
+      "line": 52,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Older codespaces may not export the forwarding domain; the public default keeps the origin well-formed instead of ending in a bare dot.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › falls back to app.github.dev when the domain is unset",
+      "line": 72,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
+      "description": "A private port redirects to a GitHub sign-in the iframe refuses to render, so port 3000 of this codespace must be made public.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › makes the app port public for this codespace",
+      "line": 79,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
+      "description": "The Live Preview must load from the forwarded app port, built from this codespace's name and forwarding domain — localhost is unreachable here.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › points the preview at the forwarded app port",
+      "line": 60,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
+      "description": "Scenario seeds need tables, so the schema is pushed to dev.db.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › pushes the schema to dev.db",
+      "line": 85,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
+      "description": "One failed step must not skip the others: each fix stands alone, and postStartCommand still needs to reach the editor launch afterwards.",
+      "file": ".devcontainer/codeyam-preview-origin.test.ts",
+      "format": "vitest",
+      "key": "codeyam-preview-origin.sh › runs every step and says which one failed",
+      "line": 92,
+      "registeredAt": "2026-10-27T14:35:03Z",
+      "runner": "tests"
+    },
+    {
       "description": "Known methods get a plain-language title and explanation.",
       "file": "app/lib/raceDetail.test.ts",
       "format": "vitest",

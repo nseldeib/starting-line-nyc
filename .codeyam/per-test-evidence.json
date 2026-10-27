@@ -124,6 +124,60 @@
       "pass|changed|2026-10-26T21:02:26.685Z"
     ]
   },
+  "codeyam-preview-origin.sh › does nothing outside Codespaces": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
+  "codeyam-preview-origin.sh › falls back to app.github.dev when the domain is unset": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
+  "codeyam-preview-origin.sh › makes the app port public for this codespace": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
+  "codeyam-preview-origin.sh › points the preview at the forwarded app port": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
+  "codeyam-preview-origin.sh › pushes the schema to dev.db": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
+  "codeyam-preview-origin.sh › runs every step and says which one failed": {
+    "file": ".devcontainer/codeyam-preview-origin.test.ts",
+    "lastRunAt": "2026-10-27T14:35:24.033Z",
+    "lastRunKind": "changed",
+    "lastStatus": "pass",
+    "statusRing": [
+      "pass|changed|2026-10-27T14:35:24.033Z"
+    ]
+  },
   "entryMethod › explains known entry methods": {
     "file": "app/lib/raceDetail.test.ts",
     "lastRunAt": "2026-10-26T21:49:13.522Z",
