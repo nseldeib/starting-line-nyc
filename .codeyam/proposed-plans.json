@@ -9,7 +9,8 @@
       "severity": 2,
       "source": "session-review",
       "category": "debt",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "fix-the-broken-lint-setup",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "kind": "tech-debt",
       "rank": 9,
@@ -17,7 +18,9 @@
       "notes": [
         "2026-10-26: Seen again: running eslint on app/components/RaceThumb.tsx crashed with a module-resolution error before linting anything.",
         "2026-10-27: Seen again 2026-10-27: ESLint failed with ERR_MODULE_NOT_FOUND on eslint-config-next/core-web-vitals while linting the new devcontainer test."
-      ]
+      ],
+      "decidedAt": "2026-10-27T14:57:44Z",
+      "sightingsAtDecision": 4
     },
     {
       "id": "prototype-plan-resumes-at-deconstruct-with-no-app-scaffolded",
