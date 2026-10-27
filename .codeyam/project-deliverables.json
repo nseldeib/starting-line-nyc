@@ -67,9 +67,9 @@
       "id": "save-races",
       "text": "Save races as Interested, Considering or Signed up",
       "status": "deferred",
-      "resolvedAt": "2026-10-26T20:26:41.743725012+00:00",
-      "resolvedInFeature": "Race detail pages with real race data",
-      "planSlug": null,
+      "resolvedAt": "2026-10-27T16:47:03.867767657+00:00",
+      "resolvedInFeature": null,
+      "planSlug": "save-races-as-interested-considering-or-signed-up",
       "note": "Deferred at the race detail page plan gate; approved by the user.",
       "decidedBy": "user"
     },

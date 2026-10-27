@@ -238,11 +238,14 @@
       "severity": 3,
       "source": "deferred-deliverable",
       "deliverableId": "save-races",
-      "status": "pending",
+      "status": "written",
+      "planSlug": "save-races-as-interested-considering-or-signed-up",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
       "rank": 1,
-      "sightings": 5
+      "sightings": 5,
+      "decidedAt": "2026-10-27T16:47:03Z",
+      "sightingsAtDecision": 5
     },
     {
       "id": "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
