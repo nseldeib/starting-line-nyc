@@ -12,7 +12,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
       "kind": "tech-debt",
-      "rank": 2,
+      "rank": 9,
       "sightings": 4,
       "notes": [
         "2026-10-26: Seen again: running eslint on app/components/RaceThumb.tsx crashed with a module-resolution error before linting anything.",
@@ -29,7 +29,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 22,
       "sightings": 2
     },
     {
@@ -42,7 +41,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 18,
       "sightings": 4,
       "notes": [
         "2026-10-26: Seen again: port 3000 went back to private after a session restart; preview-origin-mode same-origin reported success but server-identity still showed the escalated port-3000 origin, so the pane stayed blank until the user made …",
@@ -59,7 +57,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 23,
       "sightings": 2
     },
     {
@@ -72,7 +69,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 21,
       "sightings": 2
     },
     {
@@ -85,7 +81,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 19,
       "sightings": 2
     },
     {
@@ -98,7 +93,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 20,
       "sightings": 2
     },
     {
@@ -111,7 +105,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 28,
       "sightings": 2
     },
     {
@@ -123,7 +116,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 15,
+      "rank": 17,
       "sightings": 2
     },
     {
@@ -135,7 +128,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 14,
+      "rank": 16,
       "sightings": 2
     },
     {
@@ -147,7 +140,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 10,
+      "rank": 14,
       "sightings": 2
     },
     {
@@ -159,7 +152,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 9,
+      "rank": 10,
       "sightings": 2
     },
     {
@@ -171,7 +164,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 11,
+      "rank": 15,
       "sightings": 2
     },
     {
@@ -183,7 +176,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T20:10:25.299052082+00:00",
-      "rank": 17,
+      "rank": 19,
       "sightings": 2
     },
     {
@@ -198,8 +191,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 7,
-      "sightings": 3
+      "rank": 6,
+      "sightings": 4
     },
     {
       "id": "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
@@ -213,7 +206,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 13,
+      "rank": 8,
       "sightings": 1
     },
     {
@@ -228,7 +221,7 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 12,
+      "rank": 7,
       "sightings": 1
     },
     {
@@ -243,8 +236,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 3,
-      "sightings": 3
+      "rank": 2,
+      "sightings": 4
     },
     {
       "id": "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
@@ -258,8 +251,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 4,
-      "sightings": 3
+      "rank": 3,
+      "sightings": 4
     },
     {
       "id": "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
@@ -273,8 +266,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 5,
-      "sightings": 3
+      "rank": 4,
+      "sightings": 4
     },
     {
       "id": "prioritise-google-calendar-for-adding-events",
@@ -288,8 +281,8 @@
       "status": "pending",
       "proposedAt": "2026-10-26T20:11:03.258662184+00:00",
       "kind": "feature",
-      "rank": 6,
-      "sightings": 3
+      "rank": 5,
+      "sightings": 4
     },
     {
       "id": "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
@@ -316,7 +309,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 25,
       "sightings": 1
     },
     {
@@ -329,7 +321,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 29,
       "sightings": 1
     },
     {
@@ -342,7 +333,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 24,
       "sightings": 1
     },
     {
@@ -354,7 +344,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 8,
+      "rank": 11,
       "sightings": 1
     },
     {
@@ -366,7 +356,7 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-26T21:54:14.624177062+00:00",
-      "rank": 16,
+      "rank": 18,
       "sightings": 1
     },
     {
@@ -379,7 +369,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "rank": 26,
       "sightings": 1
     },
     {
@@ -392,7 +381,6 @@
       "source": "codeyam-improvement",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "rank": 27,
       "sightings": 1
     },
     {
@@ -404,7 +392,8 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "sightings": 1
+      "rank": 12,
+      "sightings": 2
     },
     {
       "id": "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
@@ -415,7 +404,8 @@
       "source": "session-review",
       "status": "pending",
       "proposedAt": "2026-10-27T14:50:47.901425810+00:00",
-      "sightings": 1
+      "rank": 13,
+      "sightings": 2
     }
   ],
   "rounds": [
@@ -571,6 +561,41 @@
         "review-gate-refused-to-advance-after-the-user-answered-until-save-approval-was-run",
         "commit-step-lint-gate-needs-a-file-edit-that-the-commit-step-forbids",
         "blank-page-check-misses-photos-drawn-as-css-backgrounds"
+      ]
+    },
+    {
+      "at": "2026-10-27T14:55:56.433775813+00:00",
+      "feature": "Live Preview that works in GitHub Codespaces",
+      "notes": "Resumed only at the closing step; the Codespaces preview fix was built and pushed in the previous session. Ranked the product's core promise (source links and verified dates, then save/My Races/reminders/calendar) above tech debt, with bro…",
+      "proposedIds": [
+        "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
+        "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "prioritise-google-calendar-for-adding-events"
+      ],
+      "rankedIds": [
+        "show-official-source-links-and-last-verified-dates-label-unknown-or-tentative-dates-and-keep-each-annual-edition-separate",
+        "save-races-as-interested-considering-or-signed-up",
+        "my-races-view-with-upcoming-races-registration-milestones-notes-and-status-changes",
+        "reminders-for-registration-openings-and-deadlines-with-custom-times-and-presets",
+        "prioritise-google-calendar-for-adding-events",
+        "sort-by-race-date-registration-opening-date-entry-deadline-or-distance",
+        "distinguish-open-registration-lotteries-time-qualification-charity-and-membership-entry-with-qualification-windows-per-edition",
+        "race-detail-page-with-date-location-distance-terrain-organizer-price-and-official-registration-link",
+        "fix-the-broken-lint-setup",
+        "race-dates-and-deadlines-are-sample-data-not-verified-against-organizers-photo-credits-were-copied-from-the-mockup-and-only-the-hero-photo-has-its-own-credit",
+        "there-is-no-lottery-race-none-of-the-races-i-could-verify-uses-a-lottery-and-new-york-road-runners-races-are-missing-because-their-site-blocks-automated-reading",
+        "not-yet-tried-on-a-real-codespace-restart-or-a-brand-new-codespace-tests-run-the-start-up-script-with-stand-in-commands",
+        "unconfirmed-whether-the-missing-dev-database-is-what-left-the-scenario-sandbox-empty-the-start-up-schema-push-is-a-safeguard",
+        "save-log-in-sign-up-and-more-filters-do-not-work-yet-there-are-no-accounts-and-the-page-says-so",
+        "the-template-s-lint-setup-is-broken-it-points-at-a-missing-file-so-lint-was-not-run-type-checks-and-55-unit-tests-pass",
+        "the-nyc-half-lottery-deadline-is-22-days-away-so-it-is-not-highlighted-the-mockup-highlighted-it",
+        "the-default-search-shows-4-half-marathons-not-the-mockup-s-5-the-brooklyn-half-may-15-falls-outside-the-next-6-months-so-it-appears-in-the-12-month-view-instead",
+        "the-not-found-page-is-shown-as-a-component-screenshot-not-a-full-page-one-because-the-capture-tool-skips-error-pages",
+        "one-of-46-component-screenshots-kept-an-older-capture-showing-the-next-js-dev-badge"
       ]
     }
   ],
